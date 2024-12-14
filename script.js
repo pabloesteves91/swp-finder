@@ -66,7 +66,9 @@ document.getElementById("searchButton").addEventListener("click", () => {
             filter === "all" ||
             (filter === "supervisor" && person.position === "Supervisor") ||
             (filter === "arrival" && person.position === "Supervisor Arrival") ||
-            (filter === "employee" && person.position === "Betriebsarbeiter");
+            (filter === "employee" && person.position === "Betriebsarbeiter") ||
+            (filter === "assistant" && person.position === "Duty Manager Assistent") ||
+            (filter === "manager" && person.position === "Duty Manager");
 
         return (matchesPersonalCode || matchesShortCode || matchesFirstName || matchesLastName) && matchesFilter;
     });
