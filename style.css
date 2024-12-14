@@ -7,7 +7,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: #f4f4f9;
+    background: #f0f4ff; /* Hellblau als Hintergrund */
 }
 
 /* Container-Styling */
@@ -17,8 +17,9 @@ body {
     max-width: 600px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background: white;
+    background: white; /* Weißer Hintergrund für den Container */
     border-radius: 10px;
+    border: 2px solid #007bff; /* Blauer Rand */
 }
 
 /* Logo-Styling */
@@ -39,7 +40,9 @@ body {
 h1 {
     margin-bottom: 20px;
     font-size: 24px;
-    color: #333;
+    color: #ff0000; /* Roter Titel */
+    text-transform: uppercase; /* Großbuchstaben */
+    font-weight: bold;
 }
 
 /* Suchbereich-Styling */
@@ -58,10 +61,17 @@ input, select, button {
     width: 100%;
     max-width: 300px;
     margin: 0 auto;
+    background: white;
+    color: #333;
+}
+
+input:focus, select:focus {
+    border-color: #007bff; /* Blauer Rahmen bei Fokus */
+    outline: none;
 }
 
 button {
-    background: #007bff;
+    background: #007bff; /* Blau für den Button */
     color: white;
     cursor: pointer;
     border: none;
@@ -69,7 +79,7 @@ button {
 }
 
 button:hover {
-    background: #0056b3;
+    background: #0056b3; /* Dunkleres Blau beim Hover */
 }
 
 /* Ergebnisse-Styling */
@@ -81,10 +91,10 @@ button:hover {
 .result-card {
     text-align: left;
     padding: 10px;
-    border: 1px solid #ddd;
+    border: 2px solid #ff0000; /* Roter Rand */
     border-radius: 5px;
     margin-bottom: 10px;
-    background: #f9f9f9;
+    background: #f0f4ff; /* Hellblauer Hintergrund */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -94,13 +104,14 @@ button:hover {
     object-fit: cover; /* Skaliert das Bild proportional und schneidet Überschüsse */
     border-radius: 10px; /* Abgerundete Kanten */
     margin-bottom: 10px;
+    border: 2px solid #007bff; /* Blauer Rand für Bilder */
 }
 
 /* Skills-Styling */
 .skills {
     margin-top: 10px;
     font-size: 14px;
-    color: #555;
+    color: #333;
 }
 
 /* Fehlermeldung */
