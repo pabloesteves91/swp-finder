@@ -1,52 +1,53 @@
 let people = []; // Daten aus der Excel-Datei werden hier gespeichert
 
-// Event-Listener für Excel-Upload
-document.getElementById("fileInput").addEventListener("change", function (event) {
-    const file = event.target.files[0];
+// Excel-Daten automatisch laden
+function loadExcelData() {
+    // Dateiname und Pfad zur Excel-Datei
+    const excelFilePath = "Mitarbeiter.xlsx";
 
-    // Überprüfen, ob der Dateiname "Mitarbeiter" ist
-    if (!file.name.startsWith("Mitarbeiter")) {
-        alert("Bitte laden Sie eine Datei mit dem Namen 'Mitarbeiter' hoch.");
-        return;
-    }
+    fetch(excelFilePath)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Die Excel-Datei konnte nicht geladen werden.");
+            }
+            return response.arrayBuffer();
+        })
+        .then(data => {
+            const workbook = XLSX.read(data, { type: "array" });
 
-    const reader = new FileReader();
+            // Überprüfen, ob das Tabellenblatt "Sheet1" existiert
+            if (!workbook.SheetNames.includes("Sheet1")) {
+                alert("Die Excel-Datei muss ein Tabellenblatt mit dem Namen 'Sheet1' enthalten.");
+                return;
+            }
 
-    reader.onload = function (e) {
-        const data = new Uint8Array(e.target.result);
-        const workbook = XLSX.read(data, { type: "array" });
+            const sheet = workbook.Sheets["Sheet1"];
+            const jsonData = XLSX.utils.sheet_to_json(sheet);
 
-        // Überprüfen, ob das Tabellenblatt "Sheet1" existiert
-        if (!workbook.SheetNames.includes("Sheet1")) {
-            alert("Die Datei muss ein Tabellenblatt mit dem Namen 'Sheet1' enthalten.");
-            return;
-        }
+            // Excel-Daten in die App-Datenstruktur laden
+            people = jsonData.map(row => ({
+                personalCode: row["Personalnummer"].toString(),
+                firstName: row["Vorname"],
+                lastName: row["Nachname"],
+                shortCode: row["Kürzel"] || null,
+                position: row["Position"],
+                photo: row["Foto-URL"] || "https://via.placeholder.com/100",
+                // Skills sammeln: Alle Spalten mit "x", außer den Standardspalten
+                skills: Object.keys(row)
+                    .filter(
+                        key =>
+                            row[key] === "x" &&
+                            !["Personalnummer", "Vorname", "Nachname", "Kürzel", "Position", "Foto-URL"].includes(key)
+                    )
+            }));
 
-        const sheet = workbook.Sheets["Sheet1"];
-        const jsonData = XLSX.utils.sheet_to_json(sheet);
-
-        // Excel-Daten in die App-Datenstruktur laden
-        people = jsonData.map(row => ({
-            personalCode: row["Personalnummer"].toString(),
-            firstName: row["Vorname"],
-            lastName: row["Nachname"],
-            shortCode: row["Kürzel"] || null,
-            position: row["Position"],
-            photo: row["Foto-URL"] || "https://via.placeholder.com/100",
-            // Skills sammeln: Alle Spalten mit "x", außer den Standardspalten
-            skills: Object.keys(row)
-                .filter(
-                    key =>
-                        row[key] === "x" &&
-                        !["Personalnummer", "Vorname", "Nachname", "Kürzel", "Position", "Foto-URL"].includes(key)
-                )
-        }));
-
-        alert("Daten erfolgreich geladen!");
-    };
-
-    reader.readAsArrayBuffer(file);
-});
+            alert("Daten erfolgreich geladen!");
+        })
+        .catch(error => {
+            console.error("Fehler beim Laden der Excel-Datei:", error);
+            alert("Die Excel-Daten konnten nicht geladen werden.");
+        });
+}
 
 // Such-Button-Event
 document.getElementById("searchButton").addEventListener("click", () => {
@@ -88,3 +89,6 @@ document.getElementById("searchButton").addEventListener("click", () => {
         results.appendChild(card);
     });
 });
+
+// Automatisches Laden der Excel-Daten
+loadExcelData();
