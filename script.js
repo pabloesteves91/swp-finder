@@ -2,8 +2,7 @@ let people = []; // Daten aus der Excel-Datei werden hier gespeichert
 
 // Excel-Daten automatisch laden
 function loadExcelData() {
-    // Dateiname und Pfad zur Excel-Datei
-    const excelFilePath = "Mitarbeiter.xlsx";
+    const excelFilePath = "./Mitarbeiter.xlsx";
 
     fetch(excelFilePath)
         .then(response => {
@@ -31,7 +30,8 @@ function loadExcelData() {
                 lastName: row["Nachname"],
                 shortCode: row["Kürzel"] || null,
                 position: row["Position"],
-                photo: row["Foto-URL"] || "https://via.placeholder.com/100",
+                // Bild aus dem Ordner "Fotos", basierend auf Vor- und Nachnamen
+                photo: `Fotos/${row["Vorname"]}_${row["Nachname"]}.jpg`,
                 // Skills sammeln: Alle Spalten mit "x", außer den Standardspalten
                 skills: Object.keys(row)
                     .filter(
@@ -41,7 +41,7 @@ function loadExcelData() {
                     )
             }));
 
-            alert("Daten erfolgreich geladen!");
+            console.log("Excel-Daten erfolgreich geladen:", people);
         })
         .catch(error => {
             console.error("Fehler beim Laden der Excel-Datei:", error);
@@ -60,13 +60,15 @@ document.getElementById("searchButton").addEventListener("click", () => {
     const filteredPeople = people.filter(person => {
         const matchesPersonalCode = person.personalCode.toLowerCase().includes(searchInput);
         const matchesShortCode = person.shortCode?.toLowerCase().includes(searchInput);
+        const matchesFirstName = person.firstName.toLowerCase().includes(searchInput);
+        const matchesLastName = person.lastName.toLowerCase().includes(searchInput);
         const matchesFilter =
             filter === "all" ||
             (filter === "supervisor" && person.position === "Supervisor") ||
             (filter === "arrival" && person.position === "Supervisor Arrival") ||
             (filter === "employee" && person.position === "Betriebsarbeiter");
 
-        return (matchesPersonalCode || matchesShortCode) && matchesFilter;
+        return (matchesPersonalCode || matchesShortCode || matchesFirstName || matchesLastName) && matchesFilter;
     });
 
     // Zeige Ergebnisse an oder eine Meldung, falls keine gefunden werden
@@ -79,7 +81,7 @@ document.getElementById("searchButton").addEventListener("click", () => {
         const card = document.createElement("div");
         card.className = "result-card";
         card.innerHTML = `
-            <img src="${person.photo}" alt="${person.firstName}">
+            <img src="${person.photo}" alt="${person.firstName}" onerror="this.src='Fotos/default.jpg';">
             <h2>${person.firstName} ${person.lastName}</h2>
             <p>Personalnummer: ${person.personalCode}</p>
             ${person.shortCode ? `<p>Kürzel: ${person.shortCode}</p>` : ""}
