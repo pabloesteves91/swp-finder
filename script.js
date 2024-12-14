@@ -85,10 +85,10 @@ document.getElementById("searchButton").addEventListener("click", () => {
         card.innerHTML = `
             <img src="${person.photo}" alt="${person.firstName}" onerror="this.src='Fotos/default.JPG';">
             <h2>${person.firstName} ${person.lastName}</h2>
-            <p>Personalnummer: ${person.personalCode}</p>
-            ${person.shortCode ? `<p>Kürzel: ${person.shortCode}</p>` : ""}
-            <p>Position: ${person.position}</p>
-            <p class="skills">Skills: ${person.skills.join(", ")}</p>
+            <p><span>Personalnummer:</span> ${person.personalCode}</p>
+            ${person.shortCode ? `<p><span>Kürzel:</span> ${person.shortCode}</p>` : ""}
+            <p><span>Position:</span> ${person.position}</p>
+            <p class="skills"><span>Skills:</span> ${person.skills.join(", ")}</p>
         `;
         results.appendChild(card);
     });
