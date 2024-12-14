@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mitarbeiter-Suche</title>
+    <title>Mitarbeiter- und Supervisor-Suche</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -19,13 +19,12 @@
             </select>
             <button id="searchButton">Suchen</button>
         </div>
-        <div class="upload">
-            <label for="fileInput">Excel-Datei hochladen:</label>
-            <input type="file" id="fileInput" accept=".xlsx">
-        </div>
         <div id="results"></div>
     </div>
+
+    <!-- Einbindung der SheetJS-Bibliothek -->
     <script src="xlsx.full.min.js"></script>
+    <!-- Hauptscript für die App -->
     <script src="script.js"></script>
 </body>
 </html>
