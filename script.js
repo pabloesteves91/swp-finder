@@ -3,13 +3,26 @@ let people = []; // Daten aus der Excel-Datei werden hier gespeichert
 // Event-Listener für Excel-Upload
 document.getElementById("fileInput").addEventListener("change", function (event) {
     const file = event.target.files[0];
+
+    // Überprüfen, ob der Dateiname "Mitarbeiter" ist
+    if (!file.name.startsWith("Mitarbeiter")) {
+        alert("Bitte laden Sie eine Datei mit dem Namen 'Mitarbeiter' hoch.");
+        return;
+    }
+
     const reader = new FileReader();
 
     reader.onload = function (e) {
         const data = new Uint8Array(e.target.result);
         const workbook = XLSX.read(data, { type: "array" });
-        const sheetName = workbook.SheetNames[0]; // Nimmt das erste Tabellenblatt
-        const sheet = workbook.Sheets[sheetName];
+
+        // Überprüfen, ob das Tabellenblatt "Sheet1" existiert
+        if (!workbook.SheetNames.includes("Sheet1")) {
+            alert("Die Datei muss ein Tabellenblatt mit dem Namen 'Sheet1' enthalten.");
+            return;
+        }
+
+        const sheet = workbook.Sheets["Sheet1"];
         const jsonData = XLSX.utils.sheet_to_json(sheet);
 
         // Excel-Daten in die App-Datenstruktur laden
