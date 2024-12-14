@@ -3,28 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mitarbeiter- und Supervisor-Suche</title>
+    <title>SWP FINDER</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>Mitarbeiter- und Supervisor-Suche</h1>
+        <!-- Swissport-Logo -->
+        <div class="logo-container">
+            <img src="swissport-logo.png" alt="Swissport Logo" class="logo">
+        </div>
+
+        <!-- Titel -->
+        <h1>SWP FINDER</h1>
+
+        <!-- Such- und Filterbereich -->
         <div class="search-bar">
-            <input type="text" id="searchInput" placeholder="Personalnummer oder Kürzel eingeben...">
+            <input type="text" id="searchInput" placeholder="Personalnummer, Kürzel, Vorname oder Nachname eingeben...">
             <select id="filter">
                 <option value="all">Alle</option>
                 <option value="supervisor">Supervisor</option>
                 <option value="arrival">Supervisor Arrival</option>
                 <option value="employee">Betriebsarbeiter</option>
+                <option value="assistant">Duty Manager Assistent</option>
+                <option value="manager">Duty Manager</option>
             </select>
             <button id="searchButton">Suchen</button>
         </div>
+
+        <!-- Suchergebnisse -->
         <div id="results"></div>
     </div>
 
-    <!-- Einbindung der SheetJS-Bibliothek -->
+    <!-- SheetJS-Bibliothek -->
     <script src="xlsx.full.min.js"></script>
-    <!-- Hauptscript für die App -->
+    <!-- Hauptscript -->
     <script src="script.js"></script>
 </body>
 </html>
