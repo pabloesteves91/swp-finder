@@ -19,16 +19,27 @@ body {
     border-radius: 10px;
 }
 
+.logo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.logo {
+    width: 100px; /* Größe anpassen */
+    height: 100px;
+    object-fit: contain;
+}
+
 h1 {
     margin-bottom: 20px;
 }
 
-.search-bar, .upload {
+.search-bar {
     display: flex;
     flex-direction: column;
     gap: 10px;
     margin-bottom: 20px;
-    align-items: center;
 }
 
 input, select, button {
@@ -38,6 +49,7 @@ input, select, button {
     border-radius: 5px;
     width: 100%;
     max-width: 300px;
+    margin: 0 auto;
 }
 
 button {
@@ -65,8 +77,11 @@ button:hover {
 }
 
 .result-card img {
-    max-width: 100px;
-    border-radius: 5px;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
 }
 
 .skills {
