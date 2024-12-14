@@ -30,8 +30,8 @@ body {
 }
 
 .logo {
-    width: 100px; /* Logo-Größe */
-    height: 100px;
+    width: 150px; /* Größeres Logo */
+    height: 150px;
     object-fit: contain; /* Skaliert das Bild proportional */
     border-radius: 10px; /* Optional: Abgerundete Kanten */
 }
@@ -43,6 +43,16 @@ h1 {
     color: #ff0000; /* Roter Titel */
     text-transform: uppercase; /* Großbuchstaben */
     font-weight: bold;
+}
+
+.app-title {
+    text-decoration: none;
+    color: #ff0000; /* Rot für den Titel */
+    transition: color 0.3s ease;
+}
+
+.app-title:hover {
+    color: #007bff; /* Blau beim Hover */
 }
 
 /* Suchbereich-Styling */
@@ -89,7 +99,7 @@ button:hover {
 
 /* Mitarbeiterkarten-Styling */
 .result-card {
-    text-align: left;
+    text-align: center; /* Name und Details mittig ausrichten */
     padding: 10px;
     border: 2px solid #ff0000; /* Roter Rand */
     border-radius: 5px;
@@ -107,11 +117,30 @@ button:hover {
     border: 2px solid #007bff; /* Blauer Rand für Bilder */
 }
 
+/* Name mittig ausrichten */
+.result-card h2 {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Details-Titel fett machen */
+.result-card p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.result-card p span {
+    font-weight: bold; /* Titel wie Personalnummer fett */
+}
+
 /* Skills-Styling */
 .skills {
     margin-top: 10px;
     font-size: 14px;
-    color: #333;
+    color: #555;
 }
 
 /* Fehlermeldung */
