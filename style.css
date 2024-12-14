@@ -1,3 +1,4 @@
+/* Allgemeines Styling */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -9,6 +10,7 @@ body {
     background: #f4f4f9;
 }
 
+/* Container-Styling */
 .container {
     text-align: center;
     width: 100%;
@@ -19,6 +21,7 @@ body {
     border-radius: 10px;
 }
 
+/* Logo-Styling */
 .logo-container {
     display: flex;
     justify-content: center;
@@ -26,15 +29,20 @@ body {
 }
 
 .logo {
-    width: 100px; /* Größe anpassen */
+    width: 100px; /* Logo-Größe */
     height: 100px;
-    object-fit: contain;
+    object-fit: contain; /* Skaliert das Bild proportional */
+    border-radius: 10px; /* Optional: Abgerundete Kanten */
 }
 
+/* Titel-Styling */
 h1 {
     margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
 }
 
+/* Suchbereich-Styling */
 .search-bar {
     display: flex;
     flex-direction: column;
@@ -57,16 +65,19 @@ button {
     color: white;
     cursor: pointer;
     border: none;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
     background: #0056b3;
 }
 
+/* Ergebnisse-Styling */
 #results {
     margin-top: 20px;
 }
 
+/* Mitarbeiterkarten-Styling */
 .result-card {
     text-align: left;
     padding: 10px;
@@ -74,18 +85,27 @@ button:hover {
     border-radius: 5px;
     margin-bottom: 10px;
     background: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .result-card img {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
+    width: 200px; /* Feste Breite der Mitarbeiterbilder */
+    height: 200px; /* Feste Höhe der Mitarbeiterbilder */
+    object-fit: cover; /* Skaliert das Bild proportional und schneidet Überschüsse */
+    border-radius: 10px; /* Abgerundete Kanten */
     margin-bottom: 10px;
 }
 
+/* Skills-Styling */
 .skills {
     margin-top: 10px;
     font-size: 14px;
     color: #555;
+}
+
+/* Fehlermeldung */
+#results p {
+    text-align: center;
+    font-size: 16px;
+    color: #999;
 }
