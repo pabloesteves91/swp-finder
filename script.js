@@ -81,7 +81,7 @@ document.getElementById("searchButton").addEventListener("click", () => {
         const card = document.createElement("div");
         card.className = "result-card";
         card.innerHTML = `
-            <img src="${person.photo}" alt="${person.firstName}" onerror="this.src='Fotos/default.jpg';">
+            <img src="${person.photo}" alt="${person.firstName}" onerror="this.src='Fotos/default.JPG';">
             <h2>${person.firstName} ${person.lastName}</h2>
             <p>Personalnummer: ${person.personalCode}</p>
             ${person.shortCode ? `<p>Kürzel: ${person.shortCode}</p>` : ""}
