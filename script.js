@@ -1,3 +1,20 @@
+// Passwortschutz
+function checkPassword() {
+    const password = "swissport24";
+    let userPassword = prompt("Bitte geben Sie das Passwort ein, um die Web-App zu verwenden:");
+
+    // Überprüfen, ob das Passwort korrekt ist
+    while (userPassword !== password) {
+        alert("Falsches Passwort! Bitte versuchen Sie es erneut.");
+        userPassword = prompt("Bitte geben Sie das Passwort ein, um die Web-App zu verwenden:");
+    }
+
+    alert("Willkommen in der SWP FINDER Web-App!");
+}
+
+// Funktion beim Laden der Seite ausführen
+checkPassword();
+
 let people = []; // Daten aus der Excel-Datei werden hier gespeichert
 
 // Excel-Daten automatisch laden
@@ -30,9 +47,7 @@ function loadExcelData() {
                 lastName: row["Nachname"],
                 shortCode: row["Kürzel"] || null,
                 position: row["Position"],
-                // Bild aus dem Ordner "Fotos", basierend auf Vor- und Nachnamen
                 photo: `Fotos/${row["Vorname"]}_${row["Nachname"]}.jpg`,
-                // Skills sammeln: Alle Spalten mit "x", außer den Standardspalten
                 skills: Object.keys(row)
                     .filter(
                         key =>
@@ -48,6 +63,13 @@ function loadExcelData() {
             alert("Die Excel-Daten konnten nicht geladen werden.");
         });
 }
+
+// Suchbutton aktivieren, wenn Eingabe erfolgt
+document.getElementById("searchInput").addEventListener("input", () => {
+    const searchInput = document.getElementById("searchInput").value.trim();
+    const searchButton = document.getElementById("searchButton");
+    searchButton.disabled = searchInput === ""; // Button nur aktivieren, wenn Eingabe vorhanden
+});
 
 // Such-Button-Event
 document.getElementById("searchButton").addEventListener("click", () => {
