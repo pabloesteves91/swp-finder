@@ -3,10 +3,6 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
     background: #f0f4ff; /* Hellblau als Hintergrund */
 }
 
@@ -15,11 +11,18 @@ body {
     text-align: center;
     width: 100%;
     max-width: 600px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background: white; /* Weißer Hintergrund für den Container */
-    border-radius: 10px;
-    border: 2px solid #007bff; /* Blauer Rand */
+    margin: 0 auto;
+}
+
+/* Fixierter Kopfbereich */
+.search-bar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: white;
+    padding: 10px;
+    border-bottom: 2px solid #007bff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Logo-Styling */
@@ -30,122 +33,94 @@ body {
 }
 
 .logo {
-    width: 150px; /* Größeres Logo */
+    width: 150px;
     height: 150px;
-    object-fit: contain; /* Skaliert das Bild proportional */
-    border-radius: 10px; /* Optional: Abgerundete Kanten */
+    object-fit: contain;
 }
 
-/* Titel-Styling */
+/* Titel */
 h1 {
-    margin-bottom: 20px;
     font-size: 24px;
-    color: #ff0000; /* Roter Titel */
-    text-transform: uppercase; /* Großbuchstaben */
+    color: #ff0000;
+    text-transform: uppercase;
     font-weight: bold;
+    margin-bottom: 10px;
 }
 
 .app-title {
     text-decoration: none;
-    color: #ff0000; /* Rot für den Titel */
+    color: #ff0000;
     transition: color 0.3s ease;
 }
 
 .app-title:hover {
-    color: #007bff; /* Blau beim Hover */
+    color: #007bff;
 }
 
-/* Suchbereich-Styling */
-.search-bar {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
+/* Eingabefelder und Button */
 input, select, button {
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    width: 100%;
+    width: 90%;
     max-width: 300px;
-    margin: 0 auto;
+    margin: 10px auto;
+    display: block;
     background: white;
-    color: #333;
 }
 
 input:focus, select:focus {
-    border-color: #007bff; /* Blauer Rahmen bei Fokus */
+    border-color: #007bff;
     outline: none;
 }
 
 button {
-    background: #007bff; /* Blau für den Button */
+    background: #007bff;
     color: white;
     cursor: pointer;
     border: none;
     transition: background-color 0.3s ease;
 }
 
-button:hover {
-    background: #0056b3; /* Dunkleres Blau beim Hover */
+button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
 }
 
-/* Ergebnisse-Styling */
+button:hover:enabled {
+    background: #0056b3;
+}
+
+/* Ergebnisse */
 #results {
     margin-top: 20px;
 }
 
-/* Mitarbeiterkarten-Styling */
 .result-card {
-    text-align: center; /* Name und Details mittig ausrichten */
+    text-align: center;
     padding: 10px;
-    border: 2px solid #ff0000; /* Roter Rand */
+    border: 2px solid #ff0000;
     border-radius: 5px;
     margin-bottom: 10px;
-    background: #f0f4ff; /* Hellblauer Hintergrund */
+    background: #f0f4ff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .result-card img {
-    width: 200px; /* Feste Breite der Mitarbeiterbilder */
-    height: 200px; /* Feste Höhe der Mitarbeiterbilder */
-    object-fit: cover; /* Skaliert das Bild proportional und schneidet Überschüsse */
-    border-radius: 10px; /* Abgerundete Kanten */
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
     margin-bottom: 10px;
-    border: 2px solid #007bff; /* Blauer Rand für Bilder */
+    border: 2px solid #007bff;
 }
 
-/* Name mittig ausrichten */
 .result-card h2 {
-    margin: 10px 0;
     font-size: 18px;
-    color: #333;
     font-weight: bold;
 }
 
-/* Details-Titel fett machen */
-.result-card p {
-    margin: 5px 0;
-    font-size: 16px;
-    color: #333;
-}
-
 .result-card p span {
-    font-weight: bold; /* Titel wie Personalnummer fett */
-}
-
-/* Skills-Styling */
-.skills {
-    margin-top: 10px;
-    font-size: 14px;
-    color: #555;
-}
-
-/* Fehlermeldung */
-#results p {
-    text-align: center;
-    font-size: 16px;
-    color: #999;
+    font-weight: bold;
 }
