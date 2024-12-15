@@ -82,6 +82,19 @@ document.getElementById("searchInput").addEventListener("input", () => {
     searchButton.disabled = searchInput === ""; // Button nur aktivieren, wenn Eingabe vorhanden
 });
 
+// Zurücksetzen bei Klick auf "SWP FINDER"
+document.getElementById("resetButton").addEventListener("click", () => {
+    const searchInput = document.getElementById("searchInput");
+    const filter = document.getElementById("filter");
+    const searchButton = document.getElementById("searchButton");
+    const results = document.getElementById("results");
+
+    searchInput.value = ""; // Suchfeld leeren
+    filter.selectedIndex = 0; // Filter zurücksetzen
+    searchButton.disabled = true; // Suchbutton deaktivieren
+    results.innerHTML = ""; // Ergebnisse löschen
+});
+
 // Such-Button-Event
 document.getElementById("searchButton").addEventListener("click", () => {
     const searchInput = document.getElementById("searchInput").value.toLowerCase();
