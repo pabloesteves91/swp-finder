@@ -57,7 +57,7 @@ h1 {
     color: #007bff;
 }
 
-/* Eingabefelder und Button */
+/* Eingabefelder, Dropdown und Buttons */
 input, select, button {
     padding: 10px;
     font-size: 16px;
@@ -76,7 +76,7 @@ input:focus, select:focus {
 }
 
 button {
-    background: #007bff;
+    background: #007bff; /* Blau für den Button */
     color: white;
     cursor: pointer;
     border: none;
@@ -84,12 +84,32 @@ button {
 }
 
 button:disabled {
-    background: #ccc;
+    background: #ccc; /* Grauer Button, wenn deaktiviert */
     cursor: not-allowed;
 }
 
 button:hover:enabled {
-    background: #0056b3;
+    background: #0056b3; /* Dunkleres Blau beim Hover */
+}
+
+/* Sperr-Button */
+.lock-button {
+    background: #ff0000; /* Rot für Sperr-Button */
+    color: white;
+    cursor: pointer;
+    border: none;
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 5px;
+    width: 90%;
+    max-width: 300px;
+    margin: 10px auto;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+.lock-button:hover {
+    background: #cc0000; /* Dunkleres Rot beim Hover */
 }
 
 /* Ergebnisse */
@@ -100,10 +120,10 @@ button:hover:enabled {
 .result-card {
     text-align: center;
     padding: 10px;
-    border: 2px solid #ff0000;
+    border: 2px solid #ff0000; /* Roter Rand */
     border-radius: 5px;
     margin-bottom: 10px;
-    background: #f0f4ff;
+    background: #f0f4ff; /* Hellblauer Hintergrund */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -113,7 +133,7 @@ button:hover:enabled {
     object-fit: cover;
     border-radius: 10px;
     margin-bottom: 10px;
-    border: 2px solid #007bff;
+    border: 2px solid #007bff; /* Blauer Rand für Bilder */
 }
 
 .result-card h2 {
@@ -123,4 +143,11 @@ button:hover:enabled {
 
 .result-card p span {
     font-weight: bold;
+}
+
+/* Fehlermeldungen */
+#results p {
+    text-align: center;
+    font-size: 16px;
+    color: #999;
 }
