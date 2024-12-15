@@ -1,21 +1,32 @@
+let people = []; // Daten aus der Excel-Datei werden hier gespeichert
+
 // Passwortschutz
 function checkPassword() {
     const password = "swissport24";
-    let userPassword = prompt("Bitte geben Sie das Passwort ein, um die Web-App zu verwenden:");
+    let userPassword = sessionStorage.getItem("authenticated");
 
-    // Überprüfen, ob das Passwort korrekt ist
-    while (userPassword !== password) {
-        alert("Falsches Passwort! Bitte versuchen Sie es erneut.");
+    // Passwort prüfen, wenn nicht bereits authentifiziert
+    if (!userPassword || userPassword !== "true") {
         userPassword = prompt("Bitte geben Sie das Passwort ein, um die Web-App zu verwenden:");
+        if (userPassword === password) {
+            sessionStorage.setItem("authenticated", "true");
+            alert("Willkommen in der SWP FINDER Web-App!");
+        } else {
+            alert("Falsches Passwort!");
+            location.reload(); // Seite neu laden bei falschem Passwort
+        }
     }
-
-    alert("Willkommen in der SWP FINDER Web-App!");
 }
 
-// Funktion beim Laden der Seite ausführen
-checkPassword();
+// Seite sperren
+function lockApp() {
+    sessionStorage.removeItem("authenticated"); // Authentifizierung entfernen
+    alert("Die Seite wurde gesperrt!");
+    location.reload(); // Seite neu laden, um Passwortfenster zu aktivieren
+}
 
-let people = []; // Daten aus der Excel-Datei werden hier gespeichert
+// Initialisiere Passwortprüfung beim Laden
+checkPassword();
 
 // Excel-Daten automatisch laden
 function loadExcelData() {
@@ -115,6 +126,9 @@ document.getElementById("searchButton").addEventListener("click", () => {
         results.appendChild(card);
     });
 });
+
+// Sperr-Button-Event
+document.getElementById("lockButton").addEventListener("click", lockApp);
 
 // Automatisches Laden der Excel-Daten
 loadExcelData();
