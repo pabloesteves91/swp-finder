@@ -1,17 +1,22 @@
 /* Allgemeines Styling */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background: #f0f4ff; /* Hellblau als Hintergrund */
+    background: #f7f9fc; /* Helles Grau als Hintergrund */
+    color: #333; /* Dunkelgrauer Text */
 }
 
 /* Container-Styling */
 .container {
     text-align: center;
     width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white; /* Weißer Hintergrund */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Schatten für modernes Gefühl */
+    border-radius: 10px; /* Abgerundete Kanten */
 }
 
 /* Fixierter Kopfbereich */
@@ -19,29 +24,31 @@ body {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: white;
-    padding: 10px;
-    border-bottom: 2px solid #007bff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background: #ffffff;
+    padding: 20px 10px;
+    border-bottom: 1px solid #e6e9ed;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 /* Logo-Styling */
 .logo-container {
     display: flex;
     justify-content: center;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .logo {
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
     object-fit: contain;
+    border-radius: 50%; /* Optional: Rundes Logo */
+    border: 2px solid #007bff; /* Blauer Rand um das Logo */
 }
 
 /* Titel */
 h1 {
-    font-size: 24px;
-    color: #ff0000;
+    font-size: 28px;
+    color: #007bff; /* Blau für den Titel */
     text-transform: uppercase;
     font-weight: bold;
     margin-bottom: 10px;
@@ -49,30 +56,33 @@ h1 {
 
 .app-title {
     text-decoration: none;
-    color: #ff0000;
+    color: #007bff;
     transition: color 0.3s ease;
 }
 
 .app-title:hover {
-    color: #007bff;
+    color: #0056b3; /* Dunkleres Blau beim Hover */
 }
 
 /* Eingabefelder, Dropdown und Buttons */
 input, select, button {
-    padding: 10px;
+    padding: 12px;
     font-size: 16px;
     border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 8px;
     width: 90%;
-    max-width: 300px;
+    max-width: 400px;
     margin: 10px auto;
     display: block;
     background: white;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 input:focus, select:focus {
     border-color: #007bff;
     outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.4); /* Blau leuchtender Fokus */
 }
 
 button {
@@ -80,65 +90,92 @@ button {
     color: white;
     cursor: pointer;
     border: none;
-    transition: background-color 0.3s ease;
-}
-
-button:disabled {
-    background: #ccc; /* Grauer Button, wenn deaktiviert */
-    cursor: not-allowed;
+    transition: background-color 0.3s ease, transform 0.2s;
+    font-weight: bold;
 }
 
 button:hover:enabled {
     background: #0056b3; /* Dunkleres Blau beim Hover */
+    transform: translateY(-2px); /* Leichter Hover-Effekt */
+}
+
+button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
 }
 
 /* Sperr-Button */
 .lock-button {
-    background: #ff0000; /* Rot für Sperr-Button */
+    background: #ff4d4f; /* Rot für Sperr-Button */
     color: white;
     cursor: pointer;
     border: none;
-    padding: 8px 12px;
+    padding: 10px 15px;
     font-size: 14px;
-    border-radius: 5px;
+    border-radius: 8px;
     width: 90%;
     max-width: 300px;
     margin: 10px auto;
     display: block;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s;
+    font-weight: bold;
 }
 
 .lock-button:hover {
-    background: #cc0000; /* Dunkleres Rot beim Hover */
+    background: #d9363e; /* Dunkleres Rot beim Hover */
+    transform: translateY(-2px); /* Leichter Hover-Effekt */
 }
 
 /* Ergebnisse */
 #results {
     margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
 }
 
+/* Mitarbeiterkarte */
 .result-card {
     text-align: center;
-    padding: 10px;
-    border: 2px solid #ff0000; /* Roter Rand */
-    border-radius: 5px;
-    margin-bottom: 10px;
-    background: #f0f4ff; /* Hellblauer Hintergrund */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.result-card img {
-    width: 200px; /* Breite festlegen */
-    height: auto; /* Automatische Höhe */
-    object-fit: cover; /* Proportionale Skalierung */
+    padding: 20px;
+    border: 1px solid #e6e9ed;
     border-radius: 10px;
-    margin-bottom: 10px;
-    border: 2px solid #007bff; /* Blauer Rand für Bilder */
+    background: white;
+    width: 250px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Karten-Schatten */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.result-card:hover {
+    transform: translateY(-5px); /* Karte hebt sich bei Hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Stärkerer Schatten bei Hover */
+}
+
+/* Bilder: Hohe Qualität und scharfe Darstellung */
+.result-card img {
+    width: 100%;
+    height: auto;
+    max-width: 150px;
+    max-height: 150px;
+    object-fit: cover; /* Proportionale Skalierung */
+    border-radius: 50%; /* Runde Bilder */
+    margin-bottom: 15px;
+    border: 3px solid #007bff; /* Blauer Rand für Bilder */
+}
+
+/* Textinhalte in der Karte */
 .result-card h2 {
     font-size: 18px;
     font-weight: bold;
+    margin: 10px 0;
+    color: #333;
+}
+
+.result-card p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #555;
 }
 
 .result-card p span {
