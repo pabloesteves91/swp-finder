@@ -19,9 +19,9 @@ function checkPassword() {
 
 // Seite sperren
 function lockApp() {
-    sessionStorage.removeItem("authenticated");
-    alert("Die Seite wurde gesperrt!");
-    location.reload();
+    sessionStorage.removeItem("authenticated"); // Authentifizierung entfernen
+    alert("Die App wurde gesperrt. Zurück zur Anmeldung!");
+    location.reload(); // Seite neu laden, um Passwortschutz zu aktivieren
 }
 
 // Initialisiere Passwortprüfung beim Laden
@@ -129,6 +129,9 @@ document.getElementById("searchButton").addEventListener("click", () => {
         results.appendChild(card);
     });
 });
+
+// Sperr-Button
+document.getElementById("lockButton").addEventListener("click", lockApp);
 
 // Excel-Daten beim Start laden
 loadExcelData();
