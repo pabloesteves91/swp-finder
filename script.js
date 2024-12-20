@@ -1,58 +1,35 @@
-let people = [];
-
 // Passwortschutz
-function checkPassword() {
+document.getElementById("loginButton").addEventListener("click", () => {
     const password = "swissport24";
-    let userPassword = sessionStorage.getItem("authenticated");
+    const input = document.getElementById("passwordInput").value;
 
-    if (!userPassword || userPassword !== "true") {
-        userPassword = prompt("Bitte geben Sie das Passwort ein, um die Web-App zu verwenden:");
-        if (userPassword === password) {
-            sessionStorage.setItem("authenticated", "true");
-            alert("Willkommen in der SWP FINDER Web-App!");
-        } else {
-            alert("Falsches Passwort!");
-            location.reload();
-        }
+    if (input === password) {
+        document.getElementById("loginContainer").style.display = "none";
+        document.getElementById("appContainer").style.display = "block";
+    } else {
+        document.getElementById("loginError").style.display = "block";
     }
-}
-
-// Seite sperren
-function lockApp() {
-    sessionStorage.removeItem("authenticated");
-    alert("Die Seite wurde gesperrt!");
-    location.reload();
-}
-
-// Automatische Datenaktualisierung
-function autoRefreshData(interval = 3600000) {
-    setInterval(() => {
-        console.log("Aktualisiere Mitarbeiterdaten...");
-        loadExcelData();
-    }, interval);
-}
+});
 
 // Dark Mode
-document.getElementById("darkMode").addEventListener("change", (event) => {
-    document.body.classList.toggle("dark", event.target.checked);
+document.getElementById("darkMode").addEventListener("change", (e) => {
+    document.body.classList.toggle("dark", e.target.checked);
 });
 
-// Burger-Menü
-const burgerMenu = document.getElementById("burgerMenu");
-const mobileNav = document.getElementById("mobileNav");
-
-burgerMenu.addEventListener("click", () => {
-    burgerMenu.classList.toggle("active");
-    mobileNav.classList.toggle("hidden");
-    mobileNav.classList.toggle("active");
+// Suche deaktiviert, bis Eingabe erfolgt
+document.getElementById("searchInput").addEventListener("input", () => {
+    const searchValue = document.getElementById("searchInput").value.trim();
+    document.getElementById("searchButton").disabled = searchValue === "";
 });
 
-// Mitarbeiterdaten laden
-function loadExcelData() {
-    // Hier Excel-Daten laden und parsen
-    console.log("Daten geladen.");
-}
+// Suche
+document.getElementById("searchButton").addEventListener("click", () => {
+    const searchValue = document.getElementById("searchInput").value.trim().toLowerCase();
+    alert(`Suche nach: ${searchValue}`); // Beispiel für Suche
+});
 
-// Initiale Aufrufe
-checkPassword();
-autoRefreshData();
+// Sperren
+document.getElementById("lockButton").addEventListener("click", () => {
+    document.getElementById("appContainer").style.display = "none";
+    document.getElementById("loginContainer").style.display = "block";
+});
