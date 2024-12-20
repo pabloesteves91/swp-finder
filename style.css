@@ -1,190 +1,137 @@
 /* Allgemeines Styling */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: #f7f9fc; /* Helles Grau als Hintergrund */
-    color: #333; /* Dunkelgrauer Text */
+    background: #f7f9fc;
+    color: #333;
+    transition: background 0.3s, color 0.3s;
 }
 
-/* Container-Styling */
+body.dark {
+    background: #1e1e2f;
+    color: #f7f7f7;
+}
+
+/* Container */
 .container {
     text-align: center;
     width: 100%;
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
-    background: white; /* Weißer Hintergrund */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Schatten für modernes Gefühl */
-    border-radius: 10px; /* Abgerundete Kanten */
+    background: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
 }
 
-/* Fixierter Kopfbereich */
+/* Burger-Menü */
+.burger-menu {
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.burger-menu span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px;
+    background: #007bff;
+    transition: all 0.3s ease;
+}
+
+.burger-menu.active span:nth-child(1) {
+    transform: rotate(45deg) translateY(10px);
+}
+
+.burger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger-menu.active span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-10px);
+}
+
+/* Navigation */
+nav.hidden {
+    display: none;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: white;
+    width: 200px;
+    height: 100%;
+    box-shadow: -4px 0 10px rgba(0, 0, 0, 0.1);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 999;
+}
+
+nav ul {
+    list-style: none;
+    padding: 20px;
+}
+
+nav ul li {
+    margin: 20px 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #007bff;
+}
+
+nav.active {
+    transform: translateX(0);
+}
+
+/* Suchbereich */
 .search-bar {
     position: sticky;
     top: 0;
-    z-index: 1000;
-    background: #ffffff;
+    background: white;
     padding: 20px 10px;
     border-bottom: 1px solid #e6e9ed;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-/* Logo-Styling */
-.logo-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-.logo {
-    width: 120px;
-    height: 120px;
-    object-fit: contain;
-    border-radius: 50%; /* Optional: Rundes Logo */
-    border: 2px solid #007bff; /* Blauer Rand um das Logo */
-}
-
-/* Titel */
-h1 {
-    font-size: 28px;
-    color: #007bff; /* Blau für den Titel */
-    text-transform: uppercase;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.app-title {
-    text-decoration: none;
-    color: #007bff;
-    transition: color 0.3s ease;
-}
-
-.app-title:hover {
-    color: #0056b3; /* Dunkleres Blau beim Hover */
-}
-
-/* Eingabefelder, Dropdown und Buttons */
-input, select, button {
+.search-bar input, .search-bar select, .search-bar button {
     padding: 12px;
     font-size: 16px;
-    border: 1px solid #ddd;
     border-radius: 8px;
-    width: 90%;
+    margin: 10px;
+    width: calc(100% - 20px);
     max-width: 400px;
-    margin: 10px auto;
-    display: block;
-    background: white;
-    transition: all 0.2s ease-in-out;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-input:focus, select:focus {
-    border-color: #007bff;
-    outline: none;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.4); /* Blau leuchtender Fokus */
-}
+/* Dunkelmodus */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #1e1e2f;
+        color: #f7f7f7;
+    }
 
-button {
-    background: #007bff; /* Blau für den Button */
-    color: white;
-    cursor: pointer;
-    border: none;
-    transition: background-color 0.3s ease, transform 0.2s;
-    font-weight: bold;
-}
+    .container, .search-bar, nav {
+        background: #2a2a40;
+        color: #f7f7f7;
+    }
 
-button:hover:enabled {
-    background: #0056b3; /* Dunkleres Blau beim Hover */
-    transform: translateY(-2px); /* Leichter Hover-Effekt */
-}
-
-button:disabled {
-    background: #ccc;
-    cursor: not-allowed;
-}
-
-/* Sperr-Button */
-.lock-button {
-    background: #ff4d4f; /* Rot für Sperr-Button */
-    color: white;
-    cursor: pointer;
-    border: none;
-    padding: 10px 15px;
-    font-size: 14px;
-    border-radius: 8px;
-    width: 90%;
-    max-width: 300px;
-    margin: 10px auto;
-    display: block;
-    transition: background-color 0.3s ease, transform 0.2s;
-    font-weight: bold;
-}
-
-.lock-button:hover {
-    background: #d9363e; /* Dunkleres Rot beim Hover */
-    transform: translateY(-2px); /* Leichter Hover-Effekt */
-}
-
-/* Ergebnisse */
-#results {
-    margin-top: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-}
-
-/* Mitarbeiterkarte */
-.result-card {
-    text-align: center;
-    padding: 20px;
-    border: 1px solid #e6e9ed;
-    border-radius: 10px;
-    background: white;
-    width: 250px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Karten-Schatten */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.result-card:hover {
-    transform: translateY(-5px); /* Karte hebt sich bei Hover */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Stärkerer Schatten bei Hover */
-}
-
-/* Bilder: Hohe Qualität und scharfe Darstellung */
-.result-card img {
-    width: 100%;
-    height: auto;
-    max-width: 150px;
-    max-height: 150px;
-    object-fit: cover; /* Proportionale Skalierung */
-    border-radius: 50%; /* Runde Bilder */
-    margin-bottom: 15px;
-    border: 3px solid #007bff; /* Blauer Rand für Bilder */
-}
-
-/* Textinhalte in der Karte */
-.result-card h2 {
-    font-size: 18px;
-    font-weight: bold;
-    margin: 10px 0;
-    color: #333;
-}
-
-.result-card p {
-    margin: 5px 0;
-    font-size: 14px;
-    color: #555;
-}
-
-.result-card p span {
-    font-weight: bold;
-}
-
-/* Fehlermeldungen */
-#results p {
-    text-align: center;
-    font-size: 16px;
-    color: #999;
+    input, select, button {
+        background: #333;
+        color: #f7f7f7;
+        border: 1px solid #555;
+    }
 }
