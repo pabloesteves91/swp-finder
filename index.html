@@ -17,22 +17,21 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <!-- Burger-Menü -->
-        <div class="burger-menu" id="burgerMenu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+    <!-- Passwortschutz -->
+    <div id="loginContainer">
+        <h2>Passwortschutz</h2>
+        <input type="password" id="passwordInput" placeholder="Passwort eingeben">
+        <button id="loginButton">Einloggen</button>
+        <p id="loginError" style="color: red; display: none;">Falsches Passwort!</p>
+    </div>
 
-        <!-- Mobilnavigation -->
-        <nav id="mobileNav" class="hidden">
-            <ul>
-                <li><a href="#" id="menuHome">Startseite</a></li>
-                <li><a href="#" id="menuSearch">Suche</a></li>
-                <li><a href="#" id="menuSettings">Einstellungen</a></li>
-            </ul>
-        </nav>
+    <!-- App-Container -->
+    <div id="appContainer" style="display: none;">
+        <!-- Dark Mode -->
+        <div class="dark-mode-toggle">
+            <label for="darkMode">🌙 Dark Mode:</label>
+            <input type="checkbox" id="darkMode">
+        </div>
 
         <!-- Swissport-Logo -->
         <div class="logo-container">
@@ -64,7 +63,7 @@
     </div>
 
     <!-- SheetJS-Bibliothek -->
-    <script src="xlsx.full.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
     <!-- Hauptscript -->
     <script src="script.js"></script>
 </body>
