@@ -34,7 +34,7 @@ body {
 
 .logo {
     width: 150px;
-    height: 150px;
+    height: auto; /* Automatische Höhe */
     object-fit: contain;
 }
 
@@ -127,7 +127,7 @@ button:hover:enabled {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Bilder: Hohe Qualität und scharfe Darstellung */
+/* Bilder */
 .result-card img {
     width: auto; /* Automatische Breite */
     height: auto; /* Automatische Höhe */
