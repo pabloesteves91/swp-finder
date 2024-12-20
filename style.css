@@ -4,6 +4,7 @@ body {
     margin: 0;
     padding: 0;
     background: #f0f4ff; /* Hellblau als Hintergrund */
+    color: #333;
 }
 
 /* Container-Styling */
@@ -12,6 +13,10 @@ body {
     width: 100%;
     max-width: 600px;
     margin: 0 auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Fixierter Kopfbereich */
@@ -127,20 +132,29 @@ button:hover:enabled {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Bilder */
+/* Profilbilder */
 .result-card img {
-    width: auto; /* Automatische Breite */
-    height: auto; /* Automatische Höhe */
-    max-width: 200px; /* Begrenze die Breite */
-    max-height: 200px; /* Begrenze die Höhe */
+    width: auto;
+    height: auto;
+    max-width: 250px; /* Größer gemacht */
+    max-height: 250px; /* Größer gemacht */
     border-radius: 10px;
     margin-bottom: 10px;
-    border: 2px solid #007bff; /* Blauer Rand für Bilder */
+    border: 2px solid #007bff; /* Blauer Rand */
 }
 
+/* Ergebnis-Titel */
 .result-card h2 {
     font-size: 18px;
     font-weight: bold;
+    margin: 5px 0;
+}
+
+/* Ergebnis-Daten */
+.result-card p {
+    font-size: 14px;
+    margin: 5px 0;
+    color: #333;
 }
 
 .result-card p span {
