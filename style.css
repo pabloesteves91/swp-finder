@@ -1,137 +1,70 @@
-/* Allgemeines Styling */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #f7f9fc;
-    color: #333;
-    transition: background 0.3s, color 0.3s;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SWP FINDER</title>
 
-body.dark {
-    background: #1e1e2f;
-    color: #f7f7f7;
-}
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
 
-/* Container */
-.container {
-    text-align: center;
-    width: 100%;
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background: white;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-}
+    <!-- Web App Icon für iPhone -->
+    <link rel="apple-touch-icon" href="Lupe.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
-/* Burger-Menü */
-.burger-menu {
-    display: none;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    cursor: pointer;
-    z-index: 1000;
-}
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Passwortschutz -->
+    <div id="loginContainer">
+        <h2>Passwortschutz</h2>
+        <input type="password" id="passwordInput" placeholder="Passwort eingeben">
+        <button id="loginButton">Einloggen</button>
+        <p id="loginError" style="color: red; display: none;">Falsches Passwort!</p>
+    </div>
 
-.burger-menu span {
-    display: block;
-    width: 25px;
-    height: 3px;
-    margin: 5px;
-    background: #007bff;
-    transition: all 0.3s ease;
-}
+    <!-- App-Container -->
+    <div id="appContainer" style="display: none;">
+        <!-- Dark Mode -->
+        <div class="dark-mode-toggle">
+            <label for="darkMode">🌙 Dark Mode:</label>
+            <input type="checkbox" id="darkMode">
+        </div>
 
-.burger-menu.active span:nth-child(1) {
-    transform: rotate(45deg) translateY(10px);
-}
+        <!-- Swissport-Logo -->
+        <div class="logo-container">
+            <img src="swissport-logo.png" alt="Swissport Logo" class="logo">
+        </div>
 
-.burger-menu.active span:nth-child(2) {
-    opacity: 0;
-}
+        <!-- Titel -->
+        <h1>
+            <a href="#" id="resetButton" class="app-title">SWP FINDER</a>
+        </h1>
 
-.burger-menu.active span:nth-child(3) {
-    transform: rotate(-45deg) translateY(-10px);
-}
+        <!-- Such- und Filterbereich -->
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Personalnummer, Kürzel, Vorname oder Nachname eingeben...">
+            <select id="filter">
+                <option value="all">Alle</option>
+                <option value="supervisor">Supervisor</option>
+                <option value="arrival">Supervisor Arrival</option>
+                <option value="employee">Betriebsarbeiter</option>
+                <option value="assistant">Duty Manager Assistent</option>
+                <option value="manager">Duty Manager</option>
+            </select>
+            <button id="searchButton" disabled>Suchen</button>
+            <button id="lockButton" class="lock-button">Sperren</button>
+        </div>
 
-/* Navigation */
-nav.hidden {
-    display: none;
-}
+        <!-- Suchergebnisse -->
+        <div id="results"></div>
+    </div>
 
-nav {
-    position: fixed;
-    top: 0;
-    right: 0;
-    background: white;
-    width: 200px;
-    height: 100%;
-    box-shadow: -4px 0 10px rgba(0, 0, 0, 0.1);
-    transform: translateX(100%);
-    transition: transform 0.3s ease;
-    z-index: 999;
-}
-
-nav ul {
-    list-style: none;
-    padding: 20px;
-}
-
-nav ul li {
-    margin: 20px 0;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #333;
-    font-size: 18px;
-    transition: color 0.3s ease;
-}
-
-nav ul li a:hover {
-    color: #007bff;
-}
-
-nav.active {
-    transform: translateX(0);
-}
-
-/* Suchbereich */
-.search-bar {
-    position: sticky;
-    top: 0;
-    background: white;
-    padding: 20px 10px;
-    border-bottom: 1px solid #e6e9ed;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-.search-bar input, .search-bar select, .search-bar button {
-    padding: 12px;
-    font-size: 16px;
-    border-radius: 8px;
-    margin: 10px;
-    width: calc(100% - 20px);
-    max-width: 400px;
-}
-
-/* Dunkelmodus */
-@media (prefers-color-scheme: dark) {
-    body {
-        background: #1e1e2f;
-        color: #f7f7f7;
-    }
-
-    .container, .search-bar, nav {
-        background: #2a2a40;
-        color: #f7f7f7;
-    }
-
-    input, select, button {
-        background: #333;
-        color: #f7f7f7;
-        border: 1px solid #555;
-    }
-}
+    <!-- SheetJS-Bibliothek -->
+    <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+    <!-- Hauptscript -->
+    <script src="script.js"></script>
+</body>
+</html>
