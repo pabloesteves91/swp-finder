@@ -1,70 +1,155 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SWP FINDER</title>
+/* Allgemeines Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f0f4ff; /* Hellblau als Hintergrund */
+}
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+/* Container-Styling */
+.container {
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
 
-    <!-- Web App Icon für iPhone -->
-    <link rel="apple-touch-icon" href="Lupe.png">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+/* Fixierter Kopfbereich */
+.search-bar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: white;
+    padding: 10px;
+    border-bottom: 2px solid #007bff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <!-- Passwortschutz -->
-    <div id="loginContainer">
-        <h2>Passwortschutz</h2>
-        <input type="password" id="passwordInput" placeholder="Passwort eingeben">
-        <button id="loginButton">Einloggen</button>
-        <p id="loginError" style="color: red; display: none;">Falsches Passwort!</p>
-    </div>
+/* Logo-Styling */
+.logo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
 
-    <!-- App-Container -->
-    <div id="appContainer" style="display: none;">
-        <!-- Dark Mode -->
-        <div class="dark-mode-toggle">
-            <label for="darkMode">🌙 Dark Mode:</label>
-            <input type="checkbox" id="darkMode">
-        </div>
+.logo {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+}
 
-        <!-- Swissport-Logo -->
-        <div class="logo-container">
-            <img src="swissport-logo.png" alt="Swissport Logo" class="logo">
-        </div>
+/* Titel */
+h1 {
+    font-size: 24px;
+    color: #ff0000;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
 
-        <!-- Titel -->
-        <h1>
-            <a href="#" id="resetButton" class="app-title">SWP FINDER</a>
-        </h1>
+.app-title {
+    text-decoration: none;
+    color: #ff0000;
+    transition: color 0.3s ease;
+}
 
-        <!-- Such- und Filterbereich -->
-        <div class="search-bar">
-            <input type="text" id="searchInput" placeholder="Personalnummer, Kürzel, Vorname oder Nachname eingeben...">
-            <select id="filter">
-                <option value="all">Alle</option>
-                <option value="supervisor">Supervisor</option>
-                <option value="arrival">Supervisor Arrival</option>
-                <option value="employee">Betriebsarbeiter</option>
-                <option value="assistant">Duty Manager Assistent</option>
-                <option value="manager">Duty Manager</option>
-            </select>
-            <button id="searchButton" disabled>Suchen</button>
-            <button id="lockButton" class="lock-button">Sperren</button>
-        </div>
+.app-title:hover {
+    color: #007bff;
+}
 
-        <!-- Suchergebnisse -->
-        <div id="results"></div>
-    </div>
+/* Eingabefelder, Dropdown und Buttons */
+input, select, button {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 90%;
+    max-width: 300px;
+    margin: 10px auto;
+    display: block;
+    background: white;
+}
 
-    <!-- SheetJS-Bibliothek -->
-    <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
-    <!-- Hauptscript -->
-    <script src="script.js"></script>
-</body>
-</html>
+input:focus, select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+button {
+    background: #007bff; /* Blau für den Button */
+    color: white;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+button:disabled {
+    background: #ccc; /* Grauer Button, wenn deaktiviert */
+    cursor: not-allowed;
+}
+
+button:hover:enabled {
+    background: #0056b3; /* Dunkleres Blau beim Hover */
+}
+
+/* Sperr-Button */
+.lock-button {
+    background: #ff0000; /* Rot für Sperr-Button */
+    color: white;
+    cursor: pointer;
+    border: none;
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 5px;
+    width: 90%;
+    max-width: 300px;
+    margin: 10px auto;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+.lock-button:hover {
+    background: #cc0000; /* Dunkleres Rot beim Hover */
+}
+
+/* Ergebnisse */
+#results {
+    margin-top: 20px;
+}
+
+.result-card {
+    text-align: center;
+    padding: 10px;
+    border: 2px solid #ff0000; /* Roter Rand */
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background: #f0f4ff; /* Hellblauer Hintergrund */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Bilder: Hohe Qualität und scharfe Darstellung */
+.result-card img {
+    width: auto; /* Automatische Breite */
+    height: auto; /* Automatische Höhe */
+    max-width: 200px; /* Begrenze die Breite */
+    max-height: 200px; /* Begrenze die Höhe */
+    border-radius: 10px;
+    margin-bottom: 10px;
+    border: 2px solid #007bff; /* Blauer Rand für Bilder */
+}
+
+.result-card h2 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.result-card p span {
+    font-weight: bold;
+}
+
+/* Fehlermeldungen */
+#results p {
+    text-align: center;
+    font-size: 16px;
+    color: #999;
+}
