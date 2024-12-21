@@ -3,7 +3,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: #f0f4ff; /* Hellblau als Hintergrund */
+    background: #f0f4ff; /* Hellblauer Hintergrund */
     color: #333;
 }
 
@@ -17,6 +17,19 @@ body {
     background: white;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Ladeanzeige */
+#loadingSpinner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+    font-weight: bold;
+    color: #007bff;
+    text-align: center;
+    z-index: 1000;
 }
 
 /* Fixierter Kopfbereich */
@@ -136,8 +149,8 @@ button:hover:enabled {
 .result-card img {
     width: auto;
     height: auto;
-    max-width: 250px; /* Größer gemacht */
-    max-height: 250px; /* Größer gemacht */
+    max-width: 250px; /* Maximale Breite */
+    max-height: 250px; /* Maximale Höhe */
     border-radius: 10px;
     margin-bottom: 10px;
     border: 2px solid #007bff; /* Blauer Rand */
