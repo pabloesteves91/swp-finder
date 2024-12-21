@@ -37,35 +37,68 @@ function loadExcelData() {
         });
 }
 
-// Vorschläge anzeigen
-function updateSuggestions(input) {
-    const suggestions = document.getElementById("suggestions");
-    suggestions.innerHTML = ""; // Alte Vorschläge löschen
+// Suchbutton aktivieren, wenn Eingabe erfolgt
+document.getElementById("searchInput").addEventListener("input", () => {
+    const searchInput = document.getElementById("searchInput").value.trim();
+    const searchButton = document.getElementById("searchButton");
+    searchButton.disabled = searchInput === ""; // Button nur aktivieren, wenn Eingabe vorhanden
+});
 
-    if (!input) return; // Keine Vorschläge, wenn das Suchfeld leer ist
+// Zurücksetzen bei Klick auf "SWP FINDER"
+document.getElementById("resetButton").addEventListener("click", () => {
+    const searchInput = document.getElementById("searchInput");
+    const filter = document.getElementById("filter");
+    const searchButton = document.getElementById("searchButton");
+    const results = document.getElementById("results");
 
-    const matches = people.filter(person =>
-        person.Personalnummer.toLowerCase().includes(input) ||
-        person.Kürzel?.toLowerCase().includes(input) ||
-        person.Vorname.toLowerCase().includes(input) ||
-        person.Nachname.toLowerCase().includes(input)
-    );
+    searchInput.value = ""; // Suchfeld leeren
+    filter.selectedIndex = 0; // Filter zurücksetzen
+    searchButton.disabled = true; // Suchbutton deaktivieren
+    results.innerHTML = ""; // Ergebnisse löschen
+});
 
-    matches.slice(0, 10).forEach(person => { // Zeige maximal 10 Vorschläge
-        const li = document.createElement("li");
-        li.textContent = `${person.Vorname} ${person.Nachname} (${person.Personalnummer})`;
-        li.addEventListener("click", () => {
-            document.getElementById("searchInput").value = person.Personalnummer; // Personalnummer ins Suchfeld setzen
-            suggestions.innerHTML = ""; // Vorschläge löschen
-        });
-        suggestions.appendChild(li);
+// Such-Button-Event
+document.getElementById("searchButton").addEventListener("click", () => {
+    const searchInput = document.getElementById("searchInput").value.toLowerCase();
+    const filter = document.getElementById("filter").value;
+    const results = document.getElementById("results");
+    results.innerHTML = ""; // Alte Ergebnisse löschen
+
+    // Filtere Personen basierend auf Eingaben
+    const filteredPeople = people.filter(person => {
+        const matchesPersonalCode = person.Personalnummer.toLowerCase().includes(searchInput);
+        const matchesShortCode = person.Kürzel?.toLowerCase().includes(searchInput);
+        const matchesFirstName = person.Vorname.toLowerCase().includes(searchInput);
+        const matchesLastName = person.Nachname.toLowerCase().includes(searchInput);
+        const matchesFilter =
+            filter === "all" ||
+            (filter === "supervisor" && person.Position === "Supervisor") ||
+            (filter === "arrival" && person.Position === "Supervisor Arrival") ||
+            (filter === "employee" && person.Position === "Betriebsarbeiter") ||
+            (filter === "assistant" && person.Position === "Duty Manager Assistent") ||
+            (filter === "manager" && person.Position === "Duty Manager");
+
+        return (matchesPersonalCode || matchesShortCode || matchesFirstName || matchesLastName) && matchesFilter;
     });
-}
 
-// Event für Vorschläge
-document.getElementById("searchInput").addEventListener("input", (e) => {
-    const input = e.target.value.toLowerCase().trim();
-    updateSuggestions(input);
+    // Zeige Ergebnisse an oder eine Meldung, falls keine gefunden werden
+    if (filteredPeople.length === 0) {
+        results.innerHTML = "<p>Keine Ergebnisse gefunden.</p>";
+        return;
+    }
+
+    filteredPeople.forEach(person => {
+        const card = document.createElement("div");
+        card.className = "result-card";
+        card.innerHTML = `
+            <img src="${person.Foto}" alt="${person.Vorname}" onerror="this.src='Fotos/default.JPG';">
+            <h2>${person.Vorname} ${person.Nachname}</h2>
+            <p><span>Personalnummer:</span> ${person.Personalnummer}</p>
+            ${person.Kürzel ? `<p><span>Kürzel:</span> ${person.Kürzel}</p>` : ""}
+            <p><span>Position:</span> ${person.Position}</p>
+        `;
+        results.appendChild(card);
+    });
 });
 
 // Initialisierung
