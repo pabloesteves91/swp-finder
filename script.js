@@ -1,13 +1,13 @@
-let people = []; // Daten aus der Excel-Datei werden hier gespeichert
+let people = []; // Daten aus der Excel-Datei
 
 // Passwortschutz
 function checkPassword() {
     const password = "swissport24";
-    let userPassword = sessionStorage.getItem("authenticated");
+    const userPassword = sessionStorage.getItem("authenticated");
 
     if (!userPassword || userPassword !== "true") {
-        userPassword = prompt("Bitte geben Sie das Passwort ein, um die Web-App zu verwenden:");
-        if (userPassword === password) {
+        const inputPassword = prompt("Bitte geben Sie das Passwort ein:");
+        if (inputPassword === password) {
             sessionStorage.setItem("authenticated", "true");
             alert("Willkommen in der SWP FINDER Web-App!");
         } else {
@@ -17,129 +17,85 @@ function checkPassword() {
     }
 }
 
-// Seite sperren
-function lockApp() {
-    sessionStorage.removeItem("authenticated");
-    alert("Die App wurde gesperrt. Zurück zur Anmeldung!");
-    location.reload();
+// Admin-Panel Passwortschutz
+function showAdminPanel() {
+    const adminPassword = "swissportadmin";
+    const inputPassword = prompt("Bitte Admin-Passwort eingeben:");
+    if (inputPassword === adminPassword) {
+        document.getElementById("adminPanel").style.display = "block";
+    } else {
+        alert("Falsches Passwort!");
+    }
 }
+
+// Mitarbeiter hinzufügen
+document.getElementById("addEmployeeForm").addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const newEmployee = {
+        personalCode: document.getElementById("personalCode").value,
+        firstName: document.getElementById("firstName").value,
+        lastName: document.getElementById("lastName").value,
+        shortCode: document.getElementById("shortCode").value || null,
+        position: document.getElementById("position").value,
+        photo: `Fotos/${document.getElementById("firstName").value}_${document.getElementById("lastName").value}.jpg`
+    };
+
+    people.push(newEmployee);
+    alert("Mitarbeiter erfolgreich hinzugefügt!");
+    document.getElementById("addEmployeeForm").reset();
+});
 
 // Excel-Daten laden
 function loadExcelData() {
     const excelFilePath = "./Mitarbeiter.xlsx";
     const spinner = document.getElementById("loadingSpinner");
 
-    spinner.style.display = "block"; // Spinner anzeigen
+    spinner.style.display = "block";
 
-    return fetch(excelFilePath)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("Die Excel-Datei konnte nicht geladen werden.");
-            }
-            return response.arrayBuffer();
-        })
+    fetch(excelFilePath)
+        .then(response => response.arrayBuffer())
         .then(data => {
             const workbook = XLSX.read(data, { type: "array" });
-
-            if (!workbook.SheetNames.includes("Sheet1")) {
-                alert("Die Excel-Datei muss ein Tabellenblatt mit dem Namen 'Sheet1' enthalten.");
-                return;
-            }
-
             const sheet = workbook.Sheets["Sheet1"];
-            const jsonData = XLSX.utils.sheet_to_json(sheet);
-
-            people = jsonData.map(row => ({
-                personalCode: row["Personalnummer"].toString(),
-                firstName: row["Vorname"],
-                lastName: row["Nachname"],
-                shortCode: row["Kürzel"] || null,
-                position: row["Position"],
-                photo: `Fotos/${row["Vorname"]}_${row["Nachname"]}.jpg`
-            }));
-
-            console.log("Excel-Daten erfolgreich geladen:", people);
-        })
-        .catch(error => {
-            console.error("Fehler beim Laden der Excel-Datei:", error);
-            alert("Die Excel-Daten konnten nicht geladen werden.");
+            people = XLSX.utils.sheet_to_json(sheet);
+            console.log("Excel-Daten geladen:", people);
         })
         .finally(() => {
-            spinner.style.display = "none"; // Spinner ausblenden
+            spinner.style.display = "none";
         });
 }
 
-// Such-Button-Event
-document.getElementById("searchButton").addEventListener("click", async () => {
-    const searchInput = document.getElementById("searchInput").value.toLowerCase();
-    const filter = document.getElementById("filter").value;
-    const results = document.getElementById("results");
-    results.innerHTML = ""; // Alte Ergebnisse löschen
+// Vorschläge anzeigen
+function updateSuggestions(input) {
+    const suggestions = document.getElementById("suggestions");
+    suggestions.innerHTML = "";
 
-    // Excel-Daten laden, wenn sie noch nicht geladen wurden
-    if (people.length === 0) {
-        await loadExcelData();
-    }
+    if (!input) return;
 
-    // Filtere Personen basierend auf Eingaben
-    const filteredPeople = people.filter(person => {
-        const matchesPersonalCode = person.personalCode.toLowerCase().includes(searchInput);
-        const matchesShortCode = person.shortCode?.toLowerCase().includes(searchInput);
-        const matchesFirstName = person.firstName.toLowerCase().includes(searchInput);
-        const matchesLastName = person.lastName.toLowerCase().includes(searchInput);
-        const matchesFilter =
-            filter === "all" ||
-            (filter === "supervisor" && person.position === "Supervisor") ||
-            (filter === "arrival" && person.position === "Supervisor Arrival") ||
-            (filter === "employee" && person.position === "Betriebsarbeiter") ||
-            (filter === "assistant" && person.position === "Duty Manager Assistent") ||
-            (filter === "manager" && person.position === "Duty Manager");
+    const matches = people.filter(person =>
+        person.Personalnummer.toLowerCase().includes(input) ||
+        person.Kürzel?.toLowerCase().includes(input) ||
+        person.Vorname.toLowerCase().includes(input) ||
+        person.Nachname.toLowerCase().includes(input)
+    );
 
-        return (matchesPersonalCode || matchesShortCode || matchesFirstName || matchesLastName) && matchesFilter;
+    matches.slice(0, 10).forEach(person => {
+        const li = document.createElement("li");
+        li.textContent = `${person.Vorname} ${person.Nachname} (${person.Personalnummer})`;
+        li.addEventListener("click", () => {
+            document.getElementById("searchInput").value = person.Personalnummer;
+            suggestions.innerHTML = "";
+        });
+        suggestions.appendChild(li);
     });
+}
 
-    // Zeige Ergebnisse an oder eine Meldung, falls keine gefunden werden
-    if (filteredPeople.length === 0) {
-        results.innerHTML = "<p>Keine Ergebnisse gefunden.</p>";
-        return;
-    }
-
-    filteredPeople.forEach(person => {
-        const card = document.createElement("div");
-        card.className = "result-card";
-        card.innerHTML = `
-            <img src="${person.photo}" alt="${person.firstName}" onerror="this.src='Fotos/default.JPG';">
-            <h2>${person.firstName} ${person.lastName}</h2>
-            <p><span>Personalnummer:</span> ${person.personalCode}</p>
-            ${person.shortCode ? `<p><span>Kürzel:</span> ${person.shortCode}</p>` : ""}
-            <p><span>Position:</span> ${person.position}</p>
-        `;
-        results.appendChild(card);
-    });
+// Event für Vorschläge
+document.getElementById("searchInput").addEventListener("input", (e) => {
+    updateSuggestions(e.target.value.toLowerCase().trim());
 });
 
-// Suchbutton aktivieren, wenn Eingabe erfolgt
-document.getElementById("searchInput").addEventListener("input", () => {
-    const searchInput = document.getElementById("searchInput").value.trim();
-    const searchButton = document.getElementById("searchButton");
-    searchButton.disabled = searchInput === ""; // Button nur aktivieren, wenn Eingabe vorhanden
-});
-
-// Zurücksetzen bei Klick auf "SWP FINDER"
-document.getElementById("resetButton").addEventListener("click", () => {
-    const searchInput = document.getElementById("searchInput");
-    const filter = document.getElementById("filter");
-    const searchButton = document.getElementById("searchButton");
-    const results = document.getElementById("results");
-
-    searchInput.value = ""; // Suchfeld leeren
-    filter.selectedIndex = 0; // Filter zurücksetzen
-    searchButton.disabled = true; // Suchbutton deaktivieren
-    results.innerHTML = ""; // Ergebnisse löschen
-});
-
-// Sperr-Button
-document.getElementById("lockButton").addEventListener("click", lockApp);
-
-// Passwortprüfung initialisieren
+// Initialisierung
 checkPassword();
+loadExcelData();
