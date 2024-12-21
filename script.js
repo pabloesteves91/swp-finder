@@ -1,4 +1,5 @@
 let people = []; // Daten aus der Excel-Datei werden hier gespeichert
+let dataLoaded = false; // Flag, um festzustellen, ob die Daten bereits geladen wurden
 
 // Passwortschutz
 function checkPassword() {
@@ -19,19 +20,19 @@ function checkPassword() {
 
 // Seite sperren
 function lockApp() {
-    sessionStorage.removeItem("authenticated"); // Authentifizierung entfernen
+    sessionStorage.removeItem("authenticated");
     alert("Die App wurde gesperrt. Zurück zur Anmeldung!");
-    location.reload(); // Seite neu laden, um Passwortschutz zu aktivieren
+    location.reload();
 }
-
-// Initialisiere Passwortprüfung beim Laden
-checkPassword();
 
 // Excel-Daten laden
 function loadExcelData() {
     const excelFilePath = "./Mitarbeiter.xlsx";
+    const spinner = document.getElementById("loadingSpinner");
 
-    fetch(excelFilePath)
+    spinner.style.display = "block"; // Spinner anzeigen
+
+    return fetch(excelFilePath)
         .then(response => {
             if (!response.ok) {
                 throw new Error("Die Excel-Datei konnte nicht geladen werden.");
@@ -59,39 +60,28 @@ function loadExcelData() {
             }));
 
             console.log("Excel-Daten erfolgreich geladen:", people);
+            dataLoaded = true; // Daten erfolgreich geladen
         })
         .catch(error => {
             console.error("Fehler beim Laden der Excel-Datei:", error);
             alert("Die Excel-Daten konnten nicht geladen werden.");
+        })
+        .finally(() => {
+            spinner.style.display = "none"; // Spinner ausblenden
         });
 }
 
-// Suchbutton aktivieren, wenn Eingabe erfolgt
-document.getElementById("searchInput").addEventListener("input", () => {
-    const searchInput = document.getElementById("searchInput").value.trim();
-    const searchButton = document.getElementById("searchButton");
-    searchButton.disabled = searchInput === ""; // Button nur aktivieren, wenn Eingabe vorhanden
-});
-
-// Zurücksetzen bei Klick auf "SWP FINDER"
-document.getElementById("resetButton").addEventListener("click", () => {
-    const searchInput = document.getElementById("searchInput");
-    const filter = document.getElementById("filter");
-    const searchButton = document.getElementById("searchButton");
-    const results = document.getElementById("results");
-
-    searchInput.value = ""; // Suchfeld leeren
-    filter.selectedIndex = 0; // Filter zurücksetzen
-    searchButton.disabled = true; // Suchbutton deaktivieren
-    results.innerHTML = ""; // Ergebnisse löschen
-});
-
 // Such-Button-Event
-document.getElementById("searchButton").addEventListener("click", () => {
+document.getElementById("searchButton").addEventListener("click", async () => {
     const searchInput = document.getElementById("searchInput").value.toLowerCase();
     const filter = document.getElementById("filter").value;
     const results = document.getElementById("results");
     results.innerHTML = ""; // Alte Ergebnisse löschen
+
+    // Daten asynchron laden, wenn noch nicht geschehen
+    if (!dataLoaded) {
+        await loadExcelData();
+    }
 
     // Filtere Personen basierend auf Eingaben
     const filteredPeople = people.filter(person => {
@@ -130,8 +120,28 @@ document.getElementById("searchButton").addEventListener("click", () => {
     });
 });
 
+// Suchbutton aktivieren, wenn Eingabe erfolgt
+document.getElementById("searchInput").addEventListener("input", () => {
+    const searchInput = document.getElementById("searchInput").value.trim();
+    const searchButton = document.getElementById("searchButton");
+    searchButton.disabled = searchInput === ""; // Button nur aktivieren, wenn Eingabe vorhanden
+});
+
+// Zurücksetzen bei Klick auf "SWP FINDER"
+document.getElementById("resetButton").addEventListener("click", () => {
+    const searchInput = document.getElementById("searchInput");
+    const filter = document.getElementById("filter");
+    const searchButton = document.getElementById("searchButton");
+    const results = document.getElementById("results");
+
+    searchInput.value = ""; // Suchfeld leeren
+    filter.selectedIndex = 0; // Filter zurücksetzen
+    searchButton.disabled = true; // Suchbutton deaktivieren
+    results.innerHTML = ""; // Ergebnisse löschen
+});
+
 // Sperr-Button
 document.getElementById("lockButton").addEventListener("click", lockApp);
 
-// Excel-Daten beim Start laden
-loadExcelData();
+// Passwortprüfung initialisieren
+checkPassword();
