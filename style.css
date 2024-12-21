@@ -86,36 +86,6 @@ h1 {
     color: white;
 }
 
-/* Admin-Panel */
-#adminPanel {
-    background: #f9f9f9;
-    border: 1px solid #ddd;
-    padding: 20px;
-    border-radius: 5px;
-    margin: 20px auto;
-    width: 90%;
-    max-width: 400px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-#adminPanel input, #adminPanel button {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-#adminPanel button {
-    background: #007bff;
-    color: white;
-    cursor: pointer;
-}
-
-#adminPanel button:hover {
-    background: #0056b3;
-}
-
 /* Ladeanzeige */
 #loadingSpinner {
     position: fixed;
