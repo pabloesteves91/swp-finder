@@ -51,7 +51,11 @@ h1 {
     color: #007bff;
 }
 
-/* Such- und Vorschlagsliste */
+/* Such- und Filterbereich */
+.search-bar {
+    margin-top: 20px;
+}
+
 .search-bar input {
     width: 90%;
     max-width: 300px;
@@ -62,28 +66,91 @@ h1 {
     margin-bottom: 10px;
 }
 
-.suggestions-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    border: 1px solid #ccc;
-    background: white;
-    max-height: 200px;
-    overflow-y: auto;
-    position: absolute;
+.search-bar select {
     width: 90%;
     max-width: 300px;
-    z-index: 1000;
-}
-
-.suggestions-list li {
     padding: 10px;
-    cursor: pointer;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
 }
 
-.suggestions-list li:hover {
+.search-bar button {
     background: #007bff;
     color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.search-bar button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.search-bar button:hover:enabled {
+    background: #0056b3;
+}
+
+.lock-button {
+    background: #ff0000;
+    color: white;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.lock-button:hover {
+    background: #cc0000;
+}
+
+/* Suchergebnisse */
+#results {
+    margin-top: 20px;
+}
+
+.result-card {
+    text-align: left;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.result-card img {
+    width: auto;
+    height: auto;
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+}
+
+.result-card h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.result-card p {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.result-card p span {
+    font-weight: bold;
 }
 
 /* Ladeanzeige */
