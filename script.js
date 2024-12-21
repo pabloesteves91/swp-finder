@@ -1,5 +1,4 @@
-let people = []; // Daten aus der Excel-Datei werden hier gespeichert
-let dataLoaded = false; // Flag, um festzustellen, ob die Daten bereits geladen wurden
+let people = []; // Daten aus der JSON-Datei werden hier gespeichert
 
 // Passwortschutz
 function checkPassword() {
@@ -25,46 +24,27 @@ function lockApp() {
     location.reload();
 }
 
-// Excel-Daten laden
-function loadExcelData() {
-    const excelFilePath = "./Mitarbeiter.xlsx";
+// JSON-Daten laden
+function loadJSONData() {
+    const jsonFilePath = "./Mitarbeiter.json";
     const spinner = document.getElementById("loadingSpinner");
 
     spinner.style.display = "block"; // Spinner anzeigen
 
-    return fetch(excelFilePath)
+    return fetch(jsonFilePath)
         .then(response => {
             if (!response.ok) {
-                throw new Error("Die Excel-Datei konnte nicht geladen werden.");
+                throw new Error("Die JSON-Datei konnte nicht geladen werden.");
             }
-            return response.arrayBuffer();
+            return response.json();
         })
         .then(data => {
-            const workbook = XLSX.read(data, { type: "array" });
-
-            if (!workbook.SheetNames.includes("Sheet1")) {
-                alert("Die Excel-Datei muss ein Tabellenblatt mit dem Namen 'Sheet1' enthalten.");
-                return;
-            }
-
-            const sheet = workbook.Sheets["Sheet1"];
-            const jsonData = XLSX.utils.sheet_to_json(sheet);
-
-            people = jsonData.map(row => ({
-                personalCode: row["Personalnummer"].toString(),
-                firstName: row["Vorname"],
-                lastName: row["Nachname"],
-                shortCode: row["Kürzel"] || null,
-                position: row["Position"],
-                photo: `Fotos/${row["Vorname"]}_${row["Nachname"]}.jpg`
-            }));
-
-            console.log("Excel-Daten erfolgreich geladen:", people);
-            dataLoaded = true; // Daten erfolgreich geladen
+            people = data;
+            console.log("JSON-Daten erfolgreich geladen:", people);
         })
         .catch(error => {
-            console.error("Fehler beim Laden der Excel-Datei:", error);
-            alert("Die Excel-Daten konnten nicht geladen werden.");
+            console.error("Fehler beim Laden der JSON-Datei:", error);
+            alert("Die JSON-Daten konnten nicht geladen werden.");
         })
         .finally(() => {
             spinner.style.display = "none"; // Spinner ausblenden
@@ -79,23 +59,23 @@ document.getElementById("searchButton").addEventListener("click", async () => {
     results.innerHTML = ""; // Alte Ergebnisse löschen
 
     // Daten asynchron laden, wenn noch nicht geschehen
-    if (!dataLoaded) {
-        await loadExcelData();
+    if (people.length === 0) {
+        await loadJSONData();
     }
 
     // Filtere Personen basierend auf Eingaben
     const filteredPeople = people.filter(person => {
-        const matchesPersonalCode = person.personalCode.toLowerCase().includes(searchInput);
-        const matchesShortCode = person.shortCode?.toLowerCase().includes(searchInput);
-        const matchesFirstName = person.firstName.toLowerCase().includes(searchInput);
-        const matchesLastName = person.lastName.toLowerCase().includes(searchInput);
+        const matchesPersonalCode = person.Personalnummer.toLowerCase().includes(searchInput);
+        const matchesShortCode = person.Kürzel?.toLowerCase().includes(searchInput);
+        const matchesFirstName = person.Vorname.toLowerCase().includes(searchInput);
+        const matchesLastName = person.Nachname.toLowerCase().includes(searchInput);
         const matchesFilter =
             filter === "all" ||
-            (filter === "supervisor" && person.position === "Supervisor") ||
-            (filter === "arrival" && person.position === "Supervisor Arrival") ||
-            (filter === "employee" && person.position === "Betriebsarbeiter") ||
-            (filter === "assistant" && person.position === "Duty Manager Assistent") ||
-            (filter === "manager" && person.position === "Duty Manager");
+            (filter === "supervisor" && person.Position === "Supervisor") ||
+            (filter === "arrival" && person.Position === "Supervisor Arrival") ||
+            (filter === "employee" && person.Position === "Betriebsarbeiter") ||
+            (filter === "assistant" && person.Position === "Duty Manager Assistent") ||
+            (filter === "manager" && person.Position === "Duty Manager");
 
         return (matchesPersonalCode || matchesShortCode || matchesFirstName || matchesLastName) && matchesFilter;
     });
@@ -110,11 +90,11 @@ document.getElementById("searchButton").addEventListener("click", async () => {
         const card = document.createElement("div");
         card.className = "result-card";
         card.innerHTML = `
-            <img src="${person.photo}" alt="${person.firstName}" onerror="this.src='Fotos/default.JPG';">
-            <h2>${person.firstName} ${person.lastName}</h2>
-            <p><span>Personalnummer:</span> ${person.personalCode}</p>
-            ${person.shortCode ? `<p><span>Kürzel:</span> ${person.shortCode}</p>` : ""}
-            <p><span>Position:</span> ${person.position}</p>
+            <img src="${person.Foto}" alt="${person.Vorname}" onerror="this.src='Fotos/default.JPG';">
+            <h2>${person.Vorname} ${person.Nachname}</h2>
+            <p><span>Personalnummer:</span> ${person.Personalnummer}</p>
+            ${person.Kürzel ? `<p><span>Kürzel:</span> ${person.Kürzel}</p>` : ""}
+            <p><span>Position:</span> ${person.Position}</p>
         `;
         results.appendChild(card);
     });
