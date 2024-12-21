@@ -48,24 +48,10 @@
             </select>
             <button id="searchButton" disabled>Suchen</button>
             <button id="lockButton" class="lock-button">Sperren</button>
-            <button onclick="showAdminPanel()">Admin-Panel öffnen</button>
         </div>
 
         <!-- Suchergebnisse -->
         <div id="results"></div>
-
-        <!-- Admin-Panel -->
-        <div id="adminPanel" style="display: none;">
-            <h2>Admin-Panel</h2>
-            <form id="addEmployeeForm">
-                <input type="text" id="firstName" placeholder="Vorname" required>
-                <input type="text" id="lastName" placeholder="Nachname" required>
-                <input type="text" id="personalCode" placeholder="Personalnummer" required>
-                <input type="text" id="shortCode" placeholder="Kürzel (optional)">
-                <input type="text" id="position" placeholder="Position" required>
-                <button type="submit">Mitarbeiter hinzufügen</button>
-            </form>
-        </div>
     </div>
 
     <!-- SheetJS-Bibliothek -->
