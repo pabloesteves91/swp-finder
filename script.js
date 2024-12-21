@@ -40,9 +40,9 @@ function loadExcelData() {
 // Vorschläge anzeigen
 function updateSuggestions(input) {
     const suggestions = document.getElementById("suggestions");
-    suggestions.innerHTML = "";
+    suggestions.innerHTML = ""; // Alte Vorschläge löschen
 
-    if (!input) return;
+    if (!input) return; // Keine Vorschläge, wenn das Suchfeld leer ist
 
     const matches = people.filter(person =>
         person.Personalnummer.toLowerCase().includes(input) ||
@@ -51,12 +51,12 @@ function updateSuggestions(input) {
         person.Nachname.toLowerCase().includes(input)
     );
 
-    matches.slice(0, 10).forEach(person => {
+    matches.slice(0, 10).forEach(person => { // Zeige maximal 10 Vorschläge
         const li = document.createElement("li");
         li.textContent = `${person.Vorname} ${person.Nachname} (${person.Personalnummer})`;
         li.addEventListener("click", () => {
-            document.getElementById("searchInput").value = person.Personalnummer;
-            suggestions.innerHTML = "";
+            document.getElementById("searchInput").value = person.Personalnummer; // Personalnummer ins Suchfeld setzen
+            suggestions.innerHTML = ""; // Vorschläge löschen
         });
         suggestions.appendChild(li);
     });
@@ -64,7 +64,8 @@ function updateSuggestions(input) {
 
 // Event für Vorschläge
 document.getElementById("searchInput").addEventListener("input", (e) => {
-    updateSuggestions(e.target.value.toLowerCase().trim());
+    const input = e.target.value.toLowerCase().trim();
+    updateSuggestions(input);
 });
 
 // Initialisierung
