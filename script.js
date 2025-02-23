@@ -39,13 +39,29 @@ function loadExcelData() {
         });
 }
 
+// Suchbutton aktivieren, wenn Eingabe erfolgt
+document.getElementById("searchInput").addEventListener("input", () => {
+    const searchInput = document.getElementById("searchInput").value.trim();
+    const searchButton = document.getElementById("searchButton");
+    searchButton.disabled = searchInput === ""; // Button nur aktivieren, wenn Eingabe vorhanden
+});
+
 // Suchfunktion
 function performSearch() {
-    const searchInput = document.getElementById("searchInput").value.toLowerCase();
+    const searchInput = document.getElementById("searchInput").value.toLowerCase().trim();
     const results = document.getElementById("results");
     results.innerHTML = "";
 
-    const filteredPeople = people.filter(person => person.Personalnummer.toLowerCase().includes(searchInput));
+    if (searchInput === "") {
+        return;
+    }
+
+    const filteredPeople = people.filter(person =>
+        person.Personalnummer.toLowerCase().includes(searchInput) ||
+        person.Vorname.toLowerCase().includes(searchInput) ||
+        person.Nachname.toLowerCase().includes(searchInput) ||
+        (person.Kürzel && person.Kürzel.toLowerCase().includes(searchInput))
+    );
 
     if (filteredPeople.length === 0) {
         results.innerHTML = "<p>Keine Ergebnisse gefunden.</p>";
@@ -62,14 +78,4 @@ function performSearch() {
         `;
         results.appendChild(card);
     });
-}
-
-// Bild-Popup Funktionen
-function openImagePopup(imageSrc) {
-    document.getElementById("popupImage").src = imageSrc;
-    document.getElementById("imagePopup").style.display = "flex";
-}
-
-function closeImagePopup() {
-    document.getElementById("imagePopup").style.display = "none";
 }
