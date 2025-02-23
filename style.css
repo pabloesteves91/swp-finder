@@ -3,34 +3,28 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: #f0f4ff; /* Hellblau als Hintergrund */
+    background: #f4f4f4; /* Leichtes Grau für modernes Design */
     color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden; /* Entfernt horizontales Scrollen */
 }
 
-/* Container-Styling */
+/* Container */
 .container {
     text-align: center;
     width: 100%;
     max-width: 600px;
-    margin: 0 auto;
+    margin: 20px auto;
     padding: 20px;
     background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Fixierter Kopfbereich */
-.search-bar {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background: white;
-    padding: 10px;
-    border-bottom: 2px solid #007bff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Logo-Styling */
+/* Logo */
 .logo-container {
     display: flex;
     justify-content: center;
@@ -38,23 +32,23 @@ body {
 }
 
 .logo {
-    width: 150px;
-    height: auto; /* Automatische Höhe */
+    width: 120px;
+    height: auto;
     object-fit: contain;
 }
 
 /* Titel */
 h1 {
-    font-size: 24px;
-    color: #ff0000;
+    font-size: 26px;
+    color: #d41e24; /* Swissport Rot */
     text-transform: uppercase;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .app-title {
     text-decoration: none;
-    color: #ff0000;
+    color: #d41e24;
     transition: color 0.3s ease;
 }
 
@@ -62,85 +56,104 @@ h1 {
     color: #007bff;
 }
 
-/* Eingabefelder, Dropdown und Buttons */
-input, select, button {
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    width: 90%;
-    max-width: 300px;
-    margin: 10px auto;
-    display: block;
+/* Such- und Filterbereich */
+.search-bar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
     background: white;
+    padding: 15px;
+    border-bottom: 3px solid #007bff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
 }
 
-input:focus, select:focus {
+/* Eingabefelder */
+.search-bar input, .search-bar select {
+    width: calc(100% - 20px);
+    max-width: 350px;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    display: block;
+    background: white;
+    transition: border-color 0.3s;
+}
+
+.search-bar input:focus, .search-bar select:focus {
     border-color: #007bff;
     outline: none;
 }
 
-button {
-    background: #007bff; /* Blau für den Button */
-    color: white;
-    cursor: pointer;
+/* Buttons */
+.search-bar button {
+    width: calc(100% - 20px);
+    max-width: 350px;
+    padding: 12px;
+    font-size: 16px;
     border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 10px;
     transition: background-color 0.3s ease;
 }
 
-button:disabled {
-    background: #ccc; /* Grauer Button, wenn deaktiviert */
+.search-bar button:disabled {
+    background: #ccc;
     cursor: not-allowed;
 }
 
-button:hover:enabled {
-    background: #0056b3; /* Dunkleres Blau beim Hover */
+.search-bar button:hover:enabled {
+    background: #0056b3;
+}
+
+/* Suchbutton */
+#searchButton {
+    background: #007bff;
+    color: white;
 }
 
 /* Sperr-Button */
 .lock-button {
-    background: #ff0000; /* Rot für Sperr-Button */
+    background: #d41e24; /* Swissport Rot */
     color: white;
-    cursor: pointer;
-    border: none;
-    padding: 8px 12px;
-    font-size: 14px;
-    border-radius: 5px;
-    width: 90%;
-    max-width: 300px;
-    margin: 10px auto;
-    display: block;
-    transition: background-color 0.3s ease;
 }
 
 .lock-button:hover {
-    background: #cc0000; /* Dunkleres Rot beim Hover */
+    background: #b31b1f;
 }
 
-/* Ergebnisse */
+/* Suchergebnisse */
 #results {
     margin-top: 20px;
 }
 
+/* Ergebnis-Karten */
 .result-card {
     text-align: center;
-    padding: 10px;
-    border: 2px solid #ff0000; /* Roter Rand */
-    border-radius: 5px;
-    margin-bottom: 10px;
-    background: #f0f4ff; /* Hellblauer Hintergrund */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    border: 2px solid #d41e24;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* Profilbilder */
 .result-card img {
     width: auto;
     height: auto;
-    max-width: 250px; /* Größer gemacht */
-    max-height: 250px; /* Größer gemacht */
+    max-width: 250px;
+    max-height: 250px;
     border-radius: 10px;
     margin-bottom: 10px;
-    border: 2px solid #007bff; /* Blauer Rand */
+    border: 2px solid #007bff;
 }
 
 /* Ergebnis-Titel */
@@ -161,9 +174,30 @@ button:hover:enabled {
     font-weight: bold;
 }
 
-/* Fehlermeldungen */
-#results p {
+/* Ladeanzeige */
+#loadingSpinner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+    font-weight: bold;
+    color: #007bff;
     text-align: center;
-    font-size: 16px;
-    color: #999;
+    z-index: 1000;
+}
+
+/* 🔹 RESPONSIVE DESIGN 🔹 */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    .search-bar {
+        width: 100%;
+    }
+
+    .search-bar input, .search-bar select, .search-bar button {
+        width: 100%;
+    }
 }
