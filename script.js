@@ -16,19 +16,31 @@ function checkPassword() {
     }
 }
 
+// App sperren
+function lockApp() {
+    sessionStorage.removeItem("authenticated");
+    alert("Die Seite wurde gesperrt!");
+    location.reload();
+}
+
 // Excel-Daten laden
 function loadExcelData() {
+    document.getElementById("loadingSpinner").style.display = "block";
+
     fetch("./Mitarbeiter.xlsx")
         .then(response => response.arrayBuffer())
         .then(data => {
             const workbook = XLSX.read(data, { type: "array" });
             const sheet = workbook.Sheets["Sheet1"];
             people = XLSX.utils.sheet_to_json(sheet);
+        })
+        .finally(() => {
+            document.getElementById("loadingSpinner").style.display = "none";
         });
 }
 
 // Suchfunktion
-document.getElementById("searchButton").addEventListener("click", () => {
+function performSearch() {
     const searchInput = document.getElementById("searchInput").value.toLowerCase();
     const results = document.getElementById("results");
     results.innerHTML = "";
@@ -50,7 +62,7 @@ document.getElementById("searchButton").addEventListener("click", () => {
         `;
         results.appendChild(card);
     });
-});
+}
 
 // Bild-Popup Funktionen
 function openImagePopup(imageSrc) {
@@ -61,7 +73,3 @@ function openImagePopup(imageSrc) {
 function closeImagePopup() {
     document.getElementById("imagePopup").style.display = "none";
 }
-
-// Initialisierung
-checkPassword();
-loadExcelData();
