@@ -16,10 +16,10 @@
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body onload="checkPassword(); loadExcelData();">
 
     <!-- Ladeanzeige -->
-    <div id="loadingSpinner">
+    <div id="loadingSpinner" class="hidden">
         <p>Laden...</p>
     </div>
 
@@ -46,8 +46,8 @@
                 <option value="assistant">Duty Manager Assistent</option>
                 <option value="manager">Duty Manager</option>
             </select>
-            <button id="searchButton" disabled>Suchen</button>
-            <button id="lockButton" class="lock-button">Sperren</button>
+            <button id="searchButton" disabled onclick="performSearch()">Suchen</button>
+            <button id="lockButton" class="lock-button" onclick="lockApp()">Sperren</button>
         </div>
 
         <!-- Suchergebnisse -->
