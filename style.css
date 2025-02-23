@@ -1,15 +1,15 @@
 /* Allgemeines Styling */
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: #f4f4f4;
+    background: #f4f4f4; /* Leichtes Grau fÃ¼r modernes Design */
     color: #333;
     display: flex;
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
-    overflow-x: hidden;
+    overflow-x: hidden; /* Entfernt horizontales Scrollen */
 }
 
 /* Container */
@@ -24,6 +24,108 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Logo */
+.logo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.logo {
+    width: 120px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Titel */
+h1 {
+    font-size: 26px;
+    color: #d41e24; /* Swissport Rot */
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.app-title {
+    text-decoration: none;
+    color: #d41e24;
+    transition: color 0.3s ease;
+}
+
+.app-title:hover {
+    color: #007bff;
+}
+
+/* Such- und Filterbereich */
+.search-bar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: white;
+    padding: 15px;
+    border-bottom: 3px solid #007bff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+}
+
+/* Eingabefelder */
+.search-bar input, .search-bar select {
+    width: calc(100% - 20px);
+    max-width: 350px;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    display: block;
+    background: white;
+    transition: border-color 0.3s;
+}
+
+.search-bar input:focus, .search-bar select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Buttons */
+.search-bar button {
+    width: calc(100% - 20px);
+    max-width: 350px;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.search-bar button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.search-bar button:hover:enabled {
+    background: #0056b3;
+}
+
+/* Suchbutton */
+#searchButton {
+    background: #007bff;
+    color: white;
+}
+
+/* Sperr-Button */
+.lock-button {
+    background: #d41e24; /* Swissport Rot */
+    color: white;
+}
+
+.lock-button:hover {
+    background: #b31b1f;
+}
+
 /* Suchergebnisse */
 #results {
     margin-top: 20px;
@@ -31,42 +133,71 @@ body {
 
 /* Ergebnis-Karten */
 .result-card {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+    text-align: center;
     padding: 15px;
+    border: 2px solid #d41e24;
     border-radius: 10px;
+    margin-bottom: 15px;
     background: white;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+/* Profilbilder */
 .result-card img {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    border-radius: 50%;
+    width: auto;
+    height: auto;
+    max-width: 250px;
+    max-height: 250px;
+    border-radius: 10px;
+    margin-bottom: 10px;
     border: 2px solid #007bff;
 }
 
-.result-card p {
-    font-size: 14px;
-    margin: 0;
+/* Ergebnis-Titel */
+.result-card h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 5px 0;
 }
 
-/* Mobile-Optimierung */
+/* Ergebnis-Daten */
+.result-card p {
+    font-size: 14px;
+    margin: 5px 0;
+    color: #333;
+}
+
+.result-card p span {
+    font-weight: bold;
+}
+
+/* Ladeanzeige */
+#loadingSpinner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+    font-weight: bold;
+    color: #007bff;
+    text-align: center;
+    z-index: 1000;
+}
+
+/* ðŸ”¹ RESPONSIVE DESIGN ðŸ”¹ */
 @media (max-width: 768px) {
     .container {
         width: 95%;
     }
 
-    .result-card {
-        flex-direction: column;
-        text-align: center;
+    .search-bar {
+        width: 100%;
     }
 
-    .result-card img {
-        width: 100px;
-        height: 100px;
+    .search-bar input, .search-bar select, .search-bar button {
+        width: 100%;
     }
 }
