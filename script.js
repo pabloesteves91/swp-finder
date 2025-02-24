@@ -120,7 +120,7 @@ document.getElementById("searchButton").addEventListener("click", () => {
         const card = document.createElement("div");
         card.className = "result-card";
         card.innerHTML = `
-            <img src="${person.photo}" alt="${person.firstName}" onerror="this.src='Fotos/default.JPG';">
+            <img src="${person.photo}" alt="${person.firstName}" class="clickable-img" onerror="this.src='Fotos/default.JPG';">
             <h2>${person.firstName} ${person.lastName}</h2>
             <p><span>Personalnummer:</span> ${person.personalCode}</p>
             ${person.shortCode ? `<p><span>Kürzel:</span> ${person.shortCode}</p>` : ""}
@@ -128,6 +128,8 @@ document.getElementById("searchButton").addEventListener("click", () => {
         `;
         results.appendChild(card);
     });
+
+    activateImageModal(); // Nach jedem Suchvorgang sicherstellen, dass die Bilder klickbar sind
 });
 
 // Sperr-Button
@@ -136,36 +138,44 @@ document.getElementById("lockButton").addEventListener("click", lockApp);
 // Excel-Daten beim Start laden
 loadExcelData();
 
-document.addEventListener("DOMContentLoaded", function () {
-    const images = document.querySelectorAll(".result-card img"); // Alle Bilder in Ergebniskarten
-    const modal = document.createElement("div");
-    modal.classList.add("modal");
+/* 🔹 Bildvergrößerung (Modal) 🔹 */
+function activateImageModal() {
+    const images = document.querySelectorAll(".clickable-img");
+    let modal = document.querySelector(".modal");
 
-    const modalImg = document.createElement("img");
-    modalImg.classList.add("modal-content");
+    if (!modal) {
+        modal = document.createElement("div");
+        modal.classList.add("modal");
 
-    const closeButton = document.createElement("button");
-    closeButton.innerHTML = "✖";
-    closeButton.classList.add("close-button");
+        const modalImg = document.createElement("img");
+        modalImg.classList.add("modal-content");
 
-    modal.appendChild(modalImg);
-    modal.appendChild(closeButton);
-    document.body.appendChild(modal);
+        const closeButton = document.createElement("button");
+        closeButton.innerHTML = "✖";
+        closeButton.classList.add("close-button");
 
-    images.forEach((img) => {
+        modal.appendChild(modalImg);
+        modal.appendChild(closeButton);
+        document.body.appendChild(modal);
+
+        closeButton.addEventListener("click", function () {
+            modal.style.display = "none";
+        });
+
+        modal.addEventListener("click", function (e) {
+            if (e.target !== modalImg) {
+                modal.style.display = "none";
+            }
+        });
+    }
+
+    images.forEach(img => {
         img.addEventListener("click", function () {
             modal.style.display = "flex";
-            modalImg.src = this.src;
+            modal.querySelector(".modal-content").src = this.src;
         });
     });
+}
 
-    closeButton.addEventListener("click", function () {
-        modal.style.display = "none";
-    });
-
-    modal.addEventListener("click", function (e) {
-        if (e.target !== modalImg) {
-            modal.style.display = "none";
-        }
-    });
-});
+// Modal-Funktion initial aufrufen
+activateImageModal();
