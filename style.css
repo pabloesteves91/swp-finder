@@ -59,29 +59,29 @@ h1 {
 /* Such- und Filterbereich */
 .search-bar {
     display: flex;
-    flex-direction: column; /* Elemente untereinander */
-    align-items: center; /* Zentriert horizontal */
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
     text-align: center;
     background: white;
     padding: 15px;
     border-bottom: 3px solid #007bff;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    width: fit-content; /* Passt sich dem Inhalt an */
-    margin: 0 auto; /* Zentriert die Leiste */
-    gap: 10px; /* Abstand zwischen den Elementen */
+    width: fit-content;
+    margin: 0 auto;
+    gap: 10px;
 }
 
 /* Eingabefelder */
 .search-bar input, .search-bar select {
-    width: 300px; /* Fixe Breite */
+    width: 300px;
     padding: 12px;
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 8px;
     background: white;
     transition: border-color 0.3s;
-    text-align: center; /* Text in der Mitte */
+    text-align: center;
 }
 
 .search-bar input:focus, .search-bar select:focus {
@@ -91,7 +91,7 @@ h1 {
 
 /* Buttons */
 .search-bar button {
-    width: 300px; /* Gleiche Breite wie Eingabefelder */
+    width: 300px;
     padding: 12px;
     font-size: 16px;
     border: none;
@@ -118,7 +118,7 @@ h1 {
 
 /* Sperr-Button */
 .lock-button {
-    background: #d41e24; /* Swissport Rot */
+    background: #d41e24;
     color: white;
 }
 
@@ -131,66 +131,20 @@ h1 {
     margin-top: 20px;
 }
 
-/* Ergebnis-Karten */
-.result-card {
-    text-align: center;
-    padding: 15px;
-    border: 2px solid #d41e24;
-    border-radius: 10px;
-    margin-bottom: 15px;
-    background: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* Profilbilder */
+/* 🔹 Mitarbeiterbilder in hoher Qualität 🔹 */
 .result-card img {
-    width: auto;
-    height: auto;
-    max-width: 250px;
-    max-height: 250px;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
     border-radius: 10px;
     margin-bottom: 10px;
     border: 2px solid #007bff;
-    cursor: pointer; /* Damit ersichtlich ist, dass es klickbar ist */
-}
-
-/* Ergebnis-Titel */
-.result-card h2 {
-    font-size: 18px;
-    font-weight: bold;
-    margin: 5px 0;
-}
-
-/* Ergebnis-Daten */
-.result-card p {
-    font-size: 14px;
-    margin: 5px 0;
-    color: #333;
-}
-
-.result-card p span {
-    font-weight: bold;
-}
-
-/* Ladeanzeige */
-#loadingSpinner {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 18px;
-    font-weight: bold;
-    color: #007bff;
-    text-align: center;
-    z-index: 1000;
+    cursor: pointer;
 }
 
 /* 🔹 Bildvergrößerung (Modal) 🔹 */
 .modal {
-    display: none; /* Standardmäßig versteckt */
+    display: none;
     position: fixed;
     z-index: 1000;
     left: 0;
@@ -203,8 +157,8 @@ h1 {
 }
 
 .modal-content {
-    max-width: 90%;
-    max-height: 90%;
+    max-width: 200%;
+    max-height: 200%;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
 }
@@ -216,11 +170,15 @@ h1 {
     right: 20px;
     font-size: 30px;
     font-weight: bold;
-    color: white;
+    color: #d41e24; /* Swissport Rot */
     cursor: pointer;
     background: none;
     border: none;
     outline: none;
+}
+
+.close-button:hover {
+    color: #b31b1f; /* Dunkleres Rot beim Hover */
 }
 
 /* 🔹 RESPONSIVE DESIGN 🔹 */
@@ -230,7 +188,7 @@ h1 {
     }
 
     .search-bar {
-        width: fit-content; /* Passt sich an */
+        width: fit-content;
     }
 
     .search-bar input, .search-bar select, .search-bar button {
