@@ -1,76 +1,198 @@
-/* 🔹 Allgemeine Anpassungen für eine größere Darstellung 🔹 */
+/* Allgemeines Styling */
 body {
-    font-size: 18px; /* Größere Schrift */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f4f4f4; /* Leichtes Grau für modernes Design */
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden; /* Entfernt horizontales Scrollen */
 }
 
+/* Container */
 .container {
-    max-width: 800px; /* Größere maximale Breite */
-    padding: 30px; /* Mehr Innenabstand für bessere Darstellung */
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* 🔹 Swissport-Logo größer, aber nicht zu groß 🔹 */
+/* Logo */
+.logo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
 .logo {
-    width: 180px; /* Moderate Vergrößerung */
-    max-width: 100%; /* Damit es sich auf kleineren Bildschirmen anpasst */
-    margin-bottom: 15px; /* Mehr Abstand nach unten */
+    width: 120px;
+    height: auto;
+    object-fit: contain;
 }
 
-/* Titel größer */
+/* Titel */
 h1 {
-    font-size: 32px; /* Größerer Titel */
-    margin-bottom: 20px;
+    font-size: 26px;
+    color: #d41e24; /* Swissport Rot */
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 15px;
 }
 
-/* Such- und Filterbereich größer */
+.app-title {
+    text-decoration: none;
+    color: #d41e24;
+    transition: color 0.3s ease;
+}
+
+.app-title:hover {
+    color: #007bff;
+}
+
+/* Such- und Filterbereich */
 .search-bar {
-    width: 100%; /* Breiter */
-    padding: 20px; /* Mehr Padding */
-    font-size: 20px; /* Größere Schrift */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: white;
+    padding: 15px;
+    border-bottom: 3px solid #007bff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    width: fit-content;
+    margin: 0 auto;
+    gap: 10px;
 }
 
-/* Eingabefelder größer */
+/* Eingabefelder */
 .search-bar input, .search-bar select {
-    width: 350px; /* Größer */
-    padding: 15px;
-    font-size: 18px;
+    width: 300px;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: white;
+    transition: border-color 0.3s;
+    text-align: center;
 }
 
-/* Buttons größer */
+.search-bar input:focus, .search-bar select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Buttons */
 .search-bar button {
-    width: 350px;
-    padding: 15px;
-    font-size: 18px;
+    width: 300px;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
 }
 
-/* Suchergebnisse größer darstellen */
-.result-card {
-    width: 90%; /* Breiter */
-    padding: 20px; /* Mehr Innenabstand */
-    font-size: 20px; /* Größere Schrift */
+.search-bar button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
 }
 
-/* Name größer */
-.result-card h2 {
-    font-size: 24px;
+.search-bar button:hover:enabled {
+    background: #0056b3;
 }
 
-/* Text der Ergebnisse vergrößern */
-.result-card p {
-    font-size: 18px;
+/* Suchbutton */
+#searchButton {
+    background: #007bff;
+    color: white;
 }
 
-/* 🔹 RESPONSIVE DESIGN für größere Darstellung auch mobil 🔹 */
+/* Sperr-Button */
+.lock-button {
+    background: #d41e24;
+    color: white;
+}
+
+.lock-button:hover {
+    background: #b31b1f;
+}
+
+/* Suchergebnisse */
+#results {
+    margin-top: 20px;
+}
+
+/* 🔹 Mitarbeiterbilder in hoher Qualität 🔹 */
+.result-card img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    border: 2px solid #007bff;
+    cursor: pointer;
+}
+
+/* 🔹 Bildvergrößerung (Modal) 🔹 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    max-width: 200%;
+    max-height: 200%;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+}
+
+/* Schließen-Button */
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #d41e24; /* Swissport Rot */
+    cursor: pointer;
+    background: none;
+    border: none;
+    outline: none;
+}
+
+.close-button:hover {
+    color: #b31b1f; /* Dunkleres Rot beim Hover */
+}
+
+/* 🔹 RESPONSIVE DESIGN 🔹 */
 @media (max-width: 768px) {
     .container {
-        width: 100%;
-        padding: 25px;
+        width: 95%;
+    }
+
+    .search-bar {
+        width: fit-content;
     }
 
     .search-bar input, .search-bar select, .search-bar button {
-        width: 90%;
-    }
-
-    .result-card {
-        width: 95%;
+        width: 100%;
+        max-width: 300px;
     }
 }
