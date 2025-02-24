@@ -154,6 +154,7 @@ h1 {
     border-radius: 10px;
     margin-bottom: 10px;
     border: 2px solid #007bff;
+    cursor: pointer; /* Damit ersichtlich ist, dass es klickbar ist */
 }
 
 /* Ergebnis-Titel */
@@ -185,22 +186,6 @@ h1 {
     color: #007bff;
     text-align: center;
     z-index: 1000;
-}
-
-/* 🔹 RESPONSIVE DESIGN 🔹 */
-@media (max-width: 768px) {
-    .container {
-        width: 95%;
-    }
-
-    .search-bar {
-        width: fit-content; /* Passt sich an */
-    }
-
-    .search-bar input, .search-bar select, .search-bar button {
-        width: 100%;
-        max-width: 300px;
-    }
 }
 
 /* 🔹 Bildvergrößerung (Modal) 🔹 */
@@ -236,4 +221,20 @@ h1 {
     background: none;
     border: none;
     outline: none;
+}
+
+/* 🔹 RESPONSIVE DESIGN 🔹 */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    .search-bar {
+        width: fit-content; /* Passt sich an */
+    }
+
+    .search-bar input, .search-bar select, .search-bar button {
+        width: 100%;
+        max-width: 300px;
+    }
 }
