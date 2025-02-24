@@ -135,3 +135,37 @@ document.getElementById("lockButton").addEventListener("click", lockApp);
 
 // Excel-Daten beim Start laden
 loadExcelData();
+
+document.addEventListener("DOMContentLoaded", function () {
+    const images = document.querySelectorAll(".result-card img"); // Alle Bilder in Ergebniskarten
+    const modal = document.createElement("div");
+    modal.classList.add("modal");
+
+    const modalImg = document.createElement("img");
+    modalImg.classList.add("modal-content");
+
+    const closeButton = document.createElement("button");
+    closeButton.innerHTML = "✖";
+    closeButton.classList.add("close-button");
+
+    modal.appendChild(modalImg);
+    modal.appendChild(closeButton);
+    document.body.appendChild(modal);
+
+    images.forEach((img) => {
+        img.addEventListener("click", function () {
+            modal.style.display = "flex";
+            modalImg.src = this.src;
+        });
+    });
+
+    closeButton.addEventListener("click", function () {
+        modal.style.display = "none";
+    });
+
+    modal.addEventListener("click", function (e) {
+        if (e.target !== modalImg) {
+            modal.style.display = "none";
+        }
+    });
+});
