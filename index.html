@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,39 +12,54 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="loginContainer">
         <!-- Swissport-Logo -->
         <div class="logo-container">
             <img src="swissport-logo.png" alt="Swissport Logo" class="logo">
         </div>
 
         <!-- Titel -->
-        <h1>
-            <a href="#" id="resetButton" class="app-title">SWP FINDER</a>
-        </h1>
+        <h1 class="app-title">Willkommen im SWP FINDER</h1>
+        
+        <!-- Login-Feld -->
+        <div class="login-box">
+            <input type="password" id="personalCodeInput" placeholder="🔑 Personalnummer eingeben" autofocus>
+            <button id="loginButton">Anmelden</button>
+        </div>
+        
+        <p id="errorMessage" class="error-message" style="display: none;">❌ Falsche Personalnummer. Bitte erneut versuchen.</p>
+    </div>
+    
+    <div class="container" id="mainContainer" style="display: none;">
+        <!-- Swissport-Logo -->
+        <div class="logo-container">
+            <img src="swissport-logo.png" alt="Swissport Logo" class="logo">
+        </div>
 
+        <!-- Titel -->
+        <h1>SWP FINDER</h1>
+        
         <!-- Such- und Filterbereich -->
         <div class="search-bar">
-            <input type="text" id="searchInput" placeholder="Personalnummer, Kürzel, Vorname oder Nachname eingeben...">
+            <input type="text" id="searchInput" placeholder="🔍 Suche nach Personalnummer, Name oder Kürzel">
             <select id="filter">
                 <option value="all">Alle</option>
                 <option value="supervisor">Supervisor</option>
                 <option value="arrival">Supervisor Arrival</option>
                 <option value="employee">Betriebsarbeiter</option>
-                <option value="assistant">Duty Manager Assistent</option>
+                <option value="assistant">Duty Manager Assistant</option>
                 <option value="manager">Duty Manager</option>
+                <option value="team_manager">Team Manager</option>
             </select>
             <button id="searchButton" disabled>Suchen</button>
-            <button id="lockButton" class="lock-button">Sperren</button>
+            <button id="lockButton" class="lock-button">Abmelden</button>
         </div>
 
         <!-- Suchergebnisse -->
         <div id="results"></div>
     </div>
 
-    <!-- SheetJS-Bibliothek -->
-    <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
-    <!-- Hauptscript -->
+    <!-- Script -->
     <script src="script.js"></script>
 </body>
 </html>
