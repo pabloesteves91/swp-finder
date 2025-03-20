@@ -1,6 +1,6 @@
-let employees = []; // Hier werden die Mitarbeiterdaten gespeichert
+let people = []; // Daten aus der Excel-Datei werden hier gespeichert
 
-// Excel-Daten laden (angepasst aus altem Script.js)
+// Excel-Daten laden (zurück zum alten Code)
 function loadExcelData() {
     const excelFilePath = "./Mitarbeiter.xlsx";
 
@@ -13,18 +13,23 @@ function loadExcelData() {
         })
         .then(data => {
             const workbook = XLSX.read(data, { type: "array" });
-            const sheet = workbook.Sheets[workbook.SheetNames[0]]; // Erstes Sheet laden
+            if (!workbook.SheetNames.includes("Sheet1")) {
+                alert("Die Excel-Datei muss ein Tabellenblatt mit dem Namen 'Sheet1' enthalten.");
+                return;
+            }
+            const sheet = workbook.Sheets["Sheet1"];
             const jsonData = XLSX.utils.sheet_to_json(sheet);
 
-            employees = jsonData.map(row => ({
-                personalCode: row["Personalnummer"] ? row["Personalnummer"].toString() : "",
+            people = jsonData.map(row => ({
+                personalCode: row["Personalnummer"] ? row["Personalnummer"].toString() : null,
                 firstName: row["Vorname"] || "",
                 lastName: row["Nachname"] || "",
                 shortCode: row["Kürzel"] || null,
                 position: row["Position"] || "",
                 photo: `Fotos/${row["Vorname"]}_${row["Nachname"]}.jpg`
-            }));
-            console.log("Excel-Daten erfolgreich geladen:", employees);
+            })).filter(emp => emp.personalCode !== null); // Entfernt ungültige Einträge
+
+            console.log("Excel-Daten erfolgreich geladen:", people);
         })
         .catch(error => {
             console.error("Fehler beim Laden der Excel-Datei:", error);
@@ -32,10 +37,10 @@ function loadExcelData() {
         });
 }
 
-// Login-Funktion
+// Login-Funktion mit Personalnummer als Passwort
 function login() {
     const enteredCode = document.getElementById("personalCodeInput").value;
-    const employee = employees.find(emp => emp.personalCode === enteredCode);
+    const employee = people.find(emp => emp.personalCode === enteredCode);
 
     if (employee) {
         sessionStorage.setItem("authenticated", "true");
@@ -62,46 +67,5 @@ function logout() {
 }
 document.getElementById("lockButton").addEventListener("click", logout);
 
-// Suche und Filter
-function searchEmployees() {
-    const searchInput = document.getElementById("searchInput").value.toLowerCase();
-    const filter = document.getElementById("filter").value;
-    const results = document.getElementById("results");
-    results.innerHTML = "";
-
-    const filteredEmployees = employees.filter(emp => {
-        const matchesPersonalCode = emp.personalCode.toLowerCase().includes(searchInput);
-        const matchesShortCode = emp.shortCode?.toLowerCase().includes(searchInput);
-        const matchesFirstName = emp.firstName.toLowerCase().includes(searchInput);
-        const matchesLastName = emp.lastName.toLowerCase().includes(searchInput);
-        const matchesFilter = filter === "all" || emp.position.toLowerCase() === filter.replace("_", " ").toLowerCase();
-
-        return (matchesPersonalCode || matchesShortCode || matchesFirstName || matchesLastName) && matchesFilter;
-    });
-
-    if (filteredEmployees.length === 0) {
-        results.innerHTML = "<p>Keine Ergebnisse gefunden.</p>";
-        return;
-    }
-
-    filteredEmployees.forEach(person => {
-        const card = document.createElement("div");
-        card.className = "result-card";
-        card.innerHTML = `
-            <img src="${person.photo}" alt="${person.firstName}" class="clickable-img" width="100" height="100" onerror="this.src='Fotos/default.JPG';">
-            <h2>${person.firstName} ${person.lastName}</h2>
-            <p><span>Personalnummer:</span> ${person.personalCode}</p>
-            ${person.shortCode ? `<p><span>Kürzel:</span> ${person.shortCode}</p>` : ""}
-            <p><span>Position:</span> ${person.position}</p>
-        `;
-        results.appendChild(card);
-    });
-}
-
-document.getElementById("searchButton").addEventListener("click", searchEmployees);
-document.getElementById("searchInput").addEventListener("input", () => {
-    document.getElementById("searchButton").disabled = document.getElementById("searchInput").value.trim() === "";
-});
-
-// Initialisiere Daten
+// Initialisiere Excel-Daten beim Start
 loadExcelData();
