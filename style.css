@@ -11,6 +11,14 @@ body {
     min-height: 100vh;
 }
 
+.logged-in-header {
+    text-align: left;
+    font-size: 14px;
+    color: gray;
+    padding: 10px 15px;
+    border-bottom: 1px solid #ccc;
+}
+
 /* Container */
 .container {
     text-align: center;
