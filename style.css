@@ -6,25 +6,11 @@ body {
     background: #ffffff;
     color: #333;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Vollständige Höhe des Viewports */
-    overflow: hidden; /* Verhindert das Scrollen der gesamten Seite */
-}
-
-/* Fixierte Container-Struktur */
-#mainContainer {
-    display: flex;
     flex-direction: column;
-    height: 100vh; /* Nimmt die volle Bildschirmhöhe */
-    width: 100%;
-    max-width: 600px;
-    padding: 20px;
-    box-sizing: border-box;
-    overflow: hidden; /* Verhindert das Scrollen des gesamten Containers */
+    align-items: center;
+    min-height: 100vh;
 }
 
-/* Eingeloggter Nutzer oben fixiert */
 .logged-in-header {
     text-align: left;
     font-size: 14px;
@@ -38,6 +24,8 @@ body {
     text-align: center;
     width: 100%;
     max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
     background: white;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -47,11 +35,11 @@ body {
 .logo-container {
     display: flex;
     justify-content: center;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .logo {
-    width: 200px;
+    width: 250px;
     height: auto;
     object-fit: contain;
 }
@@ -62,30 +50,66 @@ h1 {
     color: #d41e24;
     text-transform: uppercase;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
-/* Fixierte Suchleiste */
+/* Login-Box */
+.login-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+}
+
+.login-box input {
+    width: 90%;
+    padding: 15px;
+    font-size: 22px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.login-box button {
+    width: 90%;
+    padding: 15px;
+    font-size: 22px;
+    background: #d41e24;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.login-box button:hover {
+    background: #b31b1f;
+}
+
+.error-message {
+    color: red;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+/* Such- und Button-Bereich */
 .search-bar {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
     width: 100%;
     background: white;
-    padding: 15px;
+    padding: 20px;
     border-bottom: 4px solid #d41e24;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 0;
-    z-index: 10;
 }
 
-/* Suchfeld & Buttons */
 .search-bar input {
     width: 90%;
     padding: 15px;
-    font-size: 18px;
+    font-size: 22px;
     border: 2px solid #ccc;
     border-radius: 8px;
     text-align: center;
@@ -94,7 +118,7 @@ h1 {
 .search-bar button {
     width: 90%;
     padding: 15px;
-    font-size: 18px;
+    font-size: 22px;
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -121,16 +145,11 @@ h1 {
     background: #b31b1f;
 }
 
-/* 🔹 Der Bereich, der gescrollt werden kann */
+/* Suchergebnisse */
 #results {
-    flex-grow: 1;
-    overflow-y: auto; /* Nur hier ist Scrollen erlaubt */
-    margin-top: 10px;
-    max-height: calc(100vh - 200px); /* Dynamische Höhe */
-    padding-bottom: 10px;
+    margin-top: 20px;
 }
 
-/* Mitarbeiterkarten */
 .result-card {
     display: flex;
     align-items: center;
