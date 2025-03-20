@@ -2,7 +2,7 @@ let people = []; // Daten aus der Excel-Datei werden hier gespeichert
 
 // Excel-Daten laden
 function loadExcelData() {
-    fetch("Mitarbeiter.xlsx")
+    fetch("https://pablosteeves91.github.io/swp-finder/Mitarbeiter.xlsx")
         .then(response => response.blob())
         .then(blob => blob.arrayBuffer())
         .then(data => {
