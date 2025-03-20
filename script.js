@@ -25,7 +25,7 @@ function loadExcelData() {
                 firstName: row["Vorname"],
                 lastName: row["Nachname"],
                 shortCode: row["Kürzel"] || null,
-                position: row["Position"].trim(),
+                position: row["Position"],
                 photo: `Fotos/${row["Vorname"]}_${row["Nachname"]}.jpg`
             }));
 
@@ -72,7 +72,7 @@ document.getElementById("lockButton").addEventListener("click", logout);
 // Such- und Filterfunktion
 function searchEmployees() {
     const searchInput = document.getElementById("searchInput").value.toLowerCase();
-    const filter = document.getElementById("filter").value.toLowerCase();
+    const filter = document.getElementById("filter").value;
     const results = document.getElementById("results");
     results.innerHTML = "";
 
@@ -81,7 +81,7 @@ function searchEmployees() {
         const matchesShortCode = emp.shortCode?.toLowerCase().includes(searchInput);
         const matchesFirstName = emp.firstName.toLowerCase().includes(searchInput);
         const matchesLastName = emp.lastName.toLowerCase().includes(searchInput);
-        const matchesFilter = filter === "alle" || emp.position.toLowerCase() === filter;
+        const matchesFilter = filter === "all" || emp.position.toLowerCase() === filter.replace("_", " ").toLowerCase();
 
         return (matchesPersonalCode || matchesShortCode || matchesFirstName || matchesLastName) && matchesFilter;
     });
@@ -109,7 +109,6 @@ document.getElementById("searchButton").addEventListener("click", searchEmployee
 document.getElementById("searchInput").addEventListener("input", () => {
     document.getElementById("searchButton").disabled = document.getElementById("searchInput").value.trim() === "";
 });
-document.getElementById("filter").addEventListener("change", searchEmployees);
 
 // Initialisiere Excel-Daten beim Start
 loadExcelData();
