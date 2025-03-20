@@ -61,6 +61,28 @@ document.getElementById("personalCodeInput").addEventListener("keypress", functi
     if (event.key === "Enter") login();
 });
 
+// 🔹 Zeigt den aktuell eingeloggten Mitarbeiter oben links an
+function showLoggedInEmployee() {
+    const loggedInUser = JSON.parse(sessionStorage.getItem("loggedInUser"));
+    if (loggedInUser) {
+        const header = document.createElement("div");
+        header.className = "logged-in-header";
+        header.innerHTML = `<p>Eingeloggt als: <strong>${loggedInUser.firstName} ${loggedInUser.lastName} | ${loggedInUser.personalCode}</strong></p>`;
+        
+        // Oben im mainContainer einfügen
+        document.getElementById("mainContainer").prepend(header);
+    }
+}
+
+// Rufe die Funktion nach dem Login auf
+document.getElementById("loginButton").addEventListener("click", () => {
+    login();
+    showLoggedInEmployee();
+});
+
+// Falls der Benutzer bereits eingeloggt ist (nach Seiten-Neuladen)
+document.addEventListener("DOMContentLoaded", showLoggedInEmployee);
+
 // Logout-Funktion
 function logout() {
     sessionStorage.removeItem("authenticated");
