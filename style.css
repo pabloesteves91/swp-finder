@@ -18,13 +18,14 @@ body {
     color: gray;
     padding: 10px 15px;
     border-bottom: 1px solid #ccc;
+    width: 100%;
 }
 
 /* Container */
 .container {
     text-align: center;
-    width: 100%;
-    max-width: 600px;
+    width: 90%;
+    max-width: 450px;
     margin: 20px auto;
     padding: 20px;
     background: white;
@@ -43,14 +44,14 @@ body {
 }
 
 .logo {
-    width: 250px;
+    width: 200px;
     height: auto;
     object-fit: contain;
 }
 
 /* Titel */
 h1 {
-    font-size: 26px;
+    font-size: 24px;
     color: #d41e24;
     text-transform: uppercase;
     font-weight: bold;
@@ -68,8 +69,8 @@ h1 {
 
 .login-box input {
     width: 90%;
-    padding: 15px;
-    font-size: 22px;
+    padding: 12px;
+    font-size: 18px;
     border: 2px solid #ccc;
     border-radius: 8px;
     text-align: center;
@@ -77,8 +78,8 @@ h1 {
 
 .login-box button {
     width: 90%;
-    padding: 15px;
-    font-size: 22px;
+    padding: 12px;
+    font-size: 18px;
     background: #d41e24;
     color: white;
     border: none;
@@ -94,7 +95,7 @@ h1 {
 /* Fehlernachricht */
 .error-message {
     color: red;
-    font-size: 16px;
+    font-size: 14px;
     margin-top: 10px;
 }
 
@@ -102,20 +103,21 @@ h1 {
 .search-bar {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Zentriert den Inhalt */
+    align-items: center;
     justify-content: center;
     width: 100%;
     background: white;
-    padding: 20px;
+    padding: 15px;
     border-bottom: 4px solid #d41e24;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    gap: 10px; /* Abstand zwischen Suchfeld, Button & Abmeldebutton */
 }
 
 /* Suchfeld */
 .search-bar input {
     width: 90%;
-    padding: 15px;
-    font-size: 22px;
+    padding: 12px;
+    font-size: 18px;
     border: 2px solid #ccc;
     border-radius: 8px;
     text-align: center;
@@ -124,14 +126,14 @@ h1 {
 /* Buttons */
 .search-bar button {
     width: 90%;
-    padding: 15px;
-    font-size: 22px;
+    padding: 12px;
+    font-size: 18px;
     border: none;
     border-radius: 8px;
     cursor: pointer;
     transition: background 0.3s;
     text-align: center;
-    margin: 0 auto; /* Zentriert die Buttons */
+    margin-top: 5px; /* Abstand zwischen den Buttons */
 }
 
 #searchButton {
@@ -155,7 +157,7 @@ h1 {
 
 /* Suchergebnisse */
 #results {
-    width: 100%; /* Zentriert Ergebnisse */
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -168,14 +170,14 @@ h1 {
     display: flex;
     align-items: center;
     background: white;
-    padding: 15px;
+    padding: 12px;
     margin-bottom: 10px;
     border-radius: 10px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s;
     text-align: left;
     width: 90%;
-    max-width: 500px;
+    max-width: 400px;
 }
 
 .result-card:hover {
@@ -183,11 +185,11 @@ h1 {
 }
 
 .result-card img {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     border: 2px solid #d41e24;
-    margin-right: 15px;
+    margin-right: 10px;
 }
 
 /* Inhalt der Karten */
@@ -198,14 +200,14 @@ h1 {
 }
 
 .result-info h2 {
-    font-size: 18px;
+    font-size: 16px;
     margin: 0;
     color: #000;
 }
 
 .result-info p {
     margin: 0;
-    font-size: 14px;
+    font-size: 13px;
     color: #000;
 }
 
@@ -216,7 +218,7 @@ h1 {
 .result-info .position {
     font-weight: bold;
     color: #000;
-    font-size: 14px;
+    font-size: 13px;
 }
 
 /* Responsive Design */
