@@ -1,6 +1,6 @@
 let people = []; // Daten aus der Excel-Datei werden hier gespeichert
 
-// Excel-Daten laden (zurück zum alten Code)
+// Excel-Daten laden
 function loadExcelData() {
     const excelFilePath = "./Mitarbeiter.xlsx";
 
@@ -13,21 +13,23 @@ function loadExcelData() {
         })
         .then(data => {
             const workbook = XLSX.read(data, { type: "array" });
+
             if (!workbook.SheetNames.includes("Sheet1")) {
                 alert("Die Excel-Datei muss ein Tabellenblatt mit dem Namen 'Sheet1' enthalten.");
                 return;
             }
+
             const sheet = workbook.Sheets["Sheet1"];
             const jsonData = XLSX.utils.sheet_to_json(sheet);
 
             people = jsonData.map(row => ({
-                personalCode: row["Personalnummer"] ? row["Personalnummer"].toString() : null,
-                firstName: row["Vorname"] || "",
-                lastName: row["Nachname"] || "",
+                personalCode: row["Personalnummer"].toString(),
+                firstName: row["Vorname"],
+                lastName: row["Nachname"],
                 shortCode: row["Kürzel"] || null,
-                position: row["Position"] || "",
+                position: row["Position"],
                 photo: `Fotos/${row["Vorname"]}_${row["Nachname"]}.jpg`
-            })).filter(emp => emp.personalCode !== null); // Entfernt ungültige Einträge
+            }));
 
             console.log("Excel-Daten erfolgreich geladen:", people);
         })
