@@ -20,6 +20,13 @@ body {
     text-align: center;
 }
 
+/* Login */
+.error-message {
+    display: none;
+    color: red;
+    font-size: 14px;
+}
+
 /* Eingeloggt als */
 .user-info {
     font-size: 14px;
@@ -48,15 +55,18 @@ body {
 
 /* Suchfeld */
 .search-container {
+    display: flex;
+    justify-content: center;
     margin: 15px 0;
 }
 
 .search-container input {
-    width: 100%;
+    width: 80%;
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 8px;
+    text-align: center;
 }
 
 /* Filter */
@@ -65,7 +75,7 @@ body {
 }
 
 .filter-container select {
-    width: 100%;
+    width: 80%;
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
@@ -105,4 +115,16 @@ body {
     font-size: 14px;
     margin: 2px 0;
     color: #555;
+}
+
+/* Abmelden-Button */
+.logout-button {
+    margin-top: 20px;
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
 }
