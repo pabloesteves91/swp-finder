@@ -25,7 +25,7 @@ function loadExcelData() {
                 firstName: row["Vorname"],
                 lastName: row["Nachname"],
                 shortCode: row["Kürzel"] || null,
-                position: row["Position"],
+                position: row["Position"].trim(),
                 photo: `Fotos/${row["Vorname"]}_${row["Nachname"]}.jpg`
             }));
 
@@ -72,7 +72,7 @@ document.getElementById("lockButton").addEventListener("click", logout);
 // Such- und Filterfunktion
 function searchEmployees() {
     const searchInput = document.getElementById("searchInput").value.toLowerCase();
-    const filter = document.getElementById("filter").value;
+    const filter = document.getElementById("filter").value.toLowerCase();
     const results = document.getElementById("results");
     results.innerHTML = "";
 
@@ -81,7 +81,7 @@ function searchEmployees() {
         const matchesShortCode = emp.shortCode?.toLowerCase().includes(searchInput);
         const matchesFirstName = emp.firstName.toLowerCase().includes(searchInput);
         const matchesLastName = emp.lastName.toLowerCase().includes(searchInput);
-        const matchesFilter = filter === "all" || emp.position.toLowerCase() === filter.replace("_", " ").toLowerCase();
+        const matchesFilter = filter === "alle" || emp.position.toLowerCase() === filter;
 
         return (matchesPersonalCode || matchesShortCode || matchesFirstName || matchesLastName) && matchesFilter;
     });
@@ -109,42 +109,7 @@ document.getElementById("searchButton").addEventListener("click", searchEmployee
 document.getElementById("searchInput").addEventListener("input", () => {
     document.getElementById("searchButton").disabled = document.getElementById("searchInput").value.trim() === "";
 });
-
-// Bildanzeige in Modal
-function openImageModal(imageSrc) {
-    let modal = document.getElementById("imageModal");
-    let modalImg = document.getElementById("modalImage");
-    
-    modal.style.display = "flex";
-    modalImg.src = imageSrc;
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-    let modal = document.createElement("div");
-    modal.id = "imageModal";
-    modal.style.display = "none";
-    modal.style.position = "fixed";
-    modal.style.zIndex = "1000";
-    modal.style.left = "0";
-    modal.style.top = "0";
-    modal.style.width = "100%";
-    modal.style.height = "100%";
-    modal.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
-    modal.style.alignItems = "center";
-    modal.style.justifyContent = "center";
-
-    let modalImg = document.createElement("img");
-    modalImg.id = "modalImage";
-    modalImg.style.maxWidth = "90%";
-    modalImg.style.maxHeight = "90%";
-    modal.appendChild(modalImg);
-    
-    modal.addEventListener("click", () => {
-        modal.style.display = "none";
-    });
-
-    document.body.appendChild(modal);
-});
+document.getElementById("filter").addEventListener("change", searchEmployees);
 
 // Initialisiere Excel-Daten beim Start
 loadExcelData();
