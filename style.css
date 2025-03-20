@@ -1,181 +1,108 @@
-/* Allgemeines Styling */
+/* Allgemeine Stile */
 body {
     font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-    background: #ffffff;
-    color: #333;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
     min-height: 100vh;
 }
 
-/* Container */
 .container {
-    text-align: center;
     width: 100%;
     max-width: 600px;
-    margin: 20px auto;
-    padding: 20px;
     background: white;
+    padding: 20px;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Eingeloggt als */
+.user-info {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
 }
 
 /* Logo */
 .logo-container {
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .logo {
-    width: 250px;
+    width: 150px;
     height: auto;
-    object-fit: contain;
 }
 
 /* Titel */
-h1 {
-    font-size: 26px;
+.app-title {
+    font-size: 24px;
     color: #d41e24;
-    text-transform: uppercase;
     font-weight: bold;
-    margin-bottom: 20px;
 }
 
-/* Login-Box */
-.login-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
+/* Suchfeld */
+.search-container {
+    margin: 15px 0;
 }
 
-.login-box input {
+.search-container input {
     width: 100%;
-    padding: 12px;
-    font-size: 18px;
-    border: 2px solid #ccc;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
     border-radius: 8px;
-    text-align: center;
 }
 
-.login-box button {
+/* Filter */
+.filter-container {
+    margin-bottom: 10px;
+}
+
+.filter-container select {
     width: 100%;
-    padding: 12px;
-    font-size: 18px;
-    background: #d41e24;
-    color: white;
-    border: none;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
     border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.login-box button:hover {
-    background: #b31b1f;
-}
-
-.error-message {
-    color: red;
-    font-size: 14px;
-    margin-top: 10px;
-}
-
-/* Such- und Filterbereich */
-.search-bar {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
     background: white;
-    padding: 15px;
-    border-bottom: 4px solid #d41e24;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-.search-bar input, .search-bar select {
-    width: 100%;
-    padding: 12px;
-    font-size: 18px;
-    border: 2px solid #ccc;
-    border-radius: 8px;
-    text-align: center;
-}
-
-.search-bar button {
-    width: 100%;
-    padding: 12px;
-    font-size: 18px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.3s;
-    text-align: center;
-}
-
-#searchButton {
-    background: #007bff;
-    color: white;
-}
-
-#searchButton:hover {
-    background: #0056b3;
-}
-
-/* Abmelde-Button */
-.lock-button {
-    background: #d41e24;
-    color: white;
-}
-
-.lock-button:hover {
-    background: #b31b1f;
-}
-
-/* Suchergebnisse */
-#results {
-    margin-top: 20px;
+/* Mitarbeiterliste */
+.employee-list {
+    margin-top: 10px;
 }
 
 .result-card {
     display: flex;
     align-items: center;
-    background: white;
-    padding: 15px;
+    background: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-bottom: 10px;
-    border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
-}
-
-.result-card:hover {
-    transform: scale(1.02);
 }
 
 .result-card img {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
-    border: 2px solid #d41e24;
-    margin-right: 15px;
+    border: 2px solid red;
+    margin-right: 10px;
 }
 
 .result-card h2 {
-    font-size: 20px;
+    font-size: 16px;
     margin: 0;
-    color: #333;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .container {
-        width: 95%;
-    }
-
-    .search-bar input, .search-bar select, .search-bar button {
-        max-width: 300px;
-    }
+.result-card p {
+    font-size: 14px;
+    margin: 2px 0;
+    color: #555;
 }
