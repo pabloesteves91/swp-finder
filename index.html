@@ -13,15 +13,12 @@
 </head>
 <body>
     <div class="container" id="loginContainer">
-        <!-- Swissport-Logo -->
         <div class="logo-container">
             <img src="swissport-logo.png" alt="Swissport Logo" class="logo">
         </div>
 
-        <!-- Titel -->
         <h1 class="app-title">Willkommen im SWP FINDER</h1>
         
-        <!-- Login-Feld -->
         <div class="login-box">
             <input type="password" id="personalCodeInput" placeholder="🔑 Personalnummer eingeben" autofocus>
             <button id="loginButton">Anmelden</button>
@@ -31,15 +28,12 @@
     </div>
     
     <div class="container" id="mainContainer" style="display: none;">
-        <!-- Swissport-Logo -->
         <div class="logo-container">
             <img src="swissport-logo.png" alt="Swissport Logo" class="logo">
         </div>
 
-        <!-- Titel -->
         <h1>SWP FINDER</h1>
         
-        <!-- Such- und Filterbereich -->
         <div class="search-bar">
             <input type="text" id="searchInput" placeholder="🔍 Suche nach Personalnummer, Name oder Kürzel">
             <select id="filter">
@@ -55,11 +49,9 @@
             <button id="lockButton" class="lock-button">Abmelden</button>
         </div>
 
-        <!-- Suchergebnisse -->
         <div id="results"></div>
     </div>
 
-    <!-- Script -->
     <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
     <script src="script.js"></script>
 </body>
