@@ -95,11 +95,13 @@ function searchEmployees() {
         const card = document.createElement("div");
         card.className = "result-card";
         card.innerHTML = `
-            <img src="${person.photo}" alt="${person.firstName}" class="clickable-img" width="100" height="100" onerror="this.src='Fotos/default.JPG';" onclick="openImageModal('${person.photo}')">
-            <h2>${person.firstName} ${person.lastName}</h2>
-            <p><span>Personalnummer:</span> ${person.personalCode}</p>
-            ${person.shortCode ? `<p><span>Kürzel:</span> ${person.shortCode}</p>` : ""}
-            <p><span>Position:</span> ${person.position}</p>
+            <img src="${person.photo}" alt="${person.firstName}" class="clickable-img" width="80" height="80" onerror="this.src='Fotos/default.JPG';">
+            <div class="result-info">
+                <h2>${person.firstName} ${person.lastName}</h2>
+                <p><span>Personalnummer:</span> ${person.personalCode}</p>
+                ${person.shortCode ? `<p><span>Kürzel:</span> ${person.shortCode}</p>` : ""}
+                <p class="position">${person.position}</p>
+            </div>
         `;
         results.appendChild(card);
     });
