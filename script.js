@@ -1,26 +1,30 @@
 let employees = []; // Hier werden die Mitarbeiterdaten gespeichert
 
-// Excel-Daten laden
+// Excel-Daten laden (angepasst aus altem Script.js)
 function loadExcelData() {
-    fetch("./Mitarbeiter.xlsx")
-        .then(response => response.arrayBuffer())
+    const excelFilePath = "./Mitarbeiter.xlsx";
+
+    fetch(excelFilePath)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Die Excel-Datei konnte nicht geladen werden.");
+            }
+            return response.arrayBuffer();
+        })
         .then(data => {
             const workbook = XLSX.read(data, { type: "array" });
-            if (!workbook.SheetNames.includes("Sheet1")) {
-                alert("Die Excel-Datei muss ein Tabellenblatt mit dem Namen 'Sheet1' enthalten.");
-                return;
-            }
-            const sheet = workbook.Sheets["Sheet1"];
+            const sheet = workbook.Sheets[workbook.SheetNames[0]]; // Erstes Sheet laden
             const jsonData = XLSX.utils.sheet_to_json(sheet);
 
             employees = jsonData.map(row => ({
-                personalCode: row["Personalnummer"].toString(),
-                firstName: row["Vorname"],
-                lastName: row["Nachname"],
+                personalCode: row["Personalnummer"] ? row["Personalnummer"].toString() : "",
+                firstName: row["Vorname"] || "",
+                lastName: row["Nachname"] || "",
                 shortCode: row["Kürzel"] || null,
-                position: row["Position"],
+                position: row["Position"] || "",
                 photo: `Fotos/${row["Vorname"]}_${row["Nachname"]}.jpg`
             }));
+            console.log("Excel-Daten erfolgreich geladen:", employees);
         })
         .catch(error => {
             console.error("Fehler beim Laden der Excel-Datei:", error);
