@@ -4,56 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SWP FINDER</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon-180x180.png">
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <!-- Login -->
-        <div id="loginContainer">
-            <h2>Login</h2>
-            <input type="text" id="personalCodeInput" placeholder="🔑 Personalnummer eingeben">
+    <div class="container" id="loginContainer">
+        <!-- Swissport-Logo -->
+        <div class="logo-container">
+            <img src="swissport-logo.png" alt="Swissport Logo" class="logo">
+        </div>
+
+        <!-- Titel -->
+        <h1 class="app-title">Willkommen im SWP FINDER</h1>
+        
+        <!-- Login-Feld -->
+        <div class="login-box">
+            <input type="password" id="personalCodeInput" placeholder="🔑 Personalnummer eingeben" autofocus>
             <button id="loginButton">Anmelden</button>
-            <p id="errorMessage" class="error-message">❌ Falsche Personalnummer. Bitte erneut versuchen.</p>
+        </div>
+        
+        <p id="errorMessage" class="error-message" style="display: none;">❌ Falsche Personalnummer. Bitte erneut versuchen.</p>
+    </div>
+    
+    <div class="container" id="mainContainer" style="display: none;">
+        <!-- Swissport-Logo -->
+        <div class="logo-container">
+            <img src="swissport-logo.png" alt="Swissport Logo" class="logo">
         </div>
 
-        <!-- Hauptansicht nach Login -->
-        <div id="mainContainer" style="display: none;">
-            <div id="loggedInUser" class="user-info"></div>
-
-            <!-- Logo -->
-            <div class="logo-container">
-                <img src="swissport-logo.png" alt="Swissport Logo" class="logo">
-            </div>
-
-            <!-- Titel -->
-            <h1 class="app-title">SWP FINDER</h1>
-
-            <!-- Suchfeld -->
-            <div class="search-container">
-                <input type="text" id="searchInput" placeholder="🔍 Suche nach Personalnummer, Name oder Kürzel">
-            </div>
-
-            <!-- Filter -->
-            <div class="filter-container">
-                <select id="filter">
-                    <option value="all">Alle</option>
-                    <option value="supervisor">Supervisor</option>
-                    <option value="arrival">Supervisor Arrival</option>
-                    <option value="employee">Betriebsarbeiter</option>
-                    <option value="assistant">Duty Manager Assistent</option>
-                    <option value="manager">Duty Manager</option>
-                    <option value="team_manager">Team Manager</option>
-                </select>
-            </div>
-
-            <!-- Mitarbeiterliste -->
-            <div id="results" class="employee-list"></div>
-
-            <button id="lockButton" class="logout-button">🔒 Abmelden</button>
+        <!-- Titel -->
+        <h1>SWP FINDER</h1>
+        
+        <!-- Such- und Filterbereich -->
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="🔍 Suche nach Personalnummer, Name oder Kürzel">
+            <select id="filter">
+                <option value="all">Alle</option>
+                <option value="supervisor">Supervisor</option>
+                <option value="arrival">Supervisor Arrival</option>
+                <option value="employee">Betriebsarbeiter</option>
+                <option value="assistant">Duty Manager Assistant</option>
+                <option value="manager">Duty Manager</option>
+                <option value="team_manager">Team Manager</option>
+            </select>
+            <button id="searchButton" disabled>Suchen</button>
+            <button id="lockButton" class="lock-button">Abmelden</button>
         </div>
+
+        <!-- Suchergebnisse -->
+        <div id="results"></div>
     </div>
 
+    <!-- Script -->
     <script src="script.js"></script>
 </body>
 </html>
