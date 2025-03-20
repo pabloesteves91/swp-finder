@@ -1,25 +1,40 @@
 let people = []; // Daten aus der Excel-Datei werden hier gespeichert
 
 // Excel-Daten laden
-function loadJsonData() {
-    fetch("https://pablosteeves91.github.io/swp-finder/Mitarbeiter.json")
-        .then(response => response.json())
-        .then(data => {
-            people = data.map(row => ({
-                personalCode: row["Personalnummer"] ? row["Personalnummer"].toString() : null,
-                firstName: row["Vorname"] || "",
-                lastName: row["Nachname"] || "",
-                shortCode: row["Kürzel"] || null,
-                position: row["Position"] || "",
-                photo: `Fotos/${row["Vorname"]}_${row["Nachname"]}.jpg`
-            })).filter(emp => emp.personalCode !== null);
+function loadExcelData() {
+    const excelFilePath = "./Mitarbeiter.xlsx";
 
-            console.log("JSON-Daten erfolgreich geladen:", people);
-            searchEmployees(); // Liste nach dem Laden anzeigen
+    fetch(excelFilePath)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Die Excel-Datei konnte nicht geladen werden.");
+            }
+            return response.arrayBuffer();
+        })
+        .then(data => {
+            const workbook = XLSX.read(data, { type: "array" });
+            if (!workbook.SheetNames.includes("Sheet1")) {
+                alert("Die Excel-Datei muss ein Tabellenblatt mit dem Namen 'Sheet1' enthalten.");
+                return;
+            }
+            const sheet = workbook.Sheets["Sheet1"];
+            const jsonData = XLSX.utils.sheet_to_json(sheet);
+
+            people = jsonData.map(row => ({
+                personalCode: row["Personalnummer"].toString(),
+                firstName: row["Vorname"],
+                lastName: row["Nachname"],
+                shortCode: row["Kürzel"] || null,
+                position: row["Position"],
+                photo: `Fotos/${row["Vorname"]}_${row["Nachname"]}.jpg`
+            }));
+
+            console.log("Excel-Daten erfolgreich geladen:", people);
+            searchEmployees(); // Lade die Mitarbeiter direkt nach dem Einlesen
         })
         .catch(error => {
-            console.error("Fehler beim Laden der JSON-Datei:", error);
-            alert("Die JSON-Daten konnten nicht geladen werden.");
+            console.error("Fehler beim Laden der Excel-Datei:", error);
+            alert("Die Excel-Daten konnten nicht geladen werden.");
         });
 }
 
@@ -33,7 +48,7 @@ function login() {
         sessionStorage.setItem("loggedInUser", JSON.stringify(employee));
         document.getElementById("loginContainer").style.display = "none";
         document.getElementById("mainContainer").style.display = "block";
-        searchEmployees(); // Lade Mitarbeiter nach dem Login
+        searchEmployees(); // Zeige die Mitarbeiter nach dem Login
     } else {
         document.getElementById("errorMessage").style.display = "block";
         setTimeout(() => document.getElementById("errorMessage").style.display = "none", 3000);
