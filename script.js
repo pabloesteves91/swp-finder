@@ -69,7 +69,7 @@ function logout() {
 }
 document.getElementById("lockButton").addEventListener("click", logout);
 
-// Such- und Filterfunktion (automatische Suche bei Eingabe)
+// Such- und Filterfunktion
 function searchEmployees() {
     const searchInput = document.getElementById("searchInput").value.toLowerCase();
     const filter = document.getElementById("filter").value;
@@ -86,12 +86,12 @@ function searchEmployees() {
         return (matchesPersonalCode || matchesShortCode || matchesFirstName || matchesLastName) && matchesFilter;
     });
 
-    if (filteredEmployees.length === 0 && searchInput !== "") {
+    if (filteredEmployees.length === 0) {
         results.innerHTML = "<p>Keine Ergebnisse gefunden.</p>";
         return;
     }
 
-    (searchInput === "" ? people : filteredEmployees).forEach(person => {
+    filteredEmployees.forEach(person => {
         const card = document.createElement("div");
         card.className = "result-card";
         card.innerHTML = `
@@ -105,8 +105,46 @@ function searchEmployees() {
     });
 }
 
-document.getElementById("searchInput").addEventListener("input", searchEmployees);
 document.getElementById("searchButton").addEventListener("click", searchEmployees);
+document.getElementById("searchInput").addEventListener("input", () => {
+    document.getElementById("searchButton").disabled = document.getElementById("searchInput").value.trim() === "";
+});
+
+// Bildanzeige in Modal
+function openImageModal(imageSrc) {
+    let modal = document.getElementById("imageModal");
+    let modalImg = document.getElementById("modalImage");
+    
+    modal.style.display = "flex";
+    modalImg.src = imageSrc;
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    let modal = document.createElement("div");
+    modal.id = "imageModal";
+    modal.style.display = "none";
+    modal.style.position = "fixed";
+    modal.style.zIndex = "1000";
+    modal.style.left = "0";
+    modal.style.top = "0";
+    modal.style.width = "100%";
+    modal.style.height = "100%";
+    modal.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
+    modal.style.alignItems = "center";
+    modal.style.justifyContent = "center";
+
+    let modalImg = document.createElement("img");
+    modalImg.id = "modalImage";
+    modalImg.style.maxWidth = "90%";
+    modalImg.style.maxHeight = "90%";
+    modal.appendChild(modalImg);
+    
+    modal.addEventListener("click", () => {
+        modal.style.display = "none";
+    });
+
+    document.body.appendChild(modal);
+});
 
 // Initialisiere Excel-Daten beim Start
 loadExcelData();
