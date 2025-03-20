@@ -72,7 +72,6 @@ document.getElementById("lockButton").addEventListener("click", logout);
 // Such- und Filterfunktion
 function searchEmployees() {
     const searchInput = document.getElementById("searchInput").value.toLowerCase();
-    const filter = document.getElementById("filter").value;
     const results = document.getElementById("results");
     results.innerHTML = "";
 
@@ -81,9 +80,8 @@ function searchEmployees() {
         const matchesShortCode = emp.shortCode?.toLowerCase().includes(searchInput);
         const matchesFirstName = emp.firstName.toLowerCase().includes(searchInput);
         const matchesLastName = emp.lastName.toLowerCase().includes(searchInput);
-        const matchesFilter = filter === "all" || emp.position.toLowerCase() === filter.replace("_", " ").toLowerCase();
 
-        return (matchesPersonalCode || matchesShortCode || matchesFirstName || matchesLastName) && matchesFilter;
+        return matchesPersonalCode || matchesShortCode || matchesFirstName || matchesLastName;
     });
 
     if (filteredEmployees.length === 0) {
@@ -95,7 +93,7 @@ function searchEmployees() {
         const card = document.createElement("div");
         card.className = "result-card";
         card.innerHTML = `
-            <img src="${person.photo}" alt="${person.firstName}" class="clickable-img" width="80" height="80" onerror="this.src='Fotos/default.JPG';">
+            <img src="${person.photo}" alt="${person.firstName}" class="clickable-img" width="80" height="80" onerror="this.src='Fotos/default.JPG';" onclick="openImageModal('${person.photo}')">
             <div class="result-info">
                 <h2>${person.firstName} ${person.lastName}</h2>
                 <p><span>Personalnummer:</span> ${person.personalCode}</p>
@@ -112,7 +110,7 @@ document.getElementById("searchInput").addEventListener("input", () => {
     document.getElementById("searchButton").disabled = document.getElementById("searchInput").value.trim() === "";
 });
 
-// Bildanzeige in Modal
+// Bildanzeige in Modal (Vergrößerung)
 function openImageModal(imageSrc) {
     let modal = document.getElementById("imageModal");
     let modalImg = document.getElementById("modalImage");
@@ -121,6 +119,7 @@ function openImageModal(imageSrc) {
     modalImg.src = imageSrc;
 }
 
+// Modal beim Start hinzufügen, falls noch nicht vorhanden
 document.addEventListener("DOMContentLoaded", () => {
     let modal = document.createElement("div");
     modal.id = "imageModal";
@@ -132,6 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
     modal.style.width = "100%";
     modal.style.height = "100%";
     modal.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
+    modal.style.display = "flex";
     modal.style.alignItems = "center";
     modal.style.justifyContent = "center";
 
@@ -139,6 +139,9 @@ document.addEventListener("DOMContentLoaded", () => {
     modalImg.id = "modalImage";
     modalImg.style.maxWidth = "90%";
     modalImg.style.maxHeight = "90%";
+    modalImg.style.borderRadius = "12px";
+    modalImg.style.boxShadow = "0px 4px 10px rgba(0,0,0,0.5)";
+    modalImg.style.background = "#fff";
     modal.appendChild(modalImg);
     
     modal.addEventListener("click", () => {
