@@ -9,38 +9,50 @@
 </head>
 <body>
     <div class="container">
-        <!-- Eingeloggt als -->
-        <div id="loggedInUser" class="user-info"></div>
-        
-        <!-- Logo -->
-        <div class="logo-container">
-            <img src="swissport-logo.png" alt="Swissport Logo" class="logo">
+        <!-- Login -->
+        <div id="loginContainer">
+            <h2>Login</h2>
+            <input type="text" id="personalCodeInput" placeholder="🔑 Personalnummer eingeben">
+            <button id="loginButton">Anmelden</button>
+            <p id="errorMessage" class="error-message">❌ Falsche Personalnummer. Bitte erneut versuchen.</p>
         </div>
-        
-        <!-- Titel -->
-        <h1 class="app-title">SWP FINDER</h1>
-        
-        <!-- Suchfeld -->
-        <div class="search-container">
-            <input type="text" id="searchInput" placeholder="🔍 Suche nach Personalnummer, Name oder Kürzel">
+
+        <!-- Hauptansicht nach Login -->
+        <div id="mainContainer" style="display: none;">
+            <div id="loggedInUser" class="user-info"></div>
+
+            <!-- Logo -->
+            <div class="logo-container">
+                <img src="swissport-logo.png" alt="Swissport Logo" class="logo">
+            </div>
+
+            <!-- Titel -->
+            <h1 class="app-title">SWP FINDER</h1>
+
+            <!-- Suchfeld -->
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="🔍 Suche nach Personalnummer, Name oder Kürzel">
+            </div>
+
+            <!-- Filter -->
+            <div class="filter-container">
+                <select id="filter">
+                    <option value="all">Alle</option>
+                    <option value="supervisor">Supervisor</option>
+                    <option value="arrival">Supervisor Arrival</option>
+                    <option value="employee">Betriebsarbeiter</option>
+                    <option value="assistant">Duty Manager Assistent</option>
+                    <option value="manager">Duty Manager</option>
+                </select>
+            </div>
+
+            <!-- Mitarbeiterliste -->
+            <div id="results" class="employee-list"></div>
+
+            <button id="lockButton" class="logout-button">🔒 Abmelden</button>
         </div>
-        
-        <!-- Filter -->
-        <div class="filter-container">
-            <select id="filter">
-                <option value="all">Alle</option>
-                <option value="supervisor">Supervisor</option>
-                <option value="arrival">Supervisor Arrival</option>
-                <option value="employee">Betriebsarbeiter</option>
-                <option value="assistant">Duty Manager Assistent</option>
-                <option value="manager">Duty Manager</option>
-            </select>
-        </div>
-        
-        <!-- Mitarbeiterliste -->
-        <div id="results" class="employee-list"></div>
     </div>
-    
+
     <script src="script.js"></script>
 </body>
 </html>
