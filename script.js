@@ -95,7 +95,7 @@ function searchEmployees() {
         const card = document.createElement("div");
         card.className = "result-card";
         card.innerHTML = `
-            <img src="${person.photo}" alt="${person.firstName}" class="clickable-img" width="100" height="100" onerror="this.src='Fotos/default.JPG';">
+            <img src="${person.photo}" alt="${person.firstName}" class="clickable-img" width="100" height="100" onerror="this.src='Fotos/default.JPG';" onclick="openImageModal('${person.photo}')">
             <h2>${person.firstName} ${person.lastName}</h2>
             <p><span>Personalnummer:</span> ${person.personalCode}</p>
             ${person.shortCode ? `<p><span>Kürzel:</span> ${person.shortCode}</p>` : ""}
@@ -108,6 +108,42 @@ function searchEmployees() {
 document.getElementById("searchButton").addEventListener("click", searchEmployees);
 document.getElementById("searchInput").addEventListener("input", () => {
     document.getElementById("searchButton").disabled = document.getElementById("searchInput").value.trim() === "";
+});
+
+// Bildanzeige in Modal
+function openImageModal(imageSrc) {
+    let modal = document.getElementById("imageModal");
+    let modalImg = document.getElementById("modalImage");
+    
+    modal.style.display = "flex";
+    modalImg.src = imageSrc;
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    let modal = document.createElement("div");
+    modal.id = "imageModal";
+    modal.style.display = "none";
+    modal.style.position = "fixed";
+    modal.style.zIndex = "1000";
+    modal.style.left = "0";
+    modal.style.top = "0";
+    modal.style.width = "100%";
+    modal.style.height = "100%";
+    modal.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
+    modal.style.alignItems = "center";
+    modal.style.justifyContent = "center";
+
+    let modalImg = document.createElement("img");
+    modalImg.id = "modalImage";
+    modalImg.style.maxWidth = "90%";
+    modalImg.style.maxHeight = "90%";
+    modal.appendChild(modalImg);
+    
+    modal.addEventListener("click", () => {
+        modal.style.display = "none";
+    });
+
+    document.body.appendChild(modal);
 });
 
 // Initialisiere Excel-Daten beim Start
