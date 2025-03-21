@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <!-- Login-Bereich -->
     <div class="container" id="loginContainer">
         <div class="logo-container">
             <img src="swissport-logo.png" alt="Swissport Logo" class="logo">
@@ -25,7 +27,10 @@
         <p id="errorMessage" class="error-message" style="display: none;">❌ Falsche Personalnummer. Bitte erneut versuchen.</p>
     </div>
 
+    <!-- Hauptbereich nach Login -->
     <div class="container" id="mainContainer" style="display: none;">
+        <p class="logged-in-header" id="userInfo"></p>
+
         <div class="logo-container">
             <img src="swissport-logo.png" alt="Swissport Logo" class="logo">
         </div>
@@ -34,10 +39,11 @@
 
         <div class="search-bar">
             <input type="text" id="searchInput" placeholder="🔍 Suche nach Personalnummer, Name oder Kürzel">
-            <button id="searchButton" disabled>Suchen</button>
-            <button id="lockButton" class="lock-button">Abmelden</button>
         </div>
 
+        <button id="lockButton" class="lock-button">Abmelden</button>
+
+        <!-- Scrollbare Mitarbeiterliste -->
         <div id="results"></div>
     </div>
 
