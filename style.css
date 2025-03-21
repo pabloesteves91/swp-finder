@@ -22,7 +22,6 @@ body {
     position: relative;
 }
 
-/* Eingeloggt-Anzeige */
 .logged-in-info {
     text-align: left;
     font-size: 14px;
@@ -30,7 +29,6 @@ body {
     margin-bottom: 10px;
 }
 
-/* Logo */
 .logo-container {
     display: flex;
     justify-content: center;
@@ -43,7 +41,6 @@ body {
     object-fit: contain;
 }
 
-/* Titel */
 h1 {
     font-size: 26px;
     color: #d41e24;
@@ -91,38 +88,48 @@ h1 {
     margin-top: 10px;
 }
 
-/* Suchfeld direkt eingebunden */
-.search-input-direct {
+/* ✅ Zurückgeholte Suchbox */
+.search-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    background: white;
+    padding: 15px;
+    border-bottom: 4px solid #d41e24;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.search-bar input {
     width: 100%;
-    max-width: 600px;
     padding: 12px;
     font-size: 18px;
     border: 2px solid #ccc;
     border-radius: 8px;
-    margin-bottom: 10px;
     text-align: center;
 }
 
-/* Abmeldebutton */
-.lock-button {
+.search-bar button {
     width: 100%;
-    max-width: 600px;
     padding: 12px;
     font-size: 18px;
     border: none;
     border-radius: 8px;
-    background: #d41e24;
-    color: white;
     cursor: pointer;
     transition: background 0.3s;
-    margin-bottom: 20px;
+    text-align: center;
+}
+
+.lock-button {
+    background: #d41e24;
+    color: white;
 }
 
 .lock-button:hover {
     background: #b31b1f;
 }
 
-/* Ergebnisse */
 #results {
     margin-top: 20px;
 }
@@ -178,8 +185,8 @@ h1 {
         width: 95%;
     }
 
-    .search-input-direct,
-    .lock-button {
-        max-width: 100%;
+    .search-bar input,
+    .search-bar button {
+        max-width: 300px;
     }
 }
