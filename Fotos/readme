@@ -1,1 +1,62 @@
-profilfotos
+# 📸 Profilfotos – Vorgaben & Format
+
+In diesem Ordner werden alle Profilbilder für die SWP Finder App gespeichert. Die App erwartet die Fotos in einem festen Format und benannter Struktur.
+
+---
+
+## ✅ Benennung
+
+Dateiname für jedes Bild muss folgendem Muster entsprechen:
+
+Vorname_Nachname.jpg
+
+🔁 Beispiel:
+
+Fabio_Berta.jpg
+
+Der Vor- und Nachname müssen **exakt** so geschrieben sein wie in der Excel-Datei (`Mitarbeiter.xlsx`). Achte auf:
+
+- Groß-/Kleinschreibung
+- Umlaute (z. B. Müller statt Mueller)
+- Keine zusätzlichen Leerzeichen oder Sonderzeichen
+
+---
+
+## 📐 Empfohlene Bildgröße
+
+- **Format:** `.jpg` (alternativ `.jpeg` möglich)
+- **Empfohlene Maße:** **400 x 400 Pixel**
+- **Seitenverhältnis:** quadratisch (1:1)
+- **Maximale Dateigröße:** ~500 KB (idealerweise unter 200 KB für schnelle Ladezeit)
+
+🔒 Die Bilder werden als **runde Thumbnails (Kreis)** dargestellt. Achte darauf, dass das Gesicht zentriert ist und nicht abgeschnitten wird.
+
+---
+
+## ❌ Fallback bei fehlendem Bild
+
+Falls ein Bild **nicht gefunden wird**, verwendet die App automatisch:
+
+Fotos/default.JPG
+
+Stelle sicher, dass diese Datei im Ordner vorhanden ist (z. B. ein neutraler Avatar oder Swissport-Logo).
+
+---
+
+## 💡 Tipps
+
+- Verwende klare, gut ausgeleuchtete Bilder
+- Hintergrund sollte neutral sein
+- Keine Gruppenbilder oder Ganzkörperfotos
+- Dateinamen niemals Leerzeichen enthalten!
+
+---
+
+## 📁 Ordnerstruktur Beispiel
+
+Fotos/
+├── Fabio_Berta.jpg
+├── Anna_Meyer.jpg
+├── Lukas_Schmid.jpg
+├── default.JPG
+└── README.md
