@@ -6,51 +6,41 @@
     <title>SWP FINDER</title>
     <link rel="manifest" href="manifest.json">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon-180x180.png">
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container" id="loginContainer">
-        <!-- Swissport-Logo -->
         <div class="logo-container">
             <img src="swissport-logo.png" alt="Swissport Logo" class="logo">
         </div>
 
-        <!-- Titel -->
         <h1 class="app-title">Willkommen im SWP FINDER</h1>
-        
-        <!-- Login-Feld -->
+
         <div class="login-box">
             <input type="password" id="personalCodeInput" placeholder="🔑 Personalnummer eingeben" autofocus>
             <button id="loginButton">Anmelden</button>
         </div>
-        
+
         <p id="errorMessage" class="error-message" style="display: none;">❌ Falsche Personalnummer. Bitte erneut versuchen.</p>
     </div>
-    
+
     <div class="container" id="mainContainer" style="display: none;">
-        <!-- Swissport-Logo -->
         <div class="logo-container">
             <img src="swissport-logo.png" alt="Swissport Logo" class="logo">
         </div>
 
-        <!-- Titel -->
         <h1>SWP FINDER</h1>
-        
-        <!-- Such- und Filterbereich -->
+
         <div class="search-bar">
             <input type="text" id="searchInput" placeholder="🔍 Suche nach Personalnummer, Name oder Kürzel">
             <button id="searchButton" disabled>Suchen</button>
             <button id="lockButton" class="lock-button">Abmelden</button>
         </div>
 
-        <!-- Suchergebnisse -->
         <div id="results"></div>
     </div>
 
-    <!-- Script -->
     <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
     <script src="script.js"></script>
 </body>
