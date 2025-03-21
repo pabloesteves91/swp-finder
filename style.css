@@ -1,56 +1,224 @@
-/* ✅ Such-/Login-Leisten & Buttons - Größer & Zentriert */
-.centered-block {
-    width: 100%;
-    max-width: 900px; /* Breiter für bessere Zentrierung */
+/* Allgemeine Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+    color: #333;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 30px; /* Größerer Abstand zwischen Elementen */
-    margin: 40px 0; /* Mehr Platz oben/unten */
+    min-height: 100vh;
+    width: 100%;
 }
 
-.centered-block input,
-.centered-block button {
-    width: 90%; /* Leicht verringerte Breite für visuelle Balance */
-    padding: 25px; /* Größere Innenabstände */
-    font-size: 28px; /* Größere Schrift */
-    border-radius: 18px; /* Weichere Rundung */
-    margin: 0 auto; /* Doppelte Zentrierung */
-    display: block; /* Für margin:auto */
+/* Container */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
-/* Header-Anpassungen für Konsistenz */
+/* Header */
 .logged-in-header {
-    padding: 30px 0; /* Mehr Platz im Header */
-    font-size: 24px; /* Größere Schrift */
+    text-align: center;
+    font-size: 24px;
+    color: gray;
+    padding: 30px 0;
+    width: 100%;
+    border-bottom: 4px solid #ccc;
 }
 
-/* Logo-Anpassung */
-.logo {
-    width: 350px; /* Größeres Logo */
+/* Logo */
+.logo-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
     margin: 30px 0;
 }
 
-/* Responsive Anpassungen */
+.logo {
+    width: 350px;
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.3s;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+/* Titel */
+h1 {
+    font-size: 36px;
+    color: #d41e24;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 30px 0;
+    text-align: center;
+    letter-spacing: 1.5px;
+}
+
+/* Zentrierter Block */
+.centered-block {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin: 40px auto;
+}
+
+/* Input-Felder */
+.centered-block input {
+    width: 90%;
+    padding: 25px;
+    font-size: 28px;
+    border: 3px solid #888;
+    border-radius: 18px;
+    background: #f5f5f5;
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+    transition: border-color 0.3s;
+}
+
+.centered-block input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Buttons */
+.centered-block button {
+    width: 90%;
+    padding: 25px;
+    font-size: 28px;
+    border-radius: 18px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin: 0 auto;
+    display: block;
+    font-weight: bold;
+}
+
+#searchButton {
+    background: #007bff;
+    color: white;
+}
+
+#searchButton:hover {
+    background: #0056b3;
+    transform: scale(1.03);
+}
+
+.lock-button {
+    background: #d41e24;
+    color: white;
+}
+
+.lock-button:hover {
+    background: #b31b1f;
+    transform: scale(1.03);
+}
+
+.large-button {
+    min-height: 70px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    letter-spacing: 0.8px;
+}
+
+/* Suchergebnisse */
+#results {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.result-card {
+    background: white;
+    padding: 30px;
+    margin: 20px 0;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    width: 95%;
+    max-width: 800px;
+    transition: transform 0.3s;
+}
+
+.result-card:hover {
+    transform: translateY(-3px);
+}
+
+.result-card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid #d41e24;
+    margin-right: 25px;
+}
+
+/* Fehlermeldung */
+.error-message {
+    font-size: 22px;
+    color: #d41e24;
+    text-align: center;
+    margin: 25px 0;
+    padding: 15px;
+    border-radius: 10px;
+    background: #ffe6e6;
+    max-width: 90%;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
+    .logo {
+        width: 280px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .centered-block {
+        gap: 25px;
+        max-width: 95%;
+    }
+
     .centered-block input,
     .centered-block button {
-        width: 85%; /* Mehr Platz auf Mobile */
-        font-size: 24px;
+        width: 95%;
         padding: 22px;
-    }
-    
-    .logo {
-        width: 280px; /* Kleineres Logo auf Mobile */
+        font-size: 24px;
     }
 }
 
 @media (max-width: 480px) {
-    .centered-block {
-        gap: 25px; /* Kleinerer Abstand auf sehr kleinen Screens */
+    h1 {
+        font-size: 26px;
+        margin: 20px 0;
     }
-    
+
+    .centered-block {
+        gap: 20px;
+    }
+
+    .centered-block input,
     .centered-block button {
-        font-size: 22px; /* Schriftgröße anpassen */
+        font-size: 22px;
+        padding: 20px;
+    }
+
+    .result-card {
+        padding: 20px;
+    }
+
+    .result-card img {
+        width: 80px;
+        height: 80px;
     }
 }
