@@ -160,8 +160,19 @@ h1 {
     font-size: 18px;
 }
 
+.result-info .kuerzel {
+    font-weight: normal; /* nicht fett */
+}
+
 .result-info .position {
     font-weight: bold;
+}
+
+.logged-in-info {
+    text-align: left;
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 10px;
 }
 
 @media (max-width: 768px) {
