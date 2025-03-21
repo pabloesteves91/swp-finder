@@ -25,19 +25,22 @@
 
     <div class="container" id="mainContainer" style="display: none;">
 
-        <!-- Eingeloggt-Info im Container, links über dem Logo -->
+        <!-- Eingeloggt-Anzeige -->
         <div id="loggedInInfo" class="logged-in-info" style="display: none;"></div>
 
+        <!-- Logo -->
         <div class="logo-container">
             <img src="swissport-logo.png" alt="Swissport Logo" class="logo">
         </div>
 
+        <!-- Titel -->
         <h1>SWP FINDER</h1>
 
-        <div class="search-bar">
-            <input type="text" id="searchInput" placeholder="🔍 Suche nach Personalnummer, Name oder Kürzel">
-            <button id="lockButton" class="lock-button">Abmelden</button>
-        </div>
+        <!-- Direkt integrierte Suche & Abmeldung -->
+        <input type="text" id="searchInput" placeholder="🔍 Suche nach Personalnummer, Name oder Kürzel" class="search-input-direct">
+        <button id="lockButton" class="lock-button">Abmelden</button>
+
+        <!-- Ergebnisse -->
         <div id="results"></div>
     </div>
 
