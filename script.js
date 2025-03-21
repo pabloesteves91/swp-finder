@@ -1,5 +1,18 @@
 let people = [];
 
+// ✅ Funktion zur Umwandlung von Umlauten im Dateinamen
+function normalizeFileName(str) {
+    return str
+        .replace(/ä/g, "ae")
+        .replace(/ö/g, "oe")
+        .replace(/ü/g, "ue")
+        .replace(/Ä/g, "Ae")
+        .replace(/Ö/g, "Oe")
+        .replace(/Ü/g, "Ue")
+        .replace(/ß/g, "ss");
+}
+
+// 📥 Excel-Daten laden
 function loadExcelData() {
     const excelFilePath = "./Mitarbeiter.xlsx";
 
@@ -23,7 +36,7 @@ function loadExcelData() {
                 lastName: row["Nachname"],
                 shortCode: row["Kürzel"] || null,
                 position: row["Position"],
-                photo: `Fotos/${row["Vorname"]}_${row["Nachname"]}.jpg`
+                photo: `Fotos/${normalizeFileName(row["Vorname"])}_${normalizeFileName(row["Nachname"])}.jpg`
             }));
 
             searchEmployees();
@@ -34,6 +47,7 @@ function loadExcelData() {
         });
 }
 
+// 🔐 Login-Funktion
 function login() {
     const enteredCode = document.getElementById("personalCodeInput").value;
     const employee = people.find(emp => emp.personalCode === enteredCode);
@@ -56,6 +70,7 @@ function login() {
     }
 }
 
+// 🔓 Logout
 function logout() {
     sessionStorage.removeItem("authenticated");
     sessionStorage.removeItem("loggedInUser");
@@ -68,17 +83,18 @@ document.getElementById("personalCodeInput").addEventListener("keypress", e => {
 });
 document.getElementById("lockButton").addEventListener("click", logout);
 
+// 🔍 Mitarbeitersuche
 function searchEmployees() {
     const searchInput = document.getElementById("searchInput").value.toLowerCase();
     const results = document.getElementById("results");
     results.innerHTML = "";
 
-    const filteredEmployees = people.filter(emp => {
-        return emp.personalCode.toLowerCase().includes(searchInput) ||
-               emp.shortCode?.toLowerCase().includes(searchInput) ||
-               emp.firstName.toLowerCase().includes(searchInput) ||
-               emp.lastName.toLowerCase().includes(searchInput);
-    });
+    const filteredEmployees = people.filter(emp =>
+        emp.personalCode.toLowerCase().includes(searchInput) ||
+        emp.shortCode?.toLowerCase().includes(searchInput) ||
+        emp.firstName.toLowerCase().includes(searchInput) ||
+        emp.lastName.toLowerCase().includes(searchInput)
+    );
 
     if (filteredEmployees.length === 0) {
         results.innerHTML = "<p>Keine Ergebnisse gefunden.</p>";
@@ -103,7 +119,7 @@ function searchEmployees() {
 
 document.getElementById("searchInput").addEventListener("input", searchEmployees);
 
-// 🔐 SESSION TIMER
+// 🔒 Session-Timer
 let sessionTimeout;
 const timeoutDuration = 5 * 60 * 1000; // 5 Minuten
 
@@ -117,12 +133,12 @@ function resetSessionTimer() {
 
 function startSessionTimer() {
     resetSessionTimer();
-    ["click", "mousemove", "keydown", "scroll", "touchstart"].forEach(event => {
-        document.addEventListener(event, resetSessionTimer);
-    });
+    ["click", "mousemove", "keydown", "scroll", "touchstart"].forEach(event =>
+        document.addEventListener(event, resetSessionTimer)
+    );
 }
 
-// Bildanzeige Modal
+// 🖼️ Bildanzeige Modal
 function openImageModal(imageSrc) {
     let modal = document.getElementById("imageModal");
     let modalImg = document.getElementById("modalImage");
