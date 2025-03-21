@@ -1,76 +1,82 @@
-# swp-finder
+# SWP Finder
 
-SWP FINDER Web-App
+**SWP Finder** ist eine benutzerfreundliche Web-App zur schnellen Suche von Swissport-Mitarbeitenden anhand von Personalnummer, Name oder Kürzel.  
+Optimiert für den Einsatz durch Supervisoren, Duty Manager und andere operative Rollen.
 
-Version: 1.0
+---
 
-Beschreibung
+## 🔍 Funktionen
 
-Die SWP FINDER Web-App ermöglicht es Mitarbeitern, gezielt nach Kollegen zu suchen, basierend auf Personalnummer, Vorname, Nachname, Kürzel oder Position. Die App ist passwortgeschützt, um unbefugten Zugriff zu verhindern, und bietet eine intuitive Benutzeroberfläche.
+- 🔐 Login mit Personalnummer
+- 👁️ Sofortige Live-Suche nach Vorname, Nachname, Kürzel oder Personalnummer
+- 📸 Mitarbeiterkarte mit:
+  - Bild (anklickbar zur Vergrößerung)
+  - Vorname + Nachname
+  - Personalnummer
+  - Kürzel
+  - Position
+- 🔒 Automatische Abmeldung nach 5 Minuten Inaktivität
+- 🧾 Excel-Datenimport (`Mitarbeiter.xlsx`)
+- 📱 Vollständig responsive (Smartphones & Tablets unterstützt)
 
-Funktionen
+---
 
-1. Passwortschutz
-	•	Beim ersten Zugriff auf die Web-App muss ein Passwort eingegeben werden.
-	•	Nur authentifizierte Benutzer erhalten Zugriff.
-	•	Wichtig: Das Passwort darf nicht an Dritte weitergegeben werden.
+## 📁 Projektstruktur
 
-2. Suche
-	•	Benutzer können nach folgenden Kriterien suchen:
-	•	Personalnummer (z. B. 123456)
-	•	Vorname (z. B. Max)
-	•	Nachname (z. B. Mustermann)
-	•	Kürzel (z. B. MAX)
-	•	Position (z. B. Supervisor)
-	•	Es gibt ein Dropdown-Menü zur Filterung nach:
-	•	Supervisor
-	•	Supervisor Arrival
-	•	Betriebsarbeiter
-	•	Duty Manager Assistent
-	•	Duty Manager
+📦 swp-finder/
+├── index.html
+├── style.css
+├── script.js
+├── Mitarbeiter.xlsx
+├── Fotos/
+│   ├── Vorname_Nachname.jpg
+│   └── default.JPG
+├── swissport-logo.png
+├── manifest.json
+└── apple-touch-icon-180x180.png
 
-3. Ergebnisse
-	•	Ergebnisse werden als Karten angezeigt, die folgende Informationen enthalten:
-	•	Profilbild des Mitarbeiters (oder ein Standardbild, wenn kein Profilbild verfügbar ist).
-	•	Vorname und Nachname.
-	•	Personalnummer.
-	•	Kürzel (falls vorhanden).
-	•	Position.
+---
 
-4. Zurücksetzen
-	•	Über den Titel “SWP FINDER” kann die Suche zurückgesetzt werden:
-	•	Das Suchfeld wird geleert.
-	•	Der Filter wird zurückgesetzt.
-	•	Ergebnisse werden gelöscht.
+## 📊 Excel-Datei: Format & Regeln
 
-5. Sperren
-	•	Ein Sperr-Button erlaubt es, die App zu sperren.
-	•	Nach dem Sperren wird die App automatisch auf den Passwortschutz zurückgesetzt.
+> Der Tabellenblattname muss `Sheet1` lauten.
 
-6. Responsive Design
-	•	Die Web-App passt sich an verschiedene Bildschirmgrößen an und ist für mobile Geräte optimiert.
+| Vorname | Nachname | Personalnummer | Kürzel | Position |
+|--------|----------|----------------|--------|----------|
+| Fabio  | Berta    | 148085         | FB     | Supervisor |
 
-7. Sicherheit
-	•	Die Web-App erfordert ein spezifisches Passwort, das nicht an Dritte oder unbefugte Personen weitergegeben werden darf.
-	•	Alle Informationen und Zugänge sind streng vertraulich.
+⚠️ Das Mitarbeiterfoto muss als `Fotos/Vorname_Nachname.jpg` gespeichert sein.  
+Falls kein Bild vorhanden ist, wird automatisch `default.JPG` angezeigt.
 
-Nutzungshinweise
-	1.	Login:
-	•	Geben Sie das erhaltene Passwort ein, um Zugriff auf die App zu erhalten.
-	•	Beispiel: swissport24 (als Platzhalter).
-	2.	Suche:
-	•	Nutzen Sie das Suchfeld und/oder das Filtermenü, um gezielt nach Mitarbeitern zu suchen.
-	•	Klicken Sie auf “Suchen”, um Ergebnisse anzuzeigen.
-	3.	Zurücksetzen:
-	•	Klicken Sie auf den Titel “SWP FINDER”, um die Suchkriterien zu löschen.
-	4.	Sperren:
-	•	Nutzen Sie den Sperr-Button, um die App zu sperren und die Passwortabfrage erneut zu aktivieren.
+---
 
-Einschränkungen
-	•	Die App darf nicht ohne Genehmigung weitergegeben werden.
-	•	Passwort und Zugangsdaten sind streng vertraulich und dürfen nicht an Drittpersonen oder -firmen weitergeleitet werden.
+## 🚀 Nutzung
 
-Version
+1. Alle Dateien in denselben Ordner kopieren
+2. `index.html` im Browser öffnen
+3. Mit deiner Personalnummer anmelden
+4. Nach Mitarbeiter:innen suchen
 
-1.0 
-Erstveröffentlichung der SWP FINDER Web-App.
+---
+
+## 🔧 Entwicklerhinweise
+
+- **Excel-Import:** Wird mit [SheetJS](https://sheetjs.com/) (xlsx.js) eingelesen
+- **Session-Timeout:** Anpassbar in `script.js` (`timeoutDuration`)
+- **Suche:** Echtzeit, kein Button notwendig
+- **Keine Backend-Anbindung:** Läuft komplett lokal im Browser
+
+---
+
+## 👤 Autor
+
+**Fabio Berta**  
+Winterthur, Schweiz  
+📧 [fabio.berta@swissport.com](mailto:fabio.berta@swissport.com)
+
+---
+
+## 🛠️ Lizenz
+
+SWISSPORT INT. AG
+MIT License – Nutzung, Veränderung und Weiterverbreitung erlaubt.
