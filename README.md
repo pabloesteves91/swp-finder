@@ -78,5 +78,4 @@ Winterthur, Schweiz
 
 ## 🛠️ Lizenz
 
-SWISSPORT INT. AG
-MIT License – Nutzung, Veränderung und Weiterverbreitung erlaubt.
+Lizenz genutzt von SWISSPORT INT. AG
