@@ -8,154 +8,174 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     min-height: 100vh;
-    width: 100%;
 }
 
-/* Zentrierte Container */
+/* Container */
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    max-width: 400px;
     text-align: center;
-    margin-top: 50px;
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Logo */
 .logo-container {
-    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 
 .logo {
-    width: 180px;
+    width: 250px;
     height: auto;
+    object-fit: contain;
 }
 
 /* Titel */
 h1 {
-    font-size: 24px;
+    font-size: 26px;
     color: #d41e24;
+    text-transform: uppercase;
     font-weight: bold;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
-/* Input-Container */
-.input-container {
-    width: 100%;
-    max-width: 400px;
+/* Login-Box */
+.login-box {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 25px;
-    margin-bottom: 25px;
+    gap: 10px;
 }
 
-/* Eingabefelder */
-.input-container input {
+.login-box input {
     width: 100%;
-    padding: 15px;
-    font-size: 16px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    background: #f7f7f7;
-    text-align: left;
-    outline: none;
-}
-
-/* Buttons */
-button {
-    width: 100%;
-    max-width: 400px;
-    padding: 15px;
+    padding: 12px;
     font-size: 18px;
-    background: #ff3b30;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.login-box button {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    background: #d41e24;
     color: white;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    transition: background 0.3s, transform 0.1s;
-    margin-bottom: 25px;
+    transition: background 0.3s;
 }
 
-button:hover {
-    background: #d32f2f;
-    transform: scale(1.05);
+.login-box button:hover {
+    background: #b31b1f;
 }
 
-/* Spezieller Button für Logout */
-.lock-button {
-    background: #ff3b30;
-}
-
-.lock-button:hover {
-    background: #d32f2f;
-}
-
-/* Fehleranzeige */
 .error-message {
     color: red;
     font-size: 14px;
-    display: none;
+    margin-top: 10px;
 }
 
-/* Header für eingeloggte Nutzer */
-.logged-in-header {
+/* Such- und Filterbereich */
+.search-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    background: white;
+    padding: 15px;
+    border-bottom: 4px solid #d41e24;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar input, .search-bar select {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
     text-align: center;
-    font-size: 16px;
-    color: gray;
-    padding: 10px;
-    width: 100%;
 }
 
-/* Mitarbeiterliste */
+.search-bar button {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+    text-align: center;
+}
+
+#searchButton {
+    background: #007bff;
+    color: white;
+}
+
+#searchButton:hover {
+    background: #0056b3;
+}
+
+/* Abmelde-Button */
+.lock-button {
+    background: #d41e24;
+    color: white;
+}
+
+.lock-button:hover {
+    background: #b31b1f;
+}
+
+/* Suchergebnisse */
 #results {
-    width: 100%;
-    max-width: 400px;
-    margin-top: 25px;
-    overflow-y: auto;
-    max-height: 400px;
+    margin-top: 20px;
 }
 
-/* Mitarbeiterkarten */
 .result-card {
     display: flex;
     align-items: center;
     background: white;
     padding: 15px;
-    margin-bottom: 15px;
-    border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.result-card:hover {
+    transform: scale(1.02);
 }
 
 .result-card img {
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     border: 2px solid #d41e24;
     margin-right: 15px;
 }
 
-.result-info {
-    display: flex;
-    flex-direction: column;
-}
-
-.result-info h2 {
-    font-size: 18px;
+.result-card h2 {
+    font-size: 20px;
     margin: 0;
-    color: #000;
+    color: #333;
 }
 
-.result-info p {
-    margin: 2px 0;
-    font-size: 14px;
-    color: #000;
-}
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
 
-.result-info .position {
-    font-weight: bold;
-    font-size: 14px;
+    .search-bar input, .search-bar select, .search-bar button {
+        max-width: 300px;
+    }
 }
