@@ -17,7 +17,16 @@
         </div>
         <h1 class="app-title">Willkommen im SWP FINDER</h1>
         <div class="login-box">
-            <input type="password" id="personalCodeInput" placeholder="🔑 Personalnummer eingeben" autofocus>
+
+            <!-- ✅ Loginfeld nur für Ziffern -->
+            <input 
+                type="tel" 
+                id="personalCodeInput" 
+                placeholder="🔑 Personalnummer eingeben" 
+                inputmode="numeric" 
+                pattern="[0-9]*" 
+                autofocus
+            >
             <button id="loginButton">Anmelden</button>
         </div>
         <p id="errorMessage" class="error-message" style="display: none;">❌ Falsche Personalnummer. Bitte erneut versuchen.</p>
@@ -36,7 +45,7 @@
         <!-- Titel -->
         <h1>SWP FINDER</h1>
 
-        <!-- ✅ Zurückgeholter Such-Container -->
+        <!-- Suchfeld + Abmelden -->
         <div class="search-bar">
             <input type="text" id="searchInput" placeholder="🔍 Suche nach Personalnummer, Name oder Kürzel">
             <button id="lockButton" class="lock-button">Abmelden</button>
@@ -46,6 +55,7 @@
         <div id="results"></div>
     </div>
 
+    <!-- Excel + App Script -->
     <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
     <script src="script.js"></script>
 </body>
