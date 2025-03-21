@@ -43,6 +43,7 @@ function login() {
         sessionStorage.setItem("loggedInUser", JSON.stringify(employee));
         document.getElementById("loginContainer").style.display = "none";
         document.getElementById("mainContainer").style.display = "block";
+        document.getElementById("loggedInInfo").textContent = `Eingeloggt als: ${employee.firstName} ${employee.lastName} | ${employee.personalCode}`;
         searchEmployees();
     } else {
         document.getElementById("errorMessage").style.display = "block";
