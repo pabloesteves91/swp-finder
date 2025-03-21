@@ -49,6 +49,7 @@ function login() {
         infoBox.style.display = "block";
 
         searchEmployees();
+        startSessionTimer();
     } else {
         document.getElementById("errorMessage").style.display = "block";
         setTimeout(() => document.getElementById("errorMessage").style.display = "none", 3000);
@@ -102,6 +103,26 @@ function searchEmployees() {
 
 document.getElementById("searchInput").addEventListener("input", searchEmployees);
 
+// 🔐 SESSION TIMER
+let sessionTimeout;
+const timeoutDuration = 5 * 60 * 1000; // 5 Minuten
+
+function resetSessionTimer() {
+    clearTimeout(sessionTimeout);
+    sessionTimeout = setTimeout(() => {
+        alert("Du wurdest aufgrund von Inaktivität abgemeldet.");
+        logout();
+    }, timeoutDuration);
+}
+
+function startSessionTimer() {
+    resetSessionTimer();
+    ["click", "mousemove", "keydown", "scroll", "touchstart"].forEach(event => {
+        document.addEventListener(event, resetSessionTimer);
+    });
+}
+
+// Bildanzeige Modal
 function openImageModal(imageSrc) {
     let modal = document.getElementById("imageModal");
     let modalImg = document.getElementById("modalImage");
