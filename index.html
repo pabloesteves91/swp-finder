@@ -19,16 +19,16 @@
 
         <h1 class="app-title">Willkommen im SWP FINDER</h1>
 
-        <div class="login-box">
-            <input type="password" id="personalCodeInput" placeholder="🔑 Personalnummer eingeben" autofocus>
+        <div class="input-container">
+            <input type="password" id="personalCodeInput" placeholder="🔑 Personalnummer eingeben">
             <button id="loginButton">Anmelden</button>
         </div>
 
-        <p id="errorMessage" class="error-message" style="display: none;">❌ Falsche Personalnummer. Bitte erneut versuchen.</p>
+        <p id="errorMessage" class="error-message">❌ Falsche Personalnummer. Bitte erneut versuchen.</p>
     </div>
 
     <!-- Hauptbereich nach Login -->
-    <div class="container" id="mainContainer" style="display: none;">
+    <div class="container" id="mainContainer">
         <p class="logged-in-header" id="userInfo"></p>
 
         <div class="logo-container">
@@ -37,13 +37,11 @@
 
         <h1>SWP FINDER</h1>
 
-        <div class="search-bar">
+        <div class="input-container">
             <input type="text" id="searchInput" placeholder="🔍 Suche nach Personalnummer, Name oder Kürzel">
+            <button id="lockButton" class="lock-button">Abmelden</button>
         </div>
 
-        <button id="lockButton" class="lock-button">Abmelden</button>
-
-        <!-- Scrollbare Mitarbeiterliste -->
         <div id="results"></div>
     </div>
 
