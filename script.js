@@ -72,7 +72,6 @@ document.getElementById("lockButton").addEventListener("click", logout);
 // Such- und Filterfunktion
 function searchEmployees() {
     const searchInput = document.getElementById("searchInput").value.toLowerCase();
-    const filter = document.getElementById("filter").value;
     const results = document.getElementById("results");
     results.innerHTML = "";
 
@@ -81,7 +80,6 @@ function searchEmployees() {
         const matchesShortCode = emp.shortCode?.toLowerCase().includes(searchInput);
         const matchesFirstName = emp.firstName.toLowerCase().includes(searchInput);
         const matchesLastName = emp.lastName.toLowerCase().includes(searchInput);
-        const matchesFilter = filter === "all" || emp.position.toLowerCase() === filter.replace("_", " ").toLowerCase();
 
         return (matchesPersonalCode || matchesShortCode || matchesFirstName || matchesLastName) && matchesFilter;
     });
