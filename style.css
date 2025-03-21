@@ -1,15 +1,15 @@
 /* ✅ Ergebnis-Karten */
 .result-card {
-    display: flex;
+    display: flex; /* Flex-Layout aktivieren */
     align-items: flex-start; /* Obere Ausrichtung */
+    gap: 30px; /* Abstand zwischen Bild und Infos */
     background: white;
     padding: 30px;
-    margin-bottom: 30px;
+    margin: 20px 0;
     border-radius: 20px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     width: 95%;
     max-width: 800px;
-    gap: 35px; /* Abstand zwischen Bild und Text */
 }
 
 .result-card img {
@@ -20,86 +20,34 @@
     flex-shrink: 0; /* Verhindert Größenschrumpfung */
 }
 
-/* ✅ Textinformationen (rechts vom Bild) */
+/* ✅ Textinformationen (rechts) */
 .result-info {
     display: flex;
-    flex-direction: column;
-    gap: 18px; /* Abstand zwischen den Textzeilen */
-    width: 100%;
+    flex-direction: column; /* Untereinander */
+    gap: 15px; /* Abstand zwischen Textzeilen */
 }
 
 .result-info h2 {
     font-size: 28px;
     margin: 0;
     color: #000;
-    line-height: 1.2;
-}
-
-.result-info .position {
-    font-weight: 700;
-    color: #d41e24 !important; /* Rot als Akzent */
-    font-size: 24px;
 }
 
 .result-info p {
     margin: 0;
     font-size: 22px;
     color: #444;
-    display: flex;
-    align-items: center;
-    gap: 8px;
 }
 
-/* Icons vor Text */
-.result-info p::before {
-    content: "•";
-    color: #888;
-    font-size: 28px;
-    margin-right: 8px;
-}
-
-/* Responsive Design für Mobile */
+/* Responsive für Mobile */
 @media (max-width: 768px) {
     .result-card {
         flex-direction: column; /* Bild über Text */
         align-items: center;
         gap: 25px;
-        padding: 25px;
     }
-
-    .result-card img {
-        width: 120px;
-        height: 120px;
-    }
-
+    
     .result-info {
         text-align: center;
-    }
-
-    .result-info p {
-        justify-content: center;
-    }
-
-    .result-info p::before {
-        display: none; /* Bullets auf Mobile entfernen */
-    }
-}
-
-@media (max-width: 480px) {
-    .result-card {
-        gap: 20px;
-        padding: 20px;
-    }
-
-    .result-info h2 {
-        font-size: 24px;
-    }
-
-    .result-info .position {
-        font-size: 22px;
-    }
-
-    .result-info p {
-        font-size: 20px;
     }
 }
