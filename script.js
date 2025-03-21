@@ -29,7 +29,7 @@ function login() {
 
     if (employee) {
         document.getElementById("loginContainer").style.display = "none";
-        document.getElementById("mainContainer").style.display = "block";
+        document.getElementById("mainContainer").style.display = "flex";
         document.getElementById("userInfo").innerText = `Eingeloggt als: ${employee.firstName} ${employee.lastName} | ${employee.personalCode}`;
         searchEmployees();
     } else {
