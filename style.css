@@ -1,33 +1,179 @@
-<!-- Logo -->
-<div class="logo-container">
-    <img src="logo.png" class="logo" alt="Logo">
-</div>
+/* Allgemeines Styling */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+}
 
-<!-- Titel -->
-<h1>Suche</h1>
+/* Header für eingeloggte Nutzer */
+.logged-in-header {
+    text-align: center;
+    font-size: 20px;
+    color: gray;
+    padding: 25px 0;
+    width: 100%;
+    border-bottom: 4px solid #ccc;
+}
 
-<!-- Suchfeld + Buttons -->
-<div class="centered-block">
-    <input type="text" placeholder="Suchbegriff eingeben...">
-    <button id="searchButton">🔍 Suchen</button>
-    <button class="lock-button">🔒 Abmelden</button>
-</div>
+/* Logo */
+.logo-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 35px;
+}
 
-<!-- Loginfeld -->
-<div class="centered-block">
-    <input type="text" placeholder="Benutzername">
-    <input type="password" placeholder="Passwort">
-    <button>➡️ Login</button>
-</div>
+.logo {
+    width: 300px;
+    height: auto;
+    object-fit: contain;
+}
 
-<!-- Suchergebnisse -->
-<div id="results">
-    <div class="result-card">
-        <img src="user.png" alt="User">
-        <div class="result-info">
-            <h2>Max Mustermann</h2>
-            <p class="position">Software Engineer</p>
-            <p>📍 Ort: Berlin</p>
-        </div>
-    </div>
-</div>
+/* Titel */
+h1 {
+    font-size: 36px;
+    color: #d41e24;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 35px;
+    text-align: center;
+}
+
+/* ✅ Perfekte Zentrierung für Input-Felder & Buttons */
+.centered-block {
+    width: 100%;
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px; /* Mehr Abstand zwischen den Elementen */
+    margin-bottom: 40px;
+}
+
+.centered-block input,
+.centered-block button {
+    width: 100%;
+    padding: 22px;
+    font-size: 26px;
+    border-radius: 15px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* Input-Feld-Styling */
+.centered-block input {
+    border: 3px solid #888;
+    background: #f5f5f5;
+}
+
+/* Button-Styling */
+.centered-block button {
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.1s;
+    font-weight: bold;
+}
+
+/* ✅ Such- und Abmelde-Buttons */
+#searchButton {
+    background: #007bff;
+    color: white;
+}
+
+#searchButton:hover {
+    background: #0056b3;
+    transform: scale(1.08);
+}
+
+.lock-button {
+    background: #d41e24;
+    color: white;
+}
+
+.lock-button:hover {
+    background: #b31b1f;
+    transform: scale(1.08);
+}
+
+/* ✅ Suchergebnisse */
+#results {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* ✅ Ergebnis-Karten (groß & zentriert) */
+.result-card {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+    text-align: left;
+    width: 95%;
+    max-width: 800px;
+}
+
+.result-card:hover {
+    transform: scale(1.06);
+}
+
+/* Größere Bilder für Result Cards */
+.result-card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 5px solid #d41e24;
+    margin-right: 30px;
+}
+
+/* Inhalt der Karten */
+.result-info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.result-info h2 {
+    font-size: 28px;
+    margin: 0;
+    color: #000;
+}
+
+.result-info p {
+    margin: 0;
+    font-size: 22px;
+    color: #000;
+}
+
+.result-info .position {
+    font-weight: bold;
+    color: #000;
+    font-size: 22px;
+}
+
+/* ✅ Responsive Design */
+@media (max-width: 768px) {
+    .result-card {
+        width: 95%;
+    }
+
+    .centered-block input,
+    .centered-block button {
+        font-size: 24px;
+        padding: 20px;
+    }
+}
