@@ -12,46 +12,45 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Login Container -->
     <div class="container" id="loginContainer">
+        <!-- Swissport-Logo -->
         <div class="logo-container">
             <img src="swissport-logo.png" alt="Swissport Logo" class="logo">
         </div>
 
+        <!-- Titel -->
         <h1 class="app-title">Willkommen im SWP FINDER</h1>
         
-        <div class="centered-block">
-            <input type="password" 
-                   id="personalCodeInput" 
-                   placeholder="🔑 Personalnummer eingeben"
-                   autofocus>
-            <button id="loginButton" class="large-button">Anmelden</button>
+        <!-- Login-Feld -->
+        <div class="login-box">
+            <input type="password" id="personalCodeInput" placeholder="🔑 Personalnummer eingeben" autofocus>
+            <button id="loginButton">Anmelden</button>
         </div>
         
-        <p id="errorMessage" class="error-message" style="display: none;">
-            ❌ Falsche Personalnummer. Bitte erneut versuchen.
-        </p>
+        <p id="errorMessage" class="error-message" style="display: none;">❌ Falsche Personalnummer. Bitte erneut versuchen.</p>
     </div>
-
-    <!-- Main Container -->
+    
     <div class="container" id="mainContainer" style="display: none;">
+        <!-- Swissport-Logo -->
         <div class="logo-container">
             <img src="swissport-logo.png" alt="Swissport Logo" class="logo">
         </div>
 
+        <!-- Titel -->
         <h1>SWP FINDER</h1>
         
-        <div class="centered-block">
-            <input type="text" 
-                   id="searchInput" 
-                   placeholder="🔍 Suche nach Personalnummer, Name oder Kürzel">
-            <button id="searchButton" class="large-button" disabled>Suchen</button>
-            <button id="lockButton" class="lock-button large-button">Abmelden</button>
+        <!-- Such- und Filterbereich -->
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="🔍 Suche nach Personalnummer, Name oder Kürzel">
+            <button id="searchButton" disabled>Suchen</button>
+            <button id="lockButton" class="lock-button">Abmelden</button>
         </div>
 
+        <!-- Suchergebnisse -->
         <div id="results"></div>
     </div>
 
+    <!-- Script -->
     <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
     <script src="script.js"></script>
 </body>
