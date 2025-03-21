@@ -15,11 +15,11 @@ body {
 /* Header für eingeloggte Nutzer */
 .logged-in-header {
     text-align: center;
-    font-size: 18px;
+    font-size: 20px;
     color: gray;
-    padding: 20px 0;
+    padding: 25px 0;
     width: 100%;
-    border-bottom: 3px solid #ccc;
+    border-bottom: 4px solid #ccc;
 }
 
 /* Logo */
@@ -27,22 +27,22 @@ body {
     display: flex;
     justify-content: center;
     width: 100%;
-    margin-bottom: 30px;
+    margin-bottom: 35px;
 }
 
 .logo {
-    width: 280px;
+    width: 300px;
     height: auto;
     object-fit: contain;
 }
 
 /* Titel */
 h1 {
-    font-size: 32px;
+    font-size: 36px;
     color: #d41e24;
     text-transform: uppercase;
     font-weight: bold;
-    margin-bottom: 30px;
+    margin-bottom: 35px;
     text-align: center;
 }
 
@@ -53,24 +53,24 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px; /* Mehr Abstand zwischen den Elementen */
-    margin-bottom: 30px;
+    gap: 25px; /* Mehr Abstand zwischen den Elementen */
+    margin-bottom: 40px;
 }
 
 .centered-block input,
 .centered-block button {
     width: 100%;
-    padding: 18px;
-    font-size: 22px;
-    border-radius: 12px;
+    padding: 22px;
+    font-size: 26px;
+    border-radius: 15px;
     text-align: center;
     box-sizing: border-box;
 }
 
 /* Input-Feld-Styling */
 .centered-block input {
-    border: 3px solid #aaa;
-    background: #f9f9f9;
+    border: 3px solid #888;
+    background: #f5f5f5;
 }
 
 /* Button-Styling */
@@ -89,7 +89,7 @@ h1 {
 
 #searchButton:hover {
     background: #0056b3;
-    transform: scale(1.05);
+    transform: scale(1.08);
 }
 
 .lock-button {
@@ -99,7 +99,7 @@ h1 {
 
 .lock-button:hover {
     background: #b31b1f;
-    transform: scale(1.05);
+    transform: scale(1.08);
 }
 
 /* ✅ Suchergebnisse */
@@ -109,7 +109,7 @@ h1 {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    margin-top: 40px;
+    margin-top: 50px;
 }
 
 /* ✅ Ergebnis-Karten (groß & zentriert) */
@@ -117,57 +117,63 @@ h1 {
     display: flex;
     align-items: center;
     background: white;
-    padding: 25px;
-    margin-bottom: 25px;
-    border-radius: 18px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     transition: transform 0.2s;
     text-align: left;
     width: 95%;
-    max-width: 700px;
+    max-width: 800px;
 }
 
 .result-card:hover {
-    transform: scale(1.05);
+    transform: scale(1.06);
 }
 
 /* Größere Bilder für Result Cards */
 .result-card img {
-    width: 110px;
-    height: 110px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
-    border: 4px solid #d41e24;
-    margin-right: 25px;
+    border: 5px solid #d41e24;
+    margin-right: 30px;
 }
 
 /* Inhalt der Karten */
 .result-info {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
 }
 
 .result-info h2 {
-    font-size: 24px;
+    font-size: 28px;
     margin: 0;
     color: #000;
 }
 
 .result-info p {
     margin: 0;
-    font-size: 20px;
+    font-size: 22px;
     color: #000;
 }
 
 .result-info .position {
     font-weight: bold;
     color: #000;
-    font-size: 20px;
+    font-size: 22px;
 }
 
 /* ✅ Responsive Design */
 @media (max-width: 768px) {
     .result-card {
         width: 95%;
+    }
+
+    .centered-block input,
+    .centered-block button {
+        font-size: 24px;
+        padding: 20px;
     }
 }
