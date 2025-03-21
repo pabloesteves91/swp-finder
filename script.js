@@ -1,22 +1,12 @@
-let people = []; // Daten aus der Excel-Datei werden hier gespeichert
+let people = [];
 
-// Excel-Daten laden
 function loadExcelData() {
     const excelFilePath = "./Mitarbeiter.xlsx";
 
     fetch(excelFilePath)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("Die Excel-Datei konnte nicht geladen werden.");
-            }
-            return response.arrayBuffer();
-        })
+        .then(response => response.arrayBuffer())
         .then(data => {
             const workbook = XLSX.read(data, { type: "array" });
-            if (!workbook.SheetNames.includes("Sheet1")) {
-                alert("Die Excel-Datei muss ein Tabellenblatt mit dem Namen 'Sheet1' enthalten.");
-                return;
-            }
             const sheet = workbook.Sheets["Sheet1"];
             const jsonData = XLSX.utils.sheet_to_json(sheet);
 
@@ -29,16 +19,11 @@ function loadExcelData() {
                 photo: `Fotos/${row["Vorname"]}_${row["Nachname"]}.jpg`
             }));
 
-            console.log("Excel-Daten erfolgreich geladen:", people);
-            searchEmployees(); // Lade die Mitarbeiter direkt nach dem Einlesen
+            searchEmployees();
         })
-        .catch(error => {
-            console.error("Fehler beim Laden der Excel-Datei:", error);
-            alert("Die Excel-Daten konnten nicht geladen werden.");
-        });
+        .catch(error => console.error("Fehler beim Laden der Excel-Datei:", error));
 }
 
-// Login-Funktion mit Personalnummer als Passwort
 function login() {
     const enteredCode = document.getElementById("personalCodeInput").value;
     const employee = people.find(emp => emp.personalCode === enteredCode);
@@ -48,7 +33,7 @@ function login() {
         sessionStorage.setItem("loggedInUser", JSON.stringify(employee));
         document.getElementById("loginContainer").style.display = "none";
         document.getElementById("mainContainer").style.display = "block";
-        searchEmployees(); // Zeige die Mitarbeiter nach dem Login
+        searchEmployees();
     } else {
         document.getElementById("errorMessage").style.display = "block";
         setTimeout(() => document.getElementById("errorMessage").style.display = "none", 3000);
@@ -56,122 +41,11 @@ function login() {
 }
 
 document.getElementById("loginButton").addEventListener("click", login);
-
-document.getElementById("personalCodeInput").addEventListener("keypress", function (event) {
-    if (event.key === "Enter") login();
-});
-
-// 🔹 Zeigt den aktuell eingeloggten Mitarbeiter oben links an
-function showLoggedInEmployee() {
-    const loggedInUser = JSON.parse(sessionStorage.getItem("loggedInUser"));
-    if (loggedInUser) {
-        const header = document.createElement("div");
-        header.className = "logged-in-header";
-        header.innerHTML = `<p>Eingeloggt als: <strong>${loggedInUser.firstName} ${loggedInUser.lastName} | ${loggedInUser.personalCode}</strong></p>`;
-        
-        // Oben im mainContainer einfügen
-        document.getElementById("mainContainer").prepend(header);
-    }
-}
-
-// Rufe die Funktion nach dem Login auf
-document.getElementById("loginButton").addEventListener("click", () => {
-    login();
-    showLoggedInEmployee();
-});
-
-// Falls der Benutzer bereits eingeloggt ist (nach Seiten-Neuladen)
-document.addEventListener("DOMContentLoaded", showLoggedInEmployee);
-
-// Logout-Funktion
-function logout() {
-    sessionStorage.removeItem("authenticated");
-    sessionStorage.removeItem("loggedInUser");
-    location.reload();
-}
-document.getElementById("lockButton").addEventListener("click", logout);
-
-// Such- und Filterfunktion
-function searchEmployees() {
-    const searchInput = document.getElementById("searchInput").value.toLowerCase();
-    const results = document.getElementById("results");
-    results.innerHTML = "";
-
-    const filteredEmployees = people.filter(emp => {
-        const matchesPersonalCode = emp.personalCode.toLowerCase().includes(searchInput);
-        const matchesShortCode = emp.shortCode?.toLowerCase().includes(searchInput);
-        const matchesFirstName = emp.firstName.toLowerCase().includes(searchInput);
-        const matchesLastName = emp.lastName.toLowerCase().includes(searchInput);
-
-        return matchesPersonalCode || matchesShortCode || matchesFirstName || matchesLastName;
-    });
-
-    if (filteredEmployees.length === 0) {
-        results.innerHTML = "<p>Keine Ergebnisse gefunden.</p>";
-        return;
-    }
-
-    filteredEmployees.forEach(person => {
-        const card = document.createElement("div");
-        card.className = "result-card";
-        card.innerHTML = `
-            <img src="${person.photo}" alt="${person.firstName}" class="clickable-img" width="80" height="80" onerror="this.src='Fotos/default.JPG';" onclick="openImageModal('${person.photo}')">
-            <div class="result-info">
-                <h2>${person.firstName} ${person.lastName}</h2>
-                <p><span>Personalnummer:</span> ${person.personalCode}</p>
-                ${person.shortCode ? `<p><span>Kürzel:</span> ${person.shortCode}</p>` : ""}
-                <p class="position">${person.position}</p>
-            </div>
-        `;
-        results.appendChild(card);
-    });
-}
-
 document.getElementById("searchButton").addEventListener("click", searchEmployees);
-document.getElementById("searchInput").addEventListener("input", () => {
-    document.getElementById("searchButton").disabled = document.getElementById("searchInput").value.trim() === "";
+
+document.getElementById("lockButton").addEventListener("click", function() {
+    sessionStorage.clear();
+    location.reload();
 });
 
-// Bildanzeige in Modal (Vergrößerung)
-function openImageModal(imageSrc) {
-    let modal = document.getElementById("imageModal");
-    let modalImg = document.getElementById("modalImage");
-    
-    modal.style.display = "flex";
-    modalImg.src = imageSrc;
-}
-
-// Modal beim Start hinzufügen, falls noch nicht vorhanden
-document.addEventListener("DOMContentLoaded", () => {
-    let modal = document.createElement("div");
-    modal.id = "imageModal";
-    modal.style.display = "none";
-    modal.style.position = "fixed";
-    modal.style.zIndex = "1000";
-    modal.style.left = "0";
-    modal.style.top = "0";
-    modal.style.width = "100%";
-    modal.style.height = "100%";
-    modal.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
-    modal.style.display = "flex";
-    modal.style.alignItems = "center";
-    modal.style.justifyContent = "center";
-
-    let modalImg = document.createElement("img");
-    modalImg.id = "modalImage";
-    modalImg.style.maxWidth = "90%";
-    modalImg.style.maxHeight = "90%";
-    modalImg.style.borderRadius = "12px";
-    modalImg.style.boxShadow = "0px 4px 10px rgba(0,0,0,0.5)";
-    modalImg.style.background = "#fff";
-    modal.appendChild(modalImg);
-    
-    modal.addEventListener("click", () => {
-        modal.style.display = "none";
-    });
-
-    document.body.appendChild(modal);
-});
-
-// Initialisiere Excel-Daten beim Start
 loadExcelData();
