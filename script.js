@@ -14,7 +14,6 @@ function loadExcelData() {
                 personalCode: row["Personalnummer"].toString(),
                 firstName: row["Vorname"],
                 lastName: row["Nachname"],
-                shortCode: row["Kürzel"] || null,
                 position: row["Position"],
                 photo: `Fotos/${row["Vorname"]}_${row["Nachname"]}.jpg`
             }));
@@ -29,10 +28,9 @@ function login() {
     const employee = people.find(emp => emp.personalCode === enteredCode);
 
     if (employee) {
-        sessionStorage.setItem("authenticated", "true");
-        sessionStorage.setItem("loggedInUser", JSON.stringify(employee));
         document.getElementById("loginContainer").style.display = "none";
         document.getElementById("mainContainer").style.display = "block";
+        document.getElementById("userInfo").innerText = `Eingeloggt als: ${employee.firstName} ${employee.lastName} | ${employee.personalCode}`;
         searchEmployees();
     } else {
         document.getElementById("errorMessage").style.display = "block";
@@ -41,11 +39,6 @@ function login() {
 }
 
 document.getElementById("loginButton").addEventListener("click", login);
-document.getElementById("searchButton").addEventListener("click", searchEmployees);
-
-document.getElementById("lockButton").addEventListener("click", function() {
-    sessionStorage.clear();
-    location.reload();
-});
+document.getElementById("lockButton").addEventListener("click", () => location.reload());
 
 loadExcelData();
