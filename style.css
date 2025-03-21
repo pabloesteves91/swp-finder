@@ -10,6 +10,16 @@ body {
     min-height: 100vh;
 }
 
+/* Eingeloggt-Anzeige */
+.logged-in-info {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 14px;
+    color: #888;
+    z-index: 999;
+}
+
 .container {
     text-align: center;
     width: 100%;
@@ -161,18 +171,11 @@ h1 {
 }
 
 .result-info .kuerzel {
-    font-weight: normal; /* nicht fett */
+    font-weight: normal;
 }
 
 .result-info .position {
     font-weight: bold;
-}
-
-.logged-in-info {
-    text-align: left;
-    font-size: 14px;
-    color: #888;
-    margin-bottom: 10px;
 }
 
 @media (max-width: 768px) {
