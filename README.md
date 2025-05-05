@@ -7,7 +7,7 @@ Optimiert für den Einsatz durch Supervisoren, Duty Manager und andere operative
 
 ## 🔍 Funktionen
 
-- 🔐 Login mit Personalnummer
+- 🔐 Login mit Personalnummer oder Kürzel
 - 👁️ Sofortige Live-Suche nach Vorname, Nachname, Kürzel oder Personalnummer
 - 📸 Mitarbeiterkarte mit:
   - Bild (anklickbar zur Vergrößerung)
@@ -23,17 +23,22 @@ Optimiert für den Einsatz durch Supervisoren, Duty Manager und andere operative
 
 ## 📁 Projektstruktur
 
+```
 📦 swp-finder/
 ├── index.html
 ├── style.css
 ├── script.js
 ├── Mitarbeiter.xlsx
 ├── Fotos/
-│   ├── Vorname_Nachname.jpg
+│   ├── SPV/
+│   ├── DM/
+│   ├── DMA/
+│   ├── BA/
 │   └── default.JPG
 ├── swissport-logo.png
 ├── manifest.json
 └── apple-touch-icon-180x180.png
+```
 
 ---
 
@@ -45,30 +50,99 @@ Optimiert für den Einsatz durch Supervisoren, Duty Manager und andere operative
 |--------|----------|----------------|--------|----------|
 | Fabio  | Berta    | 148085         | FB     | Supervisor |
 
-⚠️ Das Mitarbeiterfoto muss als `Fotos/Vorname_Nachname.jpg` gespeichert sein.  
-Falls kein Bild vorhanden ist, wird automatisch `default.JPG` angezeigt.
+⚠️ Die Excel-Spaltenüberschriften **dürfen nicht verändert** werden.  
+⚠️ Die Datei muss sich im selben Verzeichnis wie `index.html` befinden.
+
+---
+
+## 🖼️ Bilder: Format & Ordnerstruktur
+
+### 🔤 Bildbenennung
+
+Die Bilder der Mitarbeitenden müssen folgendermaßen benannt werden:
+
+```
+<Nachname>, <Vorname>.jpg
+```
+
+> Achte darauf, **exakt ein Leerzeichen** nach dem Komma zu verwenden.
+
+---
+
+### 🧪 Beispiel
+
+**Excel-Eintrag:**
+
+- Vorname: `Jörg`
+- Nachname: `Gößmann`
+- Position: `Supervisor`
+
+**Bildname:**  
+```
+Goessmann, Joerg.jpg
+```
+
+**Pfad:**  
+```
+Fotos/SPV/Goessmann, Joerg.jpg
+```
+
+---
+
+### 🔤 Umlaute und Sonderzeichen ersetzen
+
+Bitte ersetze alle Sonderzeichen im Bildnamen wie folgt:
+
+| Zeichen | Ersetzen durch |
+|---------|----------------|
+| ä       | ae             |
+| ö       | oe             |
+| ü       | ue             |
+| Ä       | Ae             |
+| Ö       | Oe             |
+| Ü       | Ue             |
+| ß       | ss             |
+| é, è    | e              |
+| à, á    | a              |
+| ç       | c              |
+| ñ       | n              |
+
+---
+
+### 📁 Bildordner je nach Position
+
+Speichere das Bild abhängig von der Position im passenden Ordner:
+
+| Position (aus Excel) enthält | Ordnername        |
+|------------------------------|-------------------|
+| Supervisor                   | `Fotos/SPV`       |
+| Duty Manager                 | `Fotos/DM`        |
+| Duty Manager Assistant       | `Fotos/DMA`       |
+| Betriebsarbeiter             | `Fotos/BA`        |
+
+> ⚠️ Wenn kein passendes Bild vorhanden ist, wird automatisch `Fotos/default.JPG` angezeigt.
 
 ---
 
 ## 🚀 Nutzung
 
-1. Alle Dateien in denselben Ordner kopieren
-2. `index.html` im Browser öffnen
-3. Mit deiner Personalnummer anmelden
-4. Nach Mitarbeiter:innen suchen
+1. Alle Dateien (inkl. `Mitarbeiter.xlsx` & Bilder) in denselben Ordner kopieren
+2. `index.html` im Browser öffnen (z. B. per Doppelklick)
+3. Mit deiner Personalnummer oder deinem Kürzel anmelden
+4. Nach Mitarbeitenden suchen
 
 ---
 
 ## 🔧 Entwicklerhinweise
 
-- **Excel-Import:** Wird mit [SheetJS](https://sheetjs.com/) (xlsx.js) eingelesen
+- **Excel-Import:** via [SheetJS](https://sheetjs.com/) (`xlsx.js`)
 - **Session-Timeout:** Anpassbar in `script.js` (`timeoutDuration`)
-- **Suche:** Echtzeit, kein Button notwendig
-- **Keine Backend-Anbindung:** Läuft komplett lokal im Browser
+- **Vollständig clientseitig:** Kein Server, keine Datenbank
+- **Datenschutz:** Läuft komplett lokal im Browser – keine Datenübertragung ins Internet
 
 ---
 
-## 👤 Autor
+## 👤 Autor & Kontakt
 
 **Fabio Berta**  
 Winterthur, Schweiz  
@@ -78,4 +152,12 @@ Winterthur, Schweiz
 
 ## 🛠️ Lizenz
 
-Lizenz genutzt von SWISSPORT INT. AG
+Dieses Tool wird bereitgestellt im internen Rahmen der **SWISSPORT INT. AG**.  
+Nutzung und Weitergabe nur mit Genehmigung.
+
+---
+
+## 🙏 Danke
+
+Vielen Dank für die sorgfältige Datenpflege und die Einhaltung der Formatvorgaben!  
+Nur so funktioniert das Tool zuverlässig für alle Beteiligten.
