@@ -1,13 +1,12 @@
 let people = [];
 
-// 📸 Bildpfad direkt aus Namen (ohne Normalisierung)
+// 📸 Bildpfad
 function getPhotoPath(row) {
     const position = row["Position"]?.toLowerCase() || "";
     const firstName = row["Vorname"];
     const lastName = row["Nachname"];
 
     let folder = "";
-
     if (position.includes("supervisor")) folder = "SPV";
     else if (position.includes("duty manager assistant")) folder = "DMA";
     else if (position.includes("duty manager")) folder = "DM";
@@ -17,21 +16,17 @@ function getPhotoPath(row) {
     return `Fotos/${folder}/${lastName}, ${firstName}.jpg`;
 }
 
-// 📥 Excel-Daten laden
+// 📥 Excel laden
 function loadExcelData() {
     const excelFilePath = "./Mitarbeiter.xlsx";
 
     fetch(excelFilePath)
         .then(response => {
-            if (!response.ok) throw new Error("Die Excel-Datei konnte nicht geladen werden.");
+            if (!response.ok) throw new Error("Excel-Datei konnte nicht geladen werden.");
             return response.arrayBuffer();
         })
         .then(data => {
             const workbook = XLSX.read(data, { type: "array" });
-            if (!workbook.SheetNames.includes("Sheet1")) {
-                alert("Die Excel-Datei muss ein Tabellenblatt mit dem Namen 'Sheet1' enthalten.");
-                return;
-            }
             const sheet = workbook.Sheets["Sheet1"];
             const jsonData = XLSX.utils.sheet_to_json(sheet);
 
@@ -47,14 +42,21 @@ function loadExcelData() {
             searchEmployees();
         })
         .catch(error => {
-            console.error("Fehler beim Laden der Excel-Datei:", error);
+            console.error("Fehler beim Laden:", error);
             alert("Die Excel-Daten konnten nicht geladen werden.");
         });
 }
 
-// 🔐 Login mit Personalnummer oder Kürzel
+// 🔐 Login mit Validierung
 function login() {
-    const enteredCode = document.getElementById("personalCodeInput").value.trim().toLowerCase();
+    const input = document.getElementById("personalCodeInput");
+    const enteredCode = input.value.trim().toLowerCase();
+
+    if (!enteredCode) {
+        alert("Bitte Personalnummer oder Kürzel eingeben.");
+        return;
+    }
+
     const employee = people.find(emp =>
         emp.personalCode.toLowerCase() === enteredCode ||
         (emp.shortCode && emp.shortCode.toLowerCase() === enteredCode)
@@ -78,7 +80,6 @@ function login() {
     }
 }
 
-// 🔓 Logout
 function logout() {
     sessionStorage.removeItem("authenticated");
     sessionStorage.removeItem("loggedInUser");
@@ -91,33 +92,39 @@ document.getElementById("personalCodeInput").addEventListener("keypress", e => {
 });
 document.getElementById("lockButton").addEventListener("click", logout);
 
-// 🔍 Suche
+// 🔍 Mitarbeitersuche mit Bildprüfung
 function searchEmployees() {
     const searchInput = document.getElementById("searchInput").value.toLowerCase();
     const results = document.getElementById("results");
     results.innerHTML = "";
 
-    const filteredEmployees = people.filter(emp =>
+    const filtered = people.filter(emp =>
         emp.personalCode.toLowerCase().includes(searchInput) ||
         emp.shortCode?.toLowerCase().includes(searchInput) ||
         emp.firstName.toLowerCase().includes(searchInput) ||
         emp.lastName.toLowerCase().includes(searchInput)
     );
 
-    if (filteredEmployees.length === 0) {
+    if (filtered.length === 0) {
         results.innerHTML = "<p>Keine Ergebnisse gefunden.</p>";
         return;
     }
 
-    filteredEmployees.forEach(person => {
+    filtered.forEach(person => {
         const card = document.createElement("div");
         card.className = "result-card";
-        card.innerHTML = `
-            <img src="${person.photo}" 
-                 alt="${person.firstName}" 
-                 class="clickable-img" 
-                 onerror="this.onerror=null; this.src='Fotos/default.jpg';"
-                 onclick="openImageModal(this.src)">
+
+        const img = new Image();
+        img.src = person.photo;
+        img.alt = person.firstName;
+        img.className = "clickable-img";
+        img.onclick = () => openImageModal(img.src);
+        img.onerror = () => {
+            img.onerror = null;
+            img.src = "Fotos/default.jpg";
+        };
+
+        const info = `
             <div class="result-info">
                 <div class="name">${person.firstName} ${person.lastName}</div>
                 ${person.personalCode ? `<div class="nummer">Personalnummer: ${person.personalCode}</div>` : ""}
@@ -125,20 +132,23 @@ function searchEmployees() {
                 <div class="position">${person.position}</div>
             </div>
         `;
+
+        card.appendChild(img);
+        card.insertAdjacentHTML("beforeend", info);
         results.appendChild(card);
     });
 }
 
 document.getElementById("searchInput").addEventListener("input", searchEmployees);
 
-// ⏱️ Session-Timer
+// 🕒 Session-Timer
 let sessionTimeout;
 const timeoutDuration = 5 * 60 * 1000;
 
 function resetSessionTimer() {
     clearTimeout(sessionTimeout);
     sessionTimeout = setTimeout(() => {
-        alert("Du wurdest aufgrund von Inaktivität abgemeldet.");
+        alert("Du wurdest automatisch ausgeloggt.");
         logout();
     }, timeoutDuration);
 }
@@ -150,17 +160,17 @@ function startSessionTimer() {
     );
 }
 
-// 🖼️ Modal Bildanzeige
+// 🖼️ Modal-Bild
 function openImageModal(imageSrc) {
-    let modal = document.getElementById("imageModal");
-    let modalImg = document.getElementById("modalImage");
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImage");
 
     modal.style.display = "flex";
     modalImg.src = imageSrc;
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    let modal = document.createElement("div");
+    const modal = document.createElement("div");
     modal.id = "imageModal";
     modal.style.display = "none";
     modal.style.position = "fixed";
@@ -173,7 +183,7 @@ document.addEventListener("DOMContentLoaded", () => {
     modal.style.alignItems = "center";
     modal.style.justifyContent = "center";
 
-    let modalImg = document.createElement("img");
+    const modalImg = document.createElement("img");
     modalImg.id = "modalImage";
     modalImg.style.maxWidth = "90%";
     modalImg.style.maxHeight = "90%";
