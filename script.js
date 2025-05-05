@@ -9,7 +9,7 @@ function normalizeFileName(str) {
         .replace(/ß/g, "ss");
 }
 
-// 📸 Liefert mögliche Bildpfade
+// 📸 Liefert kombinierte Bildpfade
 function getPhotoPaths(row) {
     const position = row["Position"]?.toLowerCase() || "";
     const firstName = row["Vorname"];
@@ -34,6 +34,8 @@ function getPhotoPaths(row) {
         `Fotos/${folder}/${normLast}, ${normFirst}.jpg`,
         `Fotos/${folder}/${normLast}, ${firstName}${suffix}.jpg`,
         `Fotos/${folder}/${lastName}, ${normFirst}${suffix}.jpg`,
+        `Fotos/${folder}/${normLast}, ${firstName}.jpg`,
+        `Fotos/${folder}/${lastName}, ${normFirst}.jpg`,
         "Fotos/default.JPG"
     ];
 }
@@ -115,7 +117,7 @@ document.getElementById("personalCodeInput").addEventListener("keypress", e => {
 });
 document.getElementById("lockButton").addEventListener("click", logout);
 
-// 🔍 Suche
+// 🔍 Mitarbeitersuche
 function searchEmployees() {
     const searchInput = document.getElementById("searchInput").value.toLowerCase();
     const results = document.getElementById("results");
@@ -155,7 +157,7 @@ function searchEmployees() {
 
 document.getElementById("searchInput").addEventListener("input", searchEmployees);
 
-// 🔁 Bilderfallback-Logik
+// 🔁 Bilder-Fallback-Logik
 function createImageWithFallback(paths) {
     const img = new Image();
     let index = 0;
@@ -192,7 +194,7 @@ function startSessionTimer() {
     );
 }
 
-// 🖼️ Modal
+// 🖼️ Bildmodal
 function openImageModal(imageSrc) {
     const modal = document.getElementById("imageModal");
     const modalImg = document.getElementById("modalImage");
