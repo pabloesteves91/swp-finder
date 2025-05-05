@@ -14,8 +14,11 @@ function getPhotoPaths(row) {
     const position = row["Position"]?.toLowerCase() || "";
     const firstName = row["Vorname"];
     const lastName = row["Nachname"];
+    const shortCode = row["Kürzel"] || "";
+
     const normFirst = normalizeFileName(firstName);
     const normLast = normalizeFileName(lastName);
+    const suffix = shortCode ? ` (${shortCode})` : "";
 
     let folder = "";
     if (position.includes("supervisor")) folder = "SPV";
@@ -25,6 +28,8 @@ function getPhotoPaths(row) {
     else return ["Fotos/default.JPG"];
 
     return [
+        `Fotos/${folder}/${lastName}, ${firstName}${suffix}.jpg`,
+        `Fotos/${folder}/${normLast}, ${normFirst}${suffix}.jpg`,
         `Fotos/${folder}/${lastName}, ${firstName}.jpg`,
         `Fotos/${folder}/${normLast}, ${normFirst}.jpg`,
         "Fotos/default.JPG"
