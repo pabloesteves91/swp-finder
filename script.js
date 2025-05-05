@@ -32,6 +32,8 @@ function getPhotoPaths(row) {
         `Fotos/${folder}/${normLast}, ${normFirst}${suffix}.jpg`,
         `Fotos/${folder}/${lastName}, ${firstName}.jpg`,
         `Fotos/${folder}/${normLast}, ${normFirst}.jpg`,
+        `Fotos/${folder}/${normLast}, ${firstName}${suffix}.jpg`,
+        `Fotos/${folder}/${lastName}, ${normFirst}${suffix}.jpg`,
         "Fotos/default.JPG"
     ];
 }
