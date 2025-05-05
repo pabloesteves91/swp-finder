@@ -1,33 +1,34 @@
 let people = [];
 
-// ✅ Deutsche und internationale Sonderzeichen in Dateinamen umwandeln
+// ✅ Normalisiert Umlaute und diakritische Zeichen
 function normalizeFileName(str) {
     return str
-        .normalize("NFD")                          // Zerlegt z. B. é → e + ´
-        .replace(/[\u0300-\u036f]/g, "")           // Entfernt diakritische Zeichen
-        .replace(/ä/g, "ae")
-        .replace(/ö/g, "oe")
-        .replace(/ü/g, "ue")
-        .replace(/Ä/g, "Ae")
-        .replace(/Ö/g, "Oe")
-        .replace(/Ü/g, "Ue")
+        .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+        .replace(/ä/g, "ae").replace(/ö/g, "oe").replace(/ü/g, "ue")
+        .replace(/Ä/g, "Ae").replace(/Ö/g, "Oe").replace(/Ü/g, "Ue")
         .replace(/ß/g, "ss");
 }
 
-// 📸 Bildpfad aus normalisiertem Namen erstellen
-function getPhotoPath(row) {
+// 📸 Liefert mögliche Bildpfade in Reihenfolge: original, normalisiert, default
+function getPhotoPaths(row) {
     const position = row["Position"]?.toLowerCase() || "";
-    const firstName = normalizeFileName(row["Vorname"]);
-    const lastName = normalizeFileName(row["Nachname"]);
+    const firstName = row["Vorname"];
+    const lastName = row["Nachname"];
+    const normFirst = normalizeFileName(firstName);
+    const normLast = normalizeFileName(lastName);
 
     let folder = "";
     if (position.includes("supervisor")) folder = "SPV";
     else if (position.includes("duty manager assistant")) folder = "DMA";
     else if (position.includes("duty manager")) folder = "DM";
     else if (position.includes("betriebsarbeiter")) folder = "BA";
-    else return "Fotos/default.JPG";
+    else return ["Fotos/default.JPG"];
 
-    return `Fotos/${folder}/${lastName}, ${firstName}.jpg`;
+    return [
+        `Fotos/${folder}/${lastName}, ${firstName}.jpg`,
+        `Fotos/${folder}/${normLast}, ${normFirst}.jpg`,
+        "Fotos/default.JPG"
+    ];
 }
 
 // 📥 Excel-Daten laden
@@ -50,7 +51,7 @@ function loadExcelData() {
                 lastName: row["Nachname"],
                 shortCode: row["Kürzel"] || null,
                 position: row["Position"],
-                photo: getPhotoPath(row)
+                photoPaths: getPhotoPaths(row)
             }));
 
             searchEmployees();
@@ -129,16 +130,7 @@ function searchEmployees() {
         const card = document.createElement("div");
         card.className = "result-card";
 
-        const img = new Image();
-        img.src = person.photo;
-        img.alt = person.firstName;
-        img.className = "clickable-img";
-        img.onclick = () => openImageModal(img.src);
-        img.onerror = () => {
-            img.onerror = null;
-            img.src = "Fotos/default.JPG"; // ← wichtig: Großbuchstaben
-        };
-
+        const img = createImageWithFallback(person.photoPaths);
         const info = `
             <div class="result-info">
                 <div class="name">${person.firstName} ${person.lastName}</div>
@@ -155,6 +147,24 @@ function searchEmployees() {
 }
 
 document.getElementById("searchInput").addEventListener("input", searchEmployees);
+
+// 🔁 Fallback-Logik für Bilder mit mehreren Pfaden
+function createImageWithFallback(paths) {
+    const img = new Image();
+    let index = 0;
+
+    function tryNext() {
+        if (index >= paths.length) return;
+        img.src = paths[index++];
+    }
+
+    img.onerror = tryNext;
+    img.className = "clickable-img";
+    img.onclick = () => openImageModal(img.src);
+    tryNext();
+
+    return img;
+}
 
 // ⏱️ Session-Timer
 let sessionTimeout;
