@@ -1,10 +1,24 @@
 let people = [];
 
-// 📸 Bildpfad URL-sicher bauen (z. B. für "René")
+// ✅ Deutsche und internationale Sonderzeichen in Dateinamen umwandeln
+function normalizeFileName(str) {
+    return str
+        .normalize("NFD")                          // Zerlegt z. B. é → e + ´
+        .replace(/[\u0300-\u036f]/g, "")           // Entfernt diakritische Zeichen
+        .replace(/ä/g, "ae")
+        .replace(/ö/g, "oe")
+        .replace(/ü/g, "ue")
+        .replace(/Ä/g, "Ae")
+        .replace(/Ö/g, "Oe")
+        .replace(/Ü/g, "Ue")
+        .replace(/ß/g, "ss");
+}
+
+// 📸 Bildpfad aus normalisiertem Namen erstellen
 function getPhotoPath(row) {
     const position = row["Position"]?.toLowerCase() || "";
-    const firstName = encodeURIComponent(row["Vorname"]);
-    const lastName = encodeURIComponent(row["Nachname"]);
+    const firstName = normalizeFileName(row["Vorname"]);
+    const lastName = normalizeFileName(row["Nachname"]);
 
     let folder = "";
     if (position.includes("supervisor")) folder = "SPV";
@@ -47,7 +61,7 @@ function loadExcelData() {
         });
 }
 
-// 🔐 Login mit Eingabeprüfung
+// 🔐 Login
 function login() {
     const input = document.getElementById("personalCodeInput");
     const enteredCode = input.value.trim().toLowerCase();
@@ -122,7 +136,7 @@ function searchEmployees() {
         img.onclick = () => openImageModal(img.src);
         img.onerror = () => {
             img.onerror = null;
-            img.src = "Fotos/default.JPG";
+            img.src = "Fotos/default.JPG"; // ← wichtig: Großbuchstaben
         };
 
         const info = `
@@ -161,7 +175,7 @@ function startSessionTimer() {
     );
 }
 
-// 🖼️ Modal für Bilder
+// 🖼️ Modal
 function openImageModal(imageSrc) {
     const modal = document.getElementById("imageModal");
     const modalImg = document.getElementById("modalImage");
