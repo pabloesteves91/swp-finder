@@ -3,6 +3,8 @@ let people = [];
 // ✅ Funktion zur Umwandlung von Umlauten im Dateinamen
 function normalizeFileName(str) {
     return str
+        .normalize("NFD")                      // Unicode Normalisierung (trennt é in e + ´)
+        .replace(/[\u0300-\u036f]/g, "")       // Entfernt diakritische Zeichen
         .replace(/ä/g, "ae")
         .replace(/ö/g, "oe")
         .replace(/ü/g, "ue")
