@@ -12,6 +12,42 @@ function normalizeFileName(str) {
         .replace(/ß/g, "ss");
 }
 
+// 📸 Erzeuge Foto-Pfad basierend auf Position & Namensformat
+function getPhotoPath(row) {
+    const position = row["Position"];
+    const firstName = row["Vorname"];
+    const lastName = row["Nachname"];
+    const shortCode = row["Kürzel"];
+    const personalNumber = row["Personalnummer"].toString();
+
+    let folder = "";
+    let fileName = "";
+
+    switch (position) {
+        case "Supervisor":
+            folder = "SPV";
+            fileName = `${normalizeFileName(lastName)}, ${normalizeFileName(firstName)} (${shortCode}).jpg`;
+            break;
+        case "Duty Manager":
+            folder = "DM";
+            fileName = `${normalizeFileName(lastName)}, ${normalizeFileName(firstName)} (${shortCode}).jpg`;
+            break;
+        case "Duty Manager Assistant":
+            folder = "DMA";
+            fileName = `${normalizeFileName(lastName)}, ${normalizeFileName(firstName)} (${shortCode}).jpg`;
+            break;
+        case "Betriebsarbeiter":
+            folder = "BA";
+            fileName = `${normalizeFileName(lastName)}, ${normalizeFileName(firstName)} ${personalNumber}.jpg`;
+            break;
+        default:
+            folder = "BA";
+            fileName = `default.jpg`;
+    }
+
+    return `Fotos/${folder}/${fileName}`;
+}
+
 // 📥 Excel-Daten laden
 function loadExcelData() {
     const excelFilePath = "./Mitarbeiter.xlsx";
@@ -36,7 +72,7 @@ function loadExcelData() {
                 lastName: row["Nachname"],
                 shortCode: row["Kürzel"] || null,
                 position: row["Position"],
-                photo: `Fotos/${normalizeFileName(row["Vorname"])}_${normalizeFileName(row["Nachname"])}.jpg`
+                photo: getPhotoPath(row)
             }));
 
             searchEmployees();
@@ -72,9 +108,11 @@ function login() {
 
 // 🔓 Logout
 function logout() {
-    sessionStorage.removeItem("authenticated");
-    sessionStorage.removeItem("loggedInUser");
-    location.reload();
+    if (confirm("Willst du dich wirklich abmelden?")) {
+        sessionStorage.removeItem("authenticated");
+        sessionStorage.removeItem("loggedInUser");
+        location.reload();
+    }
 }
 
 document.getElementById("loginButton").addEventListener("click", login);
@@ -97,7 +135,7 @@ function searchEmployees() {
     );
 
     if (filteredEmployees.length === 0) {
-        results.innerHTML = "<p>Keine Ergebnisse gefunden.</p>";
+        results.innerHTML = `<p>Keine Ergebnisse gefunden für "${searchInput}".</p>`;
         return;
     }
 
@@ -105,7 +143,7 @@ function searchEmployees() {
         const card = document.createElement("div");
         card.className = "result-card";
         card.innerHTML = `
-            <img src="${person.photo}" alt="${person.firstName}" class="clickable-img" onerror="this.src='Fotos/default.JPG';" onclick="openImageModal('${person.photo}')">
+            <img src="${person.photo}" alt="${person.firstName} ${person.lastName}" class="clickable-img" onerror="this.src='Fotos/default.JPG';" onclick="openImageModal('${person.photo}')">
             <div class="result-info">
                 <div class="name">${person.firstName} ${person.lastName}</div>
                 <div class="nummer">Personalnummer: ${person.personalCode}</div>
