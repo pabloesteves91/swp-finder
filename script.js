@@ -14,7 +14,7 @@ function normalizeFileName(str) {
 
 // 📸 Erzeuge Foto-Pfad basierend auf Position & Namensformat
 function getPhotoPath(row) {
-    const position = row["Position"];
+    const position = row["Position"]?.toLowerCase() || "";
     const firstName = row["Vorname"];
     const lastName = row["Nachname"];
     const shortCode = row["Kürzel"];
@@ -23,26 +23,20 @@ function getPhotoPath(row) {
     let folder = "";
     let fileName = "";
 
-    switch (position) {
-        case "Supervisor":
-            folder = "SPV";
-            fileName = `${normalizeFileName(lastName)}, ${normalizeFileName(firstName)} (${shortCode}).jpg`;
-            break;
-        case "Duty Manager":
-            folder = "DM";
-            fileName = `${normalizeFileName(lastName)}, ${normalizeFileName(firstName)} (${shortCode}).jpg`;
-            break;
-        case "Duty Manager Assistant":
-            folder = "DMA";
-            fileName = `${normalizeFileName(lastName)}, ${normalizeFileName(firstName)} (${shortCode}).jpg`;
-            break;
-        case "Betriebsarbeiter":
-            folder = "BA";
-            fileName = `${normalizeFileName(lastName)}, ${normalizeFileName(firstName)} ${personalNumber}.jpg`;
-            break;
-        default:
-            folder = "BA";
-            fileName = `default.jpg`;
+    if (position.includes("supervisor")) {
+        folder = "SPV";
+        fileName = `${normalizeFileName(lastName)}, ${normalizeFileName(firstName)} (${shortCode || "X"}).jpg`;
+    } else if (position.includes("duty manager assistant")) {
+        folder = "DMA";
+        fileName = `${normalizeFileName(lastName)}, ${normalizeFileName(firstName)} (${shortCode || "X"}).jpg`;
+    } else if (position.includes("duty manager")) {
+        folder = "DM";
+        fileName = `${normalizeFileName(lastName)}, ${normalizeFileName(firstName)} (${shortCode || "X"}).jpg`;
+    } else if (position.includes("betriebsarbeiter")) {
+        folder = "BA";
+        fileName = `${normalizeFileName(lastName)}, ${normalizeFileName(firstName)} ${personalNumber}.jpg`;
+    } else {
+        return "Fotos/default.jpg";
     }
 
     return `Fotos/${folder}/${fileName}`;
@@ -143,7 +137,7 @@ function searchEmployees() {
         const card = document.createElement("div");
         card.className = "result-card";
         card.innerHTML = `
-            <img src="${person.photo}" alt="${person.firstName} ${person.lastName}" class="clickable-img" onerror="this.src='Fotos/default.JPG';" onclick="openImageModal('${person.photo}')">
+            <img src="${person.photo}" alt="${person.firstName} ${person.lastName}" class="clickable-img" onerror="this.src='Fotos/default.jpg';" onclick="openImageModal('${person.photo}')">
             <div class="result-info">
                 <div class="name">${person.firstName} ${person.lastName}</div>
                 <div class="nummer">Personalnummer: ${person.personalCode}</div>
