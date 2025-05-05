@@ -1,10 +1,10 @@
 let people = [];
 
-// ✅ Funktion zur Umwandlung von Umlauten im Dateinamen
+// ✅ Unicode-konforme Diakritik-Entfernung + deutsche Sonderfälle
 function normalizeFileName(str) {
     return str
-        .normalize("NFD")                      // Unicode Normalisierung (trennt é in e + ´)
-        .replace(/[\u0300-\u036f]/g, "")       // Entfernt diakritische Zeichen
+        .normalize("NFD")                          // Trennt Buchstaben + Akzent (z. B. é → e + ◌́)
+        .replace(/[\u0300-\u036f]/g, "")           // Entfernt alle diakritischen Zeichen
         .replace(/ä/g, "ae")
         .replace(/ö/g, "oe")
         .replace(/ü/g, "ue")
@@ -14,28 +14,24 @@ function normalizeFileName(str) {
         .replace(/ß/g, "ss");
 }
 
-// 📸 Erzeuge Foto-Pfad basierend auf Position & Namensformat
-function getPhotoPath(row) {
+// 📸 Erzeuge Original- und Fallback-Pfad für Bild
+function getOriginalAndFallbackPhotoPaths(row) {
     const position = row["Position"]?.toLowerCase() || "";
     const firstName = row["Vorname"];
     const lastName = row["Nachname"];
 
     let folder = "";
 
-    if (position.includes("supervisor")) {
-        folder = "SPV";
-    } else if (position.includes("duty manager assistant")) {
-        folder = "DMA";
-    } else if (position.includes("duty manager")) {
-        folder = "DM";
-    } else if (position.includes("betriebsarbeiter")) {
-        folder = "BA";
-    } else {
-        return "Fotos/default.jpg";
-    }
+    if (position.includes("supervisor")) folder = "SPV";
+    else if (position.includes("duty manager assistant")) folder = "DMA";
+    else if (position.includes("duty manager")) folder = "DM";
+    else if (position.includes("betriebsarbeiter")) folder = "BA";
+    else return { primary: "Fotos/default.jpg", fallback: "" };
 
-    const fileName = `${normalizeFileName(lastName)}, ${normalizeFileName(firstName)}.jpg`;
-    return `Fotos/${folder}/${fileName}`;
+    const original = `Fotos/${folder}/${lastName}, ${firstName}.jpg`;
+    const fallback = `Fotos/${folder}/${normalizeFileName(lastName)}, ${normalizeFileName(firstName)}.jpg`;
+
+    return { primary: original, fallback: fallback };
 }
 
 // 📥 Excel-Daten laden
@@ -56,14 +52,18 @@ function loadExcelData() {
             const sheet = workbook.Sheets["Sheet1"];
             const jsonData = XLSX.utils.sheet_to_json(sheet);
 
-            people = jsonData.map(row => ({
-                personalCode: row["Personalnummer"]?.toString() || "",
-                firstName: row["Vorname"],
-                lastName: row["Nachname"],
-                shortCode: row["Kürzel"] || null,
-                position: row["Position"],
-                photo: getPhotoPath(row)
-            }));
+            people = jsonData.map(row => {
+                const photoPaths = getOriginalAndFallbackPhotoPaths(row);
+                return {
+                    personalCode: row["Personalnummer"]?.toString() || "",
+                    firstName: row["Vorname"],
+                    lastName: row["Nachname"],
+                    shortCode: row["Kürzel"] || null,
+                    position: row["Position"],
+                    photoPrimary: photoPaths.primary,
+                    photoFallback: photoPaths.fallback
+                };
+            });
 
             searchEmployees();
         })
@@ -73,7 +73,7 @@ function loadExcelData() {
         });
 }
 
-// 🔐 Login-Funktion (Personalnummer oder Kürzel)
+// 🔐 Login mit Personalnummer oder Kürzel
 function login() {
     const enteredCode = document.getElementById("personalCodeInput").value.trim().toLowerCase();
     const employee = people.find(emp =>
@@ -134,7 +134,12 @@ function searchEmployees() {
         const card = document.createElement("div");
         card.className = "result-card";
         card.innerHTML = `
-            <img src="${person.photo}" alt="${person.firstName}" class="clickable-img" onerror="this.src='Fotos/default.JPG';" onclick="openImageModal('${person.photo}')">
+            <img src="${person.photoPrimary}" 
+                 data-fallback="${person.photoFallback}" 
+                 alt="${person.firstName}" 
+                 class="clickable-img" 
+                 onerror="this.onerror=null; this.src=this.dataset.fallback || 'Fotos/default.jpg';"
+                 onclick="openImageModal(this.src)">
             <div class="result-info">
                 <div class="name">${person.firstName} ${person.lastName}</div>
                 ${person.personalCode ? `<div class="nummer">Personalnummer: ${person.personalCode}</div>` : ""}
@@ -150,7 +155,7 @@ document.getElementById("searchInput").addEventListener("input", searchEmployees
 
 // 🔒 Session-Timer
 let sessionTimeout;
-const timeoutDuration = 5 * 60 * 1000; // 5 Minuten
+const timeoutDuration = 5 * 60 * 1000;
 
 function resetSessionTimer() {
     clearTimeout(sessionTimeout);
