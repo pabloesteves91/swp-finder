@@ -1,28 +1,28 @@
 let people = [];
 
-// 📸 Bildpfad
+// 📸 Bildpfad URL-sicher bauen (z. B. für "René")
 function getPhotoPath(row) {
     const position = row["Position"]?.toLowerCase() || "";
-    const firstName = row["Vorname"];
-    const lastName = row["Nachname"];
+    const firstName = encodeURIComponent(row["Vorname"]);
+    const lastName = encodeURIComponent(row["Nachname"]);
 
     let folder = "";
     if (position.includes("supervisor")) folder = "SPV";
     else if (position.includes("duty manager assistant")) folder = "DMA";
     else if (position.includes("duty manager")) folder = "DM";
     else if (position.includes("betriebsarbeiter")) folder = "BA";
-    else return "Fotos/default.jpg";
+    else return "Fotos/default.JPG";
 
     return `Fotos/${folder}/${lastName}, ${firstName}.jpg`;
 }
 
-// 📥 Excel laden
+// 📥 Excel-Daten laden
 function loadExcelData() {
     const excelFilePath = "./Mitarbeiter.xlsx";
 
     fetch(excelFilePath)
         .then(response => {
-            if (!response.ok) throw new Error("Excel-Datei konnte nicht geladen werden.");
+            if (!response.ok) throw new Error("Die Excel-Datei konnte nicht geladen werden.");
             return response.arrayBuffer();
         })
         .then(data => {
@@ -47,7 +47,7 @@ function loadExcelData() {
         });
 }
 
-// 🔐 Login mit Validierung
+// 🔐 Login mit Eingabeprüfung
 function login() {
     const input = document.getElementById("personalCodeInput");
     const enteredCode = input.value.trim().toLowerCase();
@@ -80,6 +80,7 @@ function login() {
     }
 }
 
+// 🔓 Logout
 function logout() {
     sessionStorage.removeItem("authenticated");
     sessionStorage.removeItem("loggedInUser");
@@ -92,7 +93,7 @@ document.getElementById("personalCodeInput").addEventListener("keypress", e => {
 });
 document.getElementById("lockButton").addEventListener("click", logout);
 
-// 🔍 Mitarbeitersuche mit Bildprüfung
+// 🔍 Mitarbeitersuche
 function searchEmployees() {
     const searchInput = document.getElementById("searchInput").value.toLowerCase();
     const results = document.getElementById("results");
@@ -121,7 +122,7 @@ function searchEmployees() {
         img.onclick = () => openImageModal(img.src);
         img.onerror = () => {
             img.onerror = null;
-            img.src = "Fotos/default.jpg";
+            img.src = "Fotos/default.JPG";
         };
 
         const info = `
@@ -141,7 +142,7 @@ function searchEmployees() {
 
 document.getElementById("searchInput").addEventListener("input", searchEmployees);
 
-// 🕒 Session-Timer
+// ⏱️ Session-Timer
 let sessionTimeout;
 const timeoutDuration = 5 * 60 * 1000;
 
@@ -160,7 +161,7 @@ function startSessionTimer() {
     );
 }
 
-// 🖼️ Modal-Bild
+// 🖼️ Modal für Bilder
 function openImageModal(imageSrc) {
     const modal = document.getElementById("imageModal");
     const modalImg = document.getElementById("modalImage");
