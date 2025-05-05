@@ -1,39 +1,23 @@
 let people = [];
 
-// ✅ Diakritik entfernen + deutsche Sonderfälle
-function normalizeFileName(str) {
-    return str
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .replace(/ä/g, "ae")
-        .replace(/ö/g, "oe")
-        .replace(/ü/g, "ue")
-        .replace(/Ä/g, "Ae")
-        .replace(/Ö/g, "Oe")
-        .replace(/Ü/g, "Ue")
-        .replace(/ß/g, "ss");
-}
-
-// 📸 Original- und Fallback-Bildpfade
-function getOriginalAndFallbackPhotoPaths(row) {
+// 📸 Bildpfad direkt aus Namen (ohne Normalisierung)
+function getPhotoPath(row) {
     const position = row["Position"]?.toLowerCase() || "";
     const firstName = row["Vorname"];
     const lastName = row["Nachname"];
 
     let folder = "";
+
     if (position.includes("supervisor")) folder = "SPV";
     else if (position.includes("duty manager assistant")) folder = "DMA";
     else if (position.includes("duty manager")) folder = "DM";
     else if (position.includes("betriebsarbeiter")) folder = "BA";
-    else return { primary: "Fotos/default.jpg", fallback: "" };
+    else return "Fotos/default.jpg";
 
-    const original = `Fotos/${folder}/${lastName}, ${firstName}.jpg`;
-    const fallback = `Fotos/${folder}/${normalizeFileName(lastName)}, ${normalizeFileName(firstName)}.jpg`;
-
-    return { primary: original, fallback: fallback };
+    return `Fotos/${folder}/${lastName}, ${firstName}.jpg`;
 }
 
-// 📥 Excel laden
+// 📥 Excel-Daten laden
 function loadExcelData() {
     const excelFilePath = "./Mitarbeiter.xlsx";
 
@@ -51,18 +35,14 @@ function loadExcelData() {
             const sheet = workbook.Sheets["Sheet1"];
             const jsonData = XLSX.utils.sheet_to_json(sheet);
 
-            people = jsonData.map(row => {
-                const photoPaths = getOriginalAndFallbackPhotoPaths(row);
-                return {
-                    personalCode: row["Personalnummer"]?.toString() || "",
-                    firstName: row["Vorname"],
-                    lastName: row["Nachname"],
-                    shortCode: row["Kürzel"] || null,
-                    position: row["Position"],
-                    photoPrimary: photoPaths.primary,
-                    photoFallback: photoPaths.fallback
-                };
-            });
+            people = jsonData.map(row => ({
+                personalCode: row["Personalnummer"]?.toString() || "",
+                firstName: row["Vorname"],
+                lastName: row["Nachname"],
+                shortCode: row["Kürzel"] || null,
+                position: row["Position"],
+                photo: getPhotoPath(row)
+            }));
 
             searchEmployees();
         })
@@ -72,7 +52,7 @@ function loadExcelData() {
         });
 }
 
-// 🔐 Login mit Nummer oder Kürzel
+// 🔐 Login mit Personalnummer oder Kürzel
 function login() {
     const enteredCode = document.getElementById("personalCodeInput").value.trim().toLowerCase();
     const employee = people.find(emp =>
@@ -111,7 +91,7 @@ document.getElementById("personalCodeInput").addEventListener("keypress", e => {
 });
 document.getElementById("lockButton").addEventListener("click", logout);
 
-// 🔍 Mitarbeitersuche
+// 🔍 Suche
 function searchEmployees() {
     const searchInput = document.getElementById("searchInput").value.toLowerCase();
     const results = document.getElementById("results");
@@ -133,12 +113,10 @@ function searchEmployees() {
         const card = document.createElement("div");
         card.className = "result-card";
         card.innerHTML = `
-            <img src="${person.photoPrimary}" 
-                 data-fallback="${person.photoFallback}" 
-                 data-default="Fotos/default.jpg"
+            <img src="${person.photo}" 
                  alt="${person.firstName}" 
                  class="clickable-img" 
-                 onerror="handleImageError(this)" 
+                 onerror="this.onerror=null; this.src='Fotos/default.jpg';"
                  onclick="openImageModal(this.src)">
             <div class="result-info">
                 <div class="name">${person.firstName} ${person.lastName}</div>
@@ -151,19 +129,9 @@ function searchEmployees() {
     });
 }
 
-// 🛠️ Bild-Fallback-Funktion
-function handleImageError(img) {
-    if (img.dataset.fallback && !img.dataset.triedFallback) {
-        img.src = img.dataset.fallback;
-        img.dataset.triedFallback = "true";
-    } else {
-        img.src = img.dataset.default || 'Fotos/default.jpg';
-    }
-}
-
 document.getElementById("searchInput").addEventListener("input", searchEmployees);
 
-// 🔒 Session-Timer
+// ⏱️ Session-Timer
 let sessionTimeout;
 const timeoutDuration = 5 * 60 * 1000;
 
@@ -182,7 +150,7 @@ function startSessionTimer() {
     );
 }
 
-// 🖼️ Bildanzeige Modal
+// 🖼️ Modal Bildanzeige
 function openImageModal(imageSrc) {
     let modal = document.getElementById("imageModal");
     let modalImg = document.getElementById("modalImage");
