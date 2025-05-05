@@ -1,10 +1,10 @@
 let people = [];
 
-// ✅ Unicode-konforme Diakritik-Entfernung + deutsche Sonderfälle
+// ✅ Diakritik entfernen + deutsche Sonderfälle
 function normalizeFileName(str) {
     return str
-        .normalize("NFD")                          // Trennt Buchstaben + Akzent (z. B. é → e + ◌́)
-        .replace(/[\u0300-\u036f]/g, "")           // Entfernt alle diakritischen Zeichen
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
         .replace(/ä/g, "ae")
         .replace(/ö/g, "oe")
         .replace(/ü/g, "ue")
@@ -14,14 +14,13 @@ function normalizeFileName(str) {
         .replace(/ß/g, "ss");
 }
 
-// 📸 Erzeuge Original- und Fallback-Pfad für Bild
+// 📸 Original- und Fallback-Bildpfade
 function getOriginalAndFallbackPhotoPaths(row) {
     const position = row["Position"]?.toLowerCase() || "";
     const firstName = row["Vorname"];
     const lastName = row["Nachname"];
 
     let folder = "";
-
     if (position.includes("supervisor")) folder = "SPV";
     else if (position.includes("duty manager assistant")) folder = "DMA";
     else if (position.includes("duty manager")) folder = "DM";
@@ -34,7 +33,7 @@ function getOriginalAndFallbackPhotoPaths(row) {
     return { primary: original, fallback: fallback };
 }
 
-// 📥 Excel-Daten laden
+// 📥 Excel laden
 function loadExcelData() {
     const excelFilePath = "./Mitarbeiter.xlsx";
 
@@ -73,7 +72,7 @@ function loadExcelData() {
         });
 }
 
-// 🔐 Login mit Personalnummer oder Kürzel
+// 🔐 Login mit Nummer oder Kürzel
 function login() {
     const enteredCode = document.getElementById("personalCodeInput").value.trim().toLowerCase();
     const employee = people.find(emp =>
@@ -136,9 +135,10 @@ function searchEmployees() {
         card.innerHTML = `
             <img src="${person.photoPrimary}" 
                  data-fallback="${person.photoFallback}" 
+                 data-default="Fotos/default.jpg"
                  alt="${person.firstName}" 
                  class="clickable-img" 
-                 onerror="this.onerror=null; this.src=this.dataset.fallback || 'Fotos/default.jpg';"
+                 onerror="handleImageError(this)" 
                  onclick="openImageModal(this.src)">
             <div class="result-info">
                 <div class="name">${person.firstName} ${person.lastName}</div>
@@ -149,6 +149,16 @@ function searchEmployees() {
         `;
         results.appendChild(card);
     });
+}
+
+// 🛠️ Bild-Fallback-Funktion
+function handleImageError(img) {
+    if (img.dataset.fallback && !img.dataset.triedFallback) {
+        img.src = img.dataset.fallback;
+        img.dataset.triedFallback = "true";
+    } else {
+        img.src = img.dataset.default || 'Fotos/default.jpg';
+    }
 }
 
 document.getElementById("searchInput").addEventListener("input", searchEmployees);
