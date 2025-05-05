@@ -17,24 +17,32 @@ function getPhotoPath(row) {
     const position = row["Position"]?.toLowerCase() || "";
     const firstName = row["Vorname"];
     const lastName = row["Nachname"];
-    const shortCode = row["Kürzel"];
-    const personalNumber = row["Personalnummer"].toString();
+    const shortCode = row["Kürzel"]?.trim();
+    const personalNumber = row["Personalnummer"] ? row["Personalnummer"].toString().trim() : "";
 
     let folder = "";
     let fileName = "";
 
     if (position.includes("supervisor")) {
         folder = "SPV";
-        fileName = `${normalizeFileName(lastName)}, ${normalizeFileName(firstName)} (${shortCode || "X"}).jpg`;
+        fileName = `${normalizeFileName(lastName)}, ${normalizeFileName(firstName)}`;
+        if (shortCode) fileName += ` (${shortCode})`;
+        fileName += `.jpg`;
     } else if (position.includes("duty manager assistant")) {
         folder = "DMA";
-        fileName = `${normalizeFileName(lastName)}, ${normalizeFileName(firstName)} (${shortCode || "X"}).jpg`;
+        fileName = `${normalizeFileName(lastName)}, ${normalizeFileName(firstName)}`;
+        if (shortCode) fileName += ` (${shortCode})`;
+        fileName += `.jpg`;
     } else if (position.includes("duty manager")) {
         folder = "DM";
-        fileName = `${normalizeFileName(lastName)}, ${normalizeFileName(firstName)} (${shortCode || "X"}).jpg`;
+        fileName = `${normalizeFileName(lastName)}, ${normalizeFileName(firstName)}`;
+        if (shortCode) fileName += ` (${shortCode})`;
+        fileName += `.jpg`;
     } else if (position.includes("betriebsarbeiter")) {
         folder = "BA";
-        fileName = `${normalizeFileName(lastName)}, ${normalizeFileName(firstName)} ${personalNumber}.jpg`;
+        fileName = `${normalizeFileName(lastName)}, ${normalizeFileName(firstName)}`;
+        if (personalNumber) fileName += ` ${personalNumber}`;
+        fileName += `.jpg`;
     } else {
         return "Fotos/default.jpg";
     }
@@ -61,7 +69,7 @@ function loadExcelData() {
             const jsonData = XLSX.utils.sheet_to_json(sheet);
 
             people = jsonData.map(row => ({
-                personalCode: row["Personalnummer"].toString(),
+                personalCode: row["Personalnummer"]?.toString() || "",
                 firstName: row["Vorname"],
                 lastName: row["Nachname"],
                 shortCode: row["Kürzel"] || null,
@@ -140,7 +148,7 @@ function searchEmployees() {
             <img src="${person.photo}" alt="${person.firstName} ${person.lastName}" class="clickable-img" onerror="this.src='Fotos/default.jpg';" onclick="openImageModal('${person.photo}')">
             <div class="result-info">
                 <div class="name">${person.firstName} ${person.lastName}</div>
-                <div class="nummer">Personalnummer: ${person.personalCode}</div>
+                ${person.personalCode ? `<div class="nummer">Personalnummer: ${person.personalCode}</div>` : ""}
                 ${person.shortCode ? `<div class="kuerzel">Kürzel: ${person.shortCode}</div>` : ""}
                 <div class="position">${person.position}</div>
             </div>
