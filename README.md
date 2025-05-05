@@ -8,7 +8,7 @@ Optimiert für den Einsatz durch Supervisoren, Duty Manager und andere operative
 ## 🔍 Funktionen
 
 - 🔐 Login mit Personalnummer oder Kürzel
-- 👁️ Sofortige Live-Suche nach Vorname, Nachname, Kürzel oder Personalnummer
+- 👁️ Live-Suche nach Vorname, Nachname, Kürzel oder Personalnummer
 - 📸 Mitarbeiterkarte mit:
   - Bild (anklickbar zur Vergrößerung)
   - Vorname + Nachname
@@ -50,95 +50,55 @@ Optimiert für den Einsatz durch Supervisoren, Duty Manager und andere operative
 |--------|----------|----------------|--------|----------|
 | Fabio  | Berta    | 148085         | FB     | Supervisor |
 
-⚠️ Die Excel-Spaltenüberschriften **dürfen nicht verändert** werden.  
-⚠️ Die Datei muss sich im selben Verzeichnis wie `index.html` befinden.
-
 ---
 
 ## 🖼️ Bilder: Format & Ordnerstruktur
 
-### 🔤 Bildbenennung
+Dateiname: `<Nachname>, <Vorname>.jpg`  
+Umlaute und Sonderzeichen bitte ersetzen: `ä → ae`, `ö → oe`, `é → e`, `ß → ss`, usw.
 
-Die Bilder der Mitarbeitenden müssen folgendermaßen benannt werden:
-
-```
-<Nachname>, <Vorname>.jpg
-```
-
-> Achte darauf, **exakt ein Leerzeichen** nach dem Komma zu verwenden.
+Beispiel:  
+**Excel**: Jörg Gößmann (MJ)  
+**Bildname**: `Goessmann, Joerg (MJ).jpg`  
+**Pfad**: `Fotos/SPV/Goessmann, Joerg (MJ).jpg`
 
 ---
 
-### 🧪 Beispiel
+## 📁 Ordnerstruktur für Bilder
 
-**Excel-Eintrag:**
-
-- Vorname: `Jörg`
-- Nachname: `Gößmann`
-- Position: `Supervisor`
-
-**Bildname:**  
-```
-Goessmann, Joerg.jpg
-```
-
-**Pfad:**  
-```
-Fotos/SPV/Goessmann, Joerg.jpg
-```
+| Excel-Position enthält     | Zielordner     |
+|----------------------------|----------------|
+| Supervisor                 | Fotos/SPV/     |
+| Duty Manager               | Fotos/DM/      |
+| Duty Manager Assistant     | Fotos/DMA/     |
+| Betriebsarbeiter           | Fotos/BA/      |
 
 ---
 
-### 🔤 Umlaute und Sonderzeichen ersetzen
+## 🧩 Wie füge ich Fotos oder Mitarbeitende auf GitHub hinzu?
 
-Bitte ersetze alle Sonderzeichen im Bildnamen wie folgt:
+### 📸 Fotos hinzufügen oder ersetzen (über GitHub Weboberfläche)
 
-| Zeichen | Ersetzen durch |
-|---------|----------------|
-| ä       | ae             |
-| ö       | oe             |
-| ü       | ue             |
-| Ä       | Ae             |
-| Ö       | Oe             |
-| Ü       | Ue             |
-| ß       | ss             |
-| é, è    | e              |
-| à, á    | a              |
-| ç       | c              |
-| ñ       | n              |
+1. In den entsprechenden Ordner wechseln (`Fotos/SPV`, `Fotos/DM`, etc.)
+2. Das Bild korrekt umbenennen (z. B. `Mueller, Joerg (MJ).jpg`)
+3. Oben auf **"Add file"** klicken → **"Upload files"**
+4. Bild auswählen und hochladen
+5. Ganz unten auf den **grünen Button "Commit changes"** klicken
+6. Bestätigen – fertig ✅
 
 ---
 
-### 📁 Bildordner je nach Position
+### 📄 Mitarbeiterliste (`Mitarbeiter.xlsx`) bearbeiten oder ersetzen
 
-Speichere das Bild abhängig von der Position im passenden Ordner:
+1. Auf die Datei `Mitarbeiter.xlsx` klicken
+2. Oben rechts auf die **drei Punkte (...)** klicken → **"Delete file"**
+3. Lokal die neue Excel-Datei vorbereiten (gleicher Dateiname!)
+4. Zurück zum Hauptordner `swp-finder` in GitHub
+5. Wieder auf **"Add file" → "Upload files"** klicken
+6. Neue Datei hochladen
+7. Ganz unten auf **"Commit changes"** klicken und bestätigen
 
-| Position (aus Excel) enthält | Ordnername        |
-|------------------------------|-------------------|
-| Supervisor                   | `Fotos/SPV`       |
-| Duty Manager                 | `Fotos/DM`        |
-| Duty Manager Assistant       | `Fotos/DMA`       |
-| Betriebsarbeiter             | `Fotos/BA`        |
-
-> ⚠️ Wenn kein passendes Bild vorhanden ist, wird automatisch `Fotos/default.JPG` angezeigt.
-
----
-
-## 🚀 Nutzung
-
-1. Alle Dateien (inkl. `Mitarbeiter.xlsx` & Bilder) in denselben Ordner kopieren
-2. `index.html` im Browser öffnen (z. B. per Doppelklick)
-3. Mit deiner Personalnummer oder deinem Kürzel anmelden
-4. Nach Mitarbeitenden suchen
-
----
-
-## 🔧 Entwicklerhinweise
-
-- **Excel-Import:** via [SheetJS](https://sheetjs.com/) (`xlsx.js`)
-- **Session-Timeout:** Anpassbar in `script.js` (`timeoutDuration`)
-- **Vollständig clientseitig:** Kein Server, keine Datenbank
-- **Datenschutz:** Läuft komplett lokal im Browser – keine Datenübertragung ins Internet
+✅ Damit ist die Liste aktualisiert. Beim nächsten Laden in der App sind die Änderungen aktiv.
 
 ---
 
@@ -152,12 +112,4 @@ Winterthur, Schweiz
 
 ## 🛠️ Lizenz
 
-Dieses Tool wird bereitgestellt im internen Rahmen der **SWISSPORT INT. AG**.  
-Nutzung und Weitergabe nur mit Genehmigung.
-
----
-
-## 🙏 Danke
-
-Vielen Dank für die sorgfältige Datenpflege und die Einhaltung der Formatvorgaben!  
-Nur so funktioniert das Tool zuverlässig für alle Beteiligten.
+Bereitgestellt im internen Rahmen der **SWISSPORT INT. AG**. Nutzung oder Weitergabe nur mit Zustimmung.
