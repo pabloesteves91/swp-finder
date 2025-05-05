@@ -17,36 +17,22 @@ function getPhotoPath(row) {
     const position = row["Position"]?.toLowerCase() || "";
     const firstName = row["Vorname"];
     const lastName = row["Nachname"];
-    const shortCode = row["Kürzel"]?.trim();
-    const personalNumber = row["Personalnummer"] ? row["Personalnummer"].toString().trim() : "";
 
     let folder = "";
-    let fileName = "";
 
     if (position.includes("supervisor")) {
         folder = "SPV";
-        fileName = `${normalizeFileName(lastName)}, ${normalizeFileName(firstName)}`;
-        if (shortCode) fileName += ` (${shortCode})`;
-        fileName += `.jpg`;
     } else if (position.includes("duty manager assistant")) {
         folder = "DMA";
-        fileName = `${normalizeFileName(lastName)}, ${normalizeFileName(firstName)}`;
-        if (shortCode) fileName += ` (${shortCode})`;
-        fileName += `.jpg`;
     } else if (position.includes("duty manager")) {
         folder = "DM";
-        fileName = `${normalizeFileName(lastName)}, ${normalizeFileName(firstName)}`;
-        if (shortCode) fileName += ` (${shortCode})`;
-        fileName += `.jpg`;
     } else if (position.includes("betriebsarbeiter")) {
         folder = "BA";
-        fileName = `${normalizeFileName(lastName)}, ${normalizeFileName(firstName)}`;
-        if (personalNumber) fileName += ` ${personalNumber}`;
-        fileName += `.jpg`;
     } else {
         return "Fotos/default.jpg";
     }
 
+    const fileName = `${normalizeFileName(lastName)}, ${normalizeFileName(firstName)}.jpg`;
     return `Fotos/${folder}/${fileName}`;
 }
 
@@ -85,10 +71,13 @@ function loadExcelData() {
         });
 }
 
-// 🔐 Login-Funktion
+// 🔐 Login-Funktion (Personalnummer oder Kürzel)
 function login() {
-    const enteredCode = document.getElementById("personalCodeInput").value;
-    const employee = people.find(emp => emp.personalCode === enteredCode);
+    const enteredCode = document.getElementById("personalCodeInput").value.trim().toLowerCase();
+    const employee = people.find(emp =>
+        emp.personalCode.toLowerCase() === enteredCode ||
+        (emp.shortCode && emp.shortCode.toLowerCase() === enteredCode)
+    );
 
     if (employee) {
         sessionStorage.setItem("authenticated", "true");
@@ -110,11 +99,9 @@ function login() {
 
 // 🔓 Logout
 function logout() {
-    if (confirm("Willst du dich wirklich abmelden?")) {
-        sessionStorage.removeItem("authenticated");
-        sessionStorage.removeItem("loggedInUser");
-        location.reload();
-    }
+    sessionStorage.removeItem("authenticated");
+    sessionStorage.removeItem("loggedInUser");
+    location.reload();
 }
 
 document.getElementById("loginButton").addEventListener("click", login);
@@ -137,7 +124,7 @@ function searchEmployees() {
     );
 
     if (filteredEmployees.length === 0) {
-        results.innerHTML = `<p>Keine Ergebnisse gefunden für "${searchInput}".</p>`;
+        results.innerHTML = "<p>Keine Ergebnisse gefunden.</p>";
         return;
     }
 
@@ -145,7 +132,7 @@ function searchEmployees() {
         const card = document.createElement("div");
         card.className = "result-card";
         card.innerHTML = `
-            <img src="${person.photo}" alt="${person.firstName} ${person.lastName}" class="clickable-img" onerror="this.src='Fotos/default.jpg';" onclick="openImageModal('${person.photo}')">
+            <img src="${person.photo}" alt="${person.firstName}" class="clickable-img" onerror="this.src='Fotos/default.JPG';" onclick="openImageModal('${person.photo}')">
             <div class="result-info">
                 <div class="name">${person.firstName} ${person.lastName}</div>
                 ${person.personalCode ? `<div class="nummer">Personalnummer: ${person.personalCode}</div>` : ""}
