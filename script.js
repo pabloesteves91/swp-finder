@@ -9,7 +9,7 @@ function normalizeFileName(str) {
         .replace(/ß/g, "ss");
 }
 
-// 📸 Liefert mögliche Bildpfade in Reihenfolge: original, normalisiert, default
+// 📸 Liefert mögliche Bildpfade
 function getPhotoPaths(row) {
     const position = row["Position"]?.toLowerCase() || "";
     const firstName = row["Vorname"];
@@ -113,7 +113,7 @@ document.getElementById("personalCodeInput").addEventListener("keypress", e => {
 });
 document.getElementById("lockButton").addEventListener("click", logout);
 
-// 🔍 Mitarbeitersuche
+// 🔍 Suche
 function searchEmployees() {
     const searchInput = document.getElementById("searchInput").value.toLowerCase();
     const results = document.getElementById("results");
@@ -153,7 +153,7 @@ function searchEmployees() {
 
 document.getElementById("searchInput").addEventListener("input", searchEmployees);
 
-// 🔁 Fallback-Logik für Bilder mit mehreren Pfaden
+// 🔁 Bilderfallback-Logik
 function createImageWithFallback(paths) {
     const img = new Image();
     let index = 0;
