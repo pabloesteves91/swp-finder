@@ -46,9 +46,9 @@ Optimiert für den Einsatz durch Supervisoren, Duty Manager und andere operative
 
 > Der Tabellenblattname muss `Sheet1` lauten.
 
-| Vorname | Nachname | Personalnummer | Kürzel | Position |
+| Personalnummer | Vorname | Nachname | Kürzel | Position |
 |--------|----------|----------------|--------|----------|
-| Fabio  | Berta    | 148085         | FB     | Supervisor |
+| 123456  | Hans    | Goessmann         | HGO     | Supervisor |
 
 ⚠️ Die Excel-Spaltenüberschriften **dürfen nicht verändert** werden.  
 ⚠️ Die Datei muss sich im selben Verzeichnis wie `index.html` befinden.
