@@ -1,3 +1,4 @@
+
 # SWP Finder
 
 **SWP Finder** ist eine benutzerfreundliche Web-App zur schnellen Suche von Swissport-Mitarbeitenden anhand von Personalnummer, Name oder Kürzel.  
@@ -7,16 +8,16 @@ Optimiert für den Einsatz durch Supervisoren, Duty Manager und andere operative
 
 ## 🔍 Funktionen
 
-- 🔐 Login mit Personalnummer oder Kürzel
-- 👁️ Sofortige Live-Suche nach Vorname, Nachname, Kürzel oder Personalnummer
+- 🔐 Login mit Personalnummer oder Kürzel  
+- 👁️ Live-Suche nach Vorname, Nachname, Kürzel oder Personalnummer  
 - 📸 Mitarbeiterkarte mit:
   - Bild (anklickbar zur Vergrößerung)
   - Vorname + Nachname
   - Personalnummer
   - Kürzel
-  - Position
-- 🔒 Automatische Abmeldung nach 5 Minuten Inaktivität
-- 🧾 Excel-Datenimport (`Mitarbeiter.xlsx`)
+  - Position  
+- 🔒 Automatische Abmeldung nach 5 Minuten Inaktivität  
+- 🧾 Excel-Datenimport (`Mitarbeiter.xlsx`)  
 - 📱 Vollständig responsive (Smartphones & Tablets unterstützt)
 
 ---
@@ -44,101 +45,115 @@ Optimiert für den Einsatz durch Supervisoren, Duty Manager und andere operative
 
 ## 📊 Excel-Datei: Format & Regeln
 
-> Der Tabellenblattname muss `Sheet1` lauten.
+> Der Tabellenblattname muss `Sheet1` lauten.  
+> Änderungen an der Datei bitte an **Fabio Berta** weitergeben.  
+> **Achtung:** Änderungen werden nicht sofort sichtbar – es dauert ca. **10–15 Minuten**, bis sie in der App aktiv sind.
 
-| Personalnummer | Vorname | Nachname | Kürzel | Position |
-|--------|----------|----------------|--------|----------|
-| 123456  | Hans    | Goessmann         | HGO     | Supervisor |
+**Beispiel für Hans Gössmann** – so muss der Eintrag in der `Mitarbeiter.xlsx` aussehen:  
 
-⚠️ Die Excel-Spaltenüberschriften **dürfen nicht verändert** werden.  
-⚠️ Die Datei muss sich im selben Verzeichnis wie `index.html` befinden.
+| Personalnummer | Vorname | Nachname  | Kürzel | Position   |
+|----------------|---------|-----------|--------|------------|
+| 123456         | Hans    | Goessmann | HGO    | Supervisor |
+
+📌 **Wichtig:**  
+- Umlaute und Sonderzeichen **müssen auch in Excel ersetzt** sein (`Gössmann` → `Goessmann`)
+- Die **Position** bestimmt automatisch den Ordner, aus dem das Bild geladen wird (`Fotos/SPV/`)
+
+✅ **Bildname:** `Goessmann, Hans.jpg`  
+✅ **Pfad:** `Fotos/SPV/Goessmann, Hans.jpg`
 
 ---
 
 ## 🖼️ Bilder: Format & Ordnerstruktur
 
-### 🔤 Bildbenennung
+- **Dateiname:** `<Nachname>, <Vorname>.jpg`
+- 🔁 **Umlaute und Sonderzeichen bitte immer ersetzen**, sowohl in `Mitarbeiter.xlsx` als auch im Bildnamen:
 
-Die Bilder der Mitarbeitenden müssen folgendermaßen benannt werden:
+| Original | Umbenannt |
+|----------|-----------|
+| ä        | ae        |
+| ö        | oe        |
+| ü        | ue        |
+| é, è     | e         |
+| ß        | ss        |
 
-```
-<Nachname>, <Vorname>.jpg
-```
-
-> Achte darauf, **exakt ein Leerzeichen** nach dem Komma zu verwenden.
-
----
-
-### 🧪 Beispiel
-
-**Excel-Eintrag:**
-
-- Vorname: `Jörg`
-- Nachname: `Gößmann`
-- Position: `Supervisor`
-
-**Bildname:**  
-```
-Goessmann, Joerg.jpg
-```
-
-**Pfad:**  
-```
-Fotos/SPV/Goessmann, Joerg.jpg
-```
+✅ **Alle Bilder müssen die Endung `.jpg` haben.**
 
 ---
 
-### 🔤 Umlaute und Sonderzeichen ersetzen
+## 📁 Ordnerstruktur für Bilder
 
-Bitte ersetze alle Sonderzeichen im Bildnamen wie folgt:
-
-| Zeichen | Ersetzen durch |
-|---------|----------------|
-| ä       | ae             |
-| ö       | oe             |
-| ü       | ue             |
-| Ä       | Ae             |
-| Ö       | Oe             |
-| Ü       | Ue             |
-| ß       | ss             |
-| é, è    | e              |
-| à, á    | a              |
-| ç       | c              |
-| ñ       | n              |
+| Excel-Position enthält     | Zielordner     |
+|----------------------------|----------------|
+| Supervisor                 | Fotos/SPV/     |
+| Duty Manager               | Fotos/DM/      |
+| Duty Manager Assistant     | Fotos/DMA/     |
+| Betriebsarbeiter           | Fotos/BA/      |
 
 ---
 
-### 📁 Bildordner je nach Position
+## 🧩 Wie füge ich Fotos oder Mitarbeitende auf GitHub hinzu?
 
-Speichere das Bild abhängig von der Position im passenden Ordner:
+### 📸 Fotos hinzufügen oder ersetzen
 
-| Position (aus Excel) enthält | Ordnername        |
-|------------------------------|-------------------|
-| Supervisor                   | `Fotos/SPV`       |
-| Duty Manager                 | `Fotos/DM`        |
-| Duty Manager Assistant       | `Fotos/DMA`       |
-| Betriebsarbeiter             | `Fotos/BA`        |
-
-> ⚠️ Wenn kein passendes Bild vorhanden ist, wird automatisch `Fotos/default.JPG` angezeigt.
+1. In den passenden Ordner gehen (z. B. `Fotos/SPV`)
+2. Bild korrekt benennen → z. B. `Goessmann, Hans.jpg`
+3. **"Add file" → "Upload files"** klicken
+4. Bild hochladen
+5. Ganz unten auf **"Commit changes"** klicken
+6. Fertig ✅
 
 ---
 
-## 🚀 Nutzung
+### 📄 Mitarbeiterliste (`Mitarbeiter.xlsx`) bearbeiten oder ersetzen
 
-1. Alle Dateien (inkl. `Mitarbeiter.xlsx` & Bilder) in denselben Ordner kopieren
-2. `index.html` im Browser öffnen (z. B. per Doppelklick)
-3. Mit deiner Personalnummer oder deinem Kürzel anmelden
-4. Nach Mitarbeitenden suchen
+1. Datei `Mitarbeiter.xlsx` in GitHub öffnen
+2. Oben auf die **drei Punkte (...)** → **"Delete file"**
+3. Neue Datei lokal vorbereiten (gleich benennen!)
+4. Zurück zum Repo `swp-finder`
+5. **"Add file" → "Upload files"**
+6. Neue Datei hochladen
+7. **"Commit changes"** klicken und bestätigen
+
+✅ Änderungen sind nach ca. **10–15 Minuten aktiv** (nicht sofort nach Neuladen).
 
 ---
 
-## 🔧 Entwicklerhinweise
+## ⚠️ Fehlerverhalten
 
-- **Excel-Import:** via [SheetJS](https://sheetjs.com/) (`xlsx.js`)
-- **Session-Timeout:** Anpassbar in `script.js` (`timeoutDuration`)
-- **Vollständig clientseitig:** Kein Server, keine Datenbank
-- **Datenschutz:** Läuft komplett lokal im Browser – keine Datenübertragung ins Internet
+- Wenn ein Bild nicht gefunden wird (z. B. durch falsche Umlaute oder fehlende Datei), wird automatisch `default.JPG` angezeigt.
+- Achte darauf, dass der Bildname exakt (inkl. Ersetzungen wie `ä → ae`) mit Excel-Eintrag übereinstimmt.
+
+---
+
+## 📌 Versionen
+
+| Version | Datum       | Änderungen                                           |
+|---------|-------------|------------------------------------------------------|
+| 1.0.0   | 10.11.2024  | Grundstruktur: Suche, Excel-Import, Bildanzeige     |
+| 1.1.0   | 15.12.2024  | Bildzoom, Session-Timeout und mobile Optimierung    |
+| 1.2.0   | 19.01.2025  | Fallback-Logik für Bilder, Default-Bild             |
+| 1.3.0   | 07.03.2025  | Erweiterte Umlaute & Kürzel-Unterstützung           |
+| 1.4.0   | 05.05.2025  | README erweitert, Formatierungen und Klarheit       |
+
+---
+
+## ⚙️ Konfigurierbare Variablen
+
+Die Inaktivitätsdauer (Session Timeout) kann im `script.js` durch **Fabio Berta** angepasst werden:
+
+```js
+const timeoutDuration = 5 * 60 * 1000; // In Millisekunden (5 Minuten)
+```
+
+---
+
+## 👥 Rollenübersicht
+
+| Rolle                         | Aufgabe                                           |
+|-------------------------------|--------------------------------------------------|
+| **IT-Support** (Fabio Berta)  | Adminrechte, Entwicklung & Support               |
+| **Admin** (Max Weinmann)      | Pflege von `Mitarbeiter.xlsx` und Bildern        |
 
 ---
 
@@ -146,18 +161,10 @@ Speichere das Bild abhängig von der Position im passenden Ordner:
 
 **Fabio Berta**  
 Winterthur, Schweiz  
-📧 [nipponnites@gmail.com](mailto:nipponnites@gmail.com)
+📧 [fabio.berta@swissport.com](mailto:fabio.berta@swissport.com)
 
 ---
 
 ## 🛠️ Lizenz
 
-Dieses Tool wird bereitgestellt im internen Rahmen der **SWISSPORT INT. AG**.  
-Nutzung und Weitergabe nur mit Genehmigung.
-
----
-
-## 🙏 Danke
-
-Vielen Dank für die sorgfältige Datenpflege und die Einhaltung der Formatvorgaben!  
-Nur so funktioniert das Tool zuverlässig für alle Beteiligten.
+Bereitgestellt im internen Rahmen der **SWISSPORT INT. AG**. Nutzung oder Weitergabe nur mit Zustimmung.
