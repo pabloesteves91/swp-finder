@@ -26,13 +26,13 @@ body {
     text-align: left;
     font-size: 14px;
     color: #888;
-    margin-bottom: 15px; /* vorher: 5px */
+    margin-bottom: 20px; /* vorher: 5px */
 }
 
 .logo-container {
     display: flex;
     justify-content: center;
-    margin-bottom: 20px; /* vorher: 10px */
+    margin-bottom: 25px; /* vorher: 10px */
 }
 
 .logo {
