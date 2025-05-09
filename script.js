@@ -51,17 +51,37 @@ function loadExcelData() {
         })
         .then(data => {
             const workbook = XLSX.read(data, { type: "array" });
-            const sheet = workbook.Sheets["Sheet1"];
-            const jsonData = XLSX.utils.sheet_to_json(sheet);
 
-            people = jsonData.map(row => ({
-                personalCode: row["Personalnummer"]?.toString() || "",
-                firstName: row["Vorname"],
-                lastName: row["Nachname"],
-                shortCode: row["Kürzel"] || null,
-                position: row["Position"],
-                photoPaths: getPhotoPaths(row)
-            }));
+            // Sheetname -> Positionserkennung
+            const sheetsMapping = {
+                "Supervisor": "supervisor",
+                "Duty Manager Assistant": "duty manager assistant",
+                "Duty Manager": "duty manager",
+                "Betriebsarbeiter": "betriebsarbeiter"
+            };
+
+            people = [];
+
+            for (const [sheetName, positionKeyword] of Object.entries(sheetsMapping)) {
+                const sheet = workbook.Sheets[sheetName];
+                if (!sheet) continue;
+
+                const jsonData = XLSX.utils.sheet_to_json(sheet);
+
+                jsonData.forEach(row => {
+                    people.push({
+                        personalCode: row["Personalnummer"]?.toString() || "",
+                        firstName: row["Vorname"],
+                        lastName: row["Nachname"],
+                        shortCode: row["Kürzel"] || null,
+                        position: row["Position"] || capitalizeWords(positionKeyword),
+                        photoPaths: getPhotoPaths({
+                            ...row,
+                            Position: row["Position"] || positionKeyword
+                        })
+                    });
+                });
+            }
 
             searchEmployees();
         })
@@ -69,6 +89,11 @@ function loadExcelData() {
             console.error("Fehler beim Laden:", error);
             alert("Die Excel-Daten konnten nicht geladen werden.");
         });
+}
+
+// Großschreibt jedes Wort (Duty Manager Assistant → Duty Manager Assistant)
+function capitalizeWords(str) {
+    return str.replace(/\b\w/g, char => char.toUpperCase());
 }
 
 // 🔐 Login
