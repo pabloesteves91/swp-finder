@@ -11,13 +11,14 @@
 </head>
 <body>
 
-    <!-- LOGIN -->
     <div class="container" id="loginContainer">
         <div class="logo-container">
             <img src="swissport-logo.png" alt="Swissport Logo" class="logo">
         </div>
         <h1 class="app-title">Willkommen im SWP FINDER</h1>
         <div class="login-box">
+
+            <!-- ✅ Loginfeld nur für Ziffern -->
             <input 
                 type="text" 
                 id="personalCodeInput" 
@@ -33,11 +34,9 @@
         <p id="errorMessage" class="error-message" style="display: none;">❌ Falsche Personalnummer oder Kürzel. Bitte erneut versuchen.</p>
     </div>
 
-    <!-- INFO-TEXT -->
-    <h3>💡 Tipp: Das Bild anklicken, um es zu vergrössern</h3>
+   <h3 >💡 Tipp: Das Bild anklicken, um es zu vergrössern</h3>
 
-    <!-- MAIN-APP -->
-    <div id="mainContainer" style="display: none;">
+    <div class="container" id="mainContainer" style="display: none;">
 
         <!-- Eingeloggt-Anzeige -->
         <div id="loggedInInfo" class="logged-in-info" style="display: none;"></div>
