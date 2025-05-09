@@ -18,7 +18,7 @@ function getPhotoPaths(row) {
 
     const normFirst = normalizeFileName(firstName);
     const normLast = normalizeFileName(lastName);
-    const suffix = shortCode ?  (${shortCode}) : "";
+    const suffix = shortCode ? ` (${shortCode})` : "";
 
     let folder = "";
     if (position.includes("supervisor")) folder = "SPV";
@@ -28,14 +28,14 @@ function getPhotoPaths(row) {
     else return ["Fotos/default.JPG"];
 
     return [
-        Fotos/${folder}/${lastName}, ${firstName}${suffix}.jpg,
-        Fotos/${folder}/${normLast}, ${normFirst}${suffix}.jpg,
-        Fotos/${folder}/${lastName}, ${firstName}.jpg,
-        Fotos/${folder}/${normLast}, ${normFirst}.jpg,
-        Fotos/${folder}/${normLast}, ${firstName}${suffix}.jpg,
-        Fotos/${folder}/${lastName}, ${normFirst}${suffix}.jpg,
-        Fotos/${folder}/${normLast}, ${firstName}.jpg,
-        Fotos/${folder}/${lastName}, ${normFirst}.jpg,
+        `Fotos/${folder}/${lastName}, ${firstName}${suffix}.jpg`,
+        `Fotos/${folder}/${normLast}, ${normFirst}${suffix}.jpg`,
+        `Fotos/${folder}/${lastName}, ${firstName}.jpg`,
+        `Fotos/${folder}/${normLast}, ${normFirst}.jpg`,
+        `Fotos/${folder}/${normLast}, ${firstName}${suffix}.jpg`,
+        `Fotos/${folder}/${lastName}, ${normFirst}${suffix}.jpg`,
+        `Fotos/${folder}/${normLast}, ${firstName}.jpg`,
+        `Fotos/${folder}/${lastName}, ${normFirst}.jpg`,
         "Fotos/default.JPG"
     ];
 }
@@ -51,37 +51,17 @@ function loadExcelData() {
         })
         .then(data => {
             const workbook = XLSX.read(data, { type: "array" });
+            const sheet = workbook.Sheets["Sheet1"];
+            const jsonData = XLSX.utils.sheet_to_json(sheet);
 
-            // Sheetname -> Positionserkennung
-            const sheetsMapping = {
-                "Supervisor": "supervisor",
-                "Duty Manager Assistant": "duty manager assistant",
-                "Duty Manager": "duty manager",
-                "Betriebsarbeiter": "betriebsarbeiter"
-            };
-
-            people = [];
-
-            for (const [sheetName, positionKeyword] of Object.entries(sheetsMapping)) {
-                const sheet = workbook.Sheets[sheetName];
-                if (!sheet) continue;
-
-                const jsonData = XLSX.utils.sheet_to_json(sheet);
-
-                jsonData.forEach(row => {
-                    people.push({
-                        personalCode: row["Personalnummer"]?.toString() || "",
-                        firstName: row["Vorname"],
-                        lastName: row["Nachname"],
-                        shortCode: row["Kürzel"] || null,
-                        position: row["Position"] || capitalizeWords(positionKeyword),
-                        photoPaths: getPhotoPaths({
-                            ...row,
-                            Position: row["Position"] || positionKeyword
-                        })
-                    });
-                });
-            }
+            people = jsonData.map(row => ({
+                personalCode: row["Personalnummer"]?.toString() || "",
+                firstName: row["Vorname"],
+                lastName: row["Nachname"],
+                shortCode: row["Kürzel"] || null,
+                position: row["Position"],
+                photoPaths: getPhotoPaths(row)
+            }));
 
             searchEmployees();
         })
@@ -89,11 +69,6 @@ function loadExcelData() {
             console.error("Fehler beim Laden:", error);
             alert("Die Excel-Daten konnten nicht geladen werden.");
         });
-}
-
-// Großschreibt jedes Wort (Duty Manager Assistant → Duty Manager Assistant)
-function capitalizeWords(str) {
-    return str.replace(/\b\w/g, char => char.toUpperCase());
 }
 
 // 🔐 Login
@@ -118,7 +93,7 @@ function login() {
         document.getElementById("mainContainer").style.display = "block";
 
         const infoBox = document.getElementById("loggedInInfo");
-        infoBox.textContent = Eingeloggt als: ${employee.firstName} ${employee.lastName} ${employee.shortCode ? (${employee.shortCode}) : | ${employee.personalCode}};
+        infoBox.textContent = `Eingeloggt als: ${employee.firstName} ${employee.lastName} ${employee.shortCode ? `(${employee.shortCode})` : `| ${employee.personalCode}`}`;
         infoBox.style.display = "block";
 
         searchEmployees();
@@ -165,14 +140,14 @@ function searchEmployees() {
         card.className = "result-card";
 
         const img = createImageWithFallback(person.photoPaths);
-        const info = 
+        const info = `
             <div class="result-info">
                 <div class="name">${person.firstName} ${person.lastName}</div>
-                ${person.personalCode ? <div class="nummer">Personalnummer: ${person.personalCode}</div> : ""}
-                ${person.shortCode ? <div class="kuerzel">Kürzel: ${person.shortCode}</div> : ""}
+                ${person.personalCode ? `<div class="nummer">Personalnummer: ${person.personalCode}</div>` : ""}
+                ${person.shortCode ? `<div class="kuerzel">Kürzel: ${person.shortCode}</div>` : ""}
                 <div class="position">${person.position}</div>
             </div>
-        ;
+        `;
 
         card.appendChild(img);
         card.insertAdjacentHTML("beforeend", info);
