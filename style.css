@@ -8,15 +8,16 @@ html, body {
     overflow: hidden;
 }
 
-/* Hauptstruktur */
+/* Hauptlayout */
 #mainContainer {
     display: flex;
     flex-direction: column;
     height: 100vh;
     overflow: hidden;
+    background: white;
 }
 
-/* Fixierte obere Bereiche */
+/* Fixierte obere Layoutteile */
 .logo-container,
 h1,
 .search-bar,
@@ -25,7 +26,7 @@ h3 {
     flex-shrink: 0;
 }
 
-/* Login- und Main-Container */
+/* Login-Container */
 .container {
     text-align: center;
     width: 100%;
@@ -68,6 +69,7 @@ h1 {
 h3 {
     font-weight: normal;
     margin: 10px 0 20px;
+    text-align: center;
 }
 
 /* Login-Box */
@@ -151,7 +153,7 @@ h3 {
     background: #b31b1f;
 }
 
-/* Ergebnisliste: nur dieser Bereich ist scrollbar */
+/* Ergebnisse */
 #results {
     flex-grow: 1;
     overflow-y: auto;
