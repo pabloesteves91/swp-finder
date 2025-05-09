@@ -1,66 +1,33 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SWP FINDER</title>
-    <link rel="manifest" href="manifest.json">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon-180x180.png">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mitarbeiterübersicht</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 </head>
-<body>
+<body id="top">
+  <div id="loginContainer">
+    <h2>Mitarbeiter Login</h2>
+    <input id="personalCodeInput" placeholder="Personalnummer oder Kürzel" />
+    <button id="loginButton">Login</button>
+    <p id="errorMessage" style="color:red; display:none;">Ungültiger Code!</p>
+  </div>
 
-    <div class="container" id="loginContainer">
-        <div class="logo-container">
-            <img src="swissport-logo.png" alt="Swissport Logo" class="logo">
-        </div>
-        <h1 class="app-title">Willkommen im SWP FINDER</h1>
-        <div class="login-box">
+  <div id="mainContainer" style="display:none;">
+    <div id="loggedInInfo" style="display:none;"></div>
+    <button id="lockButton">Logout</button>
+    <input id="searchInput" placeholder="Suche nach Name, Kürzel, Nummer..." />
+    <div id="results"></div>
+  </div>
 
-            <!-- ✅ Loginfeld nur für Ziffern -->
-            <input 
-                type="text" 
-                id="personalCodeInput" 
-                placeholder="🔑 Deine Personalnummer oder Kürzel eingeben" 
-                inputmode="text" 
-                autocomplete="off"
-                autocapitalize="off"
-                spellcheck="false" 
-                autofocus
-            >
-            <button id="loginButton">Anmelden</button>
-        </div>
-        <p id="errorMessage" class="error-message" style="display: none;">❌ Falsche Personalnummer oder Kürzel. Bitte erneut versuchen.</p>
-    </div>
+  <a href="#top" class="scroll-to-top" title="Nach oben">&#8679;</a>
 
-   <h3 >💡 Tipp: Das Bild anklicken, um es zu vergrössern</h3>
+  <div id="imageModal">
+    <img id="modalImage" />
+  </div>
 
-    <div class="container" id="mainContainer" style="display: none;">
-
-        <!-- Eingeloggt-Anzeige -->
-        <div id="loggedInInfo" class="logged-in-info" style="display: none;"></div>
-
-        <!-- Logo -->
-        <div class="logo-container">
-            <img src="swissport-logo.png" alt="Swissport Logo" class="logo">
-        </div>
-
-        <!-- Titel -->
-        <h1>SWP FINDER</h1>
-
-        <!-- Suchfeld + Abmelden -->
-        <div class="search-bar">
-            <input type="text" id="searchInput" placeholder="🔍 Suche nach Personalnummer, Name oder Kürzel">
-            <button id="lockButton" class="lock-button">Abmelden</button>
-        </div>
-
-        <!-- Ergebnisse -->
-        <div id="results"></div>
-    </div>
-
-    <!-- Excel + App Script -->
-    <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
