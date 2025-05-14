@@ -18,7 +18,7 @@ function getPhotoPaths(row) {
 
     const normFirst = normalizeFileName(firstName);
     const normLast = normalizeFileName(lastName);
-    const suffix = shortCode ?  (${shortCode}) : "";
+    const suffix = shortCode ? ` (${shortCode})` : "";
 
     let folder = "";
     if (position.includes("supervisor")) folder = "SPV";
@@ -28,14 +28,14 @@ function getPhotoPaths(row) {
     else return ["Fotos/default.JPG"];
 
     return [
-        Fotos/${folder}/${lastName}, ${firstName}${suffix}.jpg,
-        Fotos/${folder}/${normLast}, ${normFirst}${suffix}.jpg,
-        Fotos/${folder}/${lastName}, ${firstName}.jpg,
-        Fotos/${folder}/${normLast}, ${normFirst}.jpg,
-        Fotos/${folder}/${normLast}, ${firstName}${suffix}.jpg,
-        Fotos/${folder}/${lastName}, ${normFirst}${suffix}.jpg,
-        Fotos/${folder}/${normLast}, ${firstName}.jpg,
-        Fotos/${folder}/${lastName}, ${normFirst}.jpg,
+        `Fotos/${folder}/${lastName}, ${firstName}${suffix}.jpg`,
+        `Fotos/${folder}/${normLast}, ${normFirst}${suffix}.jpg`,
+        `Fotos/${folder}/${lastName}, ${firstName}.jpg`,
+        `Fotos/${folder}/${normLast}, ${normFirst}.jpg`,
+        `Fotos/${folder}/${normLast}, ${firstName}${suffix}.jpg`,
+        `Fotos/${folder}/${lastName}, ${normFirst}${suffix}.jpg`,
+        `Fotos/${folder}/${normLast}, ${firstName}.jpg`,
+        `Fotos/${folder}/${lastName}, ${normFirst}.jpg`,
         "Fotos/default.JPG"
     ];
 }
@@ -117,7 +117,7 @@ function login() {
         document.getElementById("mainContainer").style.display = "block";
 
         const infoBox = document.getElementById("loggedInInfo");
-        infoBox.textContent = Eingeloggt als: ${employee.firstName} ${employee.lastName} ${employee.shortCode ? (${employee.shortCode}) : | ${employee.personalCode}};
+        infoBox.textContent = `Eingeloggt als: ${employee.firstName} ${employee.lastName} ${employee.shortCode ? `(${employee.shortCode})` : `| ${employee.personalCode}`}`;
         infoBox.style.display = "block";
 
         searchEmployees();
@@ -164,14 +164,14 @@ function searchEmployees() {
         card.className = "result-card";
 
         const img = createImageWithFallback(person.photoPaths);
-        const info = 
+        const info = `
             <div class="result-info">
                 <div class="name">${person.firstName} ${person.lastName}</div>
-                ${person.personalCode ? <div class="nummer">Personalnummer: ${person.personalCode}</div> : ""}
-                ${person.shortCode ? <div class="kuerzel">Kürzel: ${person.shortCode}</div> : ""}
+                ${person.personalCode ? `<div class="nummer">Personalnummer: ${person.personalCode}</div>` : ""}
+                ${person.shortCode ? `<div class="kuerzel">Kürzel: ${person.shortCode}</div>` : ""}
                 <div class="position">${person.position}</div>
             </div>
-        ;
+        `;
 
         card.appendChild(img);
         card.insertAdjacentHTML("beforeend", info);
@@ -181,7 +181,7 @@ function searchEmployees() {
 
 document.getElementById("searchInput").addEventListener("input", searchEmployees);
 
-// 🔁 Bilder-Fallback-Logik
+// 🔁 Bilder-Fallback-Logik (zeigt immer irgendwas – zuletzt default.JPG)
 function createImageWithFallback(paths) {
     const img = new Image();
     let index = 0;
