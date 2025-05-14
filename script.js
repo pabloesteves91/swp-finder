@@ -9,36 +9,35 @@ function normalizeFileName(str) {
         .replace(/ß/g, "ss");
 }
 
-// 📸 Liefert kombinierte Bildpfade (kein default mehr hier!)
+// 📸 Liefert kombinierte Bildpfade
 function getPhotoPaths(row) {
-    const folders = ["SPV", "DMA", "DM", "BA"];
+    const position = row["Position"]?.toLowerCase() || "";
     const firstName = row["Vorname"];
     const lastName = row["Nachname"];
     const shortCode = row["Kürzel"] || "";
 
     const normFirst = normalizeFileName(firstName);
     const normLast = normalizeFileName(lastName);
-    const suffix = shortCode ? ` (${shortCode})` : "";
+    const suffix = shortCode ?  (${shortCode}) : "";
 
-    const variants = [
-        `${lastName}, ${firstName}${suffix}.jpg`,
-        `${normLast}, ${normFirst}${suffix}.jpg`,
-        `${lastName}, ${firstName}.jpg`,
-        `${normLast}, ${normFirst}.jpg`,
-        `${normLast}, ${firstName}${suffix}.jpg`,
-        `${lastName}, ${normFirst}${suffix}.jpg`,
-        `${normLast}, ${firstName}.jpg`,
-        `${lastName}, ${normFirst}.jpg`
+    let folder = "";
+    if (position.includes("supervisor")) folder = "SPV";
+    else if (position.includes("duty manager assistant")) folder = "DMA";
+    else if (position.includes("duty manager")) folder = "DM";
+    else if (position.includes("betriebsarbeiter")) folder = "BA";
+    else return ["Fotos/default.JPG"];
+
+    return [
+        Fotos/${folder}/${lastName}, ${firstName}${suffix}.jpg,
+        Fotos/${folder}/${normLast}, ${normFirst}${suffix}.jpg,
+        Fotos/${folder}/${lastName}, ${firstName}.jpg,
+        Fotos/${folder}/${normLast}, ${normFirst}.jpg,
+        Fotos/${folder}/${normLast}, ${firstName}${suffix}.jpg,
+        Fotos/${folder}/${lastName}, ${normFirst}${suffix}.jpg,
+        Fotos/${folder}/${normLast}, ${firstName}.jpg,
+        Fotos/${folder}/${lastName}, ${normFirst}.jpg,
+        "Fotos/default.JPG"
     ];
-
-    const allPaths = [];
-    for (const folder of folders) {
-        for (const fileName of variants) {
-            allPaths.push(`Fotos/${folder}/${fileName}`);
-        }
-    }
-
-    return allPaths;
 }
 
 // 📥 Excel-Daten laden
@@ -118,7 +117,7 @@ function login() {
         document.getElementById("mainContainer").style.display = "block";
 
         const infoBox = document.getElementById("loggedInInfo");
-        infoBox.textContent = `Eingeloggt als: ${employee.firstName} ${employee.lastName} ${employee.shortCode ? `(${employee.shortCode})` : `| ${employee.personalCode}`}`;
+        infoBox.textContent = Eingeloggt als: ${employee.firstName} ${employee.lastName} ${employee.shortCode ? (${employee.shortCode}) : | ${employee.personalCode}};
         infoBox.style.display = "block";
 
         searchEmployees();
@@ -164,17 +163,17 @@ function searchEmployees() {
         const card = document.createElement("div");
         card.className = "result-card";
 
-        const imgContainer = createImageWithFallback(person.photoPaths);
-        const info = `
+        const img = createImageWithFallback(person.photoPaths);
+        const info = 
             <div class="result-info">
                 <div class="name">${person.firstName} ${person.lastName}</div>
-                ${person.personalCode ? `<div class="nummer">Personalnummer: ${person.personalCode}</div>` : ""}
-                ${person.shortCode ? `<div class="kuerzel">Kürzel: ${person.shortCode}</div>` : ""}
+                ${person.personalCode ? <div class="nummer">Personalnummer: ${person.personalCode}</div> : ""}
+                ${person.shortCode ? <div class="kuerzel">Kürzel: ${person.shortCode}</div> : ""}
                 <div class="position">${person.position}</div>
             </div>
-        `;
+        ;
 
-        card.appendChild(imgContainer);
+        card.appendChild(img);
         card.insertAdjacentHTML("beforeend", info);
         results.appendChild(card);
     });
@@ -182,56 +181,22 @@ function searchEmployees() {
 
 document.getElementById("searchInput").addEventListener("input", searchEmployees);
 
-// 🔁 Robuste Bilder-Fallback-Logik mit rotem Warnsymbol
+// 🔁 Bilder-Fallback-Logik
 function createImageWithFallback(paths) {
-    const container = document.createElement("div");
-    container.className = "image-container"; // Optionales CSS
-
     const img = new Image();
-    img.className = "clickable-img";
-    img.onclick = () => openImageModal(img.src);
-
-    let loaded = false;
     let index = 0;
 
     function tryNext() {
-        if (index >= paths.length) {
-            if (!loaded) {
-                console.warn("❌ Kein Bild gefunden.");
-                const warn = document.createElement("div");
-                warn.textContent = "⚠️";
-                warn.title = "Kein Bild gefunden";
-                warn.style.color = "red";
-                warn.style.fontSize = "24px";
-                warn.style.textAlign = "center";
-                warn.style.paddingTop = "10px";
-                container.appendChild(warn);
-            }
-            return;
-        }
-
-        const path = paths[index++];
-        const testImg = new Image();
-
-        testImg.onload = () => {
-            if (!loaded) {
-                loaded = true;
-                img.src = testImg.src;
-                container.appendChild(img);
-                console.log("✅ Bild gefunden:", testImg.src);
-            }
-        };
-
-        testImg.onerror = () => {
-            console.warn("🔍 Bild nicht gefunden:", path);
-            tryNext();
-        };
-
-        testImg.src = path;
+        if (index >= paths.length) return;
+        img.src = paths[index++];
     }
 
+    img.onerror = tryNext;
+    img.className = "clickable-img";
+    img.onclick = () => openImageModal(img.src);
     tryNext();
-    return container;
+
+    return img;
 }
 
 // ⏱️ Session-Timer
