@@ -22,25 +22,31 @@ body {
     position: relative;
 }
 
+#loginContainer {
+    padding-top: 30px; /* Platz für .version-info (20px + 10px Abstand zum Logo) */
+}
+
 .version-info {
+    position: absolute;
+    top: 10px;
+    right: 20px;
     font-size: 12px;
     color: #888;
     text-align: right;
-    width: 100%;
-    margin-bottom: 10px;
+    z-index: 999;
 }
 
 .logged-in-info {
     text-align: left;
     font-size: 14px;
     color: #888;
-    margin-bottom: 20px; /* vorher: 5px */
+    margin-bottom: 20px;
 }
 
 .logo-container {
     display: flex;
     justify-content: center;
-    margin-bottom: 25px; /* vorher: 10px */
+    margin-bottom: 25px;
 }
 
 .logo {
@@ -96,7 +102,7 @@ h1 {
     margin-top: 10px;
 }
 
-/* ✅ Zurückgeholte Suchbox */
+/* Suchfeld + Abmelden */
 .search-bar {
     display: flex;
     flex-direction: column;
