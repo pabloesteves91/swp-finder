@@ -9,7 +9,7 @@ function normalizeFileName(str) {
         .replace(/ß/g, "ss");
 }
 
-// 📸 Liefert kombinierte Bildpfade
+// 📸 Liefert kombinierte Bildpfade (kein default mehr hier!)
 function getPhotoPaths(row) {
     const folders = ["SPV", "DMA", "DM", "BA"];
     const firstName = row["Vorname"];
@@ -21,25 +21,23 @@ function getPhotoPaths(row) {
     const suffix = shortCode ? ` (${shortCode})` : "";
 
     const variants = [
-        [`${lastName}, ${firstName}${suffix}.jpg`],
-        [`${normLast}, ${normFirst}${suffix}.jpg`],
-        [`${lastName}, ${firstName}.jpg`],
-        [`${normLast}, ${normFirst}.jpg`],
-        [`${normLast}, ${firstName}${suffix}.jpg`],
-        [`${lastName}, ${normFirst}${suffix}.jpg`],
-        [`${normLast}, ${firstName}.jpg`],
-        [`${lastName}, ${normFirst}.jpg`]
+        `${lastName}, ${firstName}${suffix}.jpg`,
+        `${normLast}, ${normFirst}${suffix}.jpg`,
+        `${lastName}, ${firstName}.jpg`,
+        `${normLast}, ${normFirst}.jpg`,
+        `${normLast}, ${firstName}${suffix}.jpg`,
+        `${lastName}, ${normFirst}${suffix}.jpg`,
+        `${normLast}, ${firstName}.jpg`,
+        `${lastName}, ${normFirst}.jpg`
     ];
 
     const allPaths = [];
     for (const folder of folders) {
-        for (const [fileName] of variants) {
+        for (const fileName of variants) {
             allPaths.push(`Fotos/${folder}/${fileName}`);
         }
     }
 
-    // Always add fallback as last option
-    allPaths.push("Fotos/default.JPG");
     return allPaths;
 }
 
@@ -166,7 +164,7 @@ function searchEmployees() {
         const card = document.createElement("div");
         card.className = "result-card";
 
-        const img = createImageWithFallback(person.photoPaths);
+        const imgContainer = createImageWithFallback(person.photoPaths);
         const info = `
             <div class="result-info">
                 <div class="name">${person.firstName} ${person.lastName}</div>
@@ -176,7 +174,7 @@ function searchEmployees() {
             </div>
         `;
 
-        card.appendChild(img);
+        card.appendChild(imgContainer);
         card.insertAdjacentHTML("beforeend", info);
         results.appendChild(card);
     });
@@ -184,32 +182,57 @@ function searchEmployees() {
 
 document.getElementById("searchInput").addEventListener("input", searchEmployees);
 
-// 🔁 Bilder-Fallback-Logik
+// 🔁 Robuste Bilder-Fallback-Logik mit rotem Warnsymbol
 function createImageWithFallback(paths) {
+    const container = document.createElement("div");
+    container.className = "image-container"; // Optionales CSS
+
     const img = new Image();
-    let index = 0;
-
-    function tryNext() {
-        if (index >= paths.length) return;
-
-        const testImg = new Image();
-        testImg.onload = () => {
-            img.src = testImg.src; // Nur setzen, wenn es wirklich geladen wurde
-        };
-        testImg.onerror = () => {
-            index++;
-            tryNext(); // versuche nächsten Pfad
-        };
-        testImg.src = paths[index];
-    }
-
     img.className = "clickable-img";
     img.onclick = () => openImageModal(img.src);
 
-    tryNext();
-    return img;
-}
+    let loaded = false;
+    let index = 0;
 
+    function tryNext() {
+        if (index >= paths.length) {
+            if (!loaded) {
+                console.warn("❌ Kein Bild gefunden.");
+                const warn = document.createElement("div");
+                warn.textContent = "⚠️";
+                warn.title = "Kein Bild gefunden";
+                warn.style.color = "red";
+                warn.style.fontSize = "24px";
+                warn.style.textAlign = "center";
+                warn.style.paddingTop = "10px";
+                container.appendChild(warn);
+            }
+            return;
+        }
+
+        const path = paths[index++];
+        const testImg = new Image();
+
+        testImg.onload = () => {
+            if (!loaded) {
+                loaded = true;
+                img.src = testImg.src;
+                container.appendChild(img);
+                console.log("✅ Bild gefunden:", testImg.src);
+            }
+        };
+
+        testImg.onerror = () => {
+            console.warn("🔍 Bild nicht gefunden:", path);
+            tryNext();
+        };
+
+        testImg.src = path;
+    }
+
+    tryNext();
+    return container;
+}
 
 // ⏱️ Session-Timer
 let sessionTimeout;
