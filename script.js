@@ -11,7 +11,7 @@ function normalizeFileName(str) {
 
 // 📸 Liefert kombinierte Bildpfade
 function getPhotoPaths(row) {
-    const position = row["Position"]?.toLowerCase() || "";
+    const folders = ["SPV", "DMA", "DM", "BA"];
     const firstName = row["Vorname"];
     const lastName = row["Nachname"];
     const shortCode = row["Kürzel"] || "";
@@ -20,24 +20,27 @@ function getPhotoPaths(row) {
     const normLast = normalizeFileName(lastName);
     const suffix = shortCode ? ` (${shortCode})` : "";
 
-    let folder = "";
-    if (position.includes("supervisor")) folder = "SPV";
-    else if (position.includes("duty manager assistant")) folder = "DMA";
-    else if (position.includes("duty manager")) folder = "DM";
-    else if (position.includes("betriebsarbeiter")) folder = "BA";
-    else return ["Fotos/default.JPG"];
-
-    return [
-        `Fotos/${folder}/${lastName}, ${firstName}${suffix}.jpg`,
-        `Fotos/${folder}/${normLast}, ${normFirst}${suffix}.jpg`,
-        `Fotos/${folder}/${lastName}, ${firstName}.jpg`,
-        `Fotos/${folder}/${normLast}, ${normFirst}.jpg`,
-        `Fotos/${folder}/${normLast}, ${firstName}${suffix}.jpg`,
-        `Fotos/${folder}/${lastName}, ${normFirst}${suffix}.jpg`,
-        `Fotos/${folder}/${normLast}, ${firstName}.jpg`,
-        `Fotos/${folder}/${lastName}, ${normFirst}.jpg`,
-        "Fotos/default.JPG"
+    const variants = [
+        [`${lastName}, ${firstName}${suffix}.jpg`],
+        [`${normLast}, ${normFirst}${suffix}.jpg`],
+        [`${lastName}, ${firstName}.jpg`],
+        [`${normLast}, ${normFirst}.jpg`],
+        [`${normLast}, ${firstName}${suffix}.jpg`],
+        [`${lastName}, ${normFirst}${suffix}.jpg`],
+        [`${normLast}, ${firstName}.jpg`],
+        [`${lastName}, ${normFirst}.jpg`]
     ];
+
+    const allPaths = [];
+    for (const folder of folders) {
+        for (const [fileName] of variants) {
+            allPaths.push(`Fotos/${folder}/${fileName}`);
+        }
+    }
+
+    // Always add fallback as last option
+    allPaths.push("Fotos/default.JPG");
+    return allPaths;
 }
 
 // 📥 Excel-Daten laden
