@@ -191,16 +191,25 @@ function createImageWithFallback(paths) {
 
     function tryNext() {
         if (index >= paths.length) return;
-        img.src = paths[index++];
+
+        const testImg = new Image();
+        testImg.onload = () => {
+            img.src = testImg.src; // Nur setzen, wenn es wirklich geladen wurde
+        };
+        testImg.onerror = () => {
+            index++;
+            tryNext(); // versuche nächsten Pfad
+        };
+        testImg.src = paths[index];
     }
 
-    img.onerror = tryNext;
     img.className = "clickable-img";
     img.onclick = () => openImageModal(img.src);
-    tryNext();
 
+    tryNext();
     return img;
 }
+
 
 // ⏱️ Session-Timer
 let sessionTimeout;
