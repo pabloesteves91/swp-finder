@@ -47,9 +47,8 @@ Optimiert für den Einsatz durch Supervisoren, Duty Manager und andere operative
 
 ## 📊 Excel-Datei: Format & Regeln
 
-> Der Tabellenblattname muss `Sheet1` lauten.  
-> Änderungen an der Datei bitte an **Fabio Berta** weitergeben.  
-> **Achtung:** Änderungen werden nicht sofort sichtbar – es dauert ca. **10–15 Minuten**, bis sie in der App aktiv sind.
+> Die Excel-Datei muss vier Tabellenblätter enthalten: `**Supervisor**`, `Duty Manager Assistant`, `Duty Manager` und `Betriebsarbeiter`.
+> Nur Mitarbeitende mit Kürzel **oder** Personalnummer werden berücksichtigt.
 
 **Beispiel für Hans Gössmann** – so muss der Eintrag in der `Mitarbeiter.xlsx` aussehen:  
 
