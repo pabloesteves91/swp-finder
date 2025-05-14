@@ -47,7 +47,7 @@ Optimiert für den Einsatz durch Supervisoren, Duty Manager und andere operative
 
 ## 📊 Excel-Datei: Format & Regeln
 
-> Die Excel-Datei muss vier Tabellenblätter enthalten: `**Supervisor**`, `Duty Manager Assistant`, `Duty Manager` und `Betriebsarbeiter`.
+> Die Excel-Datei muss vier Tabellenblätter enthalten: **`Supervisor`**, **`Duty Manager Assistant`**, **`Duty Manager`** und **`Betriebsarbeiter`**.
 > Nur Mitarbeitende mit Kürzel **oder** Personalnummer werden berücksichtigt.
 
 **Beispiel für Hans Gössmann** – so muss der Eintrag in der `Mitarbeiter.xlsx` aussehen:  
