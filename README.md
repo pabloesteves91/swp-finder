@@ -1,5 +1,6 @@
-
 # SWP Finder
+
+**Webseite:** [https://pabloesteves91.github.io/swp-finder/](https://pabloesteves91.github.io/swp-finder/)
 
 **SWP Finder** ist eine benutzerfreundliche Web-App zur schnellen Suche von Swissport-Mitarbeitenden anhand von Personalnummer, Name oder Kürzel.  
 Optimiert für den Einsatz durch Supervisoren, Duty Manager und andere operative Rollen.
@@ -29,6 +30,7 @@ Optimiert für den Einsatz durch Supervisoren, Duty Manager und andere operative
 ├── index.html
 ├── style.css
 ├── script.js
+├── xlsx.full.min.js
 ├── Mitarbeiter.xlsx
 ├── Fotos/
 │   ├── SPV/
@@ -128,13 +130,14 @@ Optimiert für den Einsatz durch Supervisoren, Duty Manager und andere operative
 
 ## 📌 Versionen
 
-| Version | Datum       | Änderungen                                           |
-|---------|-------------|------------------------------------------------------|
-| 1.0.0   | 10.11.2024  | Grundstruktur: Suche, Excel-Import, Bildanzeige     |
-| 1.1.0   | 15.12.2024  | Bildzoom, Session-Timeout und mobile Optimierung    |
-| 1.2.0   | 19.01.2025  | Fallback-Logik für Bilder, Default-Bild             |
-| 1.3.0   | 07.03.2025  | Erweiterte Umlaute & Kürzel-Unterstützung           |
-| 1.4.0   | 05.05.2025  | README erweitert, Formatierungen und Klarheit       |
+| Version | Datum       | Änderungen                                                  |
+|---------|-------------|-------------------------------------------------------------|
+| 1.0.0   | 10.11.2024  | Grundstruktur: Suche, Excel-Import, Bildanzeige             |
+| 1.1.0   | 15.12.2024  | Bildzoom, Session-Timeout und mobile Optimierung            |
+| 1.2.0   | 19.01.2025  | Fallback-Logik für Bilder, Default-Bild                     |
+| 1.3.0   | 07.03.2025  | Erweiterte Umlaute & Kürzel-Unterstützung                   |
+| 1.4.0   | 05.05.2025  | README erweitert, Formatierungen und Klarheit               |
+| 1.5.0   | 15.05.2025  | Anpassung Versionsanzeige und Implementierung der neuen MA-Liste |
 
 ---
 
@@ -159,12 +162,21 @@ const timeoutDuration = 5 * 60 * 1000; // In Millisekunden (5 Minuten)
 
 ## 👤 Autor & Kontakt
 
-**Fabio Berta**  
-Winterthur, Schweiz  
+**Fabio Berta**    
 📧 [fabio.berta@swissport.com](mailto:fabio.berta@swissport.com)
 
 ---
 
+
 ## 🛠️ Lizenz
 
 Bereitgestellt im internen Rahmen der **SWISSPORT INT. AG**. Nutzung oder Weitergabe nur mit Zustimmung.
+
+---
+
+## 🔧 Änderungsrechte
+
+- Es darf **ausschließlich** folgende Dateien bearbeitet werden:
+  - `Mitarbeiter.xlsx`
+  - Fotos in den jeweiligen Ordnern (`Fotos/SPV/`, `Fotos/DM/`, etc.)
+- Ein Back-up der aktuellen Version ist vorhanden (Stand: **15.05.2025**)
