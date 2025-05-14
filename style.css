@@ -71,6 +71,13 @@ h1 {
     gap: 10px;
 }
 
+.image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100px;
+}
+
 .login-box input {
     width: 100%;
     padding: 12px;
