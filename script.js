@@ -1,24 +1,100 @@
 let people = [];
 
-// 📥 JSON-Daten laden aus mitarbeiter_neu.json (mit foto_pfade)
-function loadPeopleData() {
-    fetch('./mitarbeiter.json')
-        .then(res => res.json())
+// ✅ Normalisiert Umlaute und diakritische Zeichen
+function normalizeFileName(str) {
+    return str
+        .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+        .replace(/ä/g, "ae").replace(/ö/g, "oe").replace(/ü/g, "ue")
+        .replace(/Ä/g, "Ae").replace(/Ö/g, "Oe").replace(/Ü/g, "Ue")
+        .replace(/ß/g, "ss");
+}
+
+// 📸 Bildpfade mit GitHub Pages (nicht raw)
+function getPhotoPaths(row) {
+    const position = row["Position"]?.toLowerCase() || "";
+    const firstName = row["Vorname"];
+    const lastName = row["Nachname"];
+    const shortCode = row["Kürzel"] || "";
+
+    const normFirst = normalizeFileName(firstName);
+    const normLast = normalizeFileName(lastName);
+    const suffix = shortCode ? ` (${shortCode})` : "";
+
+    let folder = "";
+    if (position.includes("supervisor")) folder = "SPV";
+    else if (position.includes("duty manager assistant")) folder = "DMA";
+    else if (position.includes("duty manager")) folder = "DM";
+    else if (position.includes("betriebsarbeiter")) folder = "BA";
+    else return ["https://pabloesteves91.github.io/swp-finder/Fotos/default.JPG"];
+
+    const base = `https://pabloesteves91.github.io/swp-finder/Fotos/${folder}`;
+
+    return [
+        `${base}/${lastName}, ${firstName}${suffix}.jpg`,
+        `${base}/${normLast}, ${normFirst}${suffix}.jpg`,
+        `${base}/${lastName}, ${firstName}.jpg`,
+        `${base}/${normLast}, ${normFirst}.jpg`,
+        `${base}/${normLast}, ${firstName}${suffix}.jpg`,
+        `${base}/${lastName}, ${normFirst}${suffix}.jpg`,
+        `${base}/${normLast}, ${firstName}.jpg`,
+        `${base}/${lastName}, ${normFirst}.jpg`,
+        "https://pabloesteves91.github.io/swp-finder/Fotos/default.JPG"
+    ];
+}
+
+// 📥 Excel-Daten laden
+function loadExcelData() {
+    const excelFilePath = "./Mitarbeiter.xlsx";
+
+    fetch(excelFilePath)
+        .then(response => {
+            if (!response.ok) throw new Error("Die Excel-Datei konnte nicht geladen werden.");
+            return response.arrayBuffer();
+        })
         .then(data => {
-            people = data.map(p => ({
-                personalCode: (p.personalnummer || "").toString().trim(),
-                shortCode: (p.kürzel || "").toString().trim(),
-                firstName: p.vorname?.trim(),
-                lastName: p.nachname?.trim(),
-                position: p.position?.trim(),
-                photoPaths: p.foto_pfade // direkt übernehmen
-            }));
+            const workbook = XLSX.read(data, { type: "array" });
+
+            const sheetsMapping = {
+                "Supervisor": "supervisor",
+                "Duty Manager Assistant": "duty manager assistant",
+                "Duty Manager": "duty manager",
+                "Betriebsarbeiter": "betriebsarbeiter"
+            };
+
+            people = [];
+
+            for (const [sheetName, positionKeyword] of Object.entries(sheetsMapping)) {
+                const sheet = workbook.Sheets[sheetName];
+                if (!sheet) continue;
+
+                const jsonData = XLSX.utils.sheet_to_json(sheet);
+
+                jsonData.forEach(row => {
+                    people.push({
+                        personalCode: row["Personalnummer"]?.toString() || "",
+                        firstName: row["Vorname"],
+                        lastName: row["Nachname"],
+                        shortCode: row["Kürzel"] || null,
+                        position: row["Position"] || capitalizeWords(positionKeyword),
+                        photoPaths: getPhotoPaths({
+                            ...row,
+                            Position: row["Position"] || positionKeyword
+                        })
+                    });
+                });
+            }
+
             searchEmployees();
         })
-        .catch(err => {
-            console.error("Fehler beim Laden der JSON:", err);
-            alert("Fehler beim Laden der Mitarbeiterdaten.");
+        .catch(error => {
+            console.error("Fehler beim Laden:", error);
+            alert("Die Excel-Daten konnten nicht geladen werden.");
         });
+}
+
+// Großschreibt jedes Wort
+function capitalizeWords(str) {
+    return str.replace(/\b\w/g, char => char.toUpperCase());
 }
 
 // 🔐 Login (Kürzel oder Personalnummer)
@@ -32,9 +108,9 @@ function login() {
     }
 
     const employee = people.find(emp => {
-        const pc = (emp.personalCode || "").toLowerCase();
-        const sc = (emp.shortCode || "").toLowerCase();
-        return enteredCode === pc || enteredCode === sc;
+        const personalCode = emp.personalCode?.toString().trim().toLowerCase();
+        const shortCode = emp.shortCode?.toString().trim().toLowerCase();
+        return enteredCode === personalCode || enteredCode === shortCode;
     });
 
     if (employee) {
@@ -44,7 +120,7 @@ function login() {
         document.getElementById("mainContainer").style.display = "block";
 
         const infoBox = document.getElementById("loggedInInfo");
-        infoBox.textContent = `Eingeloggt als: ${employee.firstName} ${employee.lastName} (${employee.shortCode || employee.personalCode})`;
+        infoBox.textContent = `Eingeloggt als: ${employee.firstName} ${employee.lastName} (${employee.shortCode})`;
         infoBox.style.display = "block";
 
         searchEmployees();
@@ -76,7 +152,7 @@ function searchEmployees() {
 
     const filtered = people.filter(emp =>
         emp.personalCode.toLowerCase().includes(searchInput) ||
-        emp.shortCode.toLowerCase().includes(searchInput) ||
+        emp.shortCode?.toLowerCase().includes(searchInput) ||
         emp.firstName.toLowerCase().includes(searchInput) ||
         emp.lastName.toLowerCase().includes(searchInput)
     );
@@ -108,18 +184,14 @@ function searchEmployees() {
 
 document.getElementById("searchInput").addEventListener("input", searchEmployees);
 
-// 🔁 Bild-Fallback-Logik
+// 🔁 Bilder-Fallback-Logik
 function createImageWithFallback(paths) {
     const img = new Image();
     let index = 0;
-    const fallback = "Fotos/default.JPG";
 
     function tryNext() {
-        if (index < paths.length) {
-            img.src = paths[index++];
-        } else {
-            img.src = fallback;
-        }
+        if (index >= paths.length) return;
+        img.src = paths[index++];
     }
 
     img.onerror = tryNext;
@@ -130,9 +202,9 @@ function createImageWithFallback(paths) {
     return img;
 }
 
-// ⏱️ Session-Timer (jetzt 20 Sekunden)
+// ⏱️ Session-Timer
 let sessionTimeout;
-const timeoutDuration = 20 * 1000;
+const timeoutDuration = 5 * 60 * 1000;
 
 function resetSessionTimer() {
     clearTimeout(sessionTimeout);
@@ -185,5 +257,4 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.appendChild(modal);
 });
 
-// 🚀 Starte die Datenabfrage
-loadPeopleData();
+loadExcelData();
