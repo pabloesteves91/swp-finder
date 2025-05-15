@@ -10,22 +10,25 @@ function loadPeopleData() {
                 const nach = p.nachname.trim();
 
                 const ordner = ["SPV", "DM", "DMA", "BA"];
+                const endungen = [".jpg", ".jpeg", ".JPG", ".png"];
                 let paths = [];
 
                 ordner.forEach(o => {
-                    paths.push(`Fotos/${o}/${nach}, ${vor}.jpg`);
-                    paths.push(`Fotos/${o}/${vor}, ${nach}.jpg`);
+                    endungen.forEach(ext => {
+                        paths.push(`Fotos/${o}/${nach}, ${vor}${ext}`);
+                        paths.push(`Fotos/${o}/${vor}, ${nach}${ext}`);
+                    });
                 });
 
                 paths.push("Fotos/default.jpg");
 
                 return {
                     personalCode: (p.personalnummer || "").trim(),
-                    shortCode:   (p.kürzel        || "").trim(),
-                    firstName:   vor,
-                    lastName:    nach,
-                    position:    p.position || "",
-                    photoPaths:  paths
+                    shortCode: (p.kürzel || "").trim(),
+                    firstName: vor,
+                    lastName: nach,
+                    position: p.position || "",
+                    photoPaths: paths
                 };
             });
 
@@ -124,7 +127,7 @@ function searchEmployees() {
 
 document.getElementById("searchInput").addEventListener("input", searchEmployees);
 
-// 🔁 Bild-Fallback-Logik
+// 🔁 Bild-Fallback-Logik (robust!)
 function createImageWithFallback(paths) {
     const img = new Image();
     let index = 0;
@@ -149,7 +152,7 @@ function createImageWithFallback(paths) {
     return img;
 }
 
-// ⏱️ Session-Timer (20 Sekunden)
+// ⏱️ Session-Timer (60 Sekunden)
 let sessionTimeout;
 const timeoutDuration = 60 * 1000;
 
