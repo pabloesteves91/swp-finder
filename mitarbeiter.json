@@ -1,0 +1,4538 @@
+[
+  {
+    "vorname": "Rene",
+    "nachname": "Abdelhafiz",
+    "kürzel": "RAB",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Abdelhafiz, Rene.jpg"
+  },
+  {
+    "vorname": "Adedayo",
+    "nachname": "Adebanjo",
+    "kürzel": "DEE",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Adebanjo, Adedayo.jpg"
+  },
+  {
+    "vorname": "Andre",
+    "nachname": "Affolter",
+    "kürzel": "ADE",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Affolter, Andre.jpg"
+  },
+  {
+    "vorname": "Avdula",
+    "nachname": "Ahmetaj",
+    "kürzel": "AVD",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Ahmetaj, Avdula.jpg"
+  },
+  {
+    "vorname": "Amendt",
+    "nachname": "Genadi",
+    "kürzel": "GNA",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Genadi, Amendt.jpg"
+  },
+  {
+    "vorname": "Deniz",
+    "nachname": "Ammann",
+    "kürzel": "AMD",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Ammann, Deniz.jpg"
+  },
+  {
+    "vorname": "Nick",
+    "nachname": "Ammann",
+    "kürzel": "NIA",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Ammann, Nick.jpg"
+  },
+  {
+    "vorname": "Ricardo",
+    "nachname": "Andereggen",
+    "kürzel": "ANR",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Andereggen, Ricardo.jpg"
+  },
+  {
+    "vorname": "Pasindu",
+    "nachname": "Arumadura",
+    "kürzel": "PAA",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Arumadura, Pasindu.jpg"
+  },
+  {
+    "vorname": "Astrit",
+    "nachname": "Asani",
+    "kürzel": "AST",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Asani, Astrit.jpg"
+  },
+  {
+    "vorname": "Dimitrios",
+    "nachname": "Atmatsidis",
+    "kürzel": "DAT",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Atmatsidis, Dimitrios.jpg"
+  },
+  {
+    "vorname": "Niels",
+    "nachname": "Bachofen",
+    "kürzel": "BAN",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Bachofen, Niels.jpg"
+  },
+  {
+    "vorname": "Almin",
+    "nachname": "Bajra",
+    "kürzel": "PRZ",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Bajra, Almin.jpg"
+  },
+  {
+    "vorname": "Thierry",
+    "nachname": "Balsiger",
+    "kürzel": "BAT",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Balsiger, Thierry.jpg"
+  },
+  {
+    "vorname": "Liridon",
+    "nachname": "Banusi",
+    "kürzel": "BAL",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Banusi, Liridon.jpg"
+  },
+  {
+    "vorname": "Michael",
+    "nachname": "Barfi",
+    "kürzel": "MBA",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Barfi, Michael.jpg"
+  },
+  {
+    "vorname": "Can",
+    "nachname": "Baser",
+    "kürzel": "CAN",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Baser, Can.jpg"
+  },
+  {
+    "vorname": "Roberto",
+    "nachname": "Battaglia",
+    "kürzel": "BAR",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Battaglia, Roberto.jpg"
+  },
+  {
+    "vorname": "Wilmar",
+    "nachname": "Berdino",
+    "kürzel": "BEW",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Berdino, Wilmar.jpg"
+  },
+  {
+    "vorname": "Josip",
+    "nachname": "Berisic",
+    "kürzel": "BEJ",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Berisic, Josip.jpg"
+  },
+  {
+    "vorname": "Fabio",
+    "nachname": "Berta",
+    "kürzel": "BRO",
+    "personalnummer": "148085.0",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Berta, Fabio.jpg"
+  },
+  {
+    "vorname": "Grigorios",
+    "nachname": "Bgialas",
+    "kürzel": "GBG",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Bgialas, Grigorios.jpg"
+  },
+  {
+    "vorname": "Jan",
+    "nachname": "Biagini",
+    "kürzel": "JBI",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Biagini, Jan.jpg"
+  },
+  {
+    "vorname": "Andreas",
+    "nachname": "Bichler",
+    "kürzel": "BIA",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Bichler, Andreas.jpg"
+  },
+  {
+    "vorname": "Remy",
+    "nachname": "Blum",
+    "kürzel": "BLU",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Blum, Remy.jpg"
+  },
+  {
+    "vorname": "Ranil",
+    "nachname": "Bodahandi",
+    "kürzel": "RBS",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Bodahandi, Ranil.jpg"
+  },
+  {
+    "vorname": "Clemens",
+    "nachname": "Bogner",
+    "kürzel": "BCL",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Bogner, Clemens.jpg"
+  },
+  {
+    "vorname": "Kevin",
+    "nachname": "Boll",
+    "kürzel": "BOL",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Boll, Kevin.jpg"
+  },
+  {
+    "vorname": "Jonathan",
+    "nachname": "Borer",
+    "kürzel": "JON",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Borer, Jonathan.jpg"
+  },
+  {
+    "vorname": "Nenad",
+    "nachname": "Bosanac",
+    "kürzel": "NBO",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Bosanac, Nenad.jpg"
+  },
+  {
+    "vorname": "Samuel",
+    "nachname": "Bregy",
+    "kürzel": "SBR",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Bregy, Samuel.jpg"
+  },
+  {
+    "vorname": "Xhevat",
+    "nachname": "Bunjaku",
+    "kürzel": "BUN",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Bunjaku, Xhevat.jpg"
+  },
+  {
+    "vorname": "Stephan",
+    "nachname": "Burkhalter",
+    "kürzel": "BUR",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Burkhalter, Stephan.jpg"
+  },
+  {
+    "vorname": "Quentin",
+    "nachname": "Bury",
+    "kürzel": "QIN",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Bury, Quentin.jpg"
+  },
+  {
+    "vorname": "Arsim",
+    "nachname": "Bytyqi",
+    "kürzel": "",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Bytyqi, Arsim.jpg"
+  },
+  {
+    "vorname": "Alban",
+    "nachname": "Bytyqi",
+    "kürzel": "ABY",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Bytyqi, Alban.jpg"
+  },
+  {
+    "vorname": "Ibrahim",
+    "nachname": "Cakar",
+    "kürzel": "IBO",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Cakar, Ibrahim.jpg"
+  },
+  {
+    "vorname": "Juan Pablo",
+    "nachname": "Calderon",
+    "kürzel": "JPC",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Calderon, Juan Pablo.jpg"
+  },
+  {
+    "vorname": "Antonio",
+    "nachname": "Capelo Gomez",
+    "kürzel": "CAP",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Capelo Gomez, Antonio.jpg"
+  },
+  {
+    "vorname": "Emir",
+    "nachname": "Cayirci",
+    "kürzel": "EMI",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Cayirci, Emir.jpg"
+  },
+  {
+    "vorname": "Oliver",
+    "nachname": "Christen",
+    "kürzel": "OLI",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Christen, Oliver.jpg"
+  },
+  {
+    "vorname": "Miftar",
+    "nachname": "Coli",
+    "kürzel": "MIF",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Coli, Miftar.jpg"
+  },
+  {
+    "vorname": "Patrick",
+    "nachname": "Conradin",
+    "kürzel": "ZSC",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Conradin, Patrick.jpg"
+  },
+  {
+    "vorname": "Tamas",
+    "nachname": "Csipke",
+    "kürzel": "TAM",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Csipke, Tamas.jpg"
+  },
+  {
+    "vorname": "Dario",
+    "nachname": "Dagrosa",
+    "kürzel": "DAD",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Dagrosa, Dario.jpg"
+  },
+  {
+    "vorname": "Alessandro",
+    "nachname": "Dal Corso",
+    "kürzel": "ADC",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Dal Corso, Alessandro.jpg"
+  },
+  {
+    "vorname": "Marc",
+    "nachname": "Dardel",
+    "kürzel": "DEL",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Dardel, Marc.jpg"
+  },
+  {
+    "vorname": "Franco",
+    "nachname": "Deragisch",
+    "kürzel": "FRD",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Deragisch, Franco.jpg"
+  },
+  {
+    "vorname": "Mike",
+    "nachname": "Dietrich",
+    "kürzel": "MID",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Dietrich, Mike.jpg"
+  },
+  {
+    "vorname": "Eren",
+    "nachname": "Dinc",
+    "kürzel": "DER",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Dinc, Eren.jpg"
+  },
+  {
+    "vorname": "Luca",
+    "nachname": "Doerflinger",
+    "kürzel": "LLD",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Doerflinger, Luca.jpg"
+  },
+  {
+    "vorname": "Celso",
+    "nachname": "Dos Santos",
+    "kürzel": "CDS",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Dos Santos, Celso.jpg"
+  },
+  {
+    "vorname": "Paul",
+    "nachname": "Ebode",
+    "kürzel": "EBO",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Ebode, Paul.jpg"
+  },
+  {
+    "vorname": "Dominik",
+    "nachname": "Emch",
+    "kürzel": "AMS",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Emch, Dominik.jpg"
+  },
+  {
+    "vorname": "Leonardo",
+    "nachname": "Enz",
+    "kürzel": "ENZ",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Enz, Leonardo.jpg"
+  },
+  {
+    "vorname": "Serdar",
+    "nachname": "Eroglu",
+    "kürzel": "ERS",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Eroglu, Serdar.jpg"
+  },
+  {
+    "vorname": "Oezer",
+    "nachname": "Eyup",
+    "kürzel": "OEZ",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Eyup, Oezer.jpg"
+  },
+  {
+    "vorname": "Konstantin",
+    "nachname": "Fischer",
+    "kürzel": "KON",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Fischer, Konstantin.jpg"
+  },
+  {
+    "vorname": "Delia",
+    "nachname": "Francesco",
+    "kürzel": "FRA",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Francesco, Delia.jpg"
+  },
+  {
+    "vorname": "Omar",
+    "nachname": "Freimann",
+    "kürzel": "OFR",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Freimann, Omar.jpg"
+  },
+  {
+    "vorname": "Alexandre",
+    "nachname": "Freimueller",
+    "kürzel": "AFR",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Freimueller, Alexandre.jpg"
+  },
+  {
+    "vorname": "Christoph",
+    "nachname": "Gabler",
+    "kürzel": "GCH",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Gabler, Christoph.jpg"
+  },
+  {
+    "vorname": "Gezim",
+    "nachname": "Gashi",
+    "kürzel": "GAS",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Gashi, Gezim.jpg"
+  },
+  {
+    "vorname": "Labinot",
+    "nachname": "Gashi",
+    "kürzel": "LGA",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Gashi, Labinot.jpg"
+  },
+  {
+    "vorname": "Mehmet",
+    "nachname": "Genc",
+    "kürzel": "MGE",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Genc, Mehmet.jpg"
+  },
+  {
+    "vorname": "Tobias",
+    "nachname": "Good",
+    "kürzel": "TGO",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Good, Tobias.jpg"
+  },
+  {
+    "vorname": "Peter",
+    "nachname": "Graf",
+    "kürzel": "GRP",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Graf, Peter.jpg"
+  },
+  {
+    "vorname": "Etan",
+    "nachname": "Grossenbacher",
+    "kürzel": "EGR",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Grossenbacher, Etan.jpg"
+  },
+  {
+    "vorname": "Phillip",
+    "nachname": "Gut",
+    "kürzel": "GUT",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Gut, Phillip.jpg"
+  },
+  {
+    "vorname": "Brendon",
+    "nachname": "Gutaj",
+    "kürzel": "BGJ",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Gutaj, Brendon.jpg"
+  },
+  {
+    "vorname": "Horacio",
+    "nachname": "Gutierrez",
+    "kürzel": "HJG",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Gutierrez, Horacio.jpg"
+  },
+  {
+    "vorname": "Alexander",
+    "nachname": "Haenni",
+    "kürzel": "AXH",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Haenni, Alexander.jpg"
+  },
+  {
+    "vorname": "Zana",
+    "nachname": "Hame",
+    "kürzel": "ZAA",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Hame, Zana.jpg"
+  },
+  {
+    "vorname": "Bahri",
+    "nachname": "Hasani",
+    "kürzel": "BAH",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Hasani, Bahri.jpg"
+  },
+  {
+    "vorname": "Gael",
+    "nachname": "Hayoz",
+    "kürzel": "GHZ",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Hayoz, Gael.jpg"
+  },
+  {
+    "vorname": "Stephan",
+    "nachname": "Hildenstein",
+    "kürzel": "HIS",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Hildenstein, Stephan.jpg"
+  },
+  {
+    "vorname": "Tobias",
+    "nachname": "Hiller",
+    "kürzel": "HTO",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Hiller, Tobias.jpg"
+  },
+  {
+    "vorname": "Tobias",
+    "nachname": "Hochreutener",
+    "kürzel": "THR",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Hochreutener, Tobias.jpg"
+  },
+  {
+    "vorname": "Matthias",
+    "nachname": "Hoehn",
+    "kürzel": "MWH",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Hoehn, Matthias.jpg"
+  },
+  {
+    "vorname": "Martin",
+    "nachname": "Hoff",
+    "kürzel": "MOH",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Hoff, Martin.jpg"
+  },
+  {
+    "vorname": "Gazmen",
+    "nachname": "Hoti",
+    "kürzel": "GAZ",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Hoti, Gazmen.jpg"
+  },
+  {
+    "vorname": "Michael",
+    "nachname": "Huebner",
+    "kürzel": "HUM",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Huebner, Michael.jpg"
+  },
+  {
+    "vorname": "Joel",
+    "nachname": "Hufschmid",
+    "kürzel": "JHU",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Hufschmid, Joel.jpg"
+  },
+  {
+    "vorname": "Gzim",
+    "nachname": "Imeri",
+    "kürzel": "IMG",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Imeri, Gzim.jpg"
+  },
+  {
+    "vorname": "Burhan",
+    "nachname": "Iski",
+    "kürzel": "RKS",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Iski, Burhan.jpg"
+  },
+  {
+    "vorname": "Haythem",
+    "nachname": "Jazari",
+    "kürzel": "JAZ",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Jazari, Haythem.jpg"
+  },
+  {
+    "vorname": "Zudi",
+    "nachname": "Jusufi",
+    "kürzel": "ZUJ",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Jusufi, Zudi.jpg"
+  },
+  {
+    "vorname": "Oemer",
+    "nachname": "Kalayci",
+    "kürzel": "KAL",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Kalayci, Oemer.jpg"
+  },
+  {
+    "vorname": "Erald",
+    "nachname": "Kallaba",
+    "kürzel": "EKI",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Kallaba, Erald.jpg"
+  },
+  {
+    "vorname": "Ioannis",
+    "nachname": "Kanountzidis",
+    "kürzel": "IOA",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Kanountzidis, Ioannis.jpg"
+  },
+  {
+    "vorname": "Kadir",
+    "nachname": "Kara",
+    "kürzel": "KAR",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Kara, Kadir.jpg"
+  },
+  {
+    "vorname": "Amjed",
+    "nachname": "Kasem",
+    "kürzel": "JAD",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Kasem, Amjed.jpg"
+  },
+  {
+    "vorname": "Dario",
+    "nachname": "Kauer",
+    "kürzel": "RIO",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Kauer, Dario.jpg"
+  },
+  {
+    "vorname": "Simon",
+    "nachname": "Keller",
+    "kürzel": "SIK",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Keller, Simon.jpg"
+  },
+  {
+    "vorname": "Asmir",
+    "nachname": "Kijametovic",
+    "kürzel": "ASM",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Kijametovic, Asmir.jpg"
+  },
+  {
+    "vorname": "Marcus",
+    "nachname": "Kleemann",
+    "kürzel": "MKL",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Kleemann, Marcus.jpg"
+  },
+  {
+    "vorname": "Nora",
+    "nachname": "Kodzadzakliev",
+    "kürzel": "NOK",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Kodzadzakliev, Nora.jpg"
+  },
+  {
+    "vorname": "Marvin",
+    "nachname": "Kozik",
+    "kürzel": "KOZ",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Kozik, Marvin.jpg"
+  },
+  {
+    "vorname": "Arif",
+    "nachname": "Krijger",
+    "kürzel": "KRI",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Krijger, Arif.jpg"
+  },
+  {
+    "vorname": "Resat Oemer",
+    "nachname": "Kursuncu",
+    "kürzel": "KUO",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Kursuncu, Resat Oemer.jpg"
+  },
+  {
+    "vorname": "Oezguer",
+    "nachname": "Kurtoglu",
+    "kürzel": "KUR",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Kurtoglu, Oezguer.jpg"
+  },
+  {
+    "vorname": "Radomir",
+    "nachname": "Lamac",
+    "kürzel": "RLM",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Lamac, Radomir.jpg"
+  },
+  {
+    "vorname": "Marcos",
+    "nachname": "Lemos Ferreira",
+    "kürzel": "LFM",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Lemos Ferreira, Marcos.jpg"
+  },
+  {
+    "vorname": "Stefano",
+    "nachname": "Lettieri",
+    "kürzel": "LES",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Lettieri, Stefano.jpg"
+  },
+  {
+    "vorname": "Ahmed",
+    "nachname": "Mahmoud",
+    "kürzel": "AMA",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Mahmoud, Ahmed.jpg"
+  },
+  {
+    "vorname": "Niko",
+    "nachname": "Malec",
+    "kürzel": "WRO",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Malec, Niko.jpg"
+  },
+  {
+    "vorname": "Davide",
+    "nachname": "Mamone",
+    "kürzel": "REG",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Mamone, Davide.jpg"
+  },
+  {
+    "vorname": "Michele",
+    "nachname": "Mancari",
+    "kürzel": "MAM",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Mancari, Michele.jpg"
+  },
+  {
+    "vorname": "Andreas",
+    "nachname": "Marti",
+    "kürzel": "MAR",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Marti, Andreas.jpg"
+  },
+  {
+    "vorname": "Patrick",
+    "nachname": "Marti",
+    "kürzel": "PAT",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Marti, Patrick.jpg"
+  },
+  {
+    "vorname": "Bujar",
+    "nachname": "Mazrekaj",
+    "kürzel": "MAZ",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Mazrekaj, Bujar.jpg"
+  },
+  {
+    "vorname": "Gafur",
+    "nachname": "Mehmeti",
+    "kürzel": "GMA",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Mehmeti, Gafur.jpg"
+  },
+  {
+    "vorname": "Marina",
+    "nachname": "Mensch",
+    "kürzel": "INA",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Mensch, Marina.jpg"
+  },
+  {
+    "vorname": "Dzemail",
+    "nachname": "Mersimi",
+    "kürzel": "MER",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Mersimi, Dzemail.jpg"
+  },
+  {
+    "vorname": "Anthony",
+    "nachname": "Miranda",
+    "kürzel": "MAN",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Miranda, Anthony.jpg"
+  },
+  {
+    "vorname": "Don Hansa",
+    "nachname": "Modaragamage",
+    "kürzel": "MOD",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Modaragamage, Don Hansa.jpg"
+  },
+  {
+    "vorname": "Kalala",
+    "nachname": "Moella",
+    "kürzel": "MKA",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Moella, Kalala.jpg"
+  },
+  {
+    "vorname": "Rahim",
+    "nachname": "Mohammadi",
+    "kürzel": "RAH",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Mohammadi, Rahim.jpg"
+  },
+  {
+    "vorname": "Enver",
+    "nachname": "Morina",
+    "kürzel": "MOR",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Morina, Enver.jpg"
+  },
+  {
+    "vorname": "Pierre",
+    "nachname": "Mueller",
+    "kürzel": "PMU",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Mueller, Pierre.jpg"
+  },
+  {
+    "vorname": "Thomas",
+    "nachname": "Mueller",
+    "kürzel": "MTH",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Mueller, Thomas.jpg"
+  },
+  {
+    "vorname": "Stefano",
+    "nachname": "Murena",
+    "kürzel": "SMS",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Murena, Stefano.jpg"
+  },
+  {
+    "vorname": "Malzim",
+    "nachname": "Musliu",
+    "kürzel": "MAL",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Musliu, Malzim.jpg"
+  },
+  {
+    "vorname": "Muslim",
+    "nachname": "Mustafa",
+    "kürzel": "MSM",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Mustafa, Muslim.jpg"
+  },
+  {
+    "vorname": "Liokman",
+    "nachname": "Mustafi",
+    "kürzel": "MUS",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Mustafi, Liokman.jpg"
+  },
+  {
+    "vorname": "Roman",
+    "nachname": "Naef",
+    "kürzel": "NAF",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Naef, Roman.jpg"
+  },
+  {
+    "vorname": "Ammar",
+    "nachname": "Nasrallah",
+    "kürzel": "AMN",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Nasrallah, Ammar.jpg"
+  },
+  {
+    "vorname": "Arlind",
+    "nachname": "Nedjepi",
+    "kürzel": "NED",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Nedjepi, Arlind.jpg"
+  },
+  {
+    "vorname": "Daniel",
+    "nachname": "Neumann",
+    "kürzel": "NEU",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Neumann, Daniel.jpg"
+  },
+  {
+    "vorname": "Christian",
+    "nachname": "Nicosia",
+    "kürzel": "CHR",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Nicosia, Christian.jpg"
+  },
+  {
+    "vorname": "Oliver",
+    "nachname": "Nikielewski",
+    "kürzel": "ONI",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Nikielewski, Oliver.jpg"
+  },
+  {
+    "vorname": "Srdjan",
+    "nachname": "Nikolic",
+    "kürzel": "NIS",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Nikolic, Srdjan.jpg"
+  },
+  {
+    "vorname": "Alejandro",
+    "nachname": "Noya Mato",
+    "kürzel": "ANM",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Noya Mato, Alejandro.jpg"
+  },
+  {
+    "vorname": "Oliver",
+    "nachname": "Ochs",
+    "kürzel": "OCH",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Ochs, Oliver.jpg"
+  },
+  {
+    "vorname": "Selim Can",
+    "nachname": "Oezdemir",
+    "kürzel": "SLM",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Oezdemir, Selim Can.jpg"
+  },
+  {
+    "vorname": "Markus",
+    "nachname": "Oezer",
+    "kürzel": "MKZ",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Oezer, Markus.jpg"
+  },
+  {
+    "vorname": "Kevin",
+    "nachname": "Olitzsch",
+    "kürzel": "PSN",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Olitzsch, Kevin.jpg"
+  },
+  {
+    "vorname": "Vitor",
+    "nachname": "Oliveira",
+    "kürzel": "VCO",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Oliveira, Vitor.jpg"
+  },
+  {
+    "vorname": "Panapich",
+    "nachname": "Ong",
+    "kürzel": "ONG",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Ong, Panapich.jpg"
+  },
+  {
+    "vorname": "Ivan",
+    "nachname": "Papes",
+    "kürzel": "PIV",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Papes, Ivan.jpg"
+  },
+  {
+    "vorname": "Urim",
+    "nachname": "Paulo Costa",
+    "kürzel": "UPC",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Paulo Costa, Urim.jpg"
+  },
+  {
+    "vorname": "Stephen",
+    "nachname": "Pearson",
+    "kürzel": "IRL",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Pearson, Stephen.jpg"
+  },
+  {
+    "vorname": "Michael",
+    "nachname": "Penate",
+    "kürzel": "MPP",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Penate, Michael.jpg"
+  },
+  {
+    "vorname": "Daniel",
+    "nachname": "Perretta",
+    "kürzel": "PDA",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Perretta, Daniel.jpg"
+  },
+  {
+    "vorname": "Robert",
+    "nachname": "Pesler",
+    "kürzel": "MRT",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Pesler, Robert.jpg"
+  },
+  {
+    "vorname": "Andres",
+    "nachname": "Prado Page",
+    "kürzel": "AFP",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Prado Page, Andres.jpg"
+  },
+  {
+    "vorname": "Aleksandar",
+    "nachname": "Rajkovic",
+    "kürzel": "RAJ",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Rajkovic, Aleksandar.jpg"
+  },
+  {
+    "vorname": "Festim",
+    "nachname": "Ramadani",
+    "kürzel": "FES",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Ramadani, Festim.jpg"
+  },
+  {
+    "vorname": "Daniel",
+    "nachname": "Ramuz",
+    "kürzel": "MOL",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Ramuz, Daniel.jpg"
+  },
+  {
+    "vorname": "Mersid",
+    "nachname": "Rastoder",
+    "kürzel": "RME",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Rastoder, Mersid.jpg"
+  },
+  {
+    "vorname": "Alexander",
+    "nachname": "Rebkitze",
+    "kürzel": "REA",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Rebkitze, Alexander.jpg"
+  },
+  {
+    "vorname": "Kushtrim",
+    "nachname": "Recica",
+    "kürzel": "KUS",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Recica, Kushtrim.jpg"
+  },
+  {
+    "vorname": "Jakub",
+    "nachname": "Redzepovic",
+    "kürzel": "JJJ",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Redzepovic, Jakub.jpg"
+  },
+  {
+    "vorname": "Noah",
+    "nachname": "Regensburger",
+    "kürzel": "NRE",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Regensburger, Noah.jpg"
+  },
+  {
+    "vorname": "Kai",
+    "nachname": "Remmele",
+    "kürzel": "KAI",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Remmele, Kai.jpg"
+  },
+  {
+    "vorname": "Manuel",
+    "nachname": "Ribeiro Fraga",
+    "kürzel": "RIB",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Ribeiro Fraga, Manuel.jpg"
+  },
+  {
+    "vorname": "Mathias",
+    "nachname": "Riedberger",
+    "kürzel": "RIE",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Riedberger, Mathias.jpg"
+  },
+  {
+    "vorname": "John",
+    "nachname": "Rindlisbacher",
+    "kürzel": "JRI",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Rindlisbacher, John.jpg"
+  },
+  {
+    "vorname": "Daniel",
+    "nachname": "Rodriguez Wendt",
+    "kürzel": "DRW",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Rodriguez Wendt, Daniel.jpg"
+  },
+  {
+    "vorname": "Riccardo",
+    "nachname": "Roemelen",
+    "kürzel": "RIR",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Roemelen, Riccardo.jpg"
+  },
+  {
+    "vorname": "Florian",
+    "nachname": "Roethlisberger",
+    "kürzel": "FLO",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Roethlisberger, Florian.jpg"
+  },
+  {
+    "vorname": "Predrag",
+    "nachname": "Romic",
+    "kürzel": "RRP",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Romic, Predrag.jpg"
+  },
+  {
+    "vorname": "Edwin",
+    "nachname": "Rosario",
+    "kürzel": "ERO",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Rosario, Edwin.jpg"
+  },
+  {
+    "vorname": "Jernej",
+    "nachname": "Rumback",
+    "kürzel": "JER",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Rumback, Jernej.jpg"
+  },
+  {
+    "vorname": "Oliver",
+    "nachname": "Rupflin",
+    "kürzel": "OJR",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Rupflin, Oliver.jpg"
+  },
+  {
+    "vorname": "Armin",
+    "nachname": "Sabotic",
+    "kürzel": "ASB",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Sabotic, Armin.jpg"
+  },
+  {
+    "vorname": "Gianpaolo",
+    "nachname": "Salamone",
+    "kürzel": "GNP",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Salamone, Gianpaolo.jpg"
+  },
+  {
+    "vorname": "Mili",
+    "nachname": "Salcin",
+    "kürzel": "CIN",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Salcin, Mili.jpg"
+  },
+  {
+    "vorname": "Rosario",
+    "nachname": "Salerno",
+    "kürzel": "SNO",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Salerno, Rosario.jpg"
+  },
+  {
+    "vorname": "Socrates",
+    "nachname": "Santana",
+    "kürzel": "SAN",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Santana, Socrates.jpg"
+  },
+  {
+    "vorname": "Marcel",
+    "nachname": "Schenker",
+    "kürzel": "SCK",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Schenker, Marcel.jpg"
+  },
+  {
+    "vorname": "Bruno",
+    "nachname": "Schwab",
+    "kürzel": "SCB",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Schwab, Bruno.jpg"
+  },
+  {
+    "vorname": "Drazen",
+    "nachname": "Sekrst",
+    "kürzel": "DRA",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Sekrst, Drazen.jpg"
+  },
+  {
+    "vorname": "David",
+    "nachname": "Sherwood",
+    "kürzel": "DAS",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Sherwood, David.jpg"
+  },
+  {
+    "vorname": "Thuvarakan",
+    "nachname": "Sivakumaran",
+    "kürzel": "TSI",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Sivakumaran, Thuvarakan.jpg"
+  },
+  {
+    "vorname": "Sabrina",
+    "nachname": "Sousa Duarte",
+    "kürzel": "JSD",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Sousa Duarte, Sabrina.jpg"
+  },
+  {
+    "vorname": "Maksim",
+    "nachname": "Stabronik",
+    "kürzel": "STM",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Stabronik, Maksim.jpg"
+  },
+  {
+    "vorname": "Kevin",
+    "nachname": "Steinhoff",
+    "kürzel": "KSS",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Steinhoff, Kevin.jpg"
+  },
+  {
+    "vorname": "Dejan",
+    "nachname": "Stoilkov",
+    "kürzel": "ACM",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Stoilkov, Dejan.jpg"
+  },
+  {
+    "vorname": "Erdinc",
+    "nachname": "Tetik",
+    "kürzel": "TET",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Tetik, Erdinc.jpg"
+  },
+  {
+    "vorname": "Mattias",
+    "nachname": "Torres",
+    "kürzel": "NQN",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Torres, Mattias.jpg"
+  },
+  {
+    "vorname": "Luca",
+    "nachname": "Trapletti",
+    "kürzel": "TRA",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Trapletti, Luca.jpg"
+  },
+  {
+    "vorname": "Marvin",
+    "nachname": "Trejo Escarcega",
+    "kürzel": "TEM",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Trejo Escarcega, Marvin.jpg"
+  },
+  {
+    "vorname": "Tomotheos",
+    "nachname": "Tsigkaridas",
+    "kürzel": "TTS",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Tsigkaridas, Tomotheos.jpg"
+  },
+  {
+    "vorname": "Lampros",
+    "nachname": "Tsokantas",
+    "kürzel": "LTS",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Tsokantas, Lampros.jpg"
+  },
+  {
+    "vorname": "Genc",
+    "nachname": "Useini",
+    "kürzel": "UKI",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Useini, Genc.jpg"
+  },
+  {
+    "vorname": "Senthuran",
+    "nachname": "Uthayakurmar",
+    "kürzel": "USE",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Uthayakurmar, Senthuran.jpg"
+  },
+  {
+    "vorname": "Ahmet",
+    "nachname": "Uzdemir",
+    "kürzel": "AHM",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Uzdemir, Ahmet.jpg"
+  },
+  {
+    "vorname": "Pedro",
+    "nachname": "Vergara",
+    "kürzel": "VGR",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Vergara, Pedro.jpg"
+  },
+  {
+    "vorname": "Sherif",
+    "nachname": "Veseli",
+    "kürzel": "VES",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Veseli, Sherif.jpg"
+  },
+  {
+    "vorname": "Luca",
+    "nachname": "Vetro",
+    "kürzel": "LVE",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Vetro, Luca.jpg"
+  },
+  {
+    "vorname": "Richard",
+    "nachname": "Viktorik",
+    "kürzel": "RDV",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Viktorik, Richard.jpg"
+  },
+  {
+    "vorname": "Toni Martin",
+    "nachname": "Wagner",
+    "kürzel": "TMW",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Wagner, Toni Martin.jpg"
+  },
+  {
+    "vorname": "Thierry",
+    "nachname": "Waldvogel",
+    "kürzel": "THX",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Waldvogel, Thierry.jpg"
+  },
+  {
+    "vorname": "Marco",
+    "nachname": "Weiss",
+    "kürzel": "BOS",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Weiss, Marco.jpg"
+  },
+  {
+    "vorname": "Oskar",
+    "nachname": "Wenger",
+    "kürzel": "OXO",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Wenger, Oskar.jpg"
+  },
+  {
+    "vorname": "Andreas",
+    "nachname": "Wenk",
+    "kürzel": "AWE",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Wenk, Andreas.jpg"
+  },
+  {
+    "vorname": "Partick",
+    "nachname": "Wiedmann",
+    "kürzel": "PAW",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Wiedmann, Partick.jpg"
+  },
+  {
+    "vorname": "Jim",
+    "nachname": "Wigert",
+    "kürzel": "JIM",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Wigert, Jim.jpg"
+  },
+  {
+    "vorname": "Florian",
+    "nachname": "Woyda",
+    "kürzel": "WOY",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Woyda, Florian.jpg"
+  },
+  {
+    "vorname": "Justin",
+    "nachname": "Wymann",
+    "kürzel": "GRU",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Wymann, Justin.jpg"
+  },
+  {
+    "vorname": "Mehmet",
+    "nachname": "Yarba",
+    "kürzel": "YRB",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Yarba, Mehmet.jpg"
+  },
+  {
+    "vorname": "Sercan",
+    "nachname": "Yazici",
+    "kürzel": "SEY",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Yazici, Sercan.jpg"
+  },
+  {
+    "vorname": "Mustafa",
+    "nachname": "Yildirim",
+    "kürzel": "MYD",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Yildirim, Mustafa.jpg"
+  },
+  {
+    "vorname": "Michael",
+    "nachname": "Zahn",
+    "kürzel": "MZH",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Zahn, Michael.jpg"
+  },
+  {
+    "vorname": "Sarbast",
+    "nachname": "Zebari",
+    "kürzel": "ZEB",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Zebari, Sarbast.jpg"
+  },
+  {
+    "vorname": "Jeser",
+    "nachname": "Zekiri",
+    "kürzel": "ZEK",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Zekiri, Jeser.jpg"
+  },
+  {
+    "vorname": "Aristeidis",
+    "nachname": "Zlatkos",
+    "kürzel": "ART",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Zlatkos, Aristeidis.jpg"
+  },
+  {
+    "vorname": "Walter",
+    "nachname": "Zuberbuehler",
+    "kürzel": "ZUW",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Zuberbuehler, Walter.jpg"
+  },
+  {
+    "vorname": "Nenad",
+    "nachname": "Zunic",
+    "kürzel": "NZU",
+    "personalnummer": "",
+    "position": "Supervisor",
+    "bild": "Fotos/SPV/Zunic, Nenad.jpg"
+  },
+  {
+    "vorname": "Arben",
+    "nachname": "Zekaj",
+    "kürzel": "ARZ",
+    "personalnummer": "132180",
+    "position": "Duty Manager Assistant",
+    "bild": "Fotos/DMA/Zekaj, Arben.jpg"
+  },
+  {
+    "vorname": "Christian",
+    "nachname": "Hoenig",
+    "kürzel": "BMW",
+    "personalnummer": "251422",
+    "position": "Duty Manager Assistant",
+    "bild": "Fotos/DMA/Hoenig, Christian.jpg"
+  },
+  {
+    "vorname": "Danilo",
+    "nachname": "Balsiger",
+    "kürzel": "BXD",
+    "personalnummer": "143976",
+    "position": "Duty Manager Assistant",
+    "bild": "Fotos/DMA/Balsiger, Danilo.jpg"
+  },
+  {
+    "vorname": "Serdar",
+    "nachname": "Eroglu",
+    "kürzel": "ERS",
+    "personalnummer": "139951",
+    "position": "Duty Manager Assistant",
+    "bild": "Fotos/DMA/Eroglu, Serdar.jpg"
+  },
+  {
+    "vorname": "Faruk",
+    "nachname": "Camoglu",
+    "kürzel": "FAR",
+    "personalnummer": "634214",
+    "position": "Duty Manager Assistant",
+    "bild": "Fotos/DMA/Camoglu, Faruk.jpg"
+  },
+  {
+    "vorname": "Flavio",
+    "nachname": "Ziegler",
+    "kürzel": "FIO",
+    "personalnummer": "142846",
+    "position": "Duty Manager Assistant",
+    "bild": "Fotos/DMA/Ziegler, Flavio.jpg"
+  },
+  {
+    "vorname": "Christian",
+    "nachname": "Girardin",
+    "kürzel": "GIR",
+    "personalnummer": "134240",
+    "position": "Duty Manager Assistant",
+    "bild": "Fotos/DMA/Girardin, Christian.jpg"
+  },
+  {
+    "vorname": "Sebastian",
+    "nachname": "Gysan",
+    "kürzel": "GYS",
+    "personalnummer": "134913",
+    "position": "Duty Manager Assistant",
+    "bild": "Fotos/DMA/Gysan, Sebastian.jpg"
+  },
+  {
+    "vorname": "Andreas",
+    "nachname": "Heerlein",
+    "kürzel": "HRA",
+    "personalnummer": "131790",
+    "position": "Duty Manager Assistant",
+    "bild": "Fotos/DMA/Heerlein, Andreas.jpg"
+  },
+  {
+    "vorname": "Michael",
+    "nachname": "Germann",
+    "kürzel": "MIG",
+    "personalnummer": "135423",
+    "position": "Duty Manager Assistant",
+    "bild": "Fotos/DMA/Germann, Michael.jpg"
+  },
+  {
+    "vorname": "Slavisa",
+    "nachname": "Mihajlovic",
+    "kürzel": "MIH",
+    "personalnummer": "520768",
+    "position": "Duty Manager Assistant",
+    "bild": "Fotos/DMA/Mihajlovic, Slavisa.jpg"
+  },
+  {
+    "vorname": "Roman",
+    "nachname": "Simeoni",
+    "kürzel": "RSI",
+    "personalnummer": "139177",
+    "position": "Duty Manager Assistant",
+    "bild": "Fotos/DMA/Simeoni, Roman.jpg"
+  },
+  {
+    "vorname": "Severin",
+    "nachname": "Schaetti",
+    "kürzel": "SEV",
+    "personalnummer": "145531",
+    "position": "Duty Manager Assistant",
+    "bild": "Fotos/DMA/Schaetti, Severin.jpg"
+  },
+  {
+    "vorname": "Stephan",
+    "nachname": "Suckow",
+    "kürzel": "SSS",
+    "personalnummer": "134614",
+    "position": "Duty Manager Assistant",
+    "bild": "Fotos/DMA/Suckow, Stephan.jpg"
+  },
+  {
+    "vorname": "Peter",
+    "nachname": "Stalder",
+    "kürzel": "STA",
+    "personalnummer": "151409",
+    "position": "Duty Manager Assistant",
+    "bild": "Fotos/DMA/Stalder, Peter.jpg"
+  },
+  {
+    "vorname": "Alexander",
+    "nachname": "Achmedov",
+    "kürzel": "SVJ",
+    "personalnummer": "141957",
+    "position": "Duty Manager Assistant",
+    "bild": "Fotos/DMA/Achmedov, Alexander.jpg"
+  },
+  {
+    "vorname": "Tobias",
+    "nachname": "Olitzsch",
+    "kürzel": "TOL",
+    "personalnummer": "120884",
+    "position": "Duty Manager Assistant",
+    "bild": "Fotos/DMA/Olitzsch, Tobias.jpg"
+  },
+  {
+    "vorname": "Audun",
+    "nachname": "Roedal",
+    "kürzel": "AUD",
+    "personalnummer": "116051.0",
+    "position": "Duty Manager",
+    "bild": "Fotos/DM/Roedal, Audun.jpg"
+  },
+  {
+    "vorname": "Carmen",
+    "nachname": "Freudenberg",
+    "kürzel": "DDR",
+    "personalnummer": "124686.0",
+    "position": "Duty Manager",
+    "bild": "Fotos/DM/Freudenberg, Carmen.jpg"
+  },
+  {
+    "vorname": "Daniel",
+    "nachname": "Arnet",
+    "kürzel": "ARD",
+    "personalnummer": "244905.0",
+    "position": "Duty Manager",
+    "bild": "Fotos/DM/Arnet, Daniel.jpg"
+  },
+  {
+    "vorname": "Daniel",
+    "nachname": "Wesolowski",
+    "kürzel": "WED",
+    "personalnummer": "131789.0",
+    "position": "Duty Manager",
+    "bild": "Fotos/DM/Wesolowski, Daniel.jpg"
+  },
+  {
+    "vorname": "Esat",
+    "nachname": "Yildrim",
+    "kürzel": "YES",
+    "personalnummer": "122401.0",
+    "position": "Duty Manager",
+    "bild": "Fotos/DM/Yildrim, Esat.jpg"
+  },
+  {
+    "vorname": "Iljham",
+    "nachname": "Mustafi",
+    "kürzel": "MUJ",
+    "personalnummer": "131560.0",
+    "position": "Duty Manager",
+    "bild": "Fotos/DM/Mustafi, Iljham.jpg"
+  },
+  {
+    "vorname": "Jetmir",
+    "nachname": "Ramani",
+    "kürzel": "JET",
+    "personalnummer": "127608.0",
+    "position": "Duty Manager",
+    "bild": "Fotos/DM/Ramani, Jetmir.jpg"
+  },
+  {
+    "vorname": "Marco",
+    "nachname": "Castellano",
+    "kürzel": "CAS",
+    "personalnummer": "128800.0",
+    "position": "Duty Manager",
+    "bild": "Fotos/DM/Castellano, Marco.jpg"
+  },
+  {
+    "vorname": "Michel",
+    "nachname": "Thieme",
+    "kürzel": "TXL",
+    "personalnummer": "134031.0",
+    "position": "Duty Manager",
+    "bild": "Fotos/DM/Thieme, Michel.jpg"
+  },
+  {
+    "vorname": "Neboisa",
+    "nachname": "Todorovic",
+    "kürzel": "NEB",
+    "personalnummer": "134487.0",
+    "position": "Duty Manager",
+    "bild": "Fotos/DM/Todorovic, Neboisa.jpg"
+  },
+  {
+    "vorname": "Stefan",
+    "nachname": "Luethi",
+    "kürzel": "",
+    "personalnummer": "134798.0",
+    "position": "Duty Manager",
+    "bild": "Fotos/DM/Luethi, Stefan.jpg"
+  },
+  {
+    "vorname": "Wesam",
+    "nachname": "El-Ali",
+    "kürzel": "EAW",
+    "personalnummer": "131805.0",
+    "position": "Duty Manager",
+    "bild": "Fotos/DM/El-Ali, Wesam.jpg"
+  },
+  {
+    "vorname": "Cenka",
+    "nachname": "Adji",
+    "kürzel": "CNK",
+    "personalnummer": "",
+    "position": "Duty Manager",
+    "bild": "Fotos/DM/Adji, Cenka.jpg"
+  },
+  {
+    "vorname": "Godinho",
+    "nachname": "Nuno",
+    "kürzel": "NUN",
+    "personalnummer": "",
+    "position": "Duty Manager",
+    "bild": "Fotos/DM/Nuno, Godinho.jpg"
+  },
+  {
+    "vorname": "Andriopoulos",
+    "nachname": "Panagios",
+    "kürzel": "PAN",
+    "personalnummer": "",
+    "position": "Duty Manager",
+    "bild": "Fotos/DM/Panagios, Andriopoulos.jpg"
+  },
+  {
+    "vorname": "Sharif",
+    "nachname": "Abd el Wahed",
+    "kürzel": "",
+    "personalnummer": "139092",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Abd el Wahed, Sharif.jpg"
+  },
+  {
+    "vorname": "Zaoui",
+    "nachname": "Abdelkader",
+    "kürzel": "",
+    "personalnummer": "151584",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Abdelkader, Zaoui.jpg"
+  },
+  {
+    "vorname": "Omar",
+    "nachname": "Abdellaoui",
+    "kürzel": "",
+    "personalnummer": "151399",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Abdellaoui, Omar.jpg"
+  },
+  {
+    "vorname": "Alharash",
+    "nachname": "Abdulhadi",
+    "kürzel": "",
+    "personalnummer": "150476",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Abdulhadi, Alharash.jpg"
+  },
+  {
+    "vorname": "Venanzio",
+    "nachname": "Achilles",
+    "kürzel": "",
+    "personalnummer": "150748",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Achilles, Venanzio.jpg"
+  },
+  {
+    "vorname": "Moussa issaka",
+    "nachname": "Adam",
+    "kürzel": "",
+    "personalnummer": "150689",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Adam, Moussa issaka.jpg"
+  },
+  {
+    "vorname": "Oyerinmade tosin",
+    "nachname": "Adelkanye",
+    "kürzel": "",
+    "personalnummer": "148906",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Adelkanye, Oyerinmade tosin.jpg"
+  },
+  {
+    "vorname": "Abdulwahab",
+    "nachname": "Afzaly",
+    "kürzel": "",
+    "personalnummer": "151400",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Afzaly, Abdulwahab.jpg"
+  },
+  {
+    "vorname": "Ivan",
+    "nachname": "Aganin",
+    "kürzel": "",
+    "personalnummer": "151126",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Aganin, Ivan.jpg"
+  },
+  {
+    "vorname": "Agon",
+    "nachname": "Ahmeti",
+    "kürzel": "",
+    "personalnummer": "151425",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Ahmeti, Agon.jpg"
+  },
+  {
+    "vorname": "Avsin",
+    "nachname": "Akcay",
+    "kürzel": "",
+    "personalnummer": "149586",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Akcay, Avsin.jpg"
+  },
+  {
+    "vorname": "Berdan",
+    "nachname": "Akguel",
+    "kürzel": "",
+    "personalnummer": "150514",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Akguel, Berdan.jpg"
+  },
+  {
+    "vorname": "Sinan",
+    "nachname": "Akguel",
+    "kürzel": "",
+    "personalnummer": "148766",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Akguel, Sinan.jpg"
+  },
+  {
+    "vorname": "Vedat",
+    "nachname": "Akguel",
+    "kürzel": "",
+    "personalnummer": "151417",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Akguel, Vedat.jpg"
+  },
+  {
+    "vorname": "Serkan",
+    "nachname": "Aktas",
+    "kürzel": "",
+    "personalnummer": "150910",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Aktas, Serkan.jpg"
+  },
+  {
+    "vorname": "Aleks",
+    "nachname": "Aleksic",
+    "kürzel": "",
+    "personalnummer": "150700",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Aleksic, Aleks.jpg"
+  },
+  {
+    "vorname": "Rrezon",
+    "nachname": "Aliqkaj",
+    "kürzel": "",
+    "personalnummer": "149815",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Aliqkaj, Rrezon.jpg"
+  },
+  {
+    "vorname": "Mobin",
+    "nachname": "Alizadeh",
+    "kürzel": "",
+    "personalnummer": "150661",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Alizadeh, Mobin.jpg"
+  },
+  {
+    "vorname": "Abdullah",
+    "nachname": "Alkis",
+    "kürzel": "",
+    "personalnummer": "148756",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Alkis, Abdullah.jpg"
+  },
+  {
+    "vorname": "Samuel",
+    "nachname": "Alvitrez",
+    "kürzel": "",
+    "personalnummer": "150660",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Alvitrez, Samuel.jpg"
+  },
+  {
+    "vorname": "Reza",
+    "nachname": "Amiri",
+    "kürzel": "",
+    "personalnummer": "149944",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Amiri, Reza.jpg"
+  },
+  {
+    "vorname": "Nihad",
+    "nachname": "Amzi",
+    "kürzel": "",
+    "personalnummer": "140698",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Amzi, Nihad.jpg"
+  },
+  {
+    "vorname": "Aniello",
+    "nachname": "Annunziata",
+    "kürzel": "",
+    "personalnummer": "149511",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Annunziata, Aniello.jpg"
+  },
+  {
+    "vorname": "Michael",
+    "nachname": "Antwi",
+    "kürzel": "",
+    "personalnummer": "150188",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Antwi, Michael.jpg"
+  },
+  {
+    "vorname": "Luca",
+    "nachname": "Anzivino",
+    "kürzel": "",
+    "personalnummer": "137190",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Anzivino, Luca.jpg"
+  },
+  {
+    "vorname": "Steve",
+    "nachname": "At",
+    "kürzel": "",
+    "personalnummer": "148592",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/At, Steve.jpg"
+  },
+  {
+    "vorname": "Cem",
+    "nachname": "Aydin",
+    "kürzel": "",
+    "personalnummer": "148443",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Aydin, Cem.jpg"
+  },
+  {
+    "vorname": "Pedro manuel",
+    "nachname": "Azenha Gomes",
+    "kürzel": "",
+    "personalnummer": "149096",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Azenha Gomes, Pedro manuel.jpg"
+  },
+  {
+    "vorname": "Mergim",
+    "nachname": "Aziri",
+    "kürzel": "",
+    "personalnummer": "148544",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Aziri, Mergim.jpg"
+  },
+  {
+    "vorname": "Daniel",
+    "nachname": "Bachmann",
+    "kürzel": "",
+    "personalnummer": "149385",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Bachmann, Daniel.jpg"
+  },
+  {
+    "vorname": "Bedda",
+    "nachname": "Badr",
+    "kürzel": "",
+    "personalnummer": "150224",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Badr, Bedda.jpg"
+  },
+  {
+    "vorname": "Cherif",
+    "nachname": "Bah",
+    "kürzel": "",
+    "personalnummer": "147487",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Bah, Cherif.jpg"
+  },
+  {
+    "vorname": "Oemer faruk",
+    "nachname": "Balci",
+    "kürzel": "",
+    "personalnummer": "148629",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Balci, Oemer faruk.jpg"
+  },
+  {
+    "vorname": "Lars-oliver",
+    "nachname": "Bangerter",
+    "kürzel": "",
+    "personalnummer": "147877",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Bangerter, Lars-oliver.jpg"
+  },
+  {
+    "vorname": "Bashkim",
+    "nachname": "Bariu",
+    "kürzel": "",
+    "personalnummer": "146478",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Bariu, Bashkim.jpg"
+  },
+  {
+    "vorname": "Gholam reza",
+    "nachname": "Barzegar",
+    "kürzel": "",
+    "personalnummer": "151233",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Barzegar, Gholam reza.jpg"
+  },
+  {
+    "vorname": "Ismail",
+    "nachname": "Basar",
+    "kürzel": "",
+    "personalnummer": "137731",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Basar, Ismail.jpg"
+  },
+  {
+    "vorname": "Ali",
+    "nachname": "Bayar",
+    "kürzel": "",
+    "personalnummer": "148624",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Bayar, Ali.jpg"
+  },
+  {
+    "vorname": "Oliver",
+    "nachname": "Becker",
+    "kürzel": "",
+    "personalnummer": "132483",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Becker, Oliver.jpg"
+  },
+  {
+    "vorname": "Faton",
+    "nachname": "Bekjiri",
+    "kürzel": "",
+    "personalnummer": "150909",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Bekjiri, Faton.jpg"
+  },
+  {
+    "vorname": "Christian",
+    "nachname": "Berisa",
+    "kürzel": "",
+    "personalnummer": "148849",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Berisa, Christian.jpg"
+  },
+  {
+    "vorname": "Enis",
+    "nachname": "Berisha",
+    "kürzel": "",
+    "personalnummer": "150632",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Berisha, Enis.jpg"
+  },
+  {
+    "vorname": "Miklos",
+    "nachname": "Berki",
+    "kürzel": "",
+    "personalnummer": "150659",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Berki, Miklos.jpg"
+  },
+  {
+    "vorname": "Ismail",
+    "nachname": "Besiroski",
+    "kürzel": "",
+    "personalnummer": "110487",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Besiroski, Ismail.jpg"
+  },
+  {
+    "vorname": "Mike",
+    "nachname": "Bischof",
+    "kürzel": "",
+    "personalnummer": "140497",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Bischof, Mike.jpg"
+  },
+  {
+    "vorname": "Bajram",
+    "nachname": "Bislimi",
+    "kürzel": "",
+    "personalnummer": "148744",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Bislimi, Bajram.jpg"
+  },
+  {
+    "vorname": "Anderson",
+    "nachname": "Blaettler",
+    "kürzel": "",
+    "personalnummer": "122614",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Blaettler, Anderson.jpg"
+  },
+  {
+    "vorname": "Henry",
+    "nachname": "Boahin- Dankwa",
+    "kürzel": "",
+    "personalnummer": "150943",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Boahin- Dankwa, Henry.jpg"
+  },
+  {
+    "vorname": "Vincent",
+    "nachname": "Boehme",
+    "kürzel": "",
+    "personalnummer": "147482",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Boehme, Vincent.jpg"
+  },
+  {
+    "vorname": "Florian",
+    "nachname": "Boesch",
+    "kürzel": "",
+    "personalnummer": "147553",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Boesch, Florian.jpg"
+  },
+  {
+    "vorname": "Nadhir",
+    "nachname": "Bounit",
+    "kürzel": "",
+    "personalnummer": "148162",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Bounit, Nadhir.jpg"
+  },
+  {
+    "vorname": "Hager",
+    "nachname": "Bourkhis",
+    "kürzel": "",
+    "personalnummer": "150825",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Bourkhis, Hager.jpg"
+  },
+  {
+    "vorname": "Valdet",
+    "nachname": "Bozhdaraj",
+    "kürzel": "",
+    "personalnummer": "149649",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Bozhdaraj, Valdet.jpg"
+  },
+  {
+    "vorname": "Viniccius",
+    "nachname": "Braga",
+    "kürzel": "",
+    "personalnummer": "150821",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Braga, Viniccius.jpg"
+  },
+  {
+    "vorname": "Mohamed",
+    "nachname": "Bribeche",
+    "kürzel": "",
+    "personalnummer": "147718",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Bribeche, Mohamed.jpg"
+  },
+  {
+    "vorname": "Hubert",
+    "nachname": "Brumann",
+    "kürzel": "",
+    "personalnummer": "145396",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Brumann, Hubert.jpg"
+  },
+  {
+    "vorname": "Riad",
+    "nachname": "Brunner",
+    "kürzel": "",
+    "personalnummer": "151486",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Brunner, Riad.jpg"
+  },
+  {
+    "vorname": "Lester",
+    "nachname": "Bruno Iii",
+    "kürzel": "",
+    "personalnummer": "148371",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Bruno Iii, Lester.jpg"
+  },
+  {
+    "vorname": "Elias jakob",
+    "nachname": "Buehler",
+    "kürzel": "",
+    "personalnummer": "151356",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Buehler, Elias jakob.jpg"
+  },
+  {
+    "vorname": "Andy nopparat",
+    "nachname": "Bui",
+    "kürzel": "",
+    "personalnummer": "150908",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Bui, Andy nopparat.jpg"
+  },
+  {
+    "vorname": "Xhevat",
+    "nachname": "Bunjaku",
+    "kürzel": "",
+    "personalnummer": "103984",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Bunjaku, Xhevat.jpg"
+  },
+  {
+    "vorname": "Mario",
+    "nachname": "Cadosch",
+    "kürzel": "",
+    "personalnummer": "150118",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Cadosch, Mario.jpg"
+  },
+  {
+    "vorname": "Tim",
+    "nachname": "Cantieni",
+    "kürzel": "",
+    "personalnummer": "151128",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Cantieni, Tim.jpg"
+  },
+  {
+    "vorname": "Maciel",
+    "nachname": "Chaves Fontes",
+    "kürzel": "",
+    "personalnummer": "149146",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Chaves Fontes, Maciel.jpg"
+  },
+  {
+    "vorname": "Lofti aniss",
+    "nachname": "Cheref",
+    "kürzel": "",
+    "personalnummer": "147558",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Cheref, Lofti aniss.jpg"
+  },
+  {
+    "vorname": "Andrzej",
+    "nachname": "Cieklinski",
+    "kürzel": "",
+    "personalnummer": "147181",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Cieklinski, Andrzej.jpg"
+  },
+  {
+    "vorname": "Alain",
+    "nachname": "Clenin",
+    "kürzel": "",
+    "personalnummer": "150617",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Clenin, Alain.jpg"
+  },
+  {
+    "vorname": "Michael",
+    "nachname": "Coppola",
+    "kürzel": "",
+    "personalnummer": "149233",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Coppola, Michael.jpg"
+  },
+  {
+    "vorname": "Laszlo",
+    "nachname": "Csorba",
+    "kürzel": "",
+    "personalnummer": "148620",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Csorba, Laszlo.jpg"
+  },
+  {
+    "vorname": "Francesko",
+    "nachname": "Cuni",
+    "kürzel": "",
+    "personalnummer": "150680",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Cuni, Francesko.jpg"
+  },
+  {
+    "vorname": "Luis",
+    "nachname": "Da Fonseca Duarte",
+    "kürzel": "",
+    "personalnummer": "116216",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Da Fonseca Duarte, Luis.jpg"
+  },
+  {
+    "vorname": "Omar",
+    "nachname": "Daleel",
+    "kürzel": "",
+    "personalnummer": "148599",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Daleel, Omar.jpg"
+  },
+  {
+    "vorname": "Abdulrahman",
+    "nachname": "Dawadi",
+    "kürzel": "",
+    "personalnummer": "150199",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Dawadi, Abdulrahman.jpg"
+  },
+  {
+    "vorname": "Francesco",
+    "nachname": "De Luca",
+    "kürzel": "",
+    "personalnummer": "116874",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/De Luca, Francesco.jpg"
+  },
+  {
+    "vorname": "Pasquale",
+    "nachname": "De Paola",
+    "kürzel": "",
+    "personalnummer": "466479",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/De Paola, Pasquale.jpg"
+  },
+  {
+    "vorname": "Tobias",
+    "nachname": "Demuth",
+    "kürzel": "",
+    "personalnummer": "149095",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Demuth, Tobias.jpg"
+  },
+  {
+    "vorname": "Argjent",
+    "nachname": "Dervishaj",
+    "kürzel": "",
+    "personalnummer": "151182",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Dervishaj, Argjent.jpg"
+  },
+  {
+    "vorname": "Waldemar",
+    "nachname": "Deutsch",
+    "kürzel": "",
+    "personalnummer": "148290",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Deutsch, Waldemar.jpg"
+  },
+  {
+    "vorname": "Hendrik",
+    "nachname": "Diessner",
+    "kürzel": "",
+    "personalnummer": "140400",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Diessner, Hendrik.jpg"
+  },
+  {
+    "vorname": "Ermir",
+    "nachname": "Dika",
+    "kürzel": "",
+    "personalnummer": "145646",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Dika, Ermir.jpg"
+  },
+  {
+    "vorname": "Sonam",
+    "nachname": "Dochenchog",
+    "kürzel": "",
+    "personalnummer": "134412",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Dochenchog, Sonam.jpg"
+  },
+  {
+    "vorname": "Tomas",
+    "nachname": "Dodok",
+    "kürzel": "",
+    "personalnummer": "133844",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Dodok, Tomas.jpg"
+  },
+  {
+    "vorname": "Patrick",
+    "nachname": "Dolsdorf",
+    "kürzel": "",
+    "personalnummer": "150945",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Dolsdorf, Patrick.jpg"
+  },
+  {
+    "vorname": "Luis",
+    "nachname": "Domingues Fortunato",
+    "kürzel": "",
+    "personalnummer": "377898",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Domingues Fortunato, Luis.jpg"
+  },
+  {
+    "vorname": "Muharem",
+    "nachname": "Domuzeti",
+    "kürzel": "",
+    "personalnummer": "127307",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Domuzeti, Muharem.jpg"
+  },
+  {
+    "vorname": "Pance",
+    "nachname": "Doncev",
+    "kürzel": "",
+    "personalnummer": "115883",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Doncev, Pance.jpg"
+  },
+  {
+    "vorname": "Silvano",
+    "nachname": "Dos Anjos Nascimento",
+    "kürzel": "",
+    "personalnummer": "150915",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Dos Anjos Nascimento, Silvano.jpg"
+  },
+  {
+    "vorname": "Jaroslaw",
+    "nachname": "Dudka",
+    "kürzel": "",
+    "personalnummer": "151396",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Dudka, Jaroslaw.jpg"
+  },
+  {
+    "vorname": "Nektarios",
+    "nachname": "Efthymoglou",
+    "kürzel": "",
+    "personalnummer": "151278",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Efthymoglou, Nektarios.jpg"
+  },
+  {
+    "vorname": "Fares",
+    "nachname": "El Mahmoudy",
+    "kürzel": "",
+    "personalnummer": "147619",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/El Mahmoudy, Fares.jpg"
+  },
+  {
+    "vorname": "Alex alik",
+    "nachname": "Evloev",
+    "kürzel": "",
+    "personalnummer": "150615",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Evloev, Alex alik.jpg"
+  },
+  {
+    "vorname": "Thomas",
+    "nachname": "Fankhauser",
+    "kürzel": "",
+    "personalnummer": "494629",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Fankhauser, Thomas.jpg"
+  },
+  {
+    "vorname": "Dario",
+    "nachname": "Fehr",
+    "kürzel": "",
+    "personalnummer": "147648",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Fehr, Dario.jpg"
+  },
+  {
+    "vorname": "Dirk",
+    "nachname": "Fiedler",
+    "kürzel": "",
+    "personalnummer": "149620",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Fiedler, Dirk.jpg"
+  },
+  {
+    "vorname": "Askin",
+    "nachname": "Firat",
+    "kürzel": "",
+    "personalnummer": "151418",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Firat, Askin.jpg"
+  },
+  {
+    "vorname": "Samuel",
+    "nachname": "Forrer",
+    "kürzel": "",
+    "personalnummer": "148378",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Forrer, Samuel.jpg"
+  },
+  {
+    "vorname": "Helder miguel",
+    "nachname": "Fortes Silvestre",
+    "kürzel": "",
+    "personalnummer": "147740",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Fortes Silvestre, Helder miguel.jpg"
+  },
+  {
+    "vorname": "Alexander",
+    "nachname": "Frei",
+    "kürzel": "",
+    "personalnummer": "147143",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Frei, Alexander.jpg"
+  },
+  {
+    "vorname": "Roman",
+    "nachname": "Frei",
+    "kürzel": "",
+    "personalnummer": "150510",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Frei, Roman.jpg"
+  },
+  {
+    "vorname": "Stefan",
+    "nachname": "Frigo",
+    "kürzel": "",
+    "personalnummer": "146522",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Frigo, Stefan.jpg"
+  },
+  {
+    "vorname": "Guiliano",
+    "nachname": "Furnari",
+    "kürzel": "",
+    "personalnummer": "148086",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Furnari, Guiliano.jpg"
+  },
+  {
+    "vorname": "Jessica nicole",
+    "nachname": "Furrer",
+    "kürzel": "",
+    "personalnummer": "150817",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Furrer, Jessica nicole.jpg"
+  },
+  {
+    "vorname": "Mathias",
+    "nachname": "Furrer",
+    "kürzel": "",
+    "personalnummer": "151243",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Furrer, Mathias.jpg"
+  },
+  {
+    "vorname": "Layen",
+    "nachname": "Gai",
+    "kürzel": "",
+    "personalnummer": "150096",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Gai, Layen.jpg"
+  },
+  {
+    "vorname": "Yves",
+    "nachname": "Gantenbein",
+    "kürzel": "",
+    "personalnummer": "148538",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Gantenbein, Yves.jpg"
+  },
+  {
+    "vorname": "Leonardo",
+    "nachname": "Gavazaj",
+    "kürzel": "",
+    "personalnummer": "137734",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Gavazaj, Leonardo.jpg"
+  },
+  {
+    "vorname": "Dominik",
+    "nachname": "Gebhard",
+    "kürzel": "",
+    "personalnummer": "144949",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Gebhard, Dominik.jpg"
+  },
+  {
+    "vorname": "Jann",
+    "nachname": "Gehring",
+    "kürzel": "",
+    "personalnummer": "142513",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Gehring, Jann.jpg"
+  },
+  {
+    "vorname": "Ntinos",
+    "nachname": "Georgios",
+    "kürzel": "",
+    "personalnummer": "144922",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Georgios, Ntinos.jpg"
+  },
+  {
+    "vorname": "Christopher",
+    "nachname": "Gerena",
+    "kürzel": "",
+    "personalnummer": "151551",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Gerena, Christopher.jpg"
+  },
+  {
+    "vorname": "Gholam",
+    "nachname": "Ghasemi",
+    "kürzel": "",
+    "personalnummer": "149141",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Ghasemi, Gholam.jpg"
+  },
+  {
+    "vorname": "Zerea",
+    "nachname": "Ghirmayy",
+    "kürzel": "",
+    "personalnummer": "148901",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Ghirmayy, Zerea.jpg"
+  },
+  {
+    "vorname": "Inderpreet",
+    "nachname": "Ghuman",
+    "kürzel": "",
+    "personalnummer": "146711",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Ghuman, Inderpreet.jpg"
+  },
+  {
+    "vorname": "Davide",
+    "nachname": "Giancotti",
+    "kürzel": "",
+    "personalnummer": "151241",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Giancotti, Davide.jpg"
+  },
+  {
+    "vorname": "Othmar",
+    "nachname": "Giganto",
+    "kürzel": "",
+    "personalnummer": "148367",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Giganto, Othmar.jpg"
+  },
+  {
+    "vorname": "Grigorios",
+    "nachname": "Gkoulis",
+    "kürzel": "",
+    "personalnummer": "147692",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Gkoulis, Grigorios.jpg"
+  },
+  {
+    "vorname": "Andrian",
+    "nachname": "Godiac",
+    "kürzel": "",
+    "personalnummer": "142347",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Godiac, Andrian.jpg"
+  },
+  {
+    "vorname": "Nihat",
+    "nachname": "Goekduman",
+    "kürzel": "",
+    "personalnummer": "148759",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Goekduman, Nihat.jpg"
+  },
+  {
+    "vorname": "Burak",
+    "nachname": "Goezueyukari",
+    "kürzel": "",
+    "personalnummer": "150223",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Goezueyukari, Burak.jpg"
+  },
+  {
+    "vorname": "Markus",
+    "nachname": "Greub",
+    "kürzel": "",
+    "personalnummer": "392653",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Greub, Markus.jpg"
+  },
+  {
+    "vorname": "Adrian",
+    "nachname": "Grob",
+    "kürzel": "",
+    "personalnummer": "139104",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Grob, Adrian.jpg"
+  },
+  {
+    "vorname": "Dominik",
+    "nachname": "Gschwind",
+    "kürzel": "",
+    "personalnummer": "151481",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Gschwind, Dominik.jpg"
+  },
+  {
+    "vorname": "Mihail",
+    "nachname": "Gulpea",
+    "kürzel": "",
+    "personalnummer": "150322",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Gulpea, Mihail.jpg"
+  },
+  {
+    "vorname": "Jonathan daniel",
+    "nachname": "Gundermann",
+    "kürzel": "",
+    "personalnummer": "151482",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Gundermann, Jonathan daniel.jpg"
+  },
+  {
+    "vorname": "Patrick",
+    "nachname": "Gut",
+    "kürzel": "",
+    "personalnummer": "151598",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Gut, Patrick.jpg"
+  },
+  {
+    "vorname": "Shkelgim",
+    "nachname": "Gutaj",
+    "kürzel": "",
+    "personalnummer": "149737",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Gutaj, Shkelgim.jpg"
+  },
+  {
+    "vorname": "Shpresim",
+    "nachname": "Gutaj",
+    "kürzel": "",
+    "personalnummer": "147846",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Gutaj, Shpresim.jpg"
+  },
+  {
+    "vorname": "Malik",
+    "nachname": "Haddad",
+    "kürzel": "",
+    "personalnummer": "147582",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Haddad, Malik.jpg"
+  },
+  {
+    "vorname": "Asghar ali",
+    "nachname": "Haidari",
+    "kürzel": "",
+    "personalnummer": "149366",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Haidari, Asghar ali.jpg"
+  },
+  {
+    "vorname": "Alban",
+    "nachname": "Hajrizai",
+    "kürzel": "",
+    "personalnummer": "149651",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Hajrizai, Alban.jpg"
+  },
+  {
+    "vorname": "Esmeraldo",
+    "nachname": "Hamataj",
+    "kürzel": "",
+    "personalnummer": "148825",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Hamataj, Esmeraldo.jpg"
+  },
+  {
+    "vorname": "Andrii",
+    "nachname": "Harin",
+    "kürzel": "",
+    "personalnummer": "150600",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Harin, Andrii.jpg"
+  },
+  {
+    "vorname": "Bahri",
+    "nachname": "Hasani",
+    "kürzel": "",
+    "personalnummer": "520700",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Hasani, Bahri.jpg"
+  },
+  {
+    "vorname": "Mostafa",
+    "nachname": "Hassani",
+    "kürzel": "",
+    "personalnummer": "148073",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Hassani, Mostafa.jpg"
+  },
+  {
+    "vorname": "Valon",
+    "nachname": "Haxhaj",
+    "kürzel": "",
+    "personalnummer": "142814",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Haxhaj, Valon.jpg"
+  },
+  {
+    "vorname": "Denis",
+    "nachname": "Heriqi",
+    "kürzel": "",
+    "personalnummer": "139556",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Heriqi, Denis.jpg"
+  },
+  {
+    "vorname": "Daniel",
+    "nachname": "Hessel",
+    "kürzel": "",
+    "personalnummer": "150899",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Hessel, Daniel.jpg"
+  },
+  {
+    "vorname": "Louis",
+    "nachname": "Hochstrasser",
+    "kürzel": "",
+    "personalnummer": "144948",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Hochstrasser, Louis.jpg"
+  },
+  {
+    "vorname": "Deniz sueleyman",
+    "nachname": "Hoffmann",
+    "kürzel": "",
+    "personalnummer": "150568",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Hoffmann, Deniz sueleyman.jpg"
+  },
+  {
+    "vorname": "Shabir",
+    "nachname": "Hossein",
+    "kürzel": "",
+    "personalnummer": "148963",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Hossein, Shabir.jpg"
+  },
+  {
+    "vorname": "Merhi",
+    "nachname": "Houssein Bou",
+    "kürzel": "",
+    "personalnummer": "147555",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Houssein Bou, Merhi.jpg"
+  },
+  {
+    "vorname": "Fuhai",
+    "nachname": "Hu",
+    "kürzel": "",
+    "personalnummer": "142457",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Hu, Fuhai.jpg"
+  },
+  {
+    "vorname": "Dennis",
+    "nachname": "Huber",
+    "kürzel": "",
+    "personalnummer": "151596",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Huber, Dennis.jpg"
+  },
+  {
+    "vorname": "Michael",
+    "nachname": "Huebner",
+    "kürzel": "",
+    "personalnummer": "135992",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Huebner, Michael.jpg"
+  },
+  {
+    "vorname": "Mateo",
+    "nachname": "Hudek",
+    "kürzel": "",
+    "personalnummer": "149936",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Hudek, Mateo.jpg"
+  },
+  {
+    "vorname": "Mazlum",
+    "nachname": "Hussein",
+    "kürzel": "",
+    "personalnummer": "149362",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Hussein, Mazlum.jpg"
+  },
+  {
+    "vorname": "Kastriot",
+    "nachname": "Hyseni",
+    "kürzel": "",
+    "personalnummer": "148717",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Hyseni, Kastriot.jpg"
+  },
+  {
+    "vorname": "Remzi",
+    "nachname": "Ibrahimi",
+    "kürzel": "",
+    "personalnummer": "151245",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Ibrahimi, Remzi.jpg"
+  },
+  {
+    "vorname": "Gzim",
+    "nachname": "Imeri",
+    "kürzel": "",
+    "personalnummer": "142693",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Imeri, Gzim.jpg"
+  },
+  {
+    "vorname": "Adem",
+    "nachname": "Inalan",
+    "kürzel": "",
+    "personalnummer": "150631",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Inalan, Adem.jpg"
+  },
+  {
+    "vorname": "Durim",
+    "nachname": "Invernizzi",
+    "kürzel": "",
+    "personalnummer": "151358",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Invernizzi, Durim.jpg"
+  },
+  {
+    "vorname": "Ismail",
+    "nachname": "Jabbi",
+    "kürzel": "",
+    "personalnummer": "141425",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Jabbi, Ismail.jpg"
+  },
+  {
+    "vorname": "Farhad",
+    "nachname": "Jahani",
+    "kürzel": "",
+    "personalnummer": "151253",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Jahani, Farhad.jpg"
+  },
+  {
+    "vorname": "Fisnik",
+    "nachname": "Jakupi",
+    "kürzel": "",
+    "personalnummer": "139638",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Jakupi, Fisnik.jpg"
+  },
+  {
+    "vorname": "Patrick",
+    "nachname": "Jampen",
+    "kürzel": "",
+    "personalnummer": "135792",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Jampen, Patrick.jpg"
+  },
+  {
+    "vorname": "Maliqi",
+    "nachname": "Jetlir",
+    "kürzel": "",
+    "personalnummer": "151254",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Jetlir, Maliqi.jpg"
+  },
+  {
+    "vorname": "Besim",
+    "nachname": "Kamberovic",
+    "kürzel": "",
+    "personalnummer": "149569",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Kamberovic, Besim.jpg"
+  },
+  {
+    "vorname": "Roman",
+    "nachname": "Kaeppeli",
+    "kürzel": "",
+    "personalnummer": "150929",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Kaeppeli, Roman.jpg"
+  },
+  {
+    "vorname": "Burak",
+    "nachname": "Karatas",
+    "kürzel": "",
+    "personalnummer": "139745",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Karatas, Burak.jpg"
+  },
+  {
+    "vorname": "Taha yassine",
+    "nachname": "Kharmouch",
+    "kürzel": "",
+    "personalnummer": "150726",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Kharmouch, Taha yassine.jpg"
+  },
+  {
+    "vorname": "Gavin",
+    "nachname": "Kitchen",
+    "kürzel": "",
+    "personalnummer": "151501",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Kitchen, Gavin.jpg"
+  },
+  {
+    "vorname": "Tayler",
+    "nachname": "Kleeb",
+    "kürzel": "",
+    "personalnummer": "151606",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Kleeb, Tayler.jpg"
+  },
+  {
+    "vorname": "Daniel",
+    "nachname": "Kluser",
+    "kürzel": "",
+    "personalnummer": "122220",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Kluser, Daniel.jpg"
+  },
+  {
+    "vorname": "Luca fabian",
+    "nachname": "Kopp",
+    "kürzel": "",
+    "personalnummer": "151231",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Kopp, Luca fabian.jpg"
+  },
+  {
+    "vorname": "Aleksandar",
+    "nachname": "Kosic",
+    "kürzel": "",
+    "personalnummer": "130529",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Kosic, Aleksandar.jpg"
+  },
+  {
+    "vorname": "Maurice",
+    "nachname": "Kramreiter",
+    "kürzel": "",
+    "personalnummer": "146454",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Kramreiter, Maurice.jpg"
+  },
+  {
+    "vorname": "Ismet",
+    "nachname": "Krasniqi",
+    "kürzel": "",
+    "personalnummer": "112404",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Krasniqi, Ismet.jpg"
+  },
+  {
+    "vorname": "Masar",
+    "nachname": "Krasniqi",
+    "kürzel": "",
+    "personalnummer": "148071",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Krasniqi, Masar.jpg"
+  },
+  {
+    "vorname": "Mehmet",
+    "nachname": "Krasniqi",
+    "kürzel": "",
+    "personalnummer": "112407",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Krasniqi, Mehmet.jpg"
+  },
+  {
+    "vorname": "Yannick",
+    "nachname": "Kuebler",
+    "kürzel": "",
+    "personalnummer": "135986",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Kuebler, Yannick.jpg"
+  },
+  {
+    "vorname": "Daniel",
+    "nachname": "Kuechler",
+    "kürzel": "",
+    "personalnummer": "111268",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Kuechler, Daniel.jpg"
+  },
+  {
+    "vorname": "Bernhard",
+    "nachname": "Kulmer",
+    "kürzel": "",
+    "personalnummer": "151519",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Kulmer, Bernhard.jpg"
+  },
+  {
+    "vorname": "Sakthivel",
+    "nachname": "Kumanan",
+    "kürzel": "",
+    "personalnummer": "149813",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Kumanan, Sakthivel.jpg"
+  },
+  {
+    "vorname": "Nicolas adrian",
+    "nachname": "Kuoni",
+    "kürzel": "",
+    "personalnummer": "151415",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Kuoni, Nicolas adrian.jpg"
+  },
+  {
+    "vorname": "Alexandros",
+    "nachname": "Lambrou",
+    "kürzel": "",
+    "personalnummer": "147522",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Lambrou, Alexandros.jpg"
+  },
+  {
+    "vorname": "Trong hieu",
+    "nachname": "Le",
+    "kürzel": "",
+    "personalnummer": "150902",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Le, Trong hieu.jpg"
+  },
+  {
+    "vorname": "Patrick",
+    "nachname": "Leitner",
+    "kürzel": "",
+    "personalnummer": "148491",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Leitner, Patrick.jpg"
+  },
+  {
+    "vorname": "Philip",
+    "nachname": "Leppa",
+    "kürzel": "",
+    "personalnummer": "150509",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Leppa, Philip.jpg"
+  },
+  {
+    "vorname": "Dario",
+    "nachname": "Lijevic",
+    "kürzel": "",
+    "personalnummer": "103722",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Lijevic, Dario.jpg"
+  },
+  {
+    "vorname": "Jakub",
+    "nachname": "Liszewski",
+    "kürzel": "",
+    "personalnummer": "147895",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Liszewski, Jakub.jpg"
+  },
+  {
+    "vorname": "Andrei",
+    "nachname": "Lupu",
+    "kürzel": "",
+    "personalnummer": "140407",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Lupu, Andrei.jpg"
+  },
+  {
+    "vorname": "Manuel",
+    "nachname": "Lutterschmied",
+    "kürzel": "",
+    "personalnummer": "150390",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Lutterschmied, Manuel.jpg"
+  },
+  {
+    "vorname": "Mateusz",
+    "nachname": "Madry",
+    "kürzel": "",
+    "personalnummer": "136396",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Madry, Mateusz.jpg"
+  },
+  {
+    "vorname": "Dumitu marin",
+    "nachname": "Magdici",
+    "kürzel": "",
+    "personalnummer": "147101",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Magdici, Dumitu marin.jpg"
+  },
+  {
+    "vorname": "Stephan",
+    "nachname": "Mailaender",
+    "kürzel": "",
+    "personalnummer": "151193",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Mailaender, Stephan.jpg"
+  },
+  {
+    "vorname": "Bright prince",
+    "nachname": "Malindy",
+    "kürzel": "",
+    "personalnummer": "142012",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Malindy, Bright prince.jpg"
+  },
+  {
+    "vorname": "Jeton",
+    "nachname": "Mamudi",
+    "kürzel": "",
+    "personalnummer": "132560",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Mamudi, Jeton.jpg"
+  },
+  {
+    "vorname": "Muzafer",
+    "nachname": "Mamuti",
+    "kürzel": "",
+    "personalnummer": "136328",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Mamuti, Muzafer.jpg"
+  },
+  {
+    "vorname": "Sascha",
+    "nachname": "Manser",
+    "kürzel": "",
+    "personalnummer": "141907",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Manser, Sascha.jpg"
+  },
+  {
+    "vorname": "Andrea amine",
+    "nachname": "Mansouri",
+    "kürzel": "",
+    "personalnummer": "147563",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Mansouri, Andrea amine.jpg"
+  },
+  {
+    "vorname": "Denis",
+    "nachname": "Maric",
+    "kürzel": "",
+    "personalnummer": "150944",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Maric, Denis.jpg"
+  },
+  {
+    "vorname": "Ayman",
+    "nachname": "Marouf",
+    "kürzel": "",
+    "personalnummer": "147615",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Marouf, Ayman.jpg"
+  },
+  {
+    "vorname": "David",
+    "nachname": "Mathys",
+    "kürzel": "",
+    "personalnummer": "150826",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Mathys, David.jpg"
+  },
+  {
+    "vorname": "Farax",
+    "nachname": "Maxamed",
+    "kürzel": "",
+    "personalnummer": "139213",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Maxamed, Farax.jpg"
+  },
+  {
+    "vorname": "Werner",
+    "nachname": "Meier",
+    "kürzel": "",
+    "personalnummer": "119541",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Meier, Werner.jpg"
+  },
+  {
+    "vorname": "Miguel",
+    "nachname": "Mera Castillo",
+    "kürzel": "",
+    "personalnummer": "151458",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Mera Castillo, Miguel.jpg"
+  },
+  {
+    "vorname": "Zuhar",
+    "nachname": "Merseli",
+    "kürzel": "",
+    "personalnummer": "148626",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Merseli, Zuhar.jpg"
+  },
+  {
+    "vorname": "Blerim",
+    "nachname": "Metaj",
+    "kürzel": "",
+    "personalnummer": "147687",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Metaj, Blerim.jpg"
+  },
+  {
+    "vorname": "Daniel markus",
+    "nachname": "Meyer",
+    "kürzel": "",
+    "personalnummer": "150124",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Meyer, Daniel markus.jpg"
+  },
+  {
+    "vorname": "Armin",
+    "nachname": "Midzic",
+    "kürzel": "",
+    "personalnummer": "150169",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Midzic, Armin.jpg"
+  },
+  {
+    "vorname": "Vladislav",
+    "nachname": "Milivojevic",
+    "kürzel": "",
+    "personalnummer": "132178",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Milivojevic, Vladislav.jpg"
+  },
+  {
+    "vorname": "Phillip",
+    "nachname": "Miller",
+    "kürzel": "",
+    "personalnummer": "151200",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Miller, Phillip.jpg"
+  },
+  {
+    "vorname": "Dejan",
+    "nachname": "Milosavljevic",
+    "kürzel": "",
+    "personalnummer": "738958",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Milosavljevic, Dejan.jpg"
+  },
+  {
+    "vorname": "Milos",
+    "nachname": "Milosevic",
+    "kürzel": "",
+    "personalnummer": "151461",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Milosevic, Milos.jpg"
+  },
+  {
+    "vorname": "Shefit",
+    "nachname": "Miniri",
+    "kürzel": "",
+    "personalnummer": "151426",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Miniri, Shefit.jpg"
+  },
+  {
+    "vorname": "Domenico",
+    "nachname": "Moccetti",
+    "kürzel": "",
+    "personalnummer": "148282",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Moccetti, Domenico.jpg"
+  },
+  {
+    "vorname": "Abdukarim",
+    "nachname": "Mohamed",
+    "kürzel": "",
+    "personalnummer": "131099",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Mohamed, Abdukarim.jpg"
+  },
+  {
+    "vorname": "Panajotis",
+    "nachname": "Mucaj",
+    "kürzel": "",
+    "personalnummer": "148795",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Mucaj, Panajotis.jpg"
+  },
+  {
+    "vorname": "Nils",
+    "nachname": "Mueller",
+    "kürzel": "",
+    "personalnummer": "148284",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Mueller, Nils.jpg"
+  },
+  {
+    "vorname": "Philip",
+    "nachname": "Mueller",
+    "kürzel": "",
+    "personalnummer": "147524",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Mueller, Philip.jpg"
+  },
+  {
+    "vorname": "Maximilian",
+    "nachname": "Mueller",
+    "kürzel": "",
+    "personalnummer": "151407",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Mueller, Maximilian.jpg"
+  },
+  {
+    "vorname": "Zoher",
+    "nachname": "Nahachi",
+    "kürzel": "",
+    "personalnummer": "148585",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Nahachi, Zoher.jpg"
+  },
+  {
+    "vorname": "Manuel",
+    "nachname": "Navaratnam",
+    "kürzel": "",
+    "personalnummer": "149318",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Navaratnam, Manuel.jpg"
+  },
+  {
+    "vorname": "Alejandro",
+    "nachname": "Noya Mato",
+    "kürzel": "",
+    "personalnummer": "141400",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Noya Mato, Alejandro.jpg"
+  },
+  {
+    "vorname": "Jean cedric",
+    "nachname": "Ntwari",
+    "kürzel": "",
+    "personalnummer": "151282",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Ntwari, Jean cedric.jpg"
+  },
+  {
+    "vorname": "Thomas",
+    "nachname": "Ohren",
+    "kürzel": "",
+    "personalnummer": "150933",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Ohren, Thomas.jpg"
+  },
+  {
+    "vorname": "Leandro filipe",
+    "nachname": "Oliveira Santos",
+    "kürzel": "",
+    "personalnummer": "147096",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Oliveira Santos, Leandro filipe.jpg"
+  },
+  {
+    "vorname": "Emil funch",
+    "nachname": "Olsen",
+    "kürzel": "",
+    "personalnummer": "148450",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Olsen, Emil funch.jpg"
+  },
+  {
+    "vorname": "Heitti",
+    "nachname": "Omberg",
+    "kürzel": "",
+    "personalnummer": "148762",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Omberg, Heitti.jpg"
+  },
+  {
+    "vorname": "Youssef",
+    "nachname": "Oubassine",
+    "kürzel": "",
+    "personalnummer": "148758",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Oubassine, Youssef.jpg"
+  },
+  {
+    "vorname": "Mehmet",
+    "nachname": "Oeztuerk",
+    "kürzel": "",
+    "personalnummer": "148165",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Oeztuerk, Mehmet.jpg"
+  },
+  {
+    "vorname": "Luca",
+    "nachname": "Papa",
+    "kürzel": "",
+    "personalnummer": "148913",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Papa, Luca.jpg"
+  },
+  {
+    "vorname": "Panagiotis agisilaos",
+    "nachname": "Pappas",
+    "kürzel": "",
+    "personalnummer": "147367",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Pappas, Panagiotis agisilaos.jpg"
+  },
+  {
+    "vorname": "Annibale",
+    "nachname": "Patrevita",
+    "kürzel": "",
+    "personalnummer": "144149",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Patrevita, Annibale.jpg"
+  },
+  {
+    "vorname": "Mohamed",
+    "nachname": "Peer",
+    "kürzel": "",
+    "personalnummer": "129809",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Peer, Mohamed.jpg"
+  },
+  {
+    "vorname": "Deniz",
+    "nachname": "Pehlivnoglu",
+    "kürzel": "",
+    "personalnummer": "149219",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Pehlivnoglu, Deniz.jpg"
+  },
+  {
+    "vorname": "Taulant",
+    "nachname": "Pelaj",
+    "kürzel": "",
+    "personalnummer": "147510",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Pelaj, Taulant.jpg"
+  },
+  {
+    "vorname": "Alfredo",
+    "nachname": "Perez",
+    "kürzel": "",
+    "personalnummer": "129943",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Perez, Alfredo.jpg"
+  },
+  {
+    "vorname": "Dominique Daniel",
+    "nachname": "Peter",
+    "kürzel": "",
+    "personalnummer": "151092",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Peter, Dominique Daniel.jpg"
+  },
+  {
+    "vorname": "Jovan",
+    "nachname": "Petrovic",
+    "kürzel": "",
+    "personalnummer": "151094",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Petrovic, Jovan.jpg"
+  },
+  {
+    "vorname": "Linus",
+    "nachname": "Pfannkuchen",
+    "kürzel": "",
+    "personalnummer": "148278",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Pfannkuchen, Linus.jpg"
+  },
+  {
+    "vorname": "Jonas",
+    "nachname": "Pfletschinger",
+    "kürzel": "",
+    "personalnummer": "151410",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Pfletschinger, Jonas.jpg"
+  },
+  {
+    "vorname": "Julian",
+    "nachname": "Pohl",
+    "kürzel": "",
+    "personalnummer": "149568",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Pohl, Julian.jpg"
+  },
+  {
+    "vorname": "Gideon",
+    "nachname": "Preuss",
+    "kürzel": "",
+    "personalnummer": "150612",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Preuss, Gideon.jpg"
+  },
+  {
+    "vorname": "Sascha",
+    "nachname": "Prilipko",
+    "kürzel": "",
+    "personalnummer": "151448",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Prilipko, Sascha.jpg"
+  },
+  {
+    "vorname": "Paolo",
+    "nachname": "Putzu",
+    "kürzel": "",
+    "personalnummer": "145424",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Putzu, Paolo.jpg"
+  },
+  {
+    "vorname": "Rinor",
+    "nachname": "Qehaja",
+    "kürzel": "",
+    "personalnummer": "151298",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Qehaja, Rinor.jpg"
+  },
+  {
+    "vorname": "Sazan",
+    "nachname": "Qoqaj",
+    "kürzel": "",
+    "personalnummer": "143806",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Qoqaj, Sazan.jpg"
+  },
+  {
+    "vorname": "Ivan",
+    "nachname": "Rajic",
+    "kürzel": "",
+    "personalnummer": "148701",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Rajic, Ivan.jpg"
+  },
+  {
+    "vorname": "Gianluca",
+    "nachname": "Reale",
+    "kürzel": "",
+    "personalnummer": "151508",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Reale, Gianluca.jpg"
+  },
+  {
+    "vorname": "Giancarlo",
+    "nachname": "Realini",
+    "kürzel": "",
+    "personalnummer": "125673",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Realini, Giancarlo.jpg"
+  },
+  {
+    "vorname": "Cedric",
+    "nachname": "Reinhold",
+    "kürzel": "",
+    "personalnummer": "148704",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Reinhold, Cedric.jpg"
+  },
+  {
+    "vorname": "Grischa",
+    "nachname": "Riesen",
+    "kürzel": "",
+    "personalnummer": "150263",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Riesen, Grischa.jpg"
+  },
+  {
+    "vorname": "Nando elia",
+    "nachname": "Rigonali",
+    "kürzel": "",
+    "personalnummer": "149455",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Rigonali, Nando elia.jpg"
+  },
+  {
+    "vorname": "Aleksandar",
+    "nachname": "Ristovski",
+    "kürzel": "",
+    "personalnummer": "137706",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Ristovski, Aleksandar.jpg"
+  },
+  {
+    "vorname": "Dario",
+    "nachname": "Rueegg",
+    "kürzel": "",
+    "personalnummer": "151162",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Rueegg, Dario.jpg"
+  },
+  {
+    "vorname": "Jerome",
+    "nachname": "Ryhner",
+    "kürzel": "",
+    "personalnummer": "148851",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Ryhner, Jerome.jpg"
+  },
+  {
+    "vorname": "Milaim",
+    "nachname": "Sadiku",
+    "kürzel": "",
+    "personalnummer": "119648",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Sadiku, Milaim.jpg"
+  },
+  {
+    "vorname": "Selman",
+    "nachname": "Sahsivari",
+    "kürzel": "",
+    "personalnummer": "150703",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Sahsivari, Selman.jpg"
+  },
+  {
+    "vorname": "Qerim",
+    "nachname": "Saiti",
+    "kürzel": "",
+    "personalnummer": "147237",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Saiti, Qerim.jpg"
+  },
+  {
+    "vorname": "Giuseppe riccardo",
+    "nachname": "Sangrigoli",
+    "kürzel": "",
+    "personalnummer": "117157",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Sangrigoli, Giuseppe riccardo.jpg"
+  },
+  {
+    "vorname": "Magnus",
+    "nachname": "Scheibe",
+    "kürzel": "",
+    "personalnummer": "151125",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Scheibe, Magnus.jpg"
+  },
+  {
+    "vorname": "Fabio",
+    "nachname": "Schmid",
+    "kürzel": "",
+    "personalnummer": "149361",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Schmid, Fabio.jpg"
+  },
+  {
+    "vorname": "Rajiv",
+    "nachname": "Schmid",
+    "kürzel": "",
+    "personalnummer": "150105",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Schmid, Rajiv.jpg"
+  },
+  {
+    "vorname": "Maurice",
+    "nachname": "Schmitt",
+    "kürzel": "",
+    "personalnummer": "151246",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Schmitt, Maurice.jpg"
+  },
+  {
+    "vorname": "Marco",
+    "nachname": "Schneider",
+    "kürzel": "",
+    "personalnummer": "826624",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Schneider, Marco.jpg"
+  },
+  {
+    "vorname": "Marcel",
+    "nachname": "Schulthess",
+    "kürzel": "",
+    "personalnummer": "134166",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Schulthess, Marcel.jpg"
+  },
+  {
+    "vorname": "Dirk",
+    "nachname": "Schulz",
+    "kürzel": "",
+    "personalnummer": "151095",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Schulz, Dirk.jpg"
+  },
+  {
+    "vorname": "Leon",
+    "nachname": "Schwager",
+    "kürzel": "",
+    "personalnummer": "148767",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Schwager, Leon.jpg"
+  },
+  {
+    "vorname": "Arbi",
+    "nachname": "Seferoski",
+    "kürzel": "",
+    "personalnummer": "148761",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Seferoski, Arbi.jpg"
+  },
+  {
+    "vorname": "Burim",
+    "nachname": "Sejdiji",
+    "kürzel": "",
+    "personalnummer": "148082",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Sejdiji, Burim.jpg"
+  },
+  {
+    "vorname": "Drazen",
+    "nachname": "Sekrst",
+    "kürzel": "",
+    "personalnummer": "144832",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Sekrst, Drazen.jpg"
+  },
+  {
+    "vorname": "Heiko",
+    "nachname": "Sens",
+    "kürzel": "",
+    "personalnummer": "149448",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Sens, Heiko.jpg"
+  },
+  {
+    "vorname": "Emre",
+    "nachname": "Serdaroglu",
+    "kürzel": "",
+    "personalnummer": "151395",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Serdaroglu, Emre.jpg"
+  },
+  {
+    "vorname": "Oguzhan",
+    "nachname": "Sevim",
+    "kürzel": "",
+    "personalnummer": "150811",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Sevim, Oguzhan.jpg"
+  },
+  {
+    "vorname": "Leonard",
+    "nachname": "Shala",
+    "kürzel": "",
+    "personalnummer": "148454",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Shala, Leonard.jpg"
+  },
+  {
+    "vorname": "Myrtez",
+    "nachname": "Shala",
+    "kürzel": "",
+    "personalnummer": "151283",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Shala, Myrtez.jpg"
+  },
+  {
+    "vorname": "Nikita",
+    "nachname": "Sharkov",
+    "kürzel": "",
+    "personalnummer": "151521",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Sharkov, Nikita.jpg"
+  },
+  {
+    "vorname": "Shefki",
+    "nachname": "Shefkija",
+    "kürzel": "",
+    "personalnummer": "148639",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Shefkija, Shefki.jpg"
+  },
+  {
+    "vorname": "Abdinasir ahmed",
+    "nachname": "Sheikh",
+    "kürzel": "",
+    "personalnummer": "116024",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Sheikh, Abdinasir ahmed.jpg"
+  },
+  {
+    "vorname": "Sinon",
+    "nachname": "Sinani",
+    "kürzel": "",
+    "personalnummer": "151330",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Sinani, Sinon.jpg"
+  },
+  {
+    "vorname": "Luis",
+    "nachname": "Sohn",
+    "kürzel": "",
+    "personalnummer": "151405",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Sohn, Luis.jpg"
+  },
+  {
+    "vorname": "Aleksandr",
+    "nachname": "Solomonov",
+    "kürzel": "",
+    "personalnummer": "149851",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Solomonov, Aleksandr.jpg"
+  },
+  {
+    "vorname": "Karl",
+    "nachname": "Spuehler",
+    "kürzel": "",
+    "personalnummer": "135650",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Spuehler, Karl.jpg"
+  },
+  {
+    "vorname": "Thilo",
+    "nachname": "Stammler",
+    "kürzel": "",
+    "personalnummer": "137292",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Stammler, Thilo.jpg"
+  },
+  {
+    "vorname": "Nebojsa",
+    "nachname": "Stanisic",
+    "kürzel": "",
+    "personalnummer": "150719",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Stanisic, Nebojsa.jpg"
+  },
+  {
+    "vorname": "Relja",
+    "nachname": "Stanisic",
+    "kürzel": "",
+    "personalnummer": "151085",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Stanisic, Relja.jpg"
+  },
+  {
+    "vorname": "Simeon aurel",
+    "nachname": "Stecher",
+    "kürzel": "",
+    "personalnummer": "149878",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Stecher, Simeon aurel.jpg"
+  },
+  {
+    "vorname": "Sven",
+    "nachname": "Stephan",
+    "kürzel": "",
+    "personalnummer": "148084",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Stephan, Sven.jpg"
+  },
+  {
+    "vorname": "Deymi ariel",
+    "nachname": "Suarez Pacheco",
+    "kürzel": "",
+    "personalnummer": "150731",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Suarez Pacheco, Deymi ariel.jpg"
+  },
+  {
+    "vorname": "Edon",
+    "nachname": "Sulejmani",
+    "kürzel": "",
+    "personalnummer": "147759",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Sulejmani, Edon.jpg"
+  },
+  {
+    "vorname": "Roman",
+    "nachname": "Supuka",
+    "kürzel": "",
+    "personalnummer": "148453",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Supuka, Roman.jpg"
+  },
+  {
+    "vorname": "Pascal",
+    "nachname": "Tanner",
+    "kürzel": "",
+    "personalnummer": "150416",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Tanner, Pascal.jpg"
+  },
+  {
+    "vorname": "Giovanni alfredo",
+    "nachname": "Tedeschi",
+    "kürzel": "",
+    "personalnummer": "150691",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Tedeschi, Giovanni alfredo.jpg"
+  },
+  {
+    "vorname": "Alexander",
+    "nachname": "Thieme",
+    "kürzel": "",
+    "personalnummer": "146738",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Thieme, Alexander.jpg"
+  },
+  {
+    "vorname": "Kevin",
+    "nachname": "Thun",
+    "kürzel": "",
+    "personalnummer": "151372",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Thun, Kevin.jpg"
+  },
+  {
+    "vorname": "Hamad",
+    "nachname": "Tlihi",
+    "kürzel": "",
+    "personalnummer": "148625",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Tlihi, Hamad.jpg"
+  },
+  {
+    "vorname": "Srdjan",
+    "nachname": "Todorovic",
+    "kürzel": "",
+    "personalnummer": "149206",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Todorovic, Srdjan.jpg"
+  },
+  {
+    "vorname": "Firat",
+    "nachname": "Toprak",
+    "kürzel": "",
+    "personalnummer": "148745",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Toprak, Firat.jpg"
+  },
+  {
+    "vorname": "Matias",
+    "nachname": "Torres Doinguez",
+    "kürzel": "",
+    "personalnummer": "135949",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Torres Doinguez, Matias.jpg"
+  },
+  {
+    "vorname": "Peter",
+    "nachname": "Trachsel",
+    "kürzel": "",
+    "personalnummer": "149314",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Trachsel, Peter.jpg"
+  },
+  {
+    "vorname": "Robin",
+    "nachname": "Tresch",
+    "kürzel": "",
+    "personalnummer": "150508",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Tresch, Robin.jpg"
+  },
+  {
+    "vorname": "Valentin",
+    "nachname": "Trifan",
+    "kürzel": "",
+    "personalnummer": "139666",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Trifan, Valentin.jpg"
+  },
+  {
+    "vorname": "Artur",
+    "nachname": "Trikole",
+    "kürzel": "",
+    "personalnummer": "151091",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Trikole, Artur.jpg"
+  },
+  {
+    "vorname": "André",
+    "nachname": "Trutmann",
+    "kürzel": "",
+    "personalnummer": "151208",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Trutmann, André.jpg"
+  },
+  {
+    "vorname": "Seydi",
+    "nachname": "Tursucu",
+    "kürzel": "",
+    "personalnummer": "151252",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Tursucu, Seydi.jpg"
+  },
+  {
+    "vorname": "Ediz",
+    "nachname": "Ulutas",
+    "kürzel": "",
+    "personalnummer": "151487",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Ulutas, Ediz.jpg"
+  },
+  {
+    "vorname": "Arjan",
+    "nachname": "Useini",
+    "kürzel": "",
+    "personalnummer": "145647",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Useini, Arjan.jpg"
+  },
+  {
+    "vorname": "Azis",
+    "nachname": "Usejni",
+    "kürzel": "",
+    "personalnummer": "122701",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Usejni, Azis.jpg"
+  },
+  {
+    "vorname": "Liridon",
+    "nachname": "Vehapi",
+    "kürzel": "",
+    "personalnummer": "147112",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Vehapi, Liridon.jpg"
+  },
+  {
+    "vorname": "Veton",
+    "nachname": "Veliju",
+    "kürzel": "",
+    "personalnummer": "134714",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Veliju, Veton.jpg"
+  },
+  {
+    "vorname": "Joshua marco",
+    "nachname": "Vellutini",
+    "kürzel": "",
+    "personalnummer": "143597",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Vellutini, Joshua marco.jpg"
+  },
+  {
+    "vorname": "Adis",
+    "nachname": "Vesnic",
+    "kürzel": "",
+    "personalnummer": "147624",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Vesnic, Adis.jpg"
+  },
+  {
+    "vorname": "Markus",
+    "nachname": "Vogel",
+    "kürzel": "",
+    "personalnummer": "149867",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Vogel, Markus.jpg"
+  },
+  {
+    "vorname": "Dante",
+    "nachname": "Volpatti",
+    "kürzel": "",
+    "personalnummer": "272553",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Volpatti, Dante.jpg"
+  },
+  {
+    "vorname": "Othmane",
+    "nachname": "Wahid",
+    "kürzel": "",
+    "personalnummer": "151599",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Wahid, Othmane.jpg"
+  },
+  {
+    "vorname": "Michael manush",
+    "nachname": "Walgamuwage",
+    "kürzel": "",
+    "personalnummer": "147670",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Walgamuwage, Michael manush.jpg"
+  },
+  {
+    "vorname": "Gabriel",
+    "nachname": "Weber",
+    "kürzel": "",
+    "personalnummer": "144954",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Weber, Gabriel.jpg"
+  },
+  {
+    "vorname": "Sebastian",
+    "nachname": "Wicherek",
+    "kürzel": "",
+    "personalnummer": "151476",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Wicherek, Sebastian.jpg"
+  },
+  {
+    "vorname": "Nils",
+    "nachname": "Wiederkehr",
+    "kürzel": "",
+    "personalnummer": "148854",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Wiederkehr, Nils.jpg"
+  },
+  {
+    "vorname": "Jim",
+    "nachname": "Wigert",
+    "kürzel": "",
+    "personalnummer": "150597",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Wigert, Jim.jpg"
+  },
+  {
+    "vorname": "Gabriel",
+    "nachname": "Wikenhauser",
+    "kürzel": "",
+    "personalnummer": "149316",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Wikenhauser, Gabriel.jpg"
+  },
+  {
+    "vorname": "Joel",
+    "nachname": "Willimann",
+    "kürzel": "",
+    "personalnummer": "147103",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Willimann, Joel.jpg"
+  },
+  {
+    "vorname": "Arif",
+    "nachname": "Yaman",
+    "kürzel": "",
+    "personalnummer": "150907",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Yaman, Arif.jpg"
+  },
+  {
+    "vorname": "Yusuf hidayet",
+    "nachname": "Yasar",
+    "kürzel": "",
+    "personalnummer": "142328",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Yasar, Yusuf hidayet.jpg"
+  },
+  {
+    "vorname": "Tamas",
+    "nachname": "Zambo",
+    "kürzel": "",
+    "personalnummer": "137352",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Zambo, Tamas.jpg"
+  },
+  {
+    "vorname": "Jeton",
+    "nachname": "Zeka",
+    "kürzel": "",
+    "personalnummer": "149850",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Zeka, Jeton.jpg"
+  },
+  {
+    "vorname": "Shitao",
+    "nachname": "Zeng",
+    "kürzel": "",
+    "personalnummer": "147364",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Zeng, Shitao.jpg"
+  },
+  {
+    "vorname": "Milos",
+    "nachname": "Zivkovic",
+    "kürzel": "",
+    "personalnummer": "135664",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Zivkovic, Milos.jpg"
+  },
+  {
+    "vorname": "Mefajir",
+    "nachname": "Zivoli",
+    "kürzel": "",
+    "personalnummer": "151242",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Zivoli, Mefajir.jpg"
+  },
+  {
+    "vorname": "Walter",
+    "nachname": "Zuberbuehler",
+    "kürzel": "",
+    "personalnummer": "990615",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Zuberbuehler, Walter.jpg"
+  },
+  {
+    "vorname": "Mirnes",
+    "nachname": "Zukic",
+    "kürzel": "",
+    "personalnummer": "149412",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Zukic, Mirnes.jpg"
+  },
+  {
+    "vorname": "Nenand",
+    "nachname": "Zunic",
+    "kürzel": "",
+    "personalnummer": "148582",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Zunic, Nenand.jpg"
+  },
+  {
+    "vorname": "Andrin Julian",
+    "nachname": "Zwicki",
+    "kürzel": "",
+    "personalnummer": "150324",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Zwicki, Andrin Julian.jpg"
+  },
+  {
+    "vorname": "Benjamin",
+    "nachname": "Zwicky",
+    "kürzel": "",
+    "personalnummer": "142932",
+    "position": "Betriebsarbeiter",
+    "bild": "Fotos/BA/Zwicky, Benjamin.jpg"
+  }
+]
