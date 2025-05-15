@@ -1,27 +1,18 @@
 let people = [];
 
-// 📥 JSON-Daten laden
+// 📥 JSON-Daten laden aus mitarbeiter_neu.json (mit foto_pfade)
 function loadPeopleData() {
     fetch('./mitarbeiter.json')
         .then(res => res.json())
         .then(data => {
-            people = data.map(p => {
-                const vorname = p.vorname?.trim();
-                const nachname = p.nachname?.trim();
-
-                const ordner = ["SPV", "DM", "DMA", "BA"];
-                const pfade = ordner.map(folder => `Fotos/${folder}/${nachname}, ${vorname}.jpg`);
-                pfade.push("Fotos/default.JPG");
-
-                return {
-                    personalCode: (p.personalnummer || "").toString().trim(),
-                    shortCode: (p.kürzel || "").toString().trim(),
-                    firstName: vorname,
-                    lastName: nachname,
-                    position: p.position,
-                    photoPaths: pfade
-                };
-            });
+            people = data.map(p => ({
+                personalCode: (p.personalnummer || "").toString().trim(),
+                shortCode: (p.kürzel || "").toString().trim(),
+                firstName: p.vorname?.trim(),
+                lastName: p.nachname?.trim(),
+                position: p.position?.trim(),
+                photoPaths: p.foto_pfade // direkt übernehmen
+            }));
             searchEmployees();
         })
         .catch(err => {
