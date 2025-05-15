@@ -178,7 +178,7 @@ function createImageWithFallback(paths) {
 
 // ⏱️ Session-Timer
 let sessionTimeout;
-const timeoutDuration = 5 * 60 * 1000;
+const timeoutDuration = 20 * 1000;
 
 function resetSessionTimer() {
     clearTimeout(sessionTimeout);
