@@ -2,25 +2,22 @@ let people = [];
 
 // 📥 JSON-Daten laden
 function loadPeopleData() {
-    fetch("./mitarbeiter.json")
-        .then(response => {
-            if (!response.ok) throw new Error("Die Mitarbeiterdaten konnten nicht geladen werden.");
-            return response.json();
-        })
+    fetch('./mitarbeiter.json')
+        .then(res => res.json())
         .then(data => {
-            people = data.map(row => ({
-                personalCode: row.personalnummer || "",
-                firstName: row.vorname,
-                lastName: row.nachname,
-                shortCode: row.kuerzel || "",
-                position: row.position,
-                photoPath: row.bild || "Fotos/default.JPG"
+            people = data.map(p => ({
+                personalCode: (p.personalnummer || "").toString().trim(),
+                shortCode: (p.kürzel || "").toString().trim(),
+                firstName: p.vorname,
+                lastName: p.nachname,
+                position: p.position,
+                photoPath: p.bild || "Fotos/default.JPG"
             }));
-            searchEmployees();
+            searchEmployees(); // direkt initialisieren
         })
-        .catch(error => {
-            console.error("Fehler beim Laden:", error);
-            alert("Die Mitarbeiterdaten konnten nicht geladen werden.");
+        .catch(err => {
+            console.error("Fehler beim Laden der JSON:", err);
+            alert("Fehler beim Laden der Mitarbeiterdaten.");
         });
 }
 
@@ -35,9 +32,9 @@ function login() {
     }
 
     const employee = people.find(emp => {
-        const code = emp.personalCode?.toString().trim().toLowerCase() || "";
-        const short = emp.shortCode?.toString().trim().toLowerCase() || "";
-        return enteredCode === code || enteredCode === short;
+        const pc = (emp.personalCode || "").toLowerCase();
+        const sc = (emp.shortCode || "").toLowerCase();
+        return enteredCode === pc || enteredCode === sc;
     });
 
     if (employee) {
@@ -47,8 +44,7 @@ function login() {
         document.getElementById("mainContainer").style.display = "block";
 
         const infoBox = document.getElementById("loggedInInfo");
-        const shortCodeDisplay = employee.shortCode ? `(${employee.shortCode})` : "";
-        infoBox.textContent = `Eingeloggt als: ${employee.firstName} ${employee.lastName} ${shortCodeDisplay}`;
+        infoBox.textContent = `Eingeloggt als: ${employee.firstName} ${employee.lastName} (${employee.shortCode || employee.personalCode})`;
         infoBox.style.display = "block";
 
         searchEmployees();
@@ -112,7 +108,7 @@ function searchEmployees() {
 
 document.getElementById("searchInput").addEventListener("input", searchEmployees);
 
-// 🔁 Bilder-Fallback-Logik
+// 🔁 Bild-Fallback-Logik
 function createImageWithFallback(paths) {
     const img = new Image();
     let index = 0;
@@ -185,5 +181,5 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.appendChild(modal);
 });
 
-// ⏳ Lade JSON-Daten beim Start
+// 🚀 Starte die Datenabfrage
 loadPeopleData();
