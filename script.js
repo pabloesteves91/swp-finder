@@ -11,24 +11,46 @@ function normalizeFileName(str) {
 
 // 📸 Liefert kombinierte Bildpfade (mit RAW GitHub Links)
 function getPhotoPaths(row) {
+    const DEFAULT_PHOTO = "https://raw.githubusercontent.com/pabloesteves91/swp-finder/main/Fotos/default.JPG";
+
+    // Validierung der Eingabe
+    if (!row || typeof row !== "object") {
+        return [DEFAULT_PHOTO];
+    }
+
     const position = row["Position"]?.toLowerCase() || "";
-    const firstName = row["Vorname"];
-    const lastName = row["Nachname"];
+    const firstName = row["Vorname"] || "";
+    const lastName = row["Nachname"] || "";
     const shortCode = row["Kürzel"] || "";
+
+    if (!firstName || !lastName) {
+        return [DEFAULT_PHOTO];
+    }
 
     const normFirst = normalizeFileName(firstName);
     const normLast = normalizeFileName(lastName);
     const suffix = shortCode ? ` (${shortCode})` : "";
 
-    let folder = "";
-    if (position.includes("supervisor")) folder = "SPV";
-    else if (position.includes("duty manager assistant")) folder = "DMA";
-    else if (position.includes("duty manager")) folder = "DM";
-    else if (position.includes("betriebsarbeiter")) folder = "BA";
-    else return ["https://raw.githubusercontent.com/pabloesteves91/swp-finder/main/Fotos/default.JPG"];
+    // Mapping von Positionen zu Ordnern
+    const folderMapping = {
+        "supervisor": "SPV",
+        "duty manager assistant": "DMA",
+        "duty manager": "DM",
+        "betriebsarbeiter": "BA"
+    };
+
+    // Ordner basierend auf der Position bestimmen
+    const folder = Object.keys(folderMapping).find(key => position.includes(key)) 
+        ? folderMapping[Object.keys(folderMapping).find(key => position.includes(key))]
+        : null;
+
+    if (!folder) {
+        return [DEFAULT_PHOTO];
+    }
 
     const base = `https://raw.githubusercontent.com/pabloesteves91/swp-finder/main/Fotos/${folder}`;
 
+    // Kombinierte Bildpfade zurückgeben
     return [
         `${base}/${lastName}, ${firstName}${suffix}.jpg`,
         `${base}/${normLast}, ${normFirst}${suffix}.jpg`,
@@ -38,7 +60,7 @@ function getPhotoPaths(row) {
         `${base}/${lastName}, ${normFirst}${suffix}.jpg`,
         `${base}/${normLast}, ${firstName}.jpg`,
         `${base}/${lastName}, ${normFirst}.jpg`,
-        "https://raw.githubusercontent.com/pabloesteves91/swp-finder/main/Fotos/default.JPG"
+        DEFAULT_PHOTO
     ];
 }
 
