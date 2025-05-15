@@ -17,7 +17,7 @@ function loadPeopleData() {
                     paths.push(`Fotos/${o}/${vor}, ${nach}.jpg`);
                 });
 
-                paths.push("Fotos/default.JPG");
+                paths.push("Fotos/default.jpg");
 
                 return {
                     personalCode: (p.personalnummer || "").trim(),
@@ -138,7 +138,7 @@ function createImageWithFallback(paths) {
         } else if (!fallbackSet) {
             fallbackSet = true;
             img.onerror = null;
-            img.src = "Fotos/default.JPG";
+            img.src = "Fotos/default.jpg";
         }
     }
 
@@ -151,7 +151,7 @@ function createImageWithFallback(paths) {
 
 // ⏱️ Session-Timer (20 Sekunden)
 let sessionTimeout;
-const timeoutDuration = 20 * 1000;
+const timeoutDuration = 60 * 1000;
 
 function resetSessionTimer() {
     clearTimeout(sessionTimeout);
