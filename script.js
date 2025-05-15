@@ -1,17 +1,22 @@
 let people = [];
 
-// 📥 JSON-Daten laden aus mitarbeiter_neu.json (mit foto_pfade)
+// 📥 JSON-Daten laden aus mitarbeiter.json (minimale Version)
 function loadPeopleData() {
-    fetch('./mitarbeiter.json')        // <–  neue minimal-Datei
+    fetch('./mitarbeiter.json')
         .then(r => r.json())
         .then(data => {
             people = data.map(p => {
                 const vor = p.vorname.trim();
                 const nach = p.nachname.trim();
 
-                // 4 Ordner + default automatisch bauen
                 const ordner = ["SPV", "DM", "DMA", "BA"];
-                const paths  = ordner.map(o => `Fotos/${o}/${nach}, ${vor}.jpg`);
+                let paths = [];
+
+                ordner.forEach(o => {
+                    paths.push(`Fotos/${o}/${nach}, ${vor}.jpg`);
+                    paths.push(`Fotos/${o}/${vor}, ${nach}.jpg`);
+                });
+
                 paths.push("Fotos/default.JPG");
 
                 return {
@@ -20,7 +25,7 @@ function loadPeopleData() {
                     firstName:   vor,
                     lastName:    nach,
                     position:    p.position || "",
-                    photoPaths:  paths       // 🔥  dynamisch
+                    photoPaths:  paths
                 };
             });
 
@@ -28,7 +33,7 @@ function loadPeopleData() {
         })
         .catch(err => {
             console.error("JSON-Load-Fehler:", err);
-            alert("Mitarbeiterdaten konnten nicht geladen werden.");
+            alert("Fehler beim Laden der Mitarbeiterdaten.");
         });
 }
 
@@ -123,14 +128,15 @@ document.getElementById("searchInput").addEventListener("input", searchEmployees
 function createImageWithFallback(paths) {
     const img = new Image();
     let index = 0;
+    let fallbackSet = false;
 
     function tryNext() {
         if (index < paths.length) {
             const src = paths[index++];
             img.onerror = tryNext;
             img.src = src;
-        } else {
-            // Setze fallback manuell ohne Schleife, wenn wirklich alles durch ist
+        } else if (!fallbackSet) {
+            fallbackSet = true;
             img.onerror = null;
             img.src = "Fotos/default.JPG";
         }
@@ -138,13 +144,12 @@ function createImageWithFallback(paths) {
 
     img.className = "clickable-img";
     img.onclick = () => openImageModal(img.src);
-
     tryNext();
 
     return img;
 }
 
-// ⏱️ Session-Timer (jetzt 20 Sekunden)
+// ⏱️ Session-Timer (20 Sekunden)
 let sessionTimeout;
 const timeoutDuration = 20 * 1000;
 
@@ -199,5 +204,5 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.appendChild(modal);
 });
 
-// 🚀 Starte die Datenabfrage
+// 🚀 Lade MA-Daten
 loadPeopleData();
