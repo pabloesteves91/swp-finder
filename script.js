@@ -2,22 +2,33 @@ let people = [];
 
 // 📥 JSON-Daten laden aus mitarbeiter_neu.json (mit foto_pfade)
 function loadPeopleData() {
-    fetch('./mitarbeiter.json')
-        .then(res => res.json())
+    fetch('./mitarbeiter.json')        // <–  neue minimal-Datei
+        .then(r => r.json())
         .then(data => {
-            people = data.map(p => ({
-                personalCode: (p.personalnummer || "").toString().trim(),
-                shortCode: (p.kürzel || "").toString().trim(),
-                firstName: p.vorname?.trim(),
-                lastName: p.nachname?.trim(),
-                position: p.position?.trim(),
-                photoPaths: p.foto_pfade // direkt übernehmen
-            }));
+            people = data.map(p => {
+                const vor = p.vorname.trim();
+                const nach = p.nachname.trim();
+
+                // 4 Ordner + default automatisch bauen
+                const ordner = ["SPV", "DM", "DMA", "BA"];
+                const paths  = ordner.map(o => `Fotos/${o}/${nach}, ${vor}.jpg`);
+                paths.push("Fotos/default.JPG");
+
+                return {
+                    personalCode: (p.personalnummer || "").trim(),
+                    shortCode:   (p.kürzel        || "").trim(),
+                    firstName:   vor,
+                    lastName:    nach,
+                    position:    p.position || "",
+                    photoPaths:  paths       // 🔥  dynamisch
+                };
+            });
+
             searchEmployees();
         })
         .catch(err => {
-            console.error("Fehler beim Laden der JSON:", err);
-            alert("Fehler beim Laden der Mitarbeiterdaten.");
+            console.error("JSON-Load-Fehler:", err);
+            alert("Mitarbeiterdaten konnten nicht geladen werden.");
         });
 }
 
