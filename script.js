@@ -1,6 +1,6 @@
 let people = [];
 
-// 📥 JSON-Daten laden aus mitarbeiter.json (minimale Version)
+// 📥 JSON-Daten laden
 function loadPeopleData() {
     fetch('./mitarbeiter.json')
         .then(r => r.json())
@@ -32,7 +32,8 @@ function loadPeopleData() {
                 };
             });
 
-            searchEmployees();
+            // Keine automatische Suche hier!
+            // Suche erfolgt erst nach Login oder bei Sucheingabe
         })
         .catch(err => {
             console.error("JSON-Load-Fehler:", err);
@@ -40,7 +41,7 @@ function loadPeopleData() {
         });
 }
 
-// 🔐 Login (Kürzel oder Personalnummer)
+// 🔐 Login
 function login() {
     const input = document.getElementById("personalCodeInput");
     const enteredCode = input.value.trim().toLowerCase();
@@ -66,7 +67,7 @@ function login() {
         infoBox.textContent = `Eingeloggt als: ${employee.firstName} ${employee.lastName} (${employee.shortCode || employee.personalCode})`;
         infoBox.style.display = "block";
 
-        searchEmployees();
+        searchEmployees();  // erst hier laden
         startSessionTimer();
     } else {
         document.getElementById("errorMessage").style.display = "block";
@@ -74,11 +75,15 @@ function login() {
     }
 }
 
-// 🔓 Logout
+// 🔓 Logout ohne reload
 function logout() {
     sessionStorage.removeItem("authenticated");
     sessionStorage.removeItem("loggedInUser");
-    location.reload();
+
+    document.getElementById("mainContainer").style.display = "none";
+    document.getElementById("loginContainer").style.display = "block";
+    document.getElementById("loggedInInfo").style.display = "none";
+    document.getElementById("results").innerHTML = "";
 }
 
 document.getElementById("loginButton").addEventListener("click", login);
@@ -87,7 +92,7 @@ document.getElementById("personalCodeInput").addEventListener("keypress", e => {
 });
 document.getElementById("lockButton").addEventListener("click", logout);
 
-// 🔍 Mitarbeitersuche
+// 🔍 Suche
 function searchEmployees() {
     const searchInput = document.getElementById("searchInput").value.toLowerCase();
     const results = document.getElementById("results");
@@ -105,29 +110,31 @@ function searchEmployees() {
         return;
     }
 
-    filtered.forEach(person => {
+    filtered.forEach((person, i) => {
         const card = document.createElement("div");
         card.className = "result-card";
 
-        const img = createImageWithFallback(person.photoPaths);
-        const info = `
-            <div class="result-info">
-                <div class="name">${person.firstName} ${person.lastName}</div>
-                ${person.personalCode ? `<div class="nummer">Personalnummer: ${person.personalCode}</div>` : ""}
-                ${person.shortCode ? `<div class="kuerzel">Kürzel: ${person.shortCode}</div>` : ""}
-                <div class="position">${person.position}</div>
-            </div>
-        `;
-
-        card.appendChild(img);
-        card.insertAdjacentHTML("beforeend", info);
-        results.appendChild(card);
+        // ⏱️ Verzögere das Bildladen leicht für GitHub RateLimit
+        setTimeout(() => {
+            const img = createImageWithFallback(person.photoPaths);
+            const info = `
+                <div class="result-info">
+                    <div class="name">${person.firstName} ${person.lastName}</div>
+                    ${person.personalCode ? `<div class="nummer">Personalnummer: ${person.personalCode}</div>` : ""}
+                    ${person.shortCode ? `<div class="kuerzel">Kürzel: ${person.shortCode}</div>` : ""}
+                    <div class="position">${person.position}</div>
+                </div>
+            `;
+            card.appendChild(img);
+            card.insertAdjacentHTML("beforeend", info);
+            results.appendChild(card);
+        }, i * 100);  // Verzögerung in 100ms-Schritten
     });
 }
 
 document.getElementById("searchInput").addEventListener("input", searchEmployees);
 
-// 🔁 Bild-Fallback-Logik (robust!)
+// 🔁 Fallback-Logik mit setTimeout
 function createImageWithFallback(paths) {
     const img = new Image();
     let index = 0;
@@ -136,7 +143,7 @@ function createImageWithFallback(paths) {
     function tryNext() {
         if (index < paths.length) {
             const src = paths[index++];
-            img.onerror = tryNext;
+            img.onerror = () => setTimeout(tryNext, 100);
             img.src = src;
         } else if (!fallbackSet) {
             fallbackSet = true;
@@ -152,7 +159,7 @@ function createImageWithFallback(paths) {
     return img;
 }
 
-// ⏱️ Session-Timer (60 Sekunden)
+// ⏱️ Session-Timer (1 Minute)
 let sessionTimeout;
 const timeoutDuration = 60 * 1000;
 
