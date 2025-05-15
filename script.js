@@ -1,61 +1,20 @@
 let people = [];
-let allPhotoPaths = [];
 
-// 📥 JSON-Datei mit allen verfügbaren Fotos laden
-fetch("./fotos.json")
-  .then((res) => res.json())
-  .then((data) => {
-    allPhotoPaths = data;
-    loadExcelData(); // erst dann Excel-Daten laden
-  })
-  .catch((err) => {
-    console.error("Fehler beim Laden der fotos.json:", err);
-    alert("Foto-Liste konnte nicht geladen werden.");
-  });
-
-// ✅ Normalisiert Umlaute und diakritische Zeichen
-function normalizeString(str) {
-  return str
-    .normalize("NFD").replace(/[\u0300-\u036f]/g, "") // Akzente entfernen
-    .replace(/ä/g, "ae").replace(/ö/g, "oe").replace(/ü/g, "ue")
-    .replace(/Ä/g, "Ae").replace(/Ö/g, "Oe").replace(/Ü/g, "Ue")
-    .replace(/ß/g, "ss")
-    .replace(/[^\w]/g, "") // Sonderzeichen entfernen
-    .toLowerCase();
-}
-
-// 📸 Liefert den best passenden Bildpfad
+// 📸 Liefert den Bildpfad nach dem Format: Nachname_Vorname.jpg
 function getPhotoPaths(row) {
-  const position = row["Position"]?.toLowerCase() || "";
-  const firstName = row["Vorname"];
-  const lastName = row["Nachname"];
+    const position = row["Position"]?.toLowerCase() || "";
+    const firstName = row["Vorname"];
+    const lastName = row["Nachname"];
 
-  let folder = "";
-  if (position.includes("supervisor")) folder = "SPV";
-  else if (position.includes("duty manager assistant")) folder = "DMA";
-  else if (position.includes("duty manager")) folder = "DM";
-  else if (position.includes("betriebsarbeiter")) folder = "BA";
-  else return ["Fotos/default.JPG"];
+    let folder = "";
+    if (position.includes("supervisor")) folder = "SPV";
+    else if (position.includes("duty manager assistant")) folder = "DMA";
+    else if (position.includes("duty manager")) folder = "DM";
+    else if (position.includes("betriebsarbeiter")) folder = "BA";
+    else return ["Fotos/default.JPG"];
 
-  const variations = [
-    `${lastName}, ${firstName}`,
-    `${normalizeString(lastName)}, ${normalizeString(firstName)}`,
-    `${normalizeString(lastName)}, ${firstName}`,
-    `${lastName}, ${normalizeString(firstName)}`
-  ];
-
-  const candidates = variations.map(v => `Fotos/${folder}/${v}.jpg`);
-  const normalizedPhotoList = allPhotoPaths.map(p => normalizeString(p));
-
-  for (let original of candidates) {
-    const norm = normalizeString(original);
-    const index = normalizedPhotoList.indexOf(norm);
-    if (index !== -1) {
-      return [allPhotoPaths[index]];
-    }
-  }
-
-  return ["Fotos/default.JPG"];
+    const fileName = `${lastName}_${firstName}.jpg`;
+    return [`Fotos/${folder}/${fileName}`, "Fotos/default.JPG"];
 }
 
 // 📥 Excel-Daten laden
@@ -199,7 +158,7 @@ function searchEmployees() {
 
 document.getElementById("searchInput").addEventListener("input", searchEmployees);
 
-// 🔁 Bilder-Fallback-Logik (zeigt immer irgendwas – zuletzt default.JPG)
+// 🔁 Bilder-Fallback-Logik
 function createImageWithFallback(paths) {
     const img = new Image();
     let index = 0;
