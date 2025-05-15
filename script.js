@@ -112,10 +112,14 @@ document.getElementById("searchInput").addEventListener("input", searchEmployees
 function createImageWithFallback(paths) {
     const img = new Image();
     let index = 0;
+    const fallback = "Fotos/default.JPG";
 
     function tryNext() {
-        if (index >= paths.length) return;
-        img.src = paths[index++];
+        if (index < paths.length) {
+            img.src = paths[index++];
+        } else {
+            img.src = fallback; // ganz zum Schluss default anzeigen
+        }
     }
 
     img.onerror = tryNext;
