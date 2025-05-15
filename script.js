@@ -1,10 +1,24 @@
 let people = [];
 
-// 📸 Liefert den Bildpfad nach dem Format: Nachname_Vorname.jpg
+// ✅ Normalisiert Umlaute und diakritische Zeichen
+function normalizeFileName(str) {
+    return str
+        .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+        .replace(/ä/g, "ae").replace(/ö/g, "oe").replace(/ü/g, "ue")
+        .replace(/Ä/g, "Ae").replace(/Ö/g, "Oe").replace(/Ü/g, "Ue")
+        .replace(/ß/g, "ss");
+}
+
+// 📸 Liefert kombinierte Bildpfade
 function getPhotoPaths(row) {
     const position = row["Position"]?.toLowerCase() || "";
     const firstName = row["Vorname"];
     const lastName = row["Nachname"];
+    const shortCode = row["Kürzel"] || "";
+
+    const normFirst = normalizeFileName(firstName);
+    const normLast = normalizeFileName(lastName);
+    const suffix = shortCode ? ` (${shortCode})` : "";
 
     let folder = "";
     if (position.includes("supervisor")) folder = "SPV";
@@ -13,8 +27,17 @@ function getPhotoPaths(row) {
     else if (position.includes("betriebsarbeiter")) folder = "BA";
     else return ["Fotos/default.JPG"];
 
-    const fileName = `${lastName}_${firstName}.jpg`;
-    return [`Fotos/${folder}/${fileName}`, "Fotos/default.JPG"];
+    return [
+        `Fotos/${folder}/${lastName}, ${firstName}${suffix}.jpg`,
+        `Fotos/${folder}/${normLast}, ${normFirst}${suffix}.jpg`,
+        `Fotos/${folder}/${lastName}, ${firstName}.jpg`,
+        `Fotos/${folder}/${normLast}, ${normFirst}.jpg`,
+        `Fotos/${folder}/${normLast}, ${firstName}${suffix}.jpg`,
+        `Fotos/${folder}/${lastName}, ${normFirst}${suffix}.jpg`,
+        `Fotos/${folder}/${normLast}, ${firstName}.jpg`,
+        `Fotos/${folder}/${lastName}, ${normFirst}.jpg`,
+        "Fotos/default.JPG"
+    ];
 }
 
 // 📥 Excel-Daten laden
@@ -28,36 +51,17 @@ function loadExcelData() {
         })
         .then(data => {
             const workbook = XLSX.read(data, { type: "array" });
+            const sheet = workbook.Sheets["Sheet1"];
+            const jsonData = XLSX.utils.sheet_to_json(sheet);
 
-            const sheetsMapping = {
-                "Supervisor": "supervisor",
-                "Duty Manager Assistant": "duty manager assistant",
-                "Duty Manager": "duty manager",
-                "Betriebsarbeiter": "betriebsarbeiter"
-            };
-
-            people = [];
-
-            for (const [sheetName, positionKeyword] of Object.entries(sheetsMapping)) {
-                const sheet = workbook.Sheets[sheetName];
-                if (!sheet) continue;
-
-                const jsonData = XLSX.utils.sheet_to_json(sheet);
-
-                jsonData.forEach(row => {
-                    people.push({
-                        personalCode: row["Personalnummer"]?.toString() || "",
-                        firstName: row["Vorname"],
-                        lastName: row["Nachname"],
-                        shortCode: row["Kürzel"] || null,
-                        position: row["Position"] || capitalizeWords(positionKeyword),
-                        photoPaths: getPhotoPaths({
-                            ...row,
-                            Position: row["Position"] || positionKeyword
-                        })
-                    });
-                });
-            }
+            people = jsonData.map(row => ({
+                personalCode: row["Personalnummer"]?.toString() || "",
+                firstName: row["Vorname"],
+                lastName: row["Nachname"],
+                shortCode: row["Kürzel"] || null,
+                position: row["Position"],
+                photoPaths: getPhotoPaths(row)
+            }));
 
             searchEmployees();
         })
@@ -65,11 +69,6 @@ function loadExcelData() {
             console.error("Fehler beim Laden:", error);
             alert("Die Excel-Daten konnten nicht geladen werden.");
         });
-}
-
-// Großschreibt jedes Wort
-function capitalizeWords(str) {
-    return str.replace(/\b\w/g, char => char.toUpperCase());
 }
 
 // 🔐 Login
@@ -94,7 +93,7 @@ function login() {
         document.getElementById("mainContainer").style.display = "block";
 
         const infoBox = document.getElementById("loggedInInfo");
-        infoBox.textContent = `Eingeloggt als: ${employee.firstName} ${employee.lastName} ${employee.shortCode ? `(${employee.shortCode})` : `| ${employee.personalCode}`}`;
+        infoBox.textContent = `Eingeloggt als: ${employee.firstName} ${employee.lastName} | ${employee.personalCode}`;
         infoBox.style.display = "block";
 
         searchEmployees();
@@ -178,7 +177,7 @@ function createImageWithFallback(paths) {
 
 // ⏱️ Session-Timer
 let sessionTimeout;
-const timeoutDuration = 20 * 1000;
+const timeoutDuration = 5 * 60 * 1000;
 
 function resetSessionTimer() {
     clearTimeout(sessionTimeout);
