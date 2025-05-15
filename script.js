@@ -34,10 +34,11 @@ function login() {
         return;
     }
 
-    const employee = people.find(emp =>
-        emp.personalCode.toLowerCase() === enteredCode ||
-        emp.shortCode.toLowerCase() === enteredCode
-    );
+    const employee = people.find(emp => {
+        const code = emp.personalCode?.toString().trim().toLowerCase() || "";
+        const short = emp.shortCode?.toString().trim().toLowerCase() || "";
+        return enteredCode === code || enteredCode === short;
+    });
 
     if (employee) {
         sessionStorage.setItem("authenticated", "true");
@@ -46,7 +47,8 @@ function login() {
         document.getElementById("mainContainer").style.display = "block";
 
         const infoBox = document.getElementById("loggedInInfo");
-        infoBox.textContent = `Eingeloggt als: ${employee.firstName} ${employee.lastName} (${employee.shortCode})`;
+        const shortCodeDisplay = employee.shortCode ? `(${employee.shortCode})` : "";
+        infoBox.textContent = `Eingeloggt als: ${employee.firstName} ${employee.lastName} ${shortCodeDisplay}`;
         infoBox.style.display = "block";
 
         searchEmployees();
