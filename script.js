@@ -123,19 +123,22 @@ document.getElementById("searchInput").addEventListener("input", searchEmployees
 function createImageWithFallback(paths) {
     const img = new Image();
     let index = 0;
-    const fallback = "Fotos/default.JPG";
 
     function tryNext() {
         if (index < paths.length) {
-            img.src = paths[index++];
+            const src = paths[index++];
+            img.onerror = tryNext;
+            img.src = src;
         } else {
-            img.src = fallback;
+            // Setze fallback manuell ohne Schleife, wenn wirklich alles durch ist
+            img.onerror = null;
+            img.src = "Fotos/default.JPG";
         }
     }
 
-    img.onerror = tryNext;
     img.className = "clickable-img";
     img.onclick = () => openImageModal(img.src);
+
     tryNext();
 
     return img;
