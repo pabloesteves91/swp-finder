@@ -1,100 +1,27 @@
 let people = [];
 
-// ✅ Normalisiert Umlaute und diakritische Zeichen
-function normalizeFileName(str) {
-    return str
-        .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
-        .replace(/ä/g, "ae").replace(/ö/g, "oe").replace(/ü/g, "ue")
-        .replace(/Ä/g, "Ae").replace(/Ö/g, "Oe").replace(/Ü/g, "Ue")
-        .replace(/ß/g, "ss");
-}
-
-// 📸 Bildpfade mit GitHub Pages (nicht raw)
-function getPhotoPaths(row) {
-    const position = row["Position"]?.toLowerCase() || "";
-    const firstName = row["Vorname"];
-    const lastName = row["Nachname"];
-    const shortCode = row["Kürzel"] || "";
-
-    const normFirst = normalizeFileName(firstName);
-    const normLast = normalizeFileName(lastName);
-    const suffix = shortCode ? ` (${shortCode})` : "";
-
-    let folder = "";
-    if (position.includes("supervisor")) folder = "SPV";
-    else if (position.includes("duty manager assistant")) folder = "DMA";
-    else if (position.includes("duty manager")) folder = "DM";
-    else if (position.includes("betriebsarbeiter")) folder = "BA";
-    else return ["https://pabloesteves91.github.io/swp-finder/Fotos/default.JPG"];
-
-    const base = `https://pabloesteves91.github.io/swp-finder/Fotos/${folder}`;
-
-    return [
-        `${base}/${lastName}, ${firstName}${suffix}.jpg`,
-        `${base}/${normLast}, ${normFirst}${suffix}.jpg`,
-        `${base}/${lastName}, ${firstName}.jpg`,
-        `${base}/${normLast}, ${normFirst}.jpg`,
-        `${base}/${normLast}, ${firstName}${suffix}.jpg`,
-        `${base}/${lastName}, ${normFirst}${suffix}.jpg`,
-        `${base}/${normLast}, ${firstName}.jpg`,
-        `${base}/${lastName}, ${normFirst}.jpg`,
-        "https://pabloesteves91.github.io/swp-finder/Fotos/default.JPG"
-    ];
-}
-
-// 📥 Excel-Daten laden
-function loadExcelData() {
-    const excelFilePath = "./Mitarbeiter.xlsx";
-
-    fetch(excelFilePath)
+// 📥 JSON-Daten laden
+function loadPeopleData() {
+    fetch("./mitarbeiter.json")
         .then(response => {
-            if (!response.ok) throw new Error("Die Excel-Datei konnte nicht geladen werden.");
-            return response.arrayBuffer();
+            if (!response.ok) throw new Error("Die Mitarbeiterdaten konnten nicht geladen werden.");
+            return response.json();
         })
         .then(data => {
-            const workbook = XLSX.read(data, { type: "array" });
-
-            const sheetsMapping = {
-                "Supervisor": "supervisor",
-                "Duty Manager Assistant": "duty manager assistant",
-                "Duty Manager": "duty manager",
-                "Betriebsarbeiter": "betriebsarbeiter"
-            };
-
-            people = [];
-
-            for (const [sheetName, positionKeyword] of Object.entries(sheetsMapping)) {
-                const sheet = workbook.Sheets[sheetName];
-                if (!sheet) continue;
-
-                const jsonData = XLSX.utils.sheet_to_json(sheet);
-
-                jsonData.forEach(row => {
-                    people.push({
-                        personalCode: row["Personalnummer"]?.toString() || "",
-                        firstName: row["Vorname"],
-                        lastName: row["Nachname"],
-                        shortCode: row["Kürzel"] || null,
-                        position: row["Position"] || capitalizeWords(positionKeyword),
-                        photoPaths: getPhotoPaths({
-                            ...row,
-                            Position: row["Position"] || positionKeyword
-                        })
-                    });
-                });
-            }
-
+            people = data.map(row => ({
+                personalCode: row.personalnummer || "",
+                firstName: row.vorname,
+                lastName: row.nachname,
+                shortCode: row.kuerzel || "",
+                position: row.position,
+                photoPath: row.bild || "Fotos/default.JPG"
+            }));
             searchEmployees();
         })
         .catch(error => {
             console.error("Fehler beim Laden:", error);
-            alert("Die Excel-Daten konnten nicht geladen werden.");
+            alert("Die Mitarbeiterdaten konnten nicht geladen werden.");
         });
-}
-
-// Großschreibt jedes Wort
-function capitalizeWords(str) {
-    return str.replace(/\b\w/g, char => char.toUpperCase());
 }
 
 // 🔐 Login (Kürzel oder Personalnummer)
@@ -107,11 +34,10 @@ function login() {
         return;
     }
 
-    const employee = people.find(emp => {
-        const personalCode = emp.personalCode?.toString().trim().toLowerCase();
-        const shortCode = emp.shortCode?.toString().trim().toLowerCase();
-        return enteredCode === personalCode || enteredCode === shortCode;
-    });
+    const employee = people.find(emp =>
+        emp.personalCode.toLowerCase() === enteredCode ||
+        emp.shortCode.toLowerCase() === enteredCode
+    );
 
     if (employee) {
         sessionStorage.setItem("authenticated", "true");
@@ -152,7 +78,7 @@ function searchEmployees() {
 
     const filtered = people.filter(emp =>
         emp.personalCode.toLowerCase().includes(searchInput) ||
-        emp.shortCode?.toLowerCase().includes(searchInput) ||
+        emp.shortCode.toLowerCase().includes(searchInput) ||
         emp.firstName.toLowerCase().includes(searchInput) ||
         emp.lastName.toLowerCase().includes(searchInput)
     );
@@ -166,7 +92,7 @@ function searchEmployees() {
         const card = document.createElement("div");
         card.className = "result-card";
 
-        const img = createImageWithFallback(person.photoPaths);
+        const img = createImageWithFallback([person.photoPath]);
         const info = `
             <div class="result-info">
                 <div class="name">${person.firstName} ${person.lastName}</div>
@@ -257,4 +183,5 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.appendChild(modal);
 });
 
-loadExcelData();
+// ⏳ Lade JSON-Daten beim Start
+loadPeopleData();
