@@ -9,7 +9,7 @@ function normalizeFileName(str) {
         .replace(/ß/g, "ss");
 }
 
-// 📸 Liefert kombinierte Bildpfade
+// 📸 Liefert kombinierte Bildpfade (mit RAW GitHub Links)
 function getPhotoPaths(row) {
     const position = row["Position"]?.toLowerCase() || "";
     const firstName = row["Vorname"];
@@ -25,18 +25,20 @@ function getPhotoPaths(row) {
     else if (position.includes("duty manager assistant")) folder = "DMA";
     else if (position.includes("duty manager")) folder = "DM";
     else if (position.includes("betriebsarbeiter")) folder = "BA";
-    else return ["Fotos/default.JPG"];
+    else return ["https://raw.githubusercontent.com/pabloesteves91/swp-finder/main/Fotos/default.JPG"];
+
+    const base = `https://raw.githubusercontent.com/pabloesteves91/swp-finder/main/Fotos/${folder}`;
 
     return [
-        `Fotos/${folder}/${lastName}, ${firstName}${suffix}.jpg`,
-        `Fotos/${folder}/${normLast}, ${normFirst}${suffix}.jpg`,
-        `Fotos/${folder}/${lastName}, ${firstName}.jpg`,
-        `Fotos/${folder}/${normLast}, ${normFirst}.jpg`,
-        `Fotos/${folder}/${normLast}, ${firstName}${suffix}.jpg`,
-        `Fotos/${folder}/${lastName}, ${normFirst}${suffix}.jpg`,
-        `Fotos/${folder}/${normLast}, ${firstName}.jpg`,
-        `Fotos/${folder}/${lastName}, ${normFirst}.jpg`,
-        "Fotos/default.JPG"
+        `${base}/${lastName}, ${firstName}${suffix}.jpg`,
+        `${base}/${normLast}, ${normFirst}${suffix}.jpg`,
+        `${base}/${lastName}, ${firstName}.jpg`,
+        `${base}/${normLast}, ${normFirst}.jpg`,
+        `${base}/${normLast}, ${firstName}${suffix}.jpg`,
+        `${base}/${lastName}, ${normFirst}${suffix}.jpg`,
+        `${base}/${normLast}, ${firstName}.jpg`,
+        `${base}/${lastName}, ${normFirst}.jpg`,
+        "https://raw.githubusercontent.com/pabloesteves91/swp-finder/main/Fotos/default.JPG"
     ];
 }
 
@@ -51,17 +53,36 @@ function loadExcelData() {
         })
         .then(data => {
             const workbook = XLSX.read(data, { type: "array" });
-            const sheet = workbook.Sheets["Sheet1"];
-            const jsonData = XLSX.utils.sheet_to_json(sheet);
 
-            people = jsonData.map(row => ({
-                personalCode: row["Personalnummer"]?.toString() || "",
-                firstName: row["Vorname"],
-                lastName: row["Nachname"],
-                shortCode: row["Kürzel"] || null,
-                position: row["Position"],
-                photoPaths: getPhotoPaths(row)
-            }));
+            const sheetsMapping = {
+                "Supervisor": "supervisor",
+                "Duty Manager Assistant": "duty manager assistant",
+                "Duty Manager": "duty manager",
+                "Betriebsarbeiter": "betriebsarbeiter"
+            };
+
+            people = [];
+
+            for (const [sheetName, positionKeyword] of Object.entries(sheetsMapping)) {
+                const sheet = workbook.Sheets[sheetName];
+                if (!sheet) continue;
+
+                const jsonData = XLSX.utils.sheet_to_json(sheet);
+
+                jsonData.forEach(row => {
+                    people.push({
+                        personalCode: row["Personalnummer"]?.toString() || "",
+                        firstName: row["Vorname"],
+                        lastName: row["Nachname"],
+                        shortCode: row["Kürzel"] || null,
+                        position: row["Position"] || capitalizeWords(positionKeyword),
+                        photoPaths: getPhotoPaths({
+                            ...row,
+                            Position: row["Position"] || positionKeyword
+                        })
+                    });
+                });
+            }
 
             searchEmployees();
         })
@@ -71,7 +92,12 @@ function loadExcelData() {
         });
 }
 
-// 🔐 Login
+// Großschreibt jedes Wort
+function capitalizeWords(str) {
+    return str.replace(/\b\w/g, char => char.toUpperCase());
+}
+
+// 🔐 Login (Kürzel oder Personalnummer)
 function login() {
     const input = document.getElementById("personalCodeInput");
     const enteredCode = input.value.trim().toLowerCase();
@@ -81,10 +107,11 @@ function login() {
         return;
     }
 
-    const employee = people.find(emp =>
-        emp.personalCode.toLowerCase() === enteredCode ||
-        (emp.shortCode && emp.shortCode.toLowerCase() === enteredCode)
-    );
+    const employee = people.find(emp => {
+        const personalCode = emp.personalCode?.toString().trim().toLowerCase();
+        const shortCode = emp.shortCode?.toString().trim().toLowerCase();
+        return enteredCode === personalCode || enteredCode === shortCode;
+    });
 
     if (employee) {
         sessionStorage.setItem("authenticated", "true");
@@ -93,7 +120,7 @@ function login() {
         document.getElementById("mainContainer").style.display = "block";
 
         const infoBox = document.getElementById("loggedInInfo");
-        infoBox.textContent = `Eingeloggt als: ${employee.firstName} ${employee.lastName} | ${employee.personalCode}`;
+        infoBox.textContent = `Eingeloggt als: ${employee.firstName} ${employee.lastName} (${employee.shortCode})`;
         infoBox.style.display = "block";
 
         searchEmployees();
