@@ -5,15 +5,24 @@ function loadPeopleData() {
     fetch('./mitarbeiter.json')
         .then(res => res.json())
         .then(data => {
-            people = data.map(p => ({
-                personalCode: (p.personalnummer || "").toString().trim(),
-                shortCode: (p.kürzel || "").toString().trim(),
-                firstName: p.vorname,
-                lastName: p.nachname,
-                position: p.position,
-                photoPath: p.bild || "Fotos/default.JPG"
-            }));
-            searchEmployees(); // direkt initialisieren
+            people = data.map(p => {
+                const vorname = p.vorname?.trim();
+                const nachname = p.nachname?.trim();
+
+                const ordner = ["SPV", "DM", "DMA", "BA"];
+                const pfade = ordner.map(folder => `Fotos/${folder}/${nachname}, ${vorname}.jpg`);
+                pfade.push("Fotos/default.JPG");
+
+                return {
+                    personalCode: (p.personalnummer || "").toString().trim(),
+                    shortCode: (p.kürzel || "").toString().trim(),
+                    firstName: vorname,
+                    lastName: nachname,
+                    position: p.position,
+                    photoPaths: pfade
+                };
+            });
+            searchEmployees();
         })
         .catch(err => {
             console.error("Fehler beim Laden der JSON:", err);
@@ -90,7 +99,7 @@ function searchEmployees() {
         const card = document.createElement("div");
         card.className = "result-card";
 
-        const img = createImageWithFallback([person.photoPath]);
+        const img = createImageWithFallback(person.photoPaths);
         const info = `
             <div class="result-info">
                 <div class="name">${person.firstName} ${person.lastName}</div>
@@ -118,7 +127,7 @@ function createImageWithFallback(paths) {
         if (index < paths.length) {
             img.src = paths[index++];
         } else {
-            img.src = fallback; // ganz zum Schluss default anzeigen
+            img.src = fallback;
         }
     }
 
@@ -130,9 +139,9 @@ function createImageWithFallback(paths) {
     return img;
 }
 
-// ⏱️ Session-Timer
+// ⏱️ Session-Timer (jetzt 20 Sekunden)
 let sessionTimeout;
-const timeoutDuration = 5 * 60 * 1000;
+const timeoutDuration = 20 * 1000;
 
 function resetSessionTimer() {
     clearTimeout(sessionTimeout);
