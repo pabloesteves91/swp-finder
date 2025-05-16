@@ -9,10 +9,10 @@ function normalizeFileName(str) {
 }
 
 function getPhotoPaths(row) {
-    const position = row["Position"]?.toLowerCase() || "";
-    const firstName = row["Vorname"];
-    const lastName = row["Nachname"];
-    const shortCode = row["Kürzel"] || "";
+    const position = row["position"]?.toLowerCase() || "";
+    const firstName = row["vorname"];
+    const lastName = row["nachname"];
+    const shortCode = row["kürzel"] || "";
 
     const normFirst = normalizeFileName(firstName);
     const normLast = normalizeFileName(lastName);
@@ -48,11 +48,11 @@ function loadJsonData() {
         })
         .then(data => {
             people = data.map(row => ({
-                personalCode: row["Personalnummer"]?.toString() || "",
-                firstName: row["Vorname"],
-                lastName: row["Nachname"],
-                shortCode: row["Kürzel"] || null,
-                position: row["Position"],
+                personalCode: row["personalnummer"]?.toString() || "",
+                firstName: row["vorname"],
+                lastName: row["nachname"],
+                shortCode: row["kürzel"] || null,
+                position: row["position"],
                 photoPaths: getPhotoPaths(row)
             }));
 
