@@ -41,27 +41,51 @@ function getPhotoPaths(row) {
 }
 
 function loadJsonData() {
-    fetch('./mitarbeiter.json')
+    const cached = localStorage.getItem("mitarbeiterCache");
+
+    if (cached) {
+        try {
+            const json = JSON.parse(cached);
+            console.log("📦 Daten aus LocalStorage geladen");
+            parseJsonData(json);
+        } catch (e) {
+            console.warn("⚠️ Fehler beim Laden aus dem Cache – lade neu von Server");
+            localStorage.removeItem("mitarbeiterCache");
+            fetchAndCacheJson();
+        }
+    } else {
+        fetchAndCacheJson();
+    }
+}
+
+function fetchAndCacheJson() {
+    fetch("./mitarbeiter.json")
         .then(response => {
             if (!response.ok) throw new Error("JSON konnte nicht geladen werden.");
             return response.json();
         })
         .then(data => {
-            people = data.map(row => ({
-                personalCode: row["personalnummer"]?.toString() || "",
-                firstName: row["vorname"],
-                lastName: row["nachname"],
-                shortCode: row["kürzel"] || null,
-                position: row["position"],
-                photoPaths: getPhotoPaths(row)
-            }));
-
-            searchEmployees();
+            console.log("✅ JSON von Server geladen und gecacht");
+            localStorage.setItem("mitarbeiterCache", JSON.stringify(data));
+            parseJsonData(data);
         })
         .catch(error => {
-            console.error("Fehler beim Laden der JSON:", error);
-            alert("Daten konnten nicht geladen werden.");
+            console.error("❌ Fehler beim Laden der JSON:", error);
+            alert("Daten konnten nicht geladen werden: " + error.message);
         });
+}
+
+function parseJsonData(data) {
+    people = data.map(row => ({
+        personalCode: row["personalnummer"]?.toString() || "",
+        firstName: row["vorname"],
+        lastName: row["nachname"],
+        shortCode: row["kürzel"] || null,
+        position: row["position"],
+        photoPaths: getPhotoPaths(row)
+    }));
+
+    searchEmployees();
 }
 
 function searchEmployees() {
@@ -155,5 +179,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.getElementById("searchInput").addEventListener("input", searchEmployees);
 
-// Nur JSON wird geladen:
+// Starte mit LocalStorage / Fallback auf fetch
 loadJsonData();
