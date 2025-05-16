@@ -27,17 +27,10 @@ function getPhotoPaths(row) {
 
     const base = `https://pabloesteves91.github.io/swp-finder/Fotos/${folder}`;
 
-    return [
-        `${base}/${lastName}, ${firstName}${suffix}.jpg`,
-        `${base}/${normLast}, ${normFirst}${suffix}.jpg`,
-        `${base}/${lastName}, ${firstName}.jpg`,
-        `${base}/${normLast}, ${normFirst}.jpg`,
-        `${base}/${normLast}, ${firstName}${suffix}.jpg`,
-        `${base}/${lastName}, ${normFirst}${suffix}.jpg`,
-        `${base}/${normLast}, ${firstName}.jpg`,
-        `${base}/${lastName}, ${normFirst}.jpg`,
-        "https://pabloesteves91.github.io/swp-finder/Fotos/default.JPG"
-    ];
+return [
+  `${base}/${normLast}, ${normFirst}${suffix}.jpg`,
+  "https://pabloesteves91.github.io/swp-finder/Fotos/default.JPG"
+];
 }
 
 function loadJsonData() {
