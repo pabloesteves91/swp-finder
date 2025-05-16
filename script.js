@@ -40,57 +40,28 @@ function getPhotoPaths(row) {
     ];
 }
 
-function loadExcelData() {
-    const excelFilePath = "./Mitarbeiter.xlsx";
-
-    fetch(excelFilePath)
+function loadJsonData() {
+    fetch('./mitarbeiter.json')
         .then(response => {
-            if (!response.ok) throw new Error("Die Excel-Datei konnte nicht geladen werden.");
-            return response.arrayBuffer();
+            if (!response.ok) throw new Error("JSON konnte nicht geladen werden.");
+            return response.json();
         })
         .then(data => {
-            const workbook = XLSX.read(data, { type: "array" });
-
-            const sheetsMapping = {
-                "Supervisor": "supervisor",
-                "Duty Manager Assistant": "duty manager assistant",
-                "Duty Manager": "duty manager",
-                "Betriebsarbeiter": "betriebsarbeiter"
-            };
-
-            people = [];
-
-            for (const [sheetName, positionKeyword] of Object.entries(sheetsMapping)) {
-                const sheet = workbook.Sheets[sheetName];
-                if (!sheet) continue;
-
-                const jsonData = XLSX.utils.sheet_to_json(sheet);
-
-                jsonData.forEach(row => {
-                    people.push({
-                        personalCode: row["Personalnummer"]?.toString() || "",
-                        firstName: row["Vorname"],
-                        lastName: row["Nachname"],
-                        shortCode: row["Kürzel"] || null,
-                        position: row["Position"] || capitalizeWords(positionKeyword),
-                        photoPaths: getPhotoPaths({
-                            ...row,
-                            Position: row["Position"] || positionKeyword
-                        })
-                    });
-                });
-            }
+            people = data.map(row => ({
+                personalCode: row["Personalnummer"]?.toString() || "",
+                firstName: row["Vorname"],
+                lastName: row["Nachname"],
+                shortCode: row["Kürzel"] || null,
+                position: row["Position"],
+                photoPaths: getPhotoPaths(row)
+            }));
 
             searchEmployees();
         })
         .catch(error => {
-            console.error("Fehler beim Laden:", error);
-            alert("Die Excel-Daten konnten nicht geladen werden.");
+            console.error("Fehler beim Laden der JSON:", error);
+            alert("Daten konnten nicht geladen werden.");
         });
-}
-
-function capitalizeWords(str) {
-    return str.replace(/\b\w/g, char => char.toUpperCase());
 }
 
 function searchEmployees() {
@@ -184,4 +155,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.getElementById("searchInput").addEventListener("input", searchEmployees);
 
-loadExcelData();
+// Nur JSON wird geladen:
+loadJsonData();
