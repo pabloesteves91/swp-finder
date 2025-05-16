@@ -1,6 +1,5 @@
 let people = [];
 
-// ✅ Normalisiert Umlaute und diakritische Zeichen
 function normalizeFileName(str) {
     return str
         .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
@@ -9,7 +8,6 @@ function normalizeFileName(str) {
         .replace(/ß/g, "ss");
 }
 
-// 📸 Bildpfade mit GitHub Pages (nicht raw)
 function getPhotoPaths(row) {
     const position = row["Position"]?.toLowerCase() || "";
     const firstName = row["Vorname"];
@@ -42,7 +40,6 @@ function getPhotoPaths(row) {
     ];
 }
 
-// 📥 Excel-Daten laden
 function loadExcelData() {
     const excelFilePath = "./Mitarbeiter.xlsx";
 
@@ -92,59 +89,10 @@ function loadExcelData() {
         });
 }
 
-// Großschreibt jedes Wort
 function capitalizeWords(str) {
     return str.replace(/\b\w/g, char => char.toUpperCase());
 }
 
-// 🔐 Login (Kürzel oder Personalnummer)
-function login() {
-    const input = document.getElementById("personalCodeInput");
-    const enteredCode = input.value.trim().toLowerCase();
-
-    if (!enteredCode) {
-        alert("Bitte Personalnummer oder Kürzel eingeben.");
-        return;
-    }
-
-    const employee = people.find(emp => {
-        const personalCode = emp.personalCode?.toString().trim().toLowerCase();
-        const shortCode = emp.shortCode?.toString().trim().toLowerCase();
-        return enteredCode === personalCode || enteredCode === shortCode;
-    });
-
-    if (employee) {
-        sessionStorage.setItem("authenticated", "true");
-        sessionStorage.setItem("loggedInUser", JSON.stringify(employee));
-        document.getElementById("loginContainer").style.display = "none";
-        document.getElementById("mainContainer").style.display = "block";
-
-        const infoBox = document.getElementById("loggedInInfo");
-        infoBox.textContent = `Eingeloggt als: ${employee.firstName} ${employee.lastName} (${employee.shortCode})`;
-        infoBox.style.display = "block";
-
-        searchEmployees();
-        startSessionTimer();
-    } else {
-        document.getElementById("errorMessage").style.display = "block";
-        setTimeout(() => document.getElementById("errorMessage").style.display = "none", 3000);
-    }
-}
-
-// 🔓 Logout
-function logout() {
-    sessionStorage.removeItem("authenticated");
-    sessionStorage.removeItem("loggedInUser");
-    location.reload();
-}
-
-document.getElementById("loginButton").addEventListener("click", login);
-document.getElementById("personalCodeInput").addEventListener("keypress", e => {
-    if (e.key === "Enter") login();
-});
-document.getElementById("lockButton").addEventListener("click", logout);
-
-// 🔍 Mitarbeitersuche
 function searchEmployees() {
     const searchInput = document.getElementById("searchInput").value.toLowerCase();
     const results = document.getElementById("results");
@@ -182,9 +130,6 @@ function searchEmployees() {
     });
 }
 
-document.getElementById("searchInput").addEventListener("input", searchEmployees);
-
-// 🔁 Bilder-Fallback-Logik
 function createImageWithFallback(paths) {
     const img = new Image();
     let index = 0;
@@ -202,26 +147,6 @@ function createImageWithFallback(paths) {
     return img;
 }
 
-// ⏱️ Session-Timer
-let sessionTimeout;
-const timeoutDuration = 5 * 60 * 1000;
-
-function resetSessionTimer() {
-    clearTimeout(sessionTimeout);
-    sessionTimeout = setTimeout(() => {
-        alert("Du wurdest automatisch ausgeloggt.");
-        logout();
-    }, timeoutDuration);
-}
-
-function startSessionTimer() {
-    resetSessionTimer();
-    ["click", "mousemove", "keydown", "scroll", "touchstart"].forEach(event =>
-        document.addEventListener(event, resetSessionTimer)
-    );
-}
-
-// 🖼️ Bildmodal
 function openImageModal(imageSrc) {
     const modal = document.getElementById("imageModal");
     const modalImg = document.getElementById("modalImage");
@@ -256,5 +181,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.body.appendChild(modal);
 });
+
+document.getElementById("searchInput").addEventListener("input", searchEmployees);
 
 loadExcelData();
